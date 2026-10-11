@@ -1,0 +1,8 @@
+{
+   "name": "memy-monorepo",
+   "private": true,
+   "description": "Monorepo for Memy illustration library",
+   "scripts": {
+      "build": "pnpm --filter \"@memy/*\" build"
+   }
+}
