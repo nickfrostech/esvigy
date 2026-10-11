@@ -1,0 +1,108 @@
+<svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true">
+  <style>
+    @keyframes memy-cart-tilt {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(-2.5deg);
+      }
+    }
+    @keyframes memy-cart-shadow {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.15;
+      }
+      50% {
+        transform: scale(0.85);
+        opacity: 0.07;
+      }
+    }
+    @keyframes memy-cart-bubble {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(4deg);
+      }
+    }
+    @keyframes memy-wheel-rock {
+      0%, 100% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(35deg);
+      }
+      75% {
+        transform: rotate(-35deg);
+      }
+    }
+
+    svg.memy-animated .memy-cart-body,
+    svg[data-animated="true"] .memy-cart-body {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: memy-cart-tilt 2.6s ease-in-out infinite;
+    }
+    svg.memy-animated .memy-shadow,
+    svg[data-animated="true"] .memy-shadow {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: memy-cart-shadow 2.6s ease-in-out infinite;
+    }
+    svg.memy-animated .memy-cart-bubble,
+    svg[data-animated="true"] .memy-cart-bubble {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: memy-cart-bubble 2.2s ease-in-out infinite;
+    }
+    svg.memy-animated .memy-cart-wheel,
+    svg[data-animated="true"] .memy-cart-wheel {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: memy-wheel-rock 2.6s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      svg.memy-animated *,
+      svg[data-animated="true"] * {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="200" cy="250" rx="90" ry="12" fill="currentColor" opacity="0.15" data-memy-secondary="true" class="memy-shadow" />
+
+  <!-- Shopping Cart Group -->
+  <g class="memy-cart-body">
+    <!-- Secondary Glow / Backdrop -->
+    <circle cx="195" cy="140" r="75" fill="currentColor" opacity="0.2" data-memy-secondary="true" />
+
+    <!-- Cart Basket Outline -->
+    <path d="M120 100 L145 100 L175 190 L260 190 L280 125 L155 125" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Front Wheel (With Spoke Crosshair for Visible Rocking) -->
+    <g class="memy-cart-wheel">
+      <circle cx="185" cy="220" r="14" fill="none" stroke="currentColor" stroke-width="5" />
+      <line x1="185" y1="209" x2="185" y2="231" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="174" y1="220" x2="196" y2="220" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="185" cy="220" r="4.5" fill="currentColor" />
+    </g>
+
+    <!-- Rear Wheel (With Spoke Crosshair for Visible Rocking) -->
+    <g class="memy-cart-wheel">
+      <circle cx="250" cy="220" r="14" fill="none" stroke="currentColor" stroke-width="5" />
+      <line x1="250" y1="209" x2="250" y2="231" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="239" y1="220" x2="261" y2="220" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+      <circle cx="250" cy="220" r="4.5" fill="currentColor" />
+    </g>
+
+    <!-- Floating Empty Bubble / Question Mark -->
+    <g class="memy-cart-bubble">
+      <circle cx="205" cy="115" r="28" fill="currentColor" opacity="0.15" data-memy-secondary="true" />
+      <path d="M200 105 C200 98, 210 98, 210 105 C210 112, 205 114, 205 120" stroke="currentColor" stroke-width="4" stroke-linecap="round" />
+      <circle cx="205" cy="128" r="2.5" fill="currentColor" />
+    </g>
+  </g>
+</svg>
