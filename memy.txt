@@ -1,0 +1,157 @@
+Memy
+
+Memy is an open-source illustration library that makes UI illustrations as easy to use as icons.
+
+The core idea is:
+
+> Lucide for illustrations.
+
+
+
+Instead of downloading SVG files, editing them, and manually placing them into projects, developers install Memy and import the illustration they need as a component.
+
+import { NotFound } from "memy";
+
+<NotFound />
+
+Simple component API
+
+Memy intentionally keeps the API minimal:
+
+<NotFound />
+
+<NotFound
+  animated
+  color="#00D4FF"
+/>
+
+<NotFound
+  animated
+  color="#00D4FF"
+  secondaryColor="#001014"
+/>
+
+Only:
+
+animated — false by default.
+
+color — primary illustration color.
+
+secondaryColor — optional second color.
+
+className — controls the SVG dimensions and other CSS.
+
+
+No size prop, animation configuration, complex color system, or other unnecessary options.
+
+Framework support
+
+Yes. The core Memy asset should be framework-agnostic.
+
+The same normalized SVG can generate packages for different ecosystems:
+
+Memy
+│
+├── SVG source
+│
+├── React
+│ └── @memy/react
+│
+├── React Native
+│ └── @memy/react-native
+│
+├── Vue
+│ └── @memy/vue
+│
+├── Svelte
+│ └── @memy/svelte
+│
+├── Angular
+│ └── @memy/angular
+│
+└── Raw SVG
+    └── @memy/svg
+
+The important architectural decision is to not make React the source of truth.
+
+The source of truth should be the normalized SVG illustration. Framework-specific packages are generated from that source.
+
+So the project becomes bigger than a React library:
+
+> Memy is an open-source, framework-agnostic SVG illustration collection with official framework components.
+
+
+
+The first implementation can still start with React because it is a straightforward way to prove the concept. Vue, Svelte, Angular, React Native, and others can follow without changing the underlying illustration collection.
+
+Asset sources
+
+Memy can grow through three sources:
+
+1. Permissively licensed open-source artwork
+
+
+2. Original/AI-generated artwork
+
+
+3. Community contributions
+
+
+
+Every external asset should retain its licensing/source information.
+
+Development pipeline
+
+SVG artwork
+    ↓
+Curate
+    ↓
+Normalize
+    ↓
+Optimize
+    ↓
+Memy SVG source
+    ↓
+Generate framework components
+    ↓
+Publish packages
+
+The SVG remains the fundamental asset. Tools such as SVGO and SVGR are implementation tools rather than the definition of the project.
+
+Initial scope
+
+Start small with useful states:
+
+NotFound
+ServerError
+Forbidden
+Offline
+
+EmptyCart
+EmptyInbox
+EmptyFolder
+NoResults
+NoNotifications
+
+Success
+Failed
+Processing
+Maintenance
+
+Upload
+Download
+Search
+Create
+
+Then allow the community to expand the collection.
+
+The final concept
+
+Memy = illustrations that developers use like icons.
+
+import { EmptyCart, NotFound } from "@memy/react";
+
+<EmptyCart color="#00D4FF" />
+<NotFound animated />
+
+The same artwork can eventually be consumed through React, Vue, Svelte, Angular, React Native, or plain SVG without forcing developers to manually work with SVG XML.
