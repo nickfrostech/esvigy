@@ -1,0 +1,202 @@
+{
+   "EmptyCart": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "empty-states",
+      "tags": [
+         "cart",
+         "shopping",
+         "empty",
+         "ecommerce"
+      ]
+   },
+   "ForbiddenHand": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "security",
+      "tags": [
+         "forbidden",
+         "403",
+         "stop",
+         "hand",
+         "access-denied",
+         "security",
+         "error"
+      ]
+   },
+   "NotFoundRobot": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "errors",
+      "tags": [
+         "404",
+         "not-found",
+         "robot",
+         "bot",
+         "cyber",
+         "error"
+      ]
+   },
+   "WomanLaptopSitting": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "characters",
+      "tags": [
+         "woman",
+         "laptop",
+         "developer",
+         "coding",
+         "sitting",
+         "work"
+      ]
+   },
+   "NotFoundLaptop": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "laptop",
+         "not-found",
+         "error"
+      ]
+   },
+   "NotFoundShopping": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "cart",
+         "shopping",
+         "not-found",
+         "error"
+      ]
+   },
+   "NotFoundSmiley": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "smiley",
+         "not-found",
+         "error"
+      ]
+   },
+   "ServerErrorLaptop": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "500",
+         "server-error",
+         "laptop",
+         "error"
+      ]
+   },
+   "AuthenticationFormField": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "security",
+      "tags": [
+         "auth",
+         "login",
+         "password",
+         "lock",
+         "pin",
+         "security"
+      ]
+   },
+   "PasswordLockKey": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "security",
+      "tags": [
+         "password",
+         "lock",
+         "key",
+         "security",
+         "padlock",
+         "auth"
+      ]
+   },
+   "GamePad": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "technology",
+      "tags": [
+         "game",
+         "gamepad",
+         "controller",
+         "gaming",
+         "joystick",
+         "play"
+      ]
+   },
+   "WalletMoney": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "finance",
+      "tags": [
+         "wallet",
+         "money",
+         "finance",
+         "coins",
+         "credit-card",
+         "cash"
+      ]
+   },
+   "DocumentFolders": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "business",
+      "tags": [
+         "documents",
+         "folders",
+         "files",
+         "archive",
+         "organization",
+         "office"
+      ]
+   },
+   "ManCarRepair": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "characters",
+      "tags": [
+         "mechanic",
+         "car",
+         "repair",
+         "maintenance",
+         "wrench",
+         "auto"
+      ]
+   },
+   "ManQuestionMarks": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "characters",
+      "tags": [
+         "man",
+         "question",
+         "thinking",
+         "puzzled",
+         "help",
+         "faq"
+      ]
+   },
+   "WomanYoga": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "lifestyle",
+      "tags": [
+         "woman",
+         "yoga",
+         "meditation",
+         "wellness",
+         "zen",
+         "fitness"
+      ]
+   }
+}

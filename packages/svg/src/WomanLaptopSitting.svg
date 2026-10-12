@@ -1,4 +1,8 @@
-<svg viewBox="0 0 608 495" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true">
+<!--
+  Author: nick
+  Source: https://github.com/nickfrostech
+-->
+<svg viewBox="0 0 608 495" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="nick" data-source="https://github.com/nickfrostech">
   <style>
     @keyframes memy-plant-shake-right {
       0%, 100% { transform: rotate(0deg); }
