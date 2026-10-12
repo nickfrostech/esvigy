@@ -508,11 +508,13 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 
 We welcome contributions of all kinds! Whether you are designing new illustrations, optimizing SVGs, or building framework adapters:
 
-1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/new-illustration`).
-3. Commit your changes (`git commit -m 'feat: add EmptyTrash illustration'`).
-4. Push to the branch (`git push origin feature/new-illustration`).
-5. Open a Pull Request.
+- **Designing Illustrations**: Read our [CorelDRAW & SVG Design Guide](packages/svg/README.md) for document setup, layer naming, vector shadows, and export settings.
+- **Workflow**:
+  1. Fork the repository.
+  2. Create your feature branch (`git checkout -b feature/new-illustration`).
+  3. Commit your changes (`git commit -m 'feat: add EmptyTrash illustration'`).
+  4. Push to the branch (`git push origin feature/new-illustration`).
+  5. Open a Pull Request.
 
 ---
 
