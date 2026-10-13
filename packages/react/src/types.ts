@@ -2,7 +2,7 @@
 
 import type { SVGProps } from "react";
 
-export interface MemyProps extends SVGProps<SVGSVGElement> {
+export interface EsvigyProps extends SVGProps<SVGSVGElement> {
 	color?: string;
 	secondaryColor?: string;
 	animated?: boolean;

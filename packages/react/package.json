@@ -1,7 +1,7 @@
 {
-   "name": "@memy/react",
+   "name": "@esvigy/react",
    "version": "0.1.0",
-   "description": "Memy illustration components for React",
+   "description": "Esvigy illustration components for React",
    "type": "module",
    "main": "./dist/index.cjs",
    "module": "./dist/index.js",
@@ -25,6 +25,7 @@
       "react": ">=18"
    },
    "devDependencies": {
+      "@types/node": "^26.6.5",
       "@types/react": "^19.3.0",
       "react": "^19.3.0",
       "tsup": "^8.5.1",

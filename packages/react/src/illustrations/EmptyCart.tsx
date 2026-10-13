@@ -2,11 +2,11 @@
  * Author: nick
  * Source: https://github.com/nickfrostech
  *
- * Generated automatically by @memy/react generator.
+ * Generated automatically by @esvigy/react generator.
  * Source: packages/svg/src/EmptyCart.svg
  */
 
-import type { MemyProps } from "../types";
+import type { EsvigyProps } from "../types";
 
 export const EmptyCart = ({
   color = "currentColor",
@@ -15,13 +15,13 @@ export const EmptyCart = ({
   className = "",
   style,
   ...props
-}: MemyProps) => {
+}: EsvigyProps) => {
   return (
     <svg
       viewBox="0 0 465 410"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={["memy-svg", animated ? "memy-animated" : "", className].filter(Boolean).join(" ")}
+      className={["esvigy-svg", animated ? "esvigy-animated" : "", className].filter(Boolean).join(" ")}
       data-animated={animated ? "true" : undefined}
       data-author="nick"
       data-source="https://github.com/nickfrostech"
@@ -36,71 +36,71 @@ export const EmptyCart = ({
       {animated && (
         <style>
           {`
-@keyframes memy-cart-rock {
+@keyframes esvigy-cart-rock {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-6px) rotate(-1.5deg); }
     }
-    @keyframes memy-cart-bubble {
+    @keyframes esvigy-cart-bubble {
       0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
       50% { transform: translateY(-12px) rotate(3deg) scale(1.04); }
     }
-    @keyframes memy-cart-sparkle {
+    @keyframes esvigy-cart-sparkle {
       0%, 100% { transform: translateY(0px) scale(0.85); opacity: 0.35; }
       50% { transform: translateY(-8px) scale(1.15); opacity: 0.9; }
     }
-    @keyframes memy-wheel-roll {
+    @keyframes esvigy-wheel-roll {
       0%, 100% { transform: rotate(0deg); }
       50% { transform: rotate(28deg); }
     }
-    @keyframes memy-ground-shadow {
+    @keyframes esvigy-ground-shadow {
       0%, 100% { transform: scaleX(1); opacity: 0.28; }
       50% { transform: scaleX(0.88); opacity: 0.14; }
     }
 
-    svg.memy-animated .memy-cart-main,
-    svg[data-animated="true"] .memy-cart-main {
+    svg.esvigy-animated .esvigy-cart-main,
+    svg[data-animated="true"] .esvigy-cart-main {
       transform-box: fill-box;
       transform-origin: bottom center;
-      animation: memy-cart-rock 3.6s ease-in-out infinite;
+      animation: esvigy-cart-rock 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-bubble-float,
-    svg[data-animated="true"] .memy-bubble-float {
+    svg.esvigy-animated .esvigy-bubble-float,
+    svg[data-animated="true"] .esvigy-bubble-float {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-bubble 3.2s ease-in-out infinite;
+      animation: esvigy-cart-bubble 3.2s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-sparkle-1,
-    svg[data-animated="true"] .memy-sparkle-1 {
+    svg.esvigy-animated .esvigy-sparkle-1,
+    svg[data-animated="true"] .esvigy-sparkle-1 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-sparkle 2.8s ease-in-out infinite;
+      animation: esvigy-cart-sparkle 2.8s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-sparkle-2,
-    svg[data-animated="true"] .memy-sparkle-2 {
+    svg.esvigy-animated .esvigy-sparkle-2,
+    svg[data-animated="true"] .esvigy-sparkle-2 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-sparkle 2.8s ease-in-out 1.2s infinite;
+      animation: esvigy-cart-sparkle 2.8s ease-in-out 1.2s infinite;
     }
 
-    svg.memy-animated .memy-wheel-front,
-    svg[data-animated="true"] .memy-wheel-front {
+    svg.esvigy-animated .esvigy-wheel-front,
+    svg[data-animated="true"] .esvigy-wheel-front {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-wheel-roll 3.6s ease-in-out infinite;
+      animation: esvigy-wheel-roll 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-cart-shadow,
-    svg[data-animated="true"] .memy-cart-shadow {
+    svg.esvigy-animated .esvigy-cart-shadow,
+    svg[data-animated="true"] .esvigy-cart-shadow {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-ground-shadow 3.6s ease-in-out infinite;
+      animation: esvigy-ground-shadow 3.6s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated *,
+      svg.esvigy-animated *,
       svg[data-animated="true"] * {
         animation: none !important;
       }
@@ -109,17 +109,17 @@ export const EmptyCart = ({
         </style>
       )}
       
-  <ellipse className="memy-cart-shadow" cx="295" cy="402" rx="145" ry="4" fill="#000000" opacity="0.28"/>
+  <ellipse className="esvigy-cart-shadow" cx="295" cy="402" rx="145" ry="4" fill="#000000" opacity="0.28"/>
 
   
-  <g className="memy-cart-main">
+  <g className="esvigy-cart-main">
 
     
-    <ellipse cx="280" cy="155" rx="125" ry="75" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.1" data-memy-secondary="true"/>
+    <ellipse cx="280" cy="155" rx="125" ry="75" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.1" data-esvigy-secondary="true"/>
 
     
-    <g className="memy-empty-placeholder" opacity="0.55">
-      <rect x="235" y="160" width="115" height="74" rx="10" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.08" data-memy-secondary="true"/>
+    <g className="esvigy-empty-placeholder" opacity="0.55">
+      <rect x="235" y="160" width="115" height="74" rx="10" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.08" data-esvigy-secondary="true"/>
       <rect x="235" y="160" width="115" height="74" rx="10" fill="none" stroke={color} strokeWidth="2.5" strokeDasharray="6 6" opacity="0.45"/>
       
       <line x1="292.5" y1="189" x2="292.5" y2="205" stroke={color} strokeWidth="3" strokeLinecap="round"/>
@@ -127,11 +127,11 @@ export const EmptyCart = ({
     </g>
 
     
-    <g className="memy-bubble-float">
+    <g className="esvigy-bubble-float">
       
-      <circle cx="285" cy="92" r="42" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.12" data-memy-secondary="true"/>
+      <circle cx="285" cy="92" r="42" fill={secondaryColor !== "transparent" ? secondaryColor : color} opacity="0.12" data-esvigy-secondary="true"/>
       
-      <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" fill={secondaryColor !== "transparent" ? secondaryColor : "#1e293b"} data-memy-secondary="true" data-memy-default="#1e293b"/>
+      <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" fill={secondaryColor !== "transparent" ? secondaryColor : "#1e293b"} data-esvigy-secondary="true" data-esvigy-default="#1e293b"/>
       
       <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" stroke={color} strokeWidth="3" strokeLinejoin="round"/>
       
@@ -140,10 +140,10 @@ export const EmptyCart = ({
     </g>
 
     
-    <g className="memy-sparkle-1">
+    <g className="esvigy-sparkle-1">
       <path d="M178 92L182 104L194 108L182 112L178 124L174 112L162 108L174 104Z" fill={color}/>
     </g>
-    <g className="memy-sparkle-2">
+    <g className="esvigy-sparkle-2">
       <path d="M388 64L391 73L400 76L391 79L388 88L385 79L376 76L385 73Z" fill={color}/>
     </g>
 
@@ -166,7 +166,7 @@ export const EmptyCart = ({
     <circle cx="373" cy="378" r="3" fill="#ffffff" opacity="0.5"/>
 
     
-    <g className="memy-wheel-front">
+    <g className="esvigy-wheel-front">
       <circle cx="201" cy="378" r="28" fill="#1e293b"/>
       <circle cx="201" cy="378" r="15" fill="#334155"/>
       <circle cx="201" cy="378" r="6" fill={color}/>

@@ -2,26 +2,26 @@
  * Author: Flowbite
  * Source: https://flowbite.com
  *
- * Generated automatically by @memy/react generator.
- * Source: packages/svg/src/WalletMoney.svg
+ * Generated automatically by @esvigy/react generator.
+ * Source: packages/svg/src/Wallet.svg
  */
 
-import type { MemyProps } from "../types";
+import type { EsvigyProps } from "../types";
 
-export const WalletMoney = ({
+export const Wallet = ({
   color = "currentColor",
   secondaryColor = "transparent",
   animated = false,
   className = "",
   style,
   ...props
-}: MemyProps) => {
+}: EsvigyProps) => {
   return (
     <svg
       viewBox="0 0 545 629"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={["memy-svg", animated ? "memy-animated" : "", className].filter(Boolean).join(" ")}
+      className={["esvigy-svg", animated ? "esvigy-animated" : "", className].filter(Boolean).join(" ")}
       data-animated={animated ? "true" : undefined}
       data-author="Flowbite"
       data-source="https://flowbite.com"
@@ -30,105 +30,105 @@ export const WalletMoney = ({
         ...style,
       }}
       role="img"
-      aria-label="WalletMoney illustration"
+      aria-label="Wallet illustration"
       {...props}
     >
       {animated && (
         <style>
           {`
-@keyframes memy-coin-float-1 {
+@keyframes esvigy-coin-float-1 {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-9px) rotate(4deg); }
     }
-    @keyframes memy-coin-float-2 {
+    @keyframes esvigy-coin-float-2 {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-11px) rotate(-3.5deg); }
     }
-    @keyframes memy-coin-float-3 {
+    @keyframes esvigy-coin-float-3 {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-8px) rotate(3deg); }
     }
-    @keyframes memy-coin-float-4 {
+    @keyframes esvigy-coin-float-4 {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-10px) rotate(-4deg); }
     }
-    @keyframes memy-card-slide {
+    @keyframes esvigy-card-slide {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
-    @keyframes memy-bill-tilt {
+    @keyframes esvigy-bill-tilt {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-4px) rotate(1.2deg); }
     }
-    @keyframes memy-wallet-breathe {
+    @keyframes esvigy-wallet-breathe {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.015); }
     }
 
-    svg.memy-animated .memy-coin-1,
-    svg[data-animated="true"] .memy-coin-1 {
+    svg.esvigy-animated .esvigy-coin-1,
+    svg[data-animated="true"] .esvigy-coin-1 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-coin-float-1 3.4s ease-in-out infinite 0s;
+      animation: esvigy-coin-float-1 3.4s ease-in-out infinite 0s;
     }
 
-    svg.memy-animated .memy-coin-2,
-    svg[data-animated="true"] .memy-coin-2 {
+    svg.esvigy-animated .esvigy-coin-2,
+    svg[data-animated="true"] .esvigy-coin-2 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-coin-float-2 3.8s ease-in-out infinite 0.6s;
+      animation: esvigy-coin-float-2 3.8s ease-in-out infinite 0.6s;
     }
 
-    svg.memy-animated .memy-coin-3,
-    svg[data-animated="true"] .memy-coin-3 {
+    svg.esvigy-animated .esvigy-coin-3,
+    svg[data-animated="true"] .esvigy-coin-3 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-coin-float-3 3.6s ease-in-out infinite 1.2s;
+      animation: esvigy-coin-float-3 3.6s ease-in-out infinite 1.2s;
     }
 
-    svg.memy-animated .memy-coin-4,
-    svg[data-animated="true"] .memy-coin-4 {
+    svg.esvigy-animated .esvigy-coin-4,
+    svg[data-animated="true"] .esvigy-coin-4 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-coin-float-4 4s ease-in-out infinite 1.8s;
+      animation: esvigy-coin-float-4 4s ease-in-out infinite 1.8s;
     }
 
-    svg.memy-animated .memy-card-peek,
-    svg[data-animated="true"] .memy-card-peek {
+    svg.esvigy-animated .esvigy-card-peek,
+    svg[data-animated="true"] .esvigy-card-peek {
       transform-box: fill-box;
       transform-origin: bottom center;
-      animation: memy-card-slide 4s ease-in-out infinite;
+      animation: esvigy-card-slide 4s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-bill-peek,
-    svg[data-animated="true"] .memy-bill-peek {
+    svg.esvigy-animated .esvigy-bill-peek,
+    svg[data-animated="true"] .esvigy-bill-peek {
       transform-box: fill-box;
       transform-origin: bottom left;
-      animation: memy-bill-tilt 3.8s ease-in-out infinite 0.4s;
+      animation: esvigy-bill-tilt 3.8s ease-in-out infinite 0.4s;
     }
 
-    svg.memy-animated .memy-wallet-shell,
-    svg[data-animated="true"] .memy-wallet-shell {
+    svg.esvigy-animated .esvigy-wallet-shell,
+    svg[data-animated="true"] .esvigy-wallet-shell {
       transform-box: fill-box;
       transform-origin: bottom center;
-      animation: memy-wallet-breathe 4.5s ease-in-out infinite;
+      animation: esvigy-wallet-breathe 4.5s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated .memy-coin-1,
-      svg.memy-animated .memy-coin-2,
-      svg.memy-animated .memy-coin-3,
-      svg.memy-animated .memy-coin-4,
-      svg.memy-animated .memy-card-peek,
-      svg.memy-animated .memy-bill-peek,
-      svg.memy-animated .memy-wallet-shell,
-      svg[data-animated="true"] .memy-coin-1,
-      svg[data-animated="true"] .memy-coin-2,
-      svg[data-animated="true"] .memy-coin-3,
-      svg[data-animated="true"] .memy-coin-4,
-      svg[data-animated="true"] .memy-card-peek,
-      svg[data-animated="true"] .memy-bill-peek,
-      svg[data-animated="true"] .memy-wallet-shell {
+      svg.esvigy-animated .esvigy-coin-1,
+      svg.esvigy-animated .esvigy-coin-2,
+      svg.esvigy-animated .esvigy-coin-3,
+      svg.esvigy-animated .esvigy-coin-4,
+      svg.esvigy-animated .esvigy-card-peek,
+      svg.esvigy-animated .esvigy-bill-peek,
+      svg.esvigy-animated .esvigy-wallet-shell,
+      svg[data-animated="true"] .esvigy-coin-1,
+      svg[data-animated="true"] .esvigy-coin-2,
+      svg[data-animated="true"] .esvigy-coin-3,
+      svg[data-animated="true"] .esvigy-coin-4,
+      svg[data-animated="true"] .esvigy-card-peek,
+      svg[data-animated="true"] .esvigy-bill-peek,
+      svg[data-animated="true"] .esvigy-wallet-shell {
         animation: none !important;
       }
     }
@@ -136,25 +136,25 @@ export const WalletMoney = ({
         </style>
       )}
       
-  <path d="M489 333.5C489 468.534 379.534 578 244.5 578C109.466 578 0 468.534 0 333.5C0 198.466 109.466 89 244.5 89C379.534 89 489 198.466 489 333.5Z" fill="url(#WalletMoney_paint0_linear_477_350)" data-memy-secondary="true" data-memy-default="#354558"/>
+  <path d="M489 333.5C489 468.534 379.534 578 244.5 578C109.466 578 0 468.534 0 333.5C0 198.466 109.466 89 244.5 89C379.534 89 489 198.466 489 333.5Z" fill="url(#Wallet_paint0_linear_477_350)" data-esvigy-secondary="true" data-esvigy-default="#354558"/>
 
   
-  <g className="memy-wallet-shell">
+  <g className="esvigy-wallet-shell">
     
     <path d="M22 262L343.807 223.344C349.76 222.629 355 227.277 355 233.273V512.129C355 517.191 351.218 521.454 346.193 522.058L28.7156 560.193C25.1438 560.622 22 557.834 22 554.236V262Z" fill={color}/>
-    <path d="M22 262L343.807 223.344C349.76 222.629 355 227.277 355 233.273V512.129C355 517.191 351.218 521.454 346.193 522.058L28.7156 560.193C25.1438 560.622 22 557.834 22 554.236V262Z" fill="url(#WalletMoney_paint1_linear_477_350)"/>
+    <path d="M22 262L343.807 223.344C349.76 222.629 355 227.277 355 233.273V512.129C355 517.191 351.218 521.454 346.193 522.058L28.7156 560.193C25.1438 560.622 22 557.834 22 554.236V262Z" fill="url(#Wallet_paint1_linear_477_350)"/>
 
     
-    <g className="memy-bill-peek">
+    <g className="esvigy-bill-peek">
       <path d="M331 312.84V359.5L122.5 316.5V269L325.255 305.953C328.582 306.559 331 309.458 331 312.84Z" fill="#16a34a"/>
-      <path d="M331 312.84V359.5L122.5 316.5V269L325.255 305.953C328.582 306.559 331 309.458 331 312.84Z" fill="url(#WalletMoney_paint4_linear_477_350)"/>
+      <path d="M331 312.84V359.5L122.5 316.5V269L325.255 305.953C328.582 306.559 331 309.458 331 312.84Z" fill="url(#Wallet_paint4_linear_477_350)"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M129.493 269.258L333.106 247.494L332.893 245.506L122.393 268.006L122.32 269.984L326.717 307.236C328.618 307.582 330 309.239 330 311.171V359.5H332V311.171C332 308.272 329.927 305.788 327.075 305.268L129.493 269.258Z" fill="#5B93F7"/>
     </g>
 
     
-    <g className="memy-card-peek">
+    <g className="esvigy-card-peek">
       <path d="M371.434 316.052C371.434 312.739 374.12 310.052 377.434 310.052H408.378C411.691 310.052 414.378 312.739 414.378 316.052V335.39C414.378 338.704 411.691 341.39 408.378 341.39H377.434C374.12 341.39 371.434 338.704 371.434 335.39V316.052Z" fill="#16a34a"/>
-      <path d="M371.434 316.052C371.434 312.739 374.12 310.052 377.434 310.052H408.378C411.691 310.052 414.378 312.739 414.378 316.052V335.39C414.378 338.704 411.691 341.39 408.378 341.39H377.434C374.12 341.39 371.434 338.704 371.434 335.39V316.052Z" fill="url(#WalletMoney_paint3_linear_477_350)"/>
+      <path d="M371.434 316.052C371.434 312.739 374.12 310.052 377.434 310.052H408.378C411.691 310.052 414.378 312.739 414.378 316.052V335.39C414.378 338.704 411.691 341.39 408.378 341.39H377.434C374.12 341.39 371.434 338.704 371.434 335.39V316.052Z" fill="url(#Wallet_paint3_linear_477_350)"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M385.773 341.39V310.052H387.273V341.39H385.773Z" fill="#B7D6FE"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M398.539 341.39V310.052H400.039V341.39H398.539Z" fill="#B7D6FE"/>
       <path fillRule="evenodd" clipRule="evenodd" d="M371.435 318.588L414.379 318.588L414.379 320.088L371.435 320.088L371.435 318.588Z" fill="#B7D6FE"/>
@@ -163,7 +163,7 @@ export const WalletMoney = ({
 
     
     <path d="M171.801 298C171.801 292.477 176.278 288 181.801 288L439.196 288C444.719 288 449.196 292.477 449.196 298V447C449.196 452.523 444.719 457 439.196 457H181.801C176.278 457 171.801 452.523 171.801 447L171.801 298Z" fill={color}/>
-    <path d="M171.801 298C171.801 292.477 176.278 288 181.801 288L439.196 288C444.719 288 449.196 292.477 449.196 298V447C449.196 452.523 444.719 457 439.196 457H181.801C176.278 457 171.801 452.523 171.801 447L171.801 298Z" fill="url(#WalletMoney_paint2_linear_477_350)"/>
+    <path d="M171.801 298C171.801 292.477 176.278 288 181.801 288L439.196 288C444.719 288 449.196 292.477 449.196 298V447C449.196 452.523 444.719 457 439.196 457H181.801C176.278 457 171.801 452.523 171.801 447L171.801 298Z" fill="url(#Wallet_paint2_linear_477_350)"/>
     
     <path d="M207.781 427.278C207.781 424.714 209.86 422.635 212.424 422.635H249.565C252.129 422.635 254.207 424.714 254.207 427.278C254.207 429.842 252.129 431.921 249.565 431.921H212.424C209.86 431.921 207.781 429.842 207.781 427.278Z" fill={color}/>
     <path d="M261.172 427.278C261.172 424.714 263.25 422.635 265.814 422.635H302.955C305.519 422.635 307.598 424.714 307.598 427.278C307.598 429.842 305.519 431.921 302.955 431.921H265.814C263.25 431.921 261.172 429.842 261.172 427.278Z" fill={color}/>
@@ -172,9 +172,9 @@ export const WalletMoney = ({
 
     
     <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill={color}/>
-    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#WalletMoney_paint5_linear_477_350)"/>
-    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#WalletMoney_paint6_linear_477_350)"/>
-    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#WalletMoney_paint7_linear_477_350)"/>
+    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#Wallet_paint5_linear_477_350)"/>
+    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#Wallet_paint6_linear_477_350)"/>
+    <path d="M22 262L396.798 330.501C401.549 331.369 405 335.509 405 340.338V619.007C405 625.249 399.343 629.966 393.202 628.844L26.9212 561.899C24.0708 561.378 22 558.895 22 555.997V262Z" fill="url(#Wallet_paint7_linear_477_350)"/>
 
     
     <path fillRule="evenodd" clipRule="evenodd" d="M48.4988 470.008V412H50.4988V470.387L109.185 481.518L108.812 483.482L21.8125 466.982L22.1852 465.018L48.4988 470.008ZM54.9988 505.598L154.681 524.017L154.317 525.983L56.9988 508.002V533.49L121.682 545.517L121.316 547.483L21.816 528.983L22.1816 527.017L54.9988 533.119V505.598Z" fill="#16a34a"/>
@@ -191,103 +191,103 @@ export const WalletMoney = ({
 
   
   
-  <g className="memy-coin-1">
+  <g className="esvigy-coin-1">
     <path d="M78.6068 191.878C47.8836 172.605 31.1245 143.994 41.1743 127.973L49.546 114.628L160.805 184.419L152.433 197.765C142.383 213.786 109.33 211.15 78.6068 191.878Z" fill="#111928"/>
-    <path d="M78.6068 191.878C47.8836 172.605 31.1245 143.994 41.1743 127.973L49.546 114.628L160.805 184.419L152.433 197.765C142.383 213.786 109.33 211.15 78.6068 191.878Z" fill="url(#WalletMoney_paint8_linear_477_350)"/>
+    <path d="M78.6068 191.878C47.8836 172.605 31.1245 143.994 41.1743 127.973L49.546 114.628L160.805 184.419L152.433 197.765C142.383 213.786 109.33 211.15 78.6068 191.878Z" fill="url(#Wallet_paint8_linear_477_350)"/>
     <path d="M50.2906 113.438C40.2407 129.459 56.9998 158.07 87.7231 177.342C118.446 196.614 151.499 199.25 161.549 183.229C171.599 167.208 154.84 138.598 124.117 119.325C93.3935 100.053 60.3404 97.4166 50.2906 113.438Z" fill="#111928"/>
-    <path d="M50.2906 113.438C40.2407 129.459 56.9998 158.07 87.7231 177.342C118.446 196.614 151.499 199.25 161.549 183.229C171.599 167.208 154.84 138.598 124.117 119.325C93.3935 100.053 60.3404 97.4166 50.2906 113.438Z" fill="url(#WalletMoney_paint9_linear_477_350)"/>
+    <path d="M50.2906 113.438C40.2407 129.459 56.9998 158.07 87.7231 177.342C118.446 196.614 151.499 199.25 161.549 183.229C171.599 167.208 154.84 138.598 124.117 119.325C93.3935 100.053 60.3404 97.4166 50.2906 113.438Z" fill="url(#Wallet_paint9_linear_477_350)"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M68.7643 144.51C63.8788 136.169 62.9632 128.617 66.2171 123.429C69.4711 118.242 76.6691 115.779 86.3045 116.548C95.8582 117.31 107.372 121.244 118.524 128.239C129.676 135.235 138.229 143.888 143.073 152.158C147.958 160.499 148.874 168.051 145.62 173.238C142.366 178.426 135.168 180.888 125.533 180.12C115.979 179.358 104.465 175.424 93.3133 168.428C82.1613 161.433 73.6083 152.779 68.7643 144.51ZM92.5162 169.699C69.8879 155.505 57.5445 134.432 64.9464 122.632C72.3483 110.833 96.6926 112.774 119.321 126.969C141.949 141.163 154.293 162.236 146.891 174.035C139.489 185.835 115.144 183.894 92.5162 169.699Z" fill="#6B7280"/>
   </g>
 
   
-  <g className="memy-coin-2">
+  <g className="esvigy-coin-2">
     <path d="M280.896 237.105C301.165 207.03 304.883 174.081 289.2 163.512L276.136 154.707L202.734 263.618L215.799 272.423C231.481 282.993 260.626 267.18 280.896 237.105Z" fill="#111928"/>
-    <path d="M280.896 237.105C301.165 207.03 304.883 174.081 289.2 163.512L276.136 154.707L202.734 263.618L215.799 272.423C231.481 282.993 260.626 267.18 280.896 237.105Z" fill="url(#WalletMoney_paint10_linear_477_350)"/>
+    <path d="M280.896 237.105C301.165 207.03 304.883 174.081 289.2 163.512L276.136 154.707L202.734 263.618L215.799 272.423C231.481 282.993 260.626 267.18 280.896 237.105Z" fill="url(#Wallet_paint10_linear_477_350)"/>
     <path d="M274.97 153.922C290.653 164.491 286.935 197.44 266.665 227.515C246.396 257.59 217.251 273.403 201.568 262.833C185.885 252.263 189.603 219.314 209.873 189.239C230.142 159.164 259.287 143.352 274.97 153.922Z" fill="#111928"/>
-    <path d="M274.97 153.922C290.653 164.491 286.935 197.44 266.665 227.515C246.396 257.59 217.251 273.403 201.568 262.833C185.885 252.263 189.603 219.314 209.873 189.239C230.142 159.164 259.287 143.352 274.97 153.922Z" fill="url(#WalletMoney_paint11_linear_477_350)"/>
+    <path d="M274.97 153.922C290.653 164.491 286.935 197.44 266.665 227.515C246.396 257.59 217.251 273.403 201.568 262.833C185.885 252.263 189.603 219.314 209.873 189.239C230.142 159.164 259.287 143.352 274.97 153.922Z" fill="url(#Wallet_paint11_linear_477_350)"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M268.426 191.039C269.436 182.086 267.357 175.344 262.663 172.181C257.969 169.018 250.94 169.621 243.021 173.917C235.174 178.175 226.85 185.877 219.989 196.058C213.128 206.238 209.112 216.844 208.111 225.716C207.101 234.668 209.18 241.41 213.874 244.574C218.567 247.737 225.597 247.134 233.516 242.837C241.363 238.58 249.687 230.877 256.548 220.697C263.409 210.517 267.425 199.91 268.426 191.039ZM257.792 221.535C271.728 200.858 274.284 178.204 263.501 170.937C252.719 163.67 232.681 174.542 218.745 195.219C204.809 215.897 202.253 238.551 213.035 245.818C223.818 253.085 243.856 242.213 257.792 221.535Z" fill="#6B7280"/>
   </g>
 
   
-  <g className="memy-coin-3">
+  <g className="esvigy-coin-3">
     <path d="M497.21 395.241C523.351 380.048 538.119 356.681 530.197 343.05L523.597 331.695L428.934 386.714L435.533 398.069C443.456 411.7 471.069 410.434 497.21 395.241Z" fill="#111928"/>
-    <path d="M497.21 395.241C523.351 380.048 538.119 356.681 530.197 343.05L523.597 331.695L428.934 386.714L435.533 398.069C443.456 411.7 471.069 410.434 497.21 395.241Z" fill="url(#WalletMoney_paint12_linear_477_350)"/>
+    <path d="M497.21 395.241C523.351 380.048 538.119 356.681 530.197 343.05L523.597 331.695L428.934 386.714L435.533 398.069C443.456 411.7 471.069 410.434 497.21 395.241Z" fill="url(#Wallet_paint12_linear_477_350)"/>
     <path d="M523.009 330.682C530.931 344.313 516.162 367.68 490.022 382.873C463.881 398.066 436.268 399.332 428.345 385.701C420.422 372.069 435.191 348.703 461.332 333.51C487.472 318.317 515.086 317.051 523.009 330.682Z" fill="#111928"/>
-    <path d="M523.009 330.682C530.931 344.313 516.162 367.68 490.022 382.873C463.881 398.066 436.268 399.332 428.345 385.701C420.422 372.069 435.191 348.703 461.332 333.51C487.472 318.317 515.086 317.051 523.009 330.682Z" fill="url(#WalletMoney_paint13_linear_477_350)"/>
+    <path d="M523.009 330.682C530.931 344.313 516.162 367.68 490.022 382.873C463.881 398.066 436.268 399.332 428.345 385.701C420.422 372.069 435.191 348.703 461.332 333.51C487.472 318.317 515.086 317.051 523.009 330.682Z" fill="url(#Wallet_paint13_linear_477_350)"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M504.677 356.002C508.71 349.62 509.556 343.856 507.229 339.853C504.903 335.85 499.475 333.731 491.934 334.077C484.474 334.419 475.38 337.182 466.474 342.358C457.569 347.534 450.666 354.068 446.677 360.38C442.643 366.762 441.797 372.527 444.124 376.53C446.45 380.533 451.878 382.651 459.42 382.306C466.879 381.964 475.973 379.2 484.879 374.024C493.785 368.848 500.687 362.314 504.677 356.002ZM485.633 375.321C503.775 364.777 514.025 348.559 508.526 339.099C503.028 329.638 483.863 330.517 465.721 341.061C447.578 351.606 437.328 367.823 442.827 377.283C448.325 386.744 467.49 385.865 485.633 375.321Z" fill="#6B7280"/>
   </g>
 
   
-  <g className="memy-coin-4">
+  <g className="esvigy-coin-4">
     <path d="M252.372 80.7638C268.887 57.6989 272.525 32.0196 260.498 23.4076L250.479 16.2337L190.672 99.7593L200.691 106.933C212.718 115.545 235.857 103.829 252.372 80.7638Z" fill="#111928"/>
-    <path d="M252.372 80.7638C268.887 57.6989 272.525 32.0196 260.498 23.4076L250.479 16.2337L190.672 99.7593L200.691 106.933C212.718 115.545 235.857 103.829 252.372 80.7638Z" fill="url(#WalletMoney_paint14_linear_477_350)"/>
+    <path d="M252.372 80.7638C268.887 57.6989 272.525 32.0196 260.498 23.4076L250.479 16.2337L190.672 99.7593L200.691 106.933C212.718 115.545 235.857 103.829 252.372 80.7638Z" fill="url(#Wallet_paint14_linear_477_350)"/>
     <path d="M249.584 15.5934C261.612 24.2054 257.974 49.8847 241.459 72.9496C224.943 96.0146 201.805 107.731 189.778 99.119C177.75 90.507 181.388 64.8278 197.903 41.7628C214.418 18.6979 237.557 6.98144 249.584 15.5934Z" fill="#111928"/>
-    <path d="M249.584 15.5934C261.612 24.2054 257.974 49.8847 241.459 72.9496C224.943 96.0146 201.805 107.731 189.778 99.119C177.75 90.507 181.388 64.8278 197.903 41.7628C214.418 18.6979 237.557 6.98144 249.584 15.5934Z" fill="url(#WalletMoney_paint15_linear_477_350)"/>
+    <path d="M249.584 15.5934C261.612 24.2054 257.974 49.8847 241.459 72.9496C224.943 96.0146 201.805 107.731 189.778 99.119C177.75 90.507 181.388 64.8278 197.903 41.7628C214.418 18.6979 237.557 6.98144 249.584 15.5934Z" fill="url(#Wallet_paint15_linear_477_350)"/>
     <path fillRule="evenodd" clipRule="evenodd" d="M242.843 44.666C243.806 37.869 242.348 32.8246 238.977 30.4103C235.605 27.996 230.36 28.2409 224.235 31.3421C218.184 34.4063 211.673 40.0909 206.215 47.713C200.757 55.3351 197.473 63.3306 196.522 70.0464C195.559 76.8434 197.017 81.8878 200.389 84.3021C203.76 86.7164 209.005 86.4715 215.13 83.3702C221.181 80.3061 227.693 74.6215 233.15 66.9994C238.608 59.3773 241.892 51.3818 242.843 44.666ZM234.37 67.8726C245.508 52.3173 247.961 34.9988 239.85 29.1907C231.738 23.3826 216.134 31.2844 204.995 46.8397C193.857 62.3951 191.404 79.7136 199.515 85.5217C207.627 91.3298 223.232 83.428 234.37 67.8726Z" fill="#6B7280"/>
   </g>
 
   <defs>
-    <linearGradient id="WalletMoney_paint0_linear_477_350" x1="244.5" y1="89" x2="244.5" y2="578" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint0_linear_477_350" x1="244.5" y1="89" x2="244.5" y2="578" gradientUnits="userSpaceOnUse">
       <stop stopColor="#354558"/>
       <stop offset="1" stopColor="#1F2A37" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint1_linear_477_350" x1="413" y1="314.5" x2="119.449" y2="316.719" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint1_linear_477_350" x1="413" y1="314.5" x2="119.449" y2="316.719" gradientUnits="userSpaceOnUse">
       <stop stopColor={color} stopOpacity="0"/>
       <stop offset="1" stopColor={color}/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint2_linear_477_350" x1="125.5" y1="328.5" x2="412.291" y2="280.948" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint2_linear_477_350" x1="125.5" y1="328.5" x2="412.291" y2="280.948" gradientUnits="userSpaceOnUse">
       <stop stopColor="#16a34a"/>
       <stop offset="1" stopColor="#16a34a" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint3_linear_477_350" x1="392.906" y1="336" x2="392.906" y2="300.5" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint3_linear_477_350" x1="392.906" y1="336" x2="392.906" y2="300.5" gradientUnits="userSpaceOnUse">
       <stop stopColor="#51e888" stopOpacity="0"/>
       <stop offset="1" stopColor="#51e888"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint4_linear_477_350" x1="234" y1="260" x2="298.5" y2="391.5" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint4_linear_477_350" x1="234" y1="260" x2="298.5" y2="391.5" gradientUnits="userSpaceOnUse">
       <stop stopColor="#111928" stopOpacity="0"/>
       <stop offset="1" stopColor="#111928"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint5_linear_477_350" x1="125.5" y1="528.5" x2="213.5" y2="234.364" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint5_linear_477_350" x1="125.5" y1="528.5" x2="213.5" y2="234.364" gradientUnits="userSpaceOnUse">
       <stop stopColor="white" stopOpacity="0"/>
       <stop offset="1" stopColor="white"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint6_linear_477_350" x1="213.5" y1="267.781" x2="213.5" y2="717.228" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint6_linear_477_350" x1="213.5" y1="267.781" x2="213.5" y2="717.228" gradientUnits="userSpaceOnUse">
       <stop stopColor={color} stopOpacity="0"/>
       <stop offset="1" stopColor={color}/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint7_linear_477_350" x1="213.5" y1="472.498" x2="185.5" y2="626" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint7_linear_477_350" x1="213.5" y1="472.498" x2="185.5" y2="626" gradientUnits="userSpaceOnUse">
       <stop stopColor="white" stopOpacity="0"/>
       <stop offset="1" stopColor="white"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint8_linear_477_350" x1="47.5" y1="80.5" x2="65.7265" y2="193.947" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint8_linear_477_350" x1="47.5" y1="80.5" x2="65.7265" y2="193.947" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint9_linear_477_350" x1="89.3945" y1="100.553" x2="92.3555" y2="249.588" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint9_linear_477_350" x1="89.3945" y1="100.553" x2="92.3555" y2="249.588" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint10_linear_477_350" x1="138.009" y1="300.723" x2="271.946" y2="221.899" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint10_linear_477_350" x1="138.009" y1="300.723" x2="271.946" y2="221.899" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint11_linear_477_350" x1="234" y1="158" x2="291.726" y2="295.434" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint11_linear_477_350" x1="234" y1="158" x2="291.726" y2="295.434" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint12_linear_477_350" x1="557" y1="315.5" x2="494.299" y2="410.619" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint12_linear_477_350" x1="557" y1="315.5" x2="494.299" y2="410.619" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint13_linear_477_350" x1="490.79" y1="318.846" x2="484.129" y2="442.937" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint13_linear_477_350" x1="490.79" y1="318.846" x2="484.129" y2="442.937" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint14_linear_477_350" x1="292.5" y1="2.99999" x2="262.244" y2="106.435" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint14_linear_477_350" x1="292.5" y1="2.99999" x2="262.244" y2="106.435" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>
-    <linearGradient id="WalletMoney_paint15_linear_477_350" x1="217.461" y1="17.873" x2="259.546" y2="126.609" gradientUnits="userSpaceOnUse">
+    <linearGradient id="Wallet_paint15_linear_477_350" x1="217.461" y1="17.873" x2="259.546" y2="126.609" gradientUnits="userSpaceOnUse">
       <stop stopColor="#374151"/>
       <stop offset="1" stopColor="#374151" stopOpacity="0"/>
     </linearGradient>

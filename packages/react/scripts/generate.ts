@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const SVG_DIR = path.resolve(__dirname, "../../svg/src");
 const OUTPUT_DIR = path.resolve(__dirname, "../src/illustrations");
 const INDEX_FILE = path.resolve(__dirname, "../src/index.ts");
-const MANIFEST_FILE = path.resolve(SVG_DIR, "manifest.json");
+const MANIFEST_FILE = path.resolve(__dirname, "../../svg/manifest.json");
 
 // Ignore temporary, scratch, or test assets from component generation
 const IGNORED_FILES = new Set([
@@ -141,7 +141,7 @@ function buildHeaderComment(meta: SvgMetadata, fileName: string): string {
 	if (meta.author || meta.source) {
 		lines.push(" *");
 	}
-	lines.push(" * Generated automatically by @memy/react generator.");
+	lines.push(" * Generated automatically by @esvigy/react generator.");
 	lines.push(` * Source: packages/svg/src/${fileName}`);
 	lines.push(" */");
 	return lines.join("\n");
@@ -213,29 +213,29 @@ function generateComponent(fileName: string, manifest: Record<string, SvgMetadat
 
 	// Wire up secondaryColor with optional custom default fallback
 	inner = inner.replace(
-		/fill="currentColor"([^>]*data-memy-secondary="true"[^>]*data-memy-default="([^"]+)")/g,
+		/fill="currentColor"([^>]*data-esvigy-secondary="true"[^>]*data-esvigy-default="([^"]+)")/g,
 		'fill={secondaryColor !== "transparent" ? secondaryColor : "$2"}$1',
 	);
 	inner = inner.replace(
-		/fill="currentColor"([^>]*data-memy-secondary="true")/g,
+		/fill="currentColor"([^>]*data-esvigy-secondary="true")/g,
 		'fill={secondaryColor !== "transparent" ? secondaryColor : color}$1',
 	);
 	inner = inner.replace(
-		/stroke="currentColor"([^>]*data-memy-secondary="true"[^>]*data-memy-default="([^"]+)")/g,
+		/stroke="currentColor"([^>]*data-esvigy-secondary="true"[^>]*data-esvigy-default="([^"]+)")/g,
 		'stroke={secondaryColor !== "transparent" ? secondaryColor : "$2"}$1',
 	);
 	inner = inner.replace(
-		/stroke="currentColor"([^>]*data-memy-secondary="true")/g,
+		/stroke="currentColor"([^>]*data-esvigy-secondary="true")/g,
 		'stroke={secondaryColor !== "transparent" ? secondaryColor : color}$1',
 	);
 
-	// Wire up data-memy-primary="true"
+	// Wire up data-esvigy-primary="true"
 	inner = inner.replace(
-		/fill="[^"]*"([^>]*data-memy-primary="true")/g,
+		/fill="[^"]*"([^>]*data-esvigy-primary="true")/g,
 		'fill={color}$1',
 	);
 	inner = inner.replace(
-		/stroke="[^"]*"([^>]*data-memy-primary="true")/g,
+		/stroke="[^"]*"([^>]*data-esvigy-primary="true")/g,
 		'stroke={color}$1',
 	);
 
@@ -243,11 +243,11 @@ function generateComponent(fileName: string, manifest: Record<string, SvgMetadat
 	inner = inner.replace(/fill="currentColor"/g, "fill={color}");
 	inner = inner.replace(/stroke="currentColor"/g, "stroke={color}");
 	inner = inner.replace(
-		/stopColor="currentColor"([^>]*data-memy-secondary="true"[^>]*data-memy-default="([^"]+)")/g,
+		/stopColor="currentColor"([^>]*data-esvigy-secondary="true"[^>]*data-esvigy-default="([^"]+)")/g,
 		'stopColor={secondaryColor !== "transparent" ? secondaryColor : "$2"}$1',
 	);
 	inner = inner.replace(
-		/stopColor="currentColor"([^>]*data-memy-secondary="true")/g,
+		/stopColor="currentColor"([^>]*data-esvigy-secondary="true")/g,
 		'stopColor={secondaryColor !== "transparent" ? secondaryColor : color}$1',
 	);
 	inner = inner.replace(/stopColor="currentColor"/g, "stopColor={color}");
@@ -268,7 +268,7 @@ ${rawCss.replace(/`/g, "\\`").replace(/\${/g, "\\${")}
 	// Generate component code
 	return `${headerComment}
 
-import type { MemyProps } from "../types";
+import type { EsvigyProps } from "../types";
 
 export const ${componentName} = ({
   color = "currentColor",
@@ -277,13 +277,13 @@ export const ${componentName} = ({
   className = "",
   style,
   ...props
-}: MemyProps) => {
+}: EsvigyProps) => {
   return (
     <svg
       viewBox="${viewBox}"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={["memy-svg", animated ? "memy-animated" : "", className].filter(Boolean).join(" ")}
+      className={["esvigy-svg", animated ? "esvigy-animated" : "", className].filter(Boolean).join(" ")}
       data-animated={animated ? "true" : undefined}
       data-author="${meta.author}"
       data-source="${meta.source}"
@@ -308,9 +308,16 @@ function run() {
 	}
 
 	const manifest = loadManifest();
-	const svgFiles = fs
-		.readdirSync(SVG_DIR)
-		.filter((f) => f.endsWith(".svg") && !f.startsWith("_") && !IGNORED_FILES.has(f));
+	const svgFiles = (fs.readdirSync(SVG_DIR) as string[])
+		.filter((f: string) => f.endsWith(".svg") && !f.startsWith("_") && !IGNORED_FILES.has(f));
+
+	const targetFiles = new Set(svgFiles.map((f: string) => `${path.basename(f, ".svg")}.tsx`));
+	for (const existingFile of fs.readdirSync(OUTPUT_DIR)) {
+		if (existingFile.endsWith(".tsx") && !targetFiles.has(existingFile)) {
+			fs.unlinkSync(path.join(OUTPUT_DIR, existingFile));
+			console.log(`🗑 Removed stale ${existingFile}`);
+		}
+	}
 
 	const components: string[] = [];
 
@@ -324,7 +331,7 @@ function run() {
 
 	// Generate barrel index.ts
 	const indexContent = `/**
- * Generated automatically by @memy/react generator.
+ * Generated automatically by @esvigy/react generator.
  */
 
 export * from "./types";
