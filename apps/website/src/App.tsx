@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import * as EsvigyComponents from "@esvigy/react";
 import manifestData from "../../../packages/svg/manifest.json";
 import { Navbar } from "./components/Navbar";
@@ -10,10 +10,20 @@ import { IllustrationModal, IllustrationItem } from "./components/IllustrationMo
 
 export function App() {
   const [activeTab, setActiveTab] = useState<"home" | "catalog">("home");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    return (localStorage.getItem("esvigy_theme") as "dark" | "light") || "dark";
+  });
   const [primaryColor, setPrimaryColor] = useState("#00D4FF");
   const [secondaryColor, setSecondaryColor] = useState("#0F172A");
   const [animated, setAnimated] = useState(true);
   const [selectedItem, setSelectedItem] = useState<IllustrationItem | null>(null);
+
+  // Sync theme to document attribute and storage
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("esvigy_theme", theme);
+  }, [theme]);
 
   // Discover and sort all illustration components from @esvigy/react
   const illustrations: IllustrationItem[] = useMemo(() => {
@@ -34,21 +44,41 @@ export function App() {
       .sort((a, b) => a.name.localeCompare(b.name));
   }, []);
 
+  const handleNavigateSection = (sectionId: "guide" | "packages") => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "#070b14", color: "#f8fafc" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", backgroundColor: "var(--bg-dark)", color: "var(--text-main)" }}>
       {/* Global Navigation Header */}
-      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} count={illustrations.length} />
+      <Navbar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        count={illustrations.length}
+        theme={theme}
+        setTheme={setTheme}
+        onNavigateSection={handleNavigateSection}
+      />
 
       {/* Main Content Area */}
-      <main style={{ flex: 1 }}>
+      <main style={{ flex: 1, paddingTop: "60px" }}>
         {activeTab === "home" ? (
           <HomePage
             onExploreCatalog={() => {
               setActiveTab("catalog");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
+            onSearch={(query) => {
+              setSearchQuery(query);
+              setActiveTab("catalog");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             onSelectIllustration={(item) => setSelectedItem(item)}
             illustrations={illustrations}
+            theme={theme}
           />
         ) : (
           <IllustrationCatalog
@@ -60,6 +90,9 @@ export function App() {
             setSecondaryColor={setSecondaryColor}
             animated={animated}
             setAnimated={setAnimated}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            theme={theme}
           />
         )}
       </main>
