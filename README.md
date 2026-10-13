@@ -542,7 +542,7 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 - [X] Monorepo workspace configuration (`pnpm`)
 - [X] SVG normalization pipeline & multi-color token architecture (29 canonical illustrations)
 - [X] `@esvigy/react` package generation, TypeScript declarations, and auto-pruning pipeline
-- [X] Interactive test playground with live theme customization (`apps/playground`)
+- [X] Interactive documentation website & illustration studio (`apps/website`)
 - [ ] Direct component scaffolder CLI (`esvigy add <name> --framework <react|vue|svelte|svg>`)
 - [ ] Production web showcase & SVG search gallery (`esvigy.dev`)
 - [ ] Multi-framework package adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/react-native`)

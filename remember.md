@@ -43,10 +43,10 @@ This creates a `.changeset/config.json` file.
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["playground"]
+  "ignore": ["website"]
 }
 ```
-*(Notice `"ignore": ["playground"]` so the internal test playground is never published to npm).*
+*(Notice `"ignore": ["website"]` so the showcase website is never published to npm).*
 
 ---
 

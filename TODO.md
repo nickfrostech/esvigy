@@ -12,7 +12,7 @@
 | **M1** | **Workspace & Monorepo**            | pnpm monorepo structure, tooling & linting          |  🟢 Completed  |      Week 1      |
 | **M2** | **SVG Pipeline & Assets (29 SVGs)** | 2-tone normalization, manifest metadata & animations |  🟢 Completed  |      Week 1      |
 | **M3** | **React Package (`@esvigy/react`)** | Automated generator, auto-pruning, TS declarations |  🟢 Completed  |     Week 1–2     |
-| **M4** | **Interactive Showcase**            | Live playground gallery with theme color controls   | 🟡 In Progress |      Week 2      |
+| **M4** | **Documentation Website & Studio**  | Live documentation homepage & illustration studio   |  🟢 Completed  |      Week 2      |
 | **M5** | **Multi-Framework Adapters & CLI**  | Vue, Svelte, Angular, & CLI component scaffolder    | ⚪ Not Started |      Week 3      |
 | **M6** | **Community & NPM Release**         | CI/CD, SVG submission linting, & v0.1.0 launch      | ⚪ Not Started |      Week 4      |
 
@@ -38,7 +38,7 @@
   - `packages/svg` (`@esvigy/svg` — canonical SVG source and manifest metadata)
   - `packages/react` (`@esvigy/react` — React components)
   - `packages/react/scripts/generate.ts` (automation generator)
-  - `apps/playground` (live interactive test app)
+  - `apps/website` (documentation homepage & illustration studio)
 
 ---
 
@@ -117,7 +117,7 @@
 
 ## 🌐 Milestone 4: Interactive Showcase & Documentation Site
 
-- [X] Live interactive playground (`apps/playground`):
+- [X] Documentation website & illustration studio (`apps/website`):
   - [X] Dynamic discovery of all `@esvigy/react` components via barrel export and `manifest.json`.
   - [X] Responsive grid layout with size controls (`sm`, `md`, `lg`).
   - [X] Search filtering by name and metadata tags.

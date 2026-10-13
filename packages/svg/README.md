@@ -195,4 +195,4 @@ Before adding a new `.svg` file to `packages/svg/src/`:
   -->
   ```
 - [ ] Metadata entry added to [packages/svg/manifest.json](./manifest.json).
-- [ ] Test the build with `pnpm --filter @esvigy/react generate` and verify in `pnpm --filter playground dev`.
+- [ ] Test the build with `pnpm --filter @esvigy/react generate` and verify in `pnpm --filter website dev`.
