@@ -3,6 +3,8 @@
    "private": true,
    "description": "Monorepo for Esvigy illustration library",
    "scripts": {
-      "build": "pnpm --filter \"@esvigy/*\" build"
+      "build": "pnpm --filter website build",
+      "build:packages": "pnpm --filter \"@esvigy/*\" build",
+      "build:all": "pnpm --filter \"@esvigy/*\" build && pnpm --filter website build"
    }
 }
