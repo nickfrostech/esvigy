@@ -25,6 +25,15 @@ export function App() {
     localStorage.setItem("esvigy_theme", theme);
   }, [theme]);
 
+  // Sync page title with active section
+  useEffect(() => {
+    if (activeTab === "catalog") {
+      document.title = "Illustration Studio — Esvigy";
+    } else {
+      document.title = "Esvigy — UI Illustrations as simple and developer-friendly as icons";
+    }
+  }, [activeTab]);
+
   // Discover and sort all illustration components from @esvigy/react
   const illustrations: IllustrationItem[] = useMemo(() => {
     const manifest = manifestData as Record<string, any>;
