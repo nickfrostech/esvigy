@@ -1,8 +1,8 @@
 {
-   "name": "memy-monorepo",
+   "name": "esvigy-monorepo",
    "private": true,
-   "description": "Monorepo for Memy illustration library",
+   "description": "Monorepo for Esvigy illustration library",
    "scripts": {
-      "build": "pnpm --filter \"@memy/*\" build"
+      "build": "pnpm --filter \"@esvigy/*\" build"
    }
 }

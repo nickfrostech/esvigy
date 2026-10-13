@@ -1,4 +1,4 @@
-# Memy
+# Esvigy
 
 <p align="center">
   <strong>UI illustrations as simple and developer-friendly as icons.</strong>
@@ -8,7 +8,7 @@
 
 <p align="center">
   <a href="#quick-start">Quick Start</a> •
-  <a href="#why-memy">Why Memy</a> •
+  <a href="#why-esvigy">Why Esvigy</a> •
   <a href="#component-api">Component API</a> •
   <a href="#animation-mechanics--architecture">Animation Mechanics</a> •
   <a href="#architecture--ecosystem">Architecture</a> •
@@ -23,15 +23,15 @@
 
 In modern web development, sourcing and integrating UI illustrations is unnecessarily painful: developers download random SVGs, wrestle with oversized viewBoxes, manually clean messy XML, hardcode colors, and repeat the same boilerplate across projects.
 
-**Memy** eliminates this friction. Just like icon sets (such as Lucide or Heroicons), Memy treats illustrations as lightweight, plug-and-play components.
+**Esvigy** eliminates this friction. Just like icon sets (such as Lucide or Heroicons), Esvigy treats illustrations as lightweight, plug-and-play components.
 
 ```tsx
-import { EmptyCart, NotFound } from "@memy/react";
+import { EmptyCart, NotFoundRobot } from "@esvigy/react";
 
 export function ErrorState() {
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      <NotFound
+      <NotFoundRobot
         animated
         color="#00D4FF"
         secondaryColor="#001014"
@@ -65,27 +65,27 @@ Install the package for your framework using your favorite package manager:
 
 ```bash
 # pnpm (recommended)
-pnpm add @memy/react
+pnpm add @esvigy/react
 
 # npm
-npm install @memy/react
+npm install @esvigy/react
 
 # yarn
-yarn add @memy/react
+yarn add @esvigy/react
 
 # bun
-bun add @memy/react
+bun add @esvigy/react
 ```
 
-### Ways to Consume Memy
+### Ways to Consume Esvigy
 
-Memy offers **three distinct ways** to get illustrations into your project, giving every developer and designer maximum flexibility:
+Esvigy offers **three distinct ways** to get illustrations into your project, giving every developer and designer maximum flexibility:
 
-| Method | Best For | Output Location | Dependencies Added | Frameworks |
-| :--- | :--- | :--- | :--- | :--- |
-| 📦 **NPM Packages**<br>*(The Lucide Way)* | Apps using multiple illustrations across routes | `node_modules/` | `@memy/<framework>` | React, Vue, Svelte, etc. |
-| 📋 **CLI Component Scaffolding**<br>*(The shadcn Way)* | Using 1–3 illustrations; full code ownership & direct customization | `components/memy/` | **Zero** (self-contained source file) | **React, Vue, Svelte, Solid, Raw SVG** |
-| 🌐 **Web Showcase (`memy.dev`)**<br>*(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma | Clipboard / `.svg` file | **Zero** (pure vector XML) | All tools & frameworks |
+| Method                                                               | Best For                                                             | Output Location          | Dependencies Added                          | Frameworks                                   |
+| :------------------------------------------------------------------- | :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :------------------------------------------- |
+| 📦**NPM Packages***(The Lucide Way)*                         | Apps using multiple illustrations across routes                      | `node_modules/`        | `@esvigy/<framework>`                       | React, Vue, Svelte, etc.                     |
+| 📋**CLI Component Scaffolding***(The shadcn Way)*            | Using 1–3 illustrations; full code ownership & direct customization | `components/esvigy/`     | **Zero** (self-contained source file) | **React, Vue, Svelte, Solid, Raw SVG** |
+| 🌐**Web Showcase (`esvigy.dev`)***(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma                      | Clipboard /`.svg` file | **Zero** (pure vector XML)            | All tools & frameworks                       |
 
 ---
 
@@ -95,20 +95,20 @@ Install the official package for your framework. Components reside in `node_modu
 
 ```bash
 # React
-pnpm add @memy/react
+pnpm add @esvigy/react
 
 # Vue
-pnpm add @memy/vue
+pnpm add @esvigy/vue
 
 # Svelte
-pnpm add @memy/svelte
+pnpm add @esvigy/svelte
 ```
 
 ```tsx
-import { NotFound, EmptyCart } from "@memy/react";
+import { NotFoundRobot, EmptyCart } from "@esvigy/react";
 
 export function Example() {
-  return <NotFound animated color="#2563eb" secondaryColor="#f9fafb" className="w-64 h-64" />;
+  return <NotFoundRobot animated color="#2563eb" secondaryColor="#f9fafb" className="w-64 h-64" />;
 }
 ```
 
@@ -118,7 +118,7 @@ export function Example() {
 
 > **Don't want to install an npm package? Only need one or two illustrations? Want full source code ownership to edit paths, styles, or props directly?**
 
-Just like [shadcn/ui](https://ui.shadcn.com/) revolutionized React by copying component code directly into your repository instead of installing heavy black-box dependencies, **Memy provides this exact same experience for every major framework**:
+Just like [shadcn/ui](https://ui.shadcn.com/) revolutionized React by copying component code directly into your repository instead of installing heavy black-box dependencies, **Esvigy provides this exact same experience for every major framework**:
 
 - **React developers**: grab a native `.tsx` component.
 - **Vue developers**: grab a native `.vue` Single File Component (SFC with `<script setup>`).
@@ -128,26 +128,26 @@ Just like [shadcn/ui](https://ui.shadcn.com/) revolutionized React by copying co
 
 All generated component files are **completely self-contained**—they have **zero external runtime dependencies** beyond your framework itself!
 
-##### Add Components via the Memy CLI:
+##### Add Components via the Esvigy CLI:
 
 ```bash
-# React: creates components/memy/NotFound.tsx
-pnpm dlx memy add not-found --framework react
+# React: creates components/esvigy/NotFound.tsx
+pnpm dlx esvigy add not-found --framework react
 
-# Vue: creates components/memy/NotFound.vue
-pnpm dlx memy add not-found --framework vue
+# Vue: creates components/esvigy/NotFound.vue
+pnpm dlx esvigy add not-found --framework vue
 
-# Svelte: creates components/memy/NotFound.svelte
-pnpm dlx memy add not-found --framework svelte
+# Svelte: creates components/esvigy/NotFound.svelte
+pnpm dlx esvigy add not-found --framework svelte
 
-# Raw SVG: creates components/memy/NotFound.svg
-pnpm dlx memy add not-found --svg
+# Raw SVG: creates components/esvigy/NotFound.svg
+pnpm dlx esvigy add not-found --svg
 ```
 
 ##### What the Scaffolder Copies into Your Project:
 
 <details>
-<summary><b>View React Component (<code>components/memy/NotFound.tsx</code>)</b></summary>
+<summary><b>View React Component (<code>components/esvigy/NotFound.tsx</code>)</b></summary>
 
 ```tsx
 import type { SVGProps } from "react";
@@ -172,7 +172,7 @@ export function NotFound({
       viewBox="0 0 400 300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={["memy-svg", animated ? "memy-animated" : "", className].filter(Boolean).join(" ")}
+      className={["esvigy-svg", animated ? "esvigy-animated" : "", className].filter(Boolean).join(" ")}
       data-animated={animated ? "true" : undefined}
       style={{ display: "block", ...style }}
       role="img"
@@ -182,14 +182,14 @@ export function NotFound({
       {animated && (
         <style>
           {`
-            @keyframes memy-notfound-float {
+            @keyframes esvigy-notfound-float {
               0%, 100% { transform: translateY(0px) rotate(0deg); }
               50% { transform: translateY(-8px) rotate(1deg); }
             }
-            svg.memy-animated .memy-notfound-body {
+            svg.esvigy-animated .esvigy-notfound-body {
               transform-box: fill-box;
               transform-origin: center;
-              animation: memy-notfound-float 3s ease-in-out infinite;
+              animation: esvigy-notfound-float 3s ease-in-out infinite;
             }
             /* ... bespoke illustration keyframes & reduced-motion queries ... */
           `}
@@ -200,10 +200,11 @@ export function NotFound({
   );
 }
 ```
+
 </details>
 
 <details>
-<summary><b>View Vue Component (<code>components/memy/NotFound.vue</code>)</b></summary>
+<summary><b>View Vue Component (<code>components/esvigy/NotFound.vue</code>)</b></summary>
 
 ```vue
 <script setup lang="ts">
@@ -228,28 +229,29 @@ withDefaults(
     viewBox="0 0 400 300"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    :class="['memy-svg', animated ? 'memy-animated' : '', $props.class]"
+    :class="['esvigy-svg', animated ? 'esvigy-animated' : '', $props.class]"
     :data-animated="animated ? 'true' : undefined"
   >
     <style v-if="animated">
-      @keyframes memy-notfound-float {
+      @keyframes esvigy-notfound-float {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-8px); }
       }
-      svg.memy-animated .memy-notfound-body {
+      svg.esvigy-animated .esvigy-notfound-body {
         transform-box: fill-box;
         transform-origin: center;
-        animation: memy-notfound-float 3s ease-in-out infinite;
+        animation: esvigy-notfound-float 3s ease-in-out infinite;
       }
     </style>
     <!-- Self-contained SVG markup -->
   </svg>
 </template>
 ```
+
 </details>
 
 <details>
-<summary><b>View Svelte Component (<code>components/memy/NotFound.svelte</code>)</b></summary>
+<summary><b>View Svelte Component (<code>components/esvigy/NotFound.svelte</code>)</b></summary>
 
 ```svelte
 <script lang="ts">
@@ -263,26 +265,27 @@ withDefaults(
   viewBox="0 0 400 300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  class={["memy-svg", animated ? "memy-animated" : "", className].filter(Boolean).join(" ")}
+  class={["esvigy-svg", animated ? "esvigy-animated" : "", className].filter(Boolean).join(" ")}
   data-animated={animated ? "true" : undefined}
   {...$$restProps}
 >
   {#if animated}
     <style>
-      @keyframes memy-notfound-float {
+      @keyframes esvigy-notfound-float {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-8px); }
       }
-      svg.memy-animated .memy-notfound-body {
+      svg.esvigy-animated .esvigy-notfound-body {
         transform-box: fill-box;
         transform-origin: center;
-        animation: memy-notfound-float 3s ease-in-out infinite;
+        animation: esvigy-notfound-float 3s ease-in-out infinite;
       }
     </style>
   {/if}
   <!-- Self-contained SVG markup -->
 </svg>
 ```
+
 </details>
 
 You can also copy files directly from the repository's packages folder (`packages/<framework>/src/illustrations/`) into your codebase manually if you prefer not to use the CLI.
@@ -291,7 +294,7 @@ You can also copy files directly from the repository's packages folder (`package
 
 #### 3. Interactive Web Showcase (100% Framework Agnostic)
 
-Visit the official web gallery at **`memy.dev`**:
+Visit the official web gallery at **`esvigy.dev`**:
 
 - 🎨 **Live Customizer**: Test brand colors, secondary accents, and toggle micro-animations dynamically on any illustration.
 - 📋 **"Copy SVG"**: One-click copy of the clean, normalized SVG XML directly to your clipboard. Paste it directly into JSX, HTML, Astro, Svelte, Vue, or Figma.
@@ -303,7 +306,7 @@ Visit the official web gallery at **`memy.dev`**:
 ### Basic Usage
 
 ```tsx
-import { NotFound } from "@memy/react";
+import { NotFound } from "@esvigy/react";
 
 function App() {
   return <NotFound />;
@@ -313,7 +316,7 @@ function App() {
 ### Styled and Animated
 
 ```tsx
-import { EmptyInbox } from "@memy/react";
+import { EmptyInbox } from "@esvigy/react";
 
 function InboxEmptyState() {
   return (
@@ -331,7 +334,7 @@ function InboxEmptyState() {
 
 ## Component API
 
-Memy intentionally keeps the component interface minimal and predictable across all illustrations:
+Esvigy intentionally keeps the component interface minimal and predictable across all illustrations:
 
 ```tsx
 <Illustration
@@ -345,66 +348,75 @@ Memy intentionally keeps the component interface minimal and predictable across 
 
 ### Props Specification
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `animated` | `boolean` | `false` | Toggles subtle, lightweight micro-animations. |
-| `color` | `string` | `"currentColor"` | Primary accent/fill/stroke color. |
-| `secondaryColor` | `string` | `undefined` | Secondary accent or background fill color. |
-| `className` | `string` | `""` | CSS classes to control dimensions (`width`, `height`), positioning, and effects. |
+| Prop               | Type        | Default            | Description                                                                          |
+| :----------------- | :---------- | :----------------- | :----------------------------------------------------------------------------------- |
+| `animated`       | `boolean` | `false`          | Toggles subtle, lightweight micro-animations.                                        |
+| `color`          | `string`  | `"currentColor"` | Primary accent/fill/stroke color.                                                    |
+| `secondaryColor` | `string`  | `undefined`      | Secondary accent or background fill color.                                           |
+| `className`      | `string`  | `""`             | CSS classes to control dimensions (`width`, `height`), positioning, and effects. |
 
-> **Design Note:** Memy intentionally omits custom `size` props or complex color-token systems. Sizing is delegated to standard CSS / Tailwind classes (`w-48 h-48`), ensuring seamless responsiveness.
+> **Design Note:** Esvigy intentionally omits custom `size` props or complex color-token systems. Sizing is delegated to standard CSS / Tailwind classes (`w-48 h-48`), ensuring seamless responsiveness.
 
 ---
 
 ## Animation Mechanics & Architecture
 
-Memy does not use external animation libraries (such as Framer Motion or GSAP) or heavy JavaScript runtime requestAnimationFrame loops. Instead, Memy uses an **SVG-First CSS Motion Engine** that delivers 60fps GPU-accelerated micro-animations with **zero JavaScript runtime overhead**:
+Esvigy does not use external animation libraries (such as Framer Motion or GSAP) or heavy JavaScript runtime requestAnimationFrame loops. Instead, Esvigy uses an **SVG-First CSS Motion Engine** that delivers 60fps GPU-accelerated micro-animations with **zero JavaScript runtime overhead**:
 
 ### 1. Self-Contained Raw Vector Stylesheets
-Every illustration owns its unique motion system authored directly inside its canonical `.svg` file in [`packages/svg/src/`](file:///c:/Code/memy/packages/svg/src). Rather than forcing every illustration into a generic "float" animation, each illustration defines motion bespoke to its narrative:
+
+Every illustration owns its unique motion system authored directly inside its canonical `.svg` file in [`packages/svg/src/`](file:///c:/Code/esvigy/packages/svg/src). Rather than forcing every illustration into a generic "float" animation, each illustration defines motion bespoke to its narrative:
+
 - **`EmptyCart`**: Shopping cart basket floats, ground shadow dynamically expands/fades, empty question bubble bobs, and wheels rock back and forth.
-- **`NotFound`**: Floating 404 monitor tilts gently, shadow breathes, 404 badge floats, and eyes blink realistically every 4 seconds.
-- **`WomanLaptopSitting`**: Left and right indoor plants shake and sway, typing dots in the input bar dance in a continuous traveling wave, the laptop screen pulses with light, the woman's head nods gently, and her hand taps in a brisk typing rhythm.
+- **`NotFoundLaptop`**: Floating 404 monitor tilts gently, shadow breathes, 404 badge floats, and screen pulses.
+- **`WomanLaptop`**: Left and right indoor plants shake and sway, typing dots in the input bar dance in a continuous traveling wave, the laptop screen pulses with light, the woman's head nods gently, and her hand taps in a brisk typing rhythm.
 
 ### 2. How the Switch ON / OFF Works
+
 All animation keyframes are gated by root selectors:
 
 ```css
-svg.memy-animated .memy-element,
-svg[data-animated="true"] .memy-element {
-  animation: memy-keyframe-name 2s ease-in-out infinite;
+svg.esvigy-animated .esvigy-element,
+svg[data-animated="true"] .esvigy-element {
+  animation: esvigy-keyframe-name 2s ease-in-out infinite;
 }
 ```
 
 * **When `animated={false}` (default)**:
   * The `<style>` tag is omitted from the DOM entirely.
-  * No `.memy-animated` class or `data-animated` attribute is placed on `<svg>`.
+  * No `.esvigy-animated` class or `data-animated` attribute is placed on `<svg>`.
   * **Result**: 0% CPU/GPU overhead. The illustration is completely static.
 * **When `animated={true}`**:
-  * The stylesheet is injected, and the root `<svg>` receives `className="memy-svg memy-animated"` and `data-animated="true"`.
+  * The stylesheet is injected, and the root `<svg>` receives `className="esvigy-svg esvigy-animated"` and `data-animated="true"`.
   * Keyframe animations immediately activate via the GPU.
 * **When Downloaded as Standalone `.svg`**:
-  * The standalone `.svg` has `class="memy-animated" data-animated="true"` by default.
+  * The standalone `.svg` has `class="esvigy-animated" data-animated="true"` by default.
   * Opens pre-animated out of the box when dragged into Chrome, Figma, Penpot, or embedded in an `<img>` tag!
 
 ### 3. Cross-Browser Transform Rules
-SVG transforms can distort or rotate around unexpected coordinates if not properly constrained. Memy strictly enforces:
+
+SVG transforms can distort or rotate around unexpected coordinates if not properly constrained. Esvigy strictly enforces:
+
 ```css
 transform-box: fill-box;
 transform-origin: center; /* or '50% 100%' for plants pivoting from their pots */
 ```
+
 This guarantees that vector transforms calculate relative to the element's own bounding box, delivering pixel-perfect, consistent animation across Chrome, Safari, Firefox, and Edge.
 
 ### 4. Accessibility First (`prefers-reduced-motion`)
-Every animated Memy illustration automatically embeds:
+
+Every animated Esvigy illustration automatically embeds:
+
 ```css
 @media (prefers-reduced-motion: reduce) {
-  svg.memy-animated *,
+  svg.esvigy-animated *,
   svg[data-animated="true"] * {
     animation: none !important;
   }
 }
 ```
+
 Users who have requested reduced motion in their system settings are protected by default across all frameworks and static SVGs.
 
 ---
@@ -414,16 +426,16 @@ Users who have requested reduced motion in their system settings are protected b
 React is not the source of truth—the **normalized SVG illustration** is. Framework-specific packages are code-generated from this single canonical SVG source.
 
 ```
-Memy Ecosystem
+Esvigy Ecosystem
 │
 ├── SVG Source (packages/svg) ───────── Normalized, optimized canonical artwork
 │
-├── React (@memy/react) ─────────────── First-class React component library
-├── React Native (@memy/react-native) ─ Native mobile vector illustrations
-├── Vue (@memy/vue) ─────────────────── Vue 3 SFC wrappers
-├── Svelte (@memy/svelte) ───────────── Svelte 4/5 component wrappers
-├── Angular (@memy/angular) ─────────── Angular standalone components
-└── Raw SVG (@memy/svg) ─────────────── Direct optimized SVGs for static sites
+├── React (@esvigy/react) ─────────────── First-class React component library
+├── React Native (@esvigy/react-native) ─ Native mobile vector illustrations
+├── Vue (@esvigy/vue) ─────────────────── Vue 3 SFC wrappers
+├── Svelte (@esvigy/svelte) ───────────── Svelte 4/5 component wrappers
+├── Angular (@esvigy/angular) ─────────── Angular standalone components
+└── Raw SVG (@esvigy/svg) ─────────────── Direct optimized SVGs for static sites
 ```
 
 ### Build Pipeline
@@ -433,57 +445,89 @@ flowchart TD
     A["Raw SVG Artwork\n(Open-source / Community / Original)"] --> B["Curate & Vet License"]
     B --> C["Normalize Coordinates & Layers\n(ViewBox, Color Tokens)"]
     C --> D["Optimize with SVGO\n(Strip bloat & IDs)"]
-    D --> E["Canonical Memy SVG Repository\n(@memy/svg)"]
+    D --> E["Canonical Esvigy SVG Repository\n(@esvigy/svg)"]
     E --> F["Framework Component Generation\n(SVGR & Custom AST Transformers)"]
-    F --> G["Multi-Target Distribution\n(NPM: @memy/react, @memy/vue, etc.)"]
+    F --> G["Multi-Target Distribution\n(NPM: @esvigy/react, @esvigy/vue, etc.)"]
 ```
 
 ---
 
 ## Initial Illustration Catalog
 
-The v0.1 release focuses on the most critical empty states, error screens, and application feedback indicators:
+The collection features 29 beautifully normalized, animated vector illustrations across core UI scenarios:
 
-### 1. Errors & System States
-| Illustration | Component Name | Common Use Case |
-| :--- | :--- | :--- |
-| **Not Found** | `<NotFound />` | 404 routes, missing resources |
-| **Server Error** | `<ServerError />` | 500 error boundaries, backend crashes |
-| **Forbidden** | `<Forbidden />` | 403 authorization and permission denials |
-| **Offline** | `<Offline />` | Network loss, disconnected state |
+### 1. Actions (`Action*`)
 
-### 2. Empty States
-| Illustration | Component Name | Common Use Case |
+| Illustration | Component Name | Description / Use Case |
 | :--- | :--- | :--- |
+| **Create** | `<ActionCreate />` | New file, entity creation, onboarding flow |
+| **Download** | `<ActionDownload />` | File download, asset export, saving states |
+| **Upload** | `<ActionUpload />` | Drag-and-drop file uploaders, data import |
+
+### 2. Status & Feedback (`Status*`)
+
+| Illustration | Component Name | Description / Use Case |
+| :--- | :--- | :--- |
+| **Success** | `<StatusSuccess />` | Action completed, transaction verified |
+| **Fail** | `<StatusFail />` | Action rejected, error encountered |
+| **Processing** | `<StatusProcessing />` | Asynchronous operations, sync in progress |
+| **Offline** | `<StatusOffline />` | Network disconnected, offline dino runner |
+
+### 3. Search Suite (`Search*`)
+
+| Illustration | Component Name | Description / Use Case |
+| :--- | :--- | :--- |
+| **Search** | `<Search />` | Default discovery and query prompt |
+| **Searching** | `<SearchLoading />` | Active query loading with radar spinner |
+| **Found** | `<SearchSuccess />` | Successfully matched records found |
+| **No Results** | `<SearchNotFound />` | Filter or query returned zero matches |
+
+### 4. Empty States (`Empty*`)
+
+| Illustration | Component Name | Description / Use Case |
+| :--- | :--- | :--- |
+| **Empty Box** | `<EmptyBox />` | Empty parcel, missing deliveries |
 | **Empty Cart** | `<EmptyCart />` | E-commerce shopping bag with zero items |
-| **Empty Inbox** | `<EmptyInbox />` | Zero messages or cleared notification center |
-| **Empty Folder** | `<EmptyFolder />` | Empty file directory or project workspace |
-| **No Results** | `<NoResults />` | Filter or search queries yielding zero matches |
-| **No Notifications** | `<NoNotifications />` | Cleared user alert feeds |
+| **Empty Folder** | `<EmptyFolder />` | Empty project folder or file directory |
+| **Empty Message** | `<EmptyMessage />` | Cleared inbox, zero notification messages |
 
-### 3. Feedback & Operations
-| Illustration | Component Name | Common Use Case |
-| :--- | :--- | :--- |
-| **Success** | `<Success />` | Successful submissions, payment confirmations |
-| **Failed** | `<Failed />` | Transaction rejects, validation errors |
-| **Processing** | `<Processing />` | Asynchronous operations, loading steps |
-| **Maintenance** | `<Maintenance />` | Scheduled downtime, platform updates |
+### 5. Errors & 404s (`NotFound*` / `Error*`)
 
-### 4. Actions & Flow
-| Illustration | Component Name | Common Use Case |
+| Illustration | Component Name | Description / Use Case |
 | :--- | :--- | :--- |
-| **Upload** | `<Upload />` | Drag-and-drop file uploaders |
-| **Download** | `<Download />` | Export hubs, asset download prompts |
-| **Search** | `<Search />` | Global search dialogs and query modals |
-| **Create** | `<Create />` | Onboarding dialogs and new entity triggers |
+| **Forbidden** | `<ErrorForbidden />` | 403 access denied, permission restricted |
+| **Server Error** | `<ErrorServer />` | 500 server crash, backend downtime |
+| **Laptop 404** | `<NotFoundLaptop />` | 404 missing resource with laptop screen |
+| **Robot 404** | `<NotFoundRobot />` | 404 missing page with cyber bot |
+| **Shopping 404** | `<NotFoundShopping />` | 404 missing product or store item |
+| **Smiley 404** | `<NotFoundSmiley />` | 404 route missing with confused smiley |
+
+### 6. Security, Finance & Utility
+
+| Illustration | Component Name | Description / Use Case |
+| :--- | :--- | :--- |
+| **Security Lock** | `<SecurityLock />` | Password form, authentication, security |
+| **Documents** | `<DocumentFolders />` | Archive files, document folder hierarchy |
+| **Wallet** | `<Wallet />` | Payment methods, wallet balance, checkout |
+| **GamePad** | `<GamePad />` | Gaming hubs, entertainment features |
+
+### 7. Characters & Lifestyle
+
+| Illustration | Component Name | Description / Use Case |
+| :--- | :--- | :--- |
+| **Car Repair** | `<ManCarRepair />` | Maintenance, diagnostics, automotive |
+| **Question** | `<ManQuestion />` | FAQ, help center, puzzled user prompt |
+| **Developer** | `<WomanLaptop />` | Coding, work, developer productivity |
+| **Yoga** | `<WomanYoga />` | Meditation, wellness, fitness break |
 
 ---
 
 ## Asset Sources & Licensing
 
-Memy expands its illustration collection through three responsible channels:
+Esvigy expands its illustration collection through three responsible channels:
+
 1. **Permissively Licensed Artwork**: Curated open-source collections (MIT, CC0, Apache 2.0).
-2. **Original & AI-Assisted Artwork**: Bespoke artwork crafted and normalized specifically for the Memy library.
+2. **Original & AI-Assisted Artwork**: Bespoke artwork crafted and normalized specifically for the Esvigy library.
 3. **Community Contributions**: Peer-reviewed illustrations submitted by developers and designers.
 
 > Every external asset retains full source attribution and licensing metadata inside its manifest.
@@ -492,15 +536,16 @@ Memy expands its illustration collection through three responsible channels:
 
 ## Roadmap & Milestones
 
-For a detailed task list, execution phases, and tracking of work items, see [TODO.md](file:///c:/Code/memy/TODO.md) and [BUILD_ROADMAP.md](file:///c:/Code/memy/BUILD_ROADMAP.md).
+For a detailed task list, execution phases, and tracking of work items, see [TODO.md](file:///c:/Code/esvigy/TODO.md) and [BUILD_ROADMAP.md](file:///c:/Code/esvigy/BUILD_ROADMAP.md).
 
-- [x] Initial specification and architectural design
-- [x] Monorepo workspace configuration (`pnpm`)
-- [x] SVG normalization pipeline & multi-color token architecture
-- [x] `@memy/react` package generation and TypeScript build
-- [ ] Direct component scaffolder CLI (`memy add <name> --framework <react|vue|svelte|svg>`)
-- [ ] Interactive web showcase & SVG search gallery (`memy.dev`)
-- [ ] Multi-framework package adapters (`@memy/vue`, `@memy/svelte`, `@memy/react-native`)
+- [X] Initial specification and architectural design
+- [X] Monorepo workspace configuration (`pnpm`)
+- [X] SVG normalization pipeline & multi-color token architecture (29 canonical illustrations)
+- [X] `@esvigy/react` package generation, TypeScript declarations, and auto-pruning pipeline
+- [X] Interactive test playground with live theme customization (`apps/playground`)
+- [ ] Direct component scaffolder CLI (`esvigy add <name> --framework <react|vue|svelte|svg>`)
+- [ ] Production web showcase & SVG search gallery (`esvigy.dev`)
+- [ ] Multi-framework package adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/react-native`)
 
 ---
 
@@ -508,7 +553,7 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 
 We welcome contributions of all kinds! Whether you are designing new illustrations, optimizing SVGs, or building framework adapters:
 
-- **Designing Illustrations**: Read our [CorelDRAW & SVG Design Guide](packages/svg/README.md) for document setup, layer naming, vector shadows, and export settings.
+- **Designing Illustrations**: Read our [CorelDRAW &amp; SVG Design Guide](packages/svg/README.md) for document setup, layer naming, vector shadows, and export settings.
 - **Workflow**:
   1. Fork the repository.
   2. Create your feature branch (`git checkout -b feature/new-illustration`).
@@ -520,5 +565,5 @@ We welcome contributions of all kinds! Whether you are designing new illustratio
 
 ## License
 
-Distributed under the [MIT License](file:///c:/Code/memy/LICENSE).
+Distributed under the [MIT License](file:///c:/Code/esvigy/LICENSE).
 Copyright © 2026 [Nick Frost](https://github.com/nickfrostech).

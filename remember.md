@@ -10,8 +10,8 @@
 - **GitHub Action**: `changesets/action`
 - **Used by**: Lucide, shadcn/ui, Vite, Prettier, Svelte, Chakra UI, Radix UI.
 
-### Key Benefits for Memy Monorepo:
-1. **Multi-Package Harmony**: Coordinates versioning across `@memy/svg`, `@memy/react`, and future adapters (`@memy/vue`, `@memy/svelte`, `@memy/cli`).
+### Key Benefits for Esvigy Monorepo:
+1. **Multi-Package Harmony**: Coordinates versioning across `@esvigy/svg`, `@esvigy/react`, and future adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/cli`).
 2. **Automatic Changelogs**: Generates and updates clean `CHANGELOG.md` files for each package automatically based on contributors' changeset entries.
 3. **Automated Version PRs**: GitHub Actions automatically opens a "Version Packages" pull request whenever changesets accumulate.
 4. **Hands-Off Publishing**: Merging the Version PR triggers automated compilation (`pnpm build`), npm publication (`npm publish`), and git release tagging.
@@ -59,7 +59,7 @@ This creates a `.changeset/config.json` file.
    pnpm changeset
    ```
 3. An interactive CLI prompt asks:
-   - **Which packages should be bumped?** (e.g. `@memy/react`, `@memy/svg`)
+   - **Which packages should be bumped?** (e.g. `@esvigy/react`, `@esvigy/svg`)
    - **What kind of change is it?** (`patch` for bug fixes/small tweaks, `minor` for new illustrations, `major` for breaking API changes)
    - **Summary of change?** (e.g. `feat: add GamePad and ManCarRepair illustrations with animations`)
 4. Changesets creates a small markdown file in `.changeset/`. Commit and push this file alongside your code:
@@ -156,7 +156,7 @@ When you click "Merge" on that PR:
        ▼
 GitHub Actions automatically:
        1. Runs 'pnpm build'
-       2. Publishes updated @memy/* packages to npm registry
+       2. Publishes updated @esvigy/* packages to npm registry
        3. Creates GitHub Releases with git tags and changelog notes
 ```
 
@@ -164,4 +164,4 @@ GitHub Actions automatically:
 
 ## 6. One-Time Prerequisites When Ready to Launch
 1. **GitHub Secret**: Add `NPM_TOKEN` in your GitHub repository under `Settings -> Secrets and variables -> Actions`.
-2. **npm Scope**: Ensure your npm account owns the `@memy` organization / scope on [npmjs.com](https://www.npmjs.com) (or publish as `memy-react` / `memy-svg` if un-scoped).
+2. **npm Scope**: Ensure your npm account owns the `@esvigy` organization / scope on [npmjs.com](https://www.npmjs.com) (or publish as `esvigy-react` / `esvigy-svg` if un-scoped).

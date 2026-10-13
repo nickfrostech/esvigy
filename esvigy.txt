@@ -1,6 +1,6 @@
-Memy
+Esvigy
 
-Memy is an open-source illustration library that makes UI illustrations as easy to use as icons.
+Esvigy is an open-source illustration library that makes UI illustrations as easy to use as icons.
 
 The core idea is:
 
@@ -8,15 +8,15 @@ The core idea is:
 
 
 
-Instead of downloading SVG files, editing them, and manually placing them into projects, developers install Memy and import the illustration they need as a component.
+Instead of downloading SVG files, editing them, and manually placing them into projects, developers install Esvigy and import the illustration they need as a component.
 
-import { NotFound } from "memy";
+import { NotFound } from "esvigy";
 
 <NotFound />
 
 Simple component API
 
-Memy intentionally keeps the API minimal:
+Esvigy intentionally keeps the API minimal:
 
 <NotFound />
 
@@ -46,31 +46,31 @@ No size prop, animation configuration, complex color system, or other unnecessar
 
 Framework support
 
-Yes. The core Memy asset should be framework-agnostic.
+Yes. The core Esvigy asset should be framework-agnostic.
 
 The same normalized SVG can generate packages for different ecosystems:
 
-Memy
+Esvigy
 │
 ├── SVG source
 │
 ├── React
-│ └── @memy/react
+│ └── @esvigy/react
 │
 ├── React Native
-│ └── @memy/react-native
+│ └── @esvigy/react-native
 │
 ├── Vue
-│ └── @memy/vue
+│ └── @esvigy/vue
 │
 ├── Svelte
-│ └── @memy/svelte
+│ └── @esvigy/svelte
 │
 ├── Angular
-│ └── @memy/angular
+│ └── @esvigy/angular
 │
 └── Raw SVG
-    └── @memy/svg
+    └── @esvigy/svg
 
 The important architectural decision is to not make React the source of truth.
 
@@ -78,7 +78,7 @@ The source of truth should be the normalized SVG illustration. Framework-specifi
 
 So the project becomes bigger than a React library:
 
-> Memy is an open-source, framework-agnostic SVG illustration collection with official framework components.
+> Esvigy is an open-source, framework-agnostic SVG illustration collection with official framework components.
 
 
 
@@ -86,7 +86,7 @@ The first implementation can still start with React because it is a straightforw
 
 Asset sources
 
-Memy can grow through three sources:
+Esvigy can grow through three sources:
 
 1. Permissively licensed open-source artwork
 
@@ -110,7 +110,7 @@ Normalize
     ↓
 Optimize
     ↓
-Memy SVG source
+Esvigy SVG source
     ↓
 Generate framework components
     ↓
@@ -147,9 +147,9 @@ Then allow the community to expand the collection.
 
 The final concept
 
-Memy = illustrations that developers use like icons.
+Esvigy = illustrations that developers use like icons.
 
-import { EmptyCart, NotFound } from "@memy/react";
+import { EmptyCart, NotFound } from "@esvigy/react";
 
 <EmptyCart color="#00D4FF" />
 <NotFound animated />
