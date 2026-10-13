@@ -12,7 +12,7 @@ export default defineConfig({
 	plugins: [react()],
 	resolve: {
 		alias: {
-			"@memy/react": path.resolve(__dirname, "../../packages/react/src/index.ts"),
+			"@esvigy/react": path.resolve(__dirname, "../../packages/react/src/index.ts"),
 		},
 	},
 });

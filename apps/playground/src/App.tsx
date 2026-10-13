@@ -1,8 +1,8 @@
 /** @format */
 
 import React, { useState, useMemo } from "react";
-import * as MemyComponents from "@memy/react";
-import manifestData from "../../../packages/svg/src/manifest.json";
+import * as EsvigyComponents from "@esvigy/react";
+import manifestData from "../../../packages/svg/manifest.json";
 
 interface IllustrationItem {
 	name: string;
@@ -33,10 +33,10 @@ export function App() {
 	const [copiedName, setCopiedName] = useState<string | null>(null);
 	const [focusedItem, setFocusedItem] = useState<IllustrationItem | null>(null);
 
-	// Automatically extract and sort all illustration components from @memy/react
+	// Automatically extract and sort all illustration components from @esvigy/react
 	const illustrations: IllustrationItem[] = useMemo(() => {
 		const manifest = manifestData as Record<string, any>;
-		return Object.entries(MemyComponents)
+		return Object.entries(EsvigyComponents)
 			.filter(
 				([name, Comp]) =>
 					typeof Comp === "function" && name !== "App" && !name.startsWith("_"),
@@ -152,7 +152,7 @@ export function App() {
 							boxShadow: "0 0 20px rgba(0, 212, 255, 0.4)",
 						}}
 					>
-						M
+						E
 					</div>
 					<div>
 						<div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
@@ -164,7 +164,7 @@ export function App() {
 									letterSpacing: "-0.5px",
 								}}
 							>
-								Memy Studio
+								Esvigy Studio
 							</h1>
 							<span
 								style={{
@@ -537,7 +537,8 @@ export function App() {
 													maxWidth: "100%",
 													maxHeight: "100%",
 													width: "auto",
-													height: "auto",
+                                       height: "auto",
+                                       border: "1px solid red"
 												}}
 											/>
 										</div>
