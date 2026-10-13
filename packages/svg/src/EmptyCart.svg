@@ -2,73 +2,73 @@
   Author: Flowbite & nick
   Source: https://github.com/nickfrostech
 -->
-<svg viewBox="0 0 465 410" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="nick" data-source="https://github.com/nickfrostech">
+<svg viewBox="0 0 465 410" fill="none" xmlns="http://www.w3.org/2000/svg" class="esvigy-animated" data-animated="true" data-author="nick" data-source="https://github.com/nickfrostech">
   <style>
-    @keyframes memy-cart-rock {
+    @keyframes esvigy-cart-rock {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-6px) rotate(-1.5deg); }
     }
-    @keyframes memy-cart-bubble {
+    @keyframes esvigy-cart-bubble {
       0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
       50% { transform: translateY(-12px) rotate(3deg) scale(1.04); }
     }
-    @keyframes memy-cart-sparkle {
+    @keyframes esvigy-cart-sparkle {
       0%, 100% { transform: translateY(0px) scale(0.85); opacity: 0.35; }
       50% { transform: translateY(-8px) scale(1.15); opacity: 0.9; }
     }
-    @keyframes memy-wheel-roll {
+    @keyframes esvigy-wheel-roll {
       0%, 100% { transform: rotate(0deg); }
       50% { transform: rotate(28deg); }
     }
-    @keyframes memy-ground-shadow {
+    @keyframes esvigy-ground-shadow {
       0%, 100% { transform: scaleX(1); opacity: 0.28; }
       50% { transform: scaleX(0.88); opacity: 0.14; }
     }
 
-    svg.memy-animated .memy-cart-main,
-    svg[data-animated="true"] .memy-cart-main {
+    svg.esvigy-animated .esvigy-cart-main,
+    svg[data-animated="true"] .esvigy-cart-main {
       transform-box: fill-box;
       transform-origin: bottom center;
-      animation: memy-cart-rock 3.6s ease-in-out infinite;
+      animation: esvigy-cart-rock 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-bubble-float,
-    svg[data-animated="true"] .memy-bubble-float {
+    svg.esvigy-animated .esvigy-bubble-float,
+    svg[data-animated="true"] .esvigy-bubble-float {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-bubble 3.2s ease-in-out infinite;
+      animation: esvigy-cart-bubble 3.2s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-sparkle-1,
-    svg[data-animated="true"] .memy-sparkle-1 {
+    svg.esvigy-animated .esvigy-sparkle-1,
+    svg[data-animated="true"] .esvigy-sparkle-1 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-sparkle 2.8s ease-in-out infinite;
+      animation: esvigy-cart-sparkle 2.8s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-sparkle-2,
-    svg[data-animated="true"] .memy-sparkle-2 {
+    svg.esvigy-animated .esvigy-sparkle-2,
+    svg[data-animated="true"] .esvigy-sparkle-2 {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-cart-sparkle 2.8s ease-in-out 1.2s infinite;
+      animation: esvigy-cart-sparkle 2.8s ease-in-out 1.2s infinite;
     }
 
-    svg.memy-animated .memy-wheel-front,
-    svg[data-animated="true"] .memy-wheel-front {
+    svg.esvigy-animated .esvigy-wheel-front,
+    svg[data-animated="true"] .esvigy-wheel-front {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-wheel-roll 3.6s ease-in-out infinite;
+      animation: esvigy-wheel-roll 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-cart-shadow,
-    svg[data-animated="true"] .memy-cart-shadow {
+    svg.esvigy-animated .esvigy-cart-shadow,
+    svg[data-animated="true"] .esvigy-cart-shadow {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-ground-shadow 3.6s ease-in-out infinite;
+      animation: esvigy-ground-shadow 3.6s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated *,
+      svg.esvigy-animated *,
       svg[data-animated="true"] * {
         animation: none !important;
       }
@@ -76,17 +76,17 @@
   </style>
 
   <!-- Ground Contact Shadow -->
-  <ellipse class="memy-cart-shadow" cx="295" cy="402" rx="145" ry="4" fill="#000000" opacity="0.28"/>
+  <ellipse class="esvigy-cart-shadow" cx="295" cy="402" rx="145" ry="4" fill="#000000" opacity="0.28"/>
 
   <!-- Main Animated Cart Group -->
-  <g class="memy-cart-main">
+  <g class="esvigy-cart-main">
 
     <!-- Atmospheric Empty Aura inside Basket -->
-    <ellipse cx="280" cy="155" rx="125" ry="75" fill="currentColor" opacity="0.1" data-memy-secondary="true"/>
+    <ellipse cx="280" cy="155" rx="125" ry="75" fill="currentColor" opacity="0.1" data-esvigy-secondary="true"/>
 
     <!-- Subtle Dotted Empty-State Placeholder Box resting inside Cart -->
-    <g class="memy-empty-placeholder" opacity="0.55">
-      <rect x="235" y="160" width="115" height="74" rx="10" fill="currentColor" opacity="0.08" data-memy-secondary="true"/>
+    <g class="esvigy-empty-placeholder" opacity="0.55">
+      <rect x="235" y="160" width="115" height="74" rx="10" fill="currentColor" opacity="0.08" data-esvigy-secondary="true"/>
       <rect x="235" y="160" width="115" height="74" rx="10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-dasharray="6 6" opacity="0.45"/>
       <!-- Small centered plus icon suggesting "Add items" -->
       <line x1="292.5" y1="189" x2="292.5" y2="205" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -94,11 +94,11 @@
     </g>
 
     <!-- Floating Empty Question Speech Bubble -->
-    <g class="memy-bubble-float">
+    <g class="esvigy-bubble-float">
       <!-- Glow Drop -->
-      <circle cx="285" cy="92" r="42" fill="currentColor" opacity="0.12" data-memy-secondary="true"/>
+      <circle cx="285" cy="92" r="42" fill="currentColor" opacity="0.12" data-esvigy-secondary="true"/>
       <!-- Bubble Background -->
-      <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" fill="currentColor" data-memy-secondary="true" data-memy-default="#1e293b"/>
+      <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" fill="currentColor" data-esvigy-secondary="true" data-esvigy-default="#1e293b"/>
       <!-- Bubble Border -->
       <path d="M285 54C260.699 54 241 71.9086 241 94C241 103.882 245.039 112.924 251.844 119.824L247 136L264.444 130.347C270.835 132.694 277.747 134 285 134C309.301 134 329 116.091 329 94C329 71.9086 309.301 54 285 54Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
       <!-- Vibrant Floating Question Mark -->
@@ -107,10 +107,10 @@
     </g>
 
     <!-- Floating Empty Breeze / Sparkles -->
-    <g class="memy-sparkle-1">
+    <g class="esvigy-sparkle-1">
       <path d="M178 92L182 104L194 108L182 112L178 124L174 112L162 108L174 104Z" fill="currentColor"/>
     </g>
-    <g class="memy-sparkle-2">
+    <g class="esvigy-sparkle-2">
       <path d="M388 64L391 73L400 76L391 79L388 88L385 79L376 76L385 73Z" fill="currentColor"/>
     </g>
 
@@ -133,7 +133,7 @@
     <circle cx="373" cy="378" r="3" fill="#ffffff" opacity="0.5"/>
 
     <!-- Front Rolling Wheel (With Spoke Crosshair for Visible Rocking) -->
-    <g class="memy-wheel-front">
+    <g class="esvigy-wheel-front">
       <circle cx="201" cy="378" r="28" fill="#1e293b"/>
       <circle cx="201" cy="378" r="15" fill="#334155"/>
       <circle cx="201" cy="378" r="6" fill="currentColor"/>

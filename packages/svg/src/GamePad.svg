@@ -2,163 +2,163 @@
   Author: Flowbite
   Source: https://flowbite.com
 -->
-<svg viewBox="0 0 545 632" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
+<svg viewBox="0 0 545 632" fill="none" xmlns="http://www.w3.org/2000/svg" class="esvigy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
   <style>
-    @keyframes memy-pad-float {
+    @keyframes esvigy-pad-float {
       0%, 100% { transform: translateY(0) rotate(0deg); }
       50% { transform: translateY(-7px) rotate(0.8deg); }
     }
-    @keyframes memy-stick-left-roll {
+    @keyframes esvigy-stick-left-roll {
       0%, 100% { transform: translate(0, 0); }
       25% { transform: translate(3.5px, 2px); }
       50% { transform: translate(-1px, 4px); }
       75% { transform: translate(-3.5px, -1.5px); }
     }
-    @keyframes memy-stick-right-roll {
+    @keyframes esvigy-stick-right-roll {
       0%, 100% { transform: translate(0, 0); }
       25% { transform: translate(-3px, -2px); }
       50% { transform: translate(2px, -3.5px); }
       75% { transform: translate(3.5px, 2px); }
     }
-    @keyframes memy-button-press {
+    @keyframes esvigy-button-press {
       0%, 100% { transform: scale(1); opacity: 0.95; }
       15% { transform: scale(0.88); opacity: 0.55; }
       30% { transform: scale(1.06); opacity: 1; }
       45% { transform: scale(1); }
     }
-    @keyframes memy-sparkle-twinkle {
+    @keyframes esvigy-sparkle-twinkle {
       0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.3; }
       50% { transform: scale(1.2) rotate(45deg); opacity: 0.95; }
     }
 
-    svg.memy-animated .memy-gamepad-body,
-    svg[data-animated="true"] .memy-gamepad-body {
+    svg.esvigy-animated .esvigy-gamepad-body,
+    svg[data-animated="true"] .esvigy-gamepad-body {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-pad-float 4.2s ease-in-out infinite;
+      animation: esvigy-pad-float 4.2s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-stick-left,
-    svg[data-animated="true"] .memy-stick-left {
+    svg.esvigy-animated .esvigy-stick-left,
+    svg[data-animated="true"] .esvigy-stick-left {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-stick-left-roll 3.6s ease-in-out infinite;
+      animation: esvigy-stick-left-roll 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-stick-right,
-    svg[data-animated="true"] .memy-stick-right {
+    svg.esvigy-animated .esvigy-stick-right,
+    svg[data-animated="true"] .esvigy-stick-right {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-stick-right-roll 4s ease-in-out infinite 0.3s;
+      animation: esvigy-stick-right-roll 4s ease-in-out infinite 0.3s;
     }
 
-    svg.memy-animated .memy-btn-up,
-    svg[data-animated="true"] .memy-btn-up {
+    svg.esvigy-animated .esvigy-btn-up,
+    svg[data-animated="true"] .esvigy-btn-up {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-button-press 2.8s ease-in-out infinite 0s;
+      animation: esvigy-button-press 2.8s ease-in-out infinite 0s;
     }
-    svg.memy-animated .memy-btn-right,
-    svg[data-animated="true"] .memy-btn-right {
+    svg.esvigy-animated .esvigy-btn-right,
+    svg[data-animated="true"] .esvigy-btn-right {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-button-press 2.8s ease-in-out infinite 0.7s;
+      animation: esvigy-button-press 2.8s ease-in-out infinite 0.7s;
     }
-    svg.memy-animated .memy-btn-down,
-    svg[data-animated="true"] .memy-btn-down {
+    svg.esvigy-animated .esvigy-btn-down,
+    svg[data-animated="true"] .esvigy-btn-down {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-button-press 2.8s ease-in-out infinite 1.4s;
+      animation: esvigy-button-press 2.8s ease-in-out infinite 1.4s;
     }
-    svg.memy-animated .memy-btn-left,
-    svg[data-animated="true"] .memy-btn-left {
+    svg.esvigy-animated .esvigy-btn-left,
+    svg[data-animated="true"] .esvigy-btn-left {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-button-press 2.8s ease-in-out infinite 2.1s;
-    }
-
-    svg.memy-animated .memy-act-a,
-    svg[data-animated="true"] .memy-act-a {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: memy-button-press 3.2s ease-in-out infinite 0.2s;
-    }
-    svg.memy-animated .memy-act-b,
-    svg[data-animated="true"] .memy-act-b {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: memy-button-press 3.2s ease-in-out infinite 0.9s;
-    }
-    svg.memy-animated .memy-act-x,
-    svg[data-animated="true"] .memy-act-x {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: memy-button-press 3.2s ease-in-out infinite 1.6s;
-    }
-    svg.memy-animated .memy-act-y,
-    svg[data-animated="true"] .memy-act-y {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: memy-button-press 3.2s ease-in-out infinite 2.3s;
+      animation: esvigy-button-press 2.8s ease-in-out infinite 2.1s;
     }
 
-    svg.memy-animated .memy-sparkle-1,
-    svg[data-animated="true"] .memy-sparkle-1 {
+    svg.esvigy-animated .esvigy-act-a,
+    svg[data-animated="true"] .esvigy-act-a {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-sparkle-twinkle 2.8s ease-in-out infinite;
+      animation: esvigy-button-press 3.2s ease-in-out infinite 0.2s;
     }
-    svg.memy-animated .memy-sparkle-2,
-    svg[data-animated="true"] .memy-sparkle-2 {
+    svg.esvigy-animated .esvigy-act-b,
+    svg[data-animated="true"] .esvigy-act-b {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-sparkle-twinkle 3.2s ease-in-out infinite 1.4s;
+      animation: esvigy-button-press 3.2s ease-in-out infinite 0.9s;
+    }
+    svg.esvigy-animated .esvigy-act-x,
+    svg[data-animated="true"] .esvigy-act-x {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: esvigy-button-press 3.2s ease-in-out infinite 1.6s;
+    }
+    svg.esvigy-animated .esvigy-act-y,
+    svg[data-animated="true"] .esvigy-act-y {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: esvigy-button-press 3.2s ease-in-out infinite 2.3s;
+    }
+
+    svg.esvigy-animated .esvigy-sparkle-1,
+    svg[data-animated="true"] .esvigy-sparkle-1 {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: esvigy-sparkle-twinkle 2.8s ease-in-out infinite;
+    }
+    svg.esvigy-animated .esvigy-sparkle-2,
+    svg[data-animated="true"] .esvigy-sparkle-2 {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: esvigy-sparkle-twinkle 3.2s ease-in-out infinite 1.4s;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated .memy-gamepad-body,
-      svg.memy-animated .memy-stick-left,
-      svg.memy-animated .memy-stick-right,
-      svg.memy-animated .memy-btn-up,
-      svg.memy-animated .memy-btn-right,
-      svg.memy-animated .memy-btn-down,
-      svg.memy-animated .memy-btn-left,
-      svg.memy-animated .memy-act-a,
-      svg.memy-animated .memy-act-b,
-      svg.memy-animated .memy-act-x,
-      svg.memy-animated .memy-act-y,
-      svg.memy-animated .memy-sparkle-1,
-      svg.memy-animated .memy-sparkle-2,
-      svg[data-animated="true"] .memy-gamepad-body,
-      svg[data-animated="true"] .memy-stick-left,
-      svg[data-animated="true"] .memy-stick-right,
-      svg[data-animated="true"] .memy-btn-up,
-      svg[data-animated="true"] .memy-btn-right,
-      svg[data-animated="true"] .memy-btn-down,
-      svg[data-animated="true"] .memy-btn-left,
-      svg[data-animated="true"] .memy-act-a,
-      svg[data-animated="true"] .memy-act-b,
-      svg[data-animated="true"] .memy-act-x,
-      svg[data-animated="true"] .memy-act-y,
-      svg[data-animated="true"] .memy-sparkle-1,
-      svg[data-animated="true"] .memy-sparkle-2 {
+      svg.esvigy-animated .esvigy-gamepad-body,
+      svg.esvigy-animated .esvigy-stick-left,
+      svg.esvigy-animated .esvigy-stick-right,
+      svg.esvigy-animated .esvigy-btn-up,
+      svg.esvigy-animated .esvigy-btn-right,
+      svg.esvigy-animated .esvigy-btn-down,
+      svg.esvigy-animated .esvigy-btn-left,
+      svg.esvigy-animated .esvigy-act-a,
+      svg.esvigy-animated .esvigy-act-b,
+      svg.esvigy-animated .esvigy-act-x,
+      svg.esvigy-animated .esvigy-act-y,
+      svg.esvigy-animated .esvigy-sparkle-1,
+      svg.esvigy-animated .esvigy-sparkle-2,
+      svg[data-animated="true"] .esvigy-gamepad-body,
+      svg[data-animated="true"] .esvigy-stick-left,
+      svg[data-animated="true"] .esvigy-stick-right,
+      svg[data-animated="true"] .esvigy-btn-up,
+      svg[data-animated="true"] .esvigy-btn-right,
+      svg[data-animated="true"] .esvigy-btn-down,
+      svg[data-animated="true"] .esvigy-btn-left,
+      svg[data-animated="true"] .esvigy-act-a,
+      svg[data-animated="true"] .esvigy-act-b,
+      svg[data-animated="true"] .esvigy-act-x,
+      svg[data-animated="true"] .esvigy-act-y,
+      svg[data-animated="true"] .esvigy-sparkle-1,
+      svg[data-animated="true"] .esvigy-sparkle-2 {
         animation: none !important;
       }
     }
   </style>
 
   <!-- Background Aura Circle -->
-  <path d="M545 272.5C545 422.998 422.998 545 272.5 545C122.002 545 0 422.998 0 272.5C0 122.002 122.002 0 272.5 0C422.998 0 545 122.002 545 272.5Z" fill="url(#paint0_linear_749_3)" data-memy-secondary="true" data-memy-default="#1F2A37"/>
+  <path d="M545 272.5C545 422.998 422.998 545 272.5 545C122.002 545 0 422.998 0 272.5C0 122.002 122.002 0 272.5 0C422.998 0 545 122.002 545 272.5Z" fill="url(#paint0_linear_749_3)" data-esvigy-secondary="true" data-esvigy-default="#1F2A37"/>
 
   <!-- Entire Gamepad Floating Assembly -->
-  <g class="memy-gamepad-body">
+  <g class="esvigy-gamepad-body">
     <!-- Main Controller Shell -->
     <path fill-rule="evenodd" clip-rule="evenodd" d="M367.45 194.57C361.595 199.108 354.867 203.5 347.458 203.5H265.5H255H173.042C165.633 203.5 158.905 199.108 153.05 194.57C148.718 191.212 142.775 188.164 135.184 187C133.083 186.678 130.855 186.5 128.5 186.5C109.4 186.5 87.3285 190.133 69.2632 209.21C65.101 213.605 61.1514 218.821 57.5 225C48.9687 239.438 31.1542 284.117 18.6274 335.257C14.7199 351.209 11.3269 367.789 8.8906 384.276C3.51649 420.645 2.79756 456.56 11.4804 484.273C15.0859 495.781 20.3125 505.875 27.5 514C33.25 520.5 39.0651 524.531 44.8769 526.493C85.5599 540.227 126.083 452.562 143 400.5C143.008 400.506 143.016 400.512 143.024 400.518C154.683 409.176 166.514 416 187 416C207.5 416 236 400.5 239 379.5H255H265.5H281.5C284.5 400.5 313 416 333.5 416C353.972 416 365.801 409.185 377.452 400.536C377.468 400.524 377.484 400.512 377.5 400.5C379.917 407.938 382.815 416.102 386.127 424.593C409.31 484.031 452.75 559.5 493 514C550.5 449 482.5 258 463 225C445.736 195.783 421.808 188.123 400.24 186.75C397.447 186.572 394.694 186.5 392 186.5C389.285 186.5 386.739 186.736 384.36 187.158C377.225 188.423 371.599 191.354 367.45 194.57Z" fill="currentColor"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M367.45 194.57C361.595 199.108 354.867 203.5 347.458 203.5H265.5H255H173.042C165.633 203.5 158.905 199.108 153.05 194.57C148.718 191.212 142.775 188.164 135.184 187C133.083 186.678 130.855 186.5 128.5 186.5C109.4 186.5 87.3285 190.133 69.2632 209.21C65.101 213.605 61.1514 218.821 57.5 225C48.9687 239.438 31.1542 284.117 18.6274 335.257C14.7199 351.209 11.3269 367.789 8.8906 384.276C3.51649 420.645 2.79756 456.56 11.4804 484.273C15.0859 495.781 20.3125 505.875 27.5 514C33.25 520.5 39.0651 524.531 44.8769 526.493C85.5599 540.227 126.083 452.562 143 400.5C143.008 400.506 143.016 400.512 143.024 400.518C154.683 409.176 166.514 416 187 416C207.5 416 236 400.5 239 379.5H255H265.5H281.5C284.5 400.5 313 416 333.5 416C353.972 416 365.801 409.185 377.452 400.536C377.468 400.524 377.484 400.512 377.5 400.5C379.917 407.938 382.815 416.102 386.127 424.593C409.31 484.031 452.75 559.5 493 514C550.5 449 482.5 258 463 225C445.736 195.783 421.808 188.123 400.24 186.75C397.447 186.572 394.694 186.5 392 186.5C389.285 186.5 386.739 186.736 384.36 187.158C377.225 188.423 371.599 191.354 367.45 194.57Z" fill="url(#paint1_linear_749_3)"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M367.45 194.57C361.595 199.108 354.867 203.5 347.458 203.5H265.5H255H173.042C165.633 203.5 158.905 199.108 153.05 194.57C148.718 191.212 142.775 188.164 135.184 187C133.083 186.678 130.855 186.5 128.5 186.5C109.4 186.5 87.3285 190.133 69.2632 209.21C65.101 213.605 61.1514 218.821 57.5 225C48.9687 239.438 31.1542 284.117 18.6274 335.257C14.7199 351.209 11.3269 367.789 8.8906 384.276C3.51649 420.645 2.79756 456.56 11.4804 484.273C15.0859 495.781 20.3125 505.875 27.5 514C33.25 520.5 39.0651 524.531 44.8769 526.493C85.5599 540.227 126.083 452.562 143 400.5C143.008 400.506 143.016 400.512 143.024 400.518C154.683 409.176 166.514 416 187 416C207.5 416 236 400.5 239 379.5H255H265.5H281.5C284.5 400.5 313 416 333.5 416C353.972 416 365.801 409.185 377.452 400.536C377.468 400.524 377.484 400.512 377.5 400.5C379.917 407.938 382.815 416.102 386.127 424.593C409.31 484.031 452.75 559.5 493 514C550.5 449 482.5 258 463 225C445.736 195.783 421.808 188.123 400.24 186.75C397.447 186.572 394.694 186.5 392 186.5C389.285 186.5 386.739 186.736 384.36 187.158C377.225 188.423 371.599 191.354 367.45 194.57Z" fill="url(#paint2_linear_749_3)"/>
 
     <!-- Left Analog Thumbstick -->
-    <g class="memy-stick-left">
+    <g class="esvigy-stick-left">
       <path d="M217 335C217 352.121 201.33 366 182 366C162.67 366 147 352.121 147 335C147 317.879 162.67 304 182 304C201.33 304 217 317.879 217 335Z" fill="currentColor"/>
       <path d="M217 335C217 352.121 201.33 366 182 366C162.67 366 147 352.121 147 335C147 317.879 162.67 304 182 304C201.33 304 217 317.879 217 335Z" fill="url(#paint13_linear_749_3)"/>
       <path d="M211 323.5C211 339.24 196.673 352 179 352C161.327 352 147 339.24 147 323.5C147 307.76 161.327 295 179 295C196.673 295 211 307.76 211 323.5Z" fill="currentColor"/>
@@ -167,7 +167,7 @@
     </g>
 
     <!-- Right Analog Thumbstick -->
-    <g class="memy-stick-right">
+    <g class="esvigy-stick-right">
       <path d="M303 335C303 352.121 318.67 366 338 366C357.33 366 373 352.121 373 335C373 317.879 357.33 304 338 304C318.67 304 303 317.879 303 335Z" fill="currentColor"/>
       <path d="M303 335C303 352.121 318.67 366 338 366C357.33 366 373 352.121 373 335C373 317.879 357.33 304 338 304C318.67 304 303 317.879 303 335Z" fill="url(#paint3_linear_749_3)"/>
       <path d="M309 323.5C309 339.24 323.327 352 341 352C358.673 352 373 339.24 373 323.5C373 307.76 358.673 295 341 295C323.327 295 309 307.76 309 323.5Z" fill="currentColor"/>
@@ -176,37 +176,37 @@
     </g>
 
     <!-- D-Pad Directional Controls -->
-    <g class="memy-btn-up">
+    <g class="esvigy-btn-up">
       <path d="M108 218C108 216.895 108.895 216 110 216H131C132.105 216 133 216.895 133 218V234.644C133 235.274 132.703 235.867 132.198 236.245L121.698 244.103C120.988 244.635 120.012 244.635 119.302 244.103L108.802 236.245C108.297 235.867 108 235.274 108 234.644V218Z" fill="url(#paint9_linear_749_3)" fill-opacity="0.4"/>
       <path d="M108 216C108 214.895 108.895 214 110 214H131C132.105 214 133 214.895 133 216V232.644C133 233.274 132.703 233.867 132.198 234.245L121.698 242.103C120.988 242.635 120.012 242.635 119.302 242.103L108.802 234.245C108.297 233.867 108 233.274 108 232.644V216Z" fill="white"/>
     </g>
-    <g class="memy-btn-down">
+    <g class="esvigy-btn-down">
       <path d="M133 286C133 287.105 132.105 288 131 288L110 288C108.895 288 108 287.105 108 286L108 269.356C108 268.726 108.297 268.133 108.802 267.755L119.302 259.897C120.012 259.365 120.988 259.365 121.698 259.897L132.198 267.755C132.703 268.133 133 268.726 133 269.356L133 286Z" fill="url(#paint10_linear_749_3)" fill-opacity="0.4"/>
       <path d="M133 284C133 285.105 132.105 286 131 286L110 286C108.895 286 108 285.105 108 284L108 267.356C108 266.726 108.297 266.133 108.802 265.755L119.302 257.897C120.012 257.365 120.988 257.365 121.698 257.897L132.198 265.755C132.703 266.133 133 266.726 133 267.356L133 284Z" fill="white"/>
     </g>
-    <g class="memy-btn-right">
+    <g class="esvigy-btn-right">
       <path d="M155 239C156.105 239 157 239.895 157 241L157 262C157 263.105 156.105 264 155 264L138.356 264C137.726 264 137.133 263.703 136.755 263.198L128.897 252.698C128.365 251.988 128.5 250.5 128.5 249.5L136.755 239.802C137.133 239.297 137.726 239 138.356 239L155 239Z" fill="url(#paint11_linear_749_3)" fill-opacity="0.4"/>
       <path d="M155 237C156.105 237 157 237.895 157 239L157 260C157 261.105 156.105 262 155 262L138.356 262C137.726 262 137.133 261.703 136.755 261.198L128.897 250.698C128.365 249.988 128.365 249.012 128.897 248.302L136.755 237.802C137.133 237.297 137.726 237 138.356 237L155 237Z" fill="white"/>
     </g>
-    <g class="memy-btn-left">
+    <g class="esvigy-btn-left">
       <path d="M87 264C85.8954 264 85 263.105 85 262L85 241C85 239.895 85.8954 239 87 239L103.644 239C104.274 239 104.867 239.297 105.245 239.802L113.5 249.5C113.5 250.5 113.635 251.988 113.103 252.698L105.245 263.198C104.867 263.703 104.274 264 103.644 264L87 264Z" fill="url(#paint12_linear_749_3)" fill-opacity="0.4"/>
       <path d="M87 262C85.8954 262 85 261.105 85 260L85 239C85 237.895 85.8954 237 87 237L103.644 237C104.274 237 104.867 237.297 105.245 237.802L113.103 248.302C113.635 249.012 113.635 249.988 113.103 250.698L105.245 261.198C104.867 261.703 104.274 262 103.644 262L87 262Z" fill="white"/>
     </g>
 
     <!-- Action Buttons (A, B, X, Y) -->
-    <g class="memy-act-a">
+    <g class="esvigy-act-a">
       <path d="M387 277.509C387 285.512 394.387 292 403.5 292C412.613 292 420 285.512 420 277.509C420 269.505 412.613 263.017 403.5 263.017C394.387 263.017 387 269.505 387 277.509Z" fill="url(#paint5_linear_749_3)" fill-opacity="0.4"/>
       <path d="M387 275.492C387 283.495 394.387 289.983 403.5 289.983C412.613 289.983 420 283.495 420 275.492C420 267.488 412.613 261 403.5 261C394.387 261 387 267.488 387 275.492Z" fill="white"/>
     </g>
-    <g class="memy-act-x">
+    <g class="esvigy-act-x">
       <path d="M354 251.509C354 259.512 361.387 266 370.5 266C379.613 266 387 259.512 387 251.509C387 243.505 379.613 237.017 370.5 237.017C361.387 237.017 354 243.505 354 251.509Z" fill="url(#paint6_linear_749_3)" fill-opacity="0.4"/>
       <path d="M354 249.492C354 257.495 361.387 263.983 370.5 263.983C379.613 263.983 387 257.495 387 249.492C387 241.488 379.613 235 370.5 235C361.387 235 354 241.488 354 249.492Z" fill="white"/>
     </g>
-    <g class="memy-act-b">
+    <g class="esvigy-act-b">
       <path d="M420 251.509C420 259.512 427.387 266 436.5 266C445.613 266 453 259.512 453 251.509C453 243.505 445.613 237.017 436.5 237.017C427.387 237.017 420 243.505 420 251.509Z" fill="url(#paint7_linear_749_3)" fill-opacity="0.4"/>
       <path d="M420 249.492C420 257.495 427.387 263.983 436.5 263.983C445.613 263.983 453 257.495 453 249.492C453 241.488 445.613 235 436.5 235C427.387 235 420 241.488 420 249.492Z" fill="white"/>
     </g>
-    <g class="memy-act-y">
+    <g class="esvigy-act-y">
       <path d="M387 224.509C387 232.512 394.387 239 403.5 239C412.613 239 420 232.512 420 224.509C420 216.505 412.613 210.017 403.5 210.017C394.387 210.017 387 216.505 387 224.509Z" fill="url(#paint8_linear_749_3)" fill-opacity="0.4"/>
       <path d="M387 222.492C387 230.495 394.387 236.983 403.5 236.983C412.613 236.983 420 230.495 420 222.492C420 214.488 412.613 208 403.5 208C394.387 208 387 214.488 387 222.492Z" fill="white"/>
     </g>
@@ -245,11 +245,11 @@
   </g>
 
   <!-- Clean Floating Diamond Sparkles (Replacing invalid corrupted paths) -->
-  <g class="memy-sparkle-1">
+  <g class="esvigy-sparkle-1">
     <path d="M386 122 C386 130 394 135 402 135 C394 135 386 140 386 148 C386 140 378 135 370 135 C378 135 386 130 386 122 Z" fill="#111928"/>
     <path d="M300 48 C300 53 304 56 308 56 C304 56 300 59 300 64 C300 59 296 56 292 56 C296 56 300 53 300 48 Z" fill="#374151"/>
   </g>
-  <g class="memy-sparkle-2">
+  <g class="esvigy-sparkle-2">
     <path d="M178 466 C178 472 184 476 190 476 C184 476 178 480 178 486 C178 480 172 476 166 476 C172 476 178 472 178 466 Z" fill="#374151"/>
     <path d="M114 128 C114 132 118 135 122 135 C118 135 114 138 114 142 C114 138 110 135 106 135 C110 135 114 132 114 128 Z" fill="#111111"/>
     <path d="M357 431 C357 435 361 438 365 438 C361 438 357 441 357 445 C357 441 353 438 349 438 C353 438 357 435 357 431 Z" fill="#374151"/>

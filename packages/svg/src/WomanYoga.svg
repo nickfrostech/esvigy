@@ -2,79 +2,79 @@
   Author: Flowbite
   Source: https://flowbite.com
 -->
-<svg viewBox="0 0 406 594" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
+<svg viewBox="0 0 406 594" fill="none" xmlns="http://www.w3.org/2000/svg" class="esvigy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
   <style>
-    @keyframes memy-meditate-levitate {
+    @keyframes esvigy-meditate-levitate {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-9px); }
     }
-    @keyframes memy-aura-breathe {
+    @keyframes esvigy-aura-breathe {
       0%, 100% { transform: scale(1); opacity: 0.85; }
       50% { transform: scale(1.045); opacity: 1; }
     }
-    @keyframes memy-mat-shadow {
+    @keyframes esvigy-mat-shadow {
       0%, 100% { transform: scaleX(1); opacity: 0.9; }
       50% { transform: scaleX(0.93); opacity: 0.55; }
     }
-    @keyframes memy-hands-prana {
+    @keyframes esvigy-hands-prana {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.03); }
     }
 
-    svg.memy-animated .memy-meditator,
-    svg[data-animated="true"] .memy-meditator {
+    svg.esvigy-animated .esvigy-meditator,
+    svg[data-animated="true"] .esvigy-meditator {
       transform-box: fill-box;
       transform-origin: center bottom;
-      animation: memy-meditate-levitate 4.5s ease-in-out infinite;
+      animation: esvigy-meditate-levitate 4.5s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-aura-circle,
-    svg[data-animated="true"] .memy-aura-circle {
+    svg.esvigy-animated .esvigy-aura-circle,
+    svg[data-animated="true"] .esvigy-aura-circle {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-aura-breathe 4.5s ease-in-out infinite;
+      animation: esvigy-aura-breathe 4.5s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-yoga-mat-shadow,
-    svg[data-animated="true"] .memy-yoga-mat-shadow {
+    svg.esvigy-animated .esvigy-yoga-mat-shadow,
+    svg[data-animated="true"] .esvigy-yoga-mat-shadow {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-mat-shadow 4.5s ease-in-out infinite;
+      animation: esvigy-mat-shadow 4.5s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-hands-namaste,
-    svg[data-animated="true"] .memy-hands-namaste {
+    svg.esvigy-animated .esvigy-hands-namaste,
+    svg[data-animated="true"] .esvigy-hands-namaste {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-hands-prana 4.5s ease-in-out infinite;
+      animation: esvigy-hands-prana 4.5s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated .memy-meditator,
-      svg.memy-animated .memy-aura-circle,
-      svg.memy-animated .memy-yoga-mat-shadow,
-      svg.memy-animated .memy-hands-namaste,
-      svg[data-animated="true"] .memy-meditator,
-      svg[data-animated="true"] .memy-aura-circle,
-      svg[data-animated="true"] .memy-yoga-mat-shadow,
-      svg[data-animated="true"] .memy-hands-namaste {
+      svg.esvigy-animated .esvigy-meditator,
+      svg.esvigy-animated .esvigy-aura-circle,
+      svg.esvigy-animated .esvigy-yoga-mat-shadow,
+      svg.esvigy-animated .esvigy-hands-namaste,
+      svg[data-animated="true"] .esvigy-meditator,
+      svg[data-animated="true"] .esvigy-aura-circle,
+      svg[data-animated="true"] .esvigy-yoga-mat-shadow,
+      svg[data-animated="true"] .esvigy-hands-namaste {
         animation: none !important;
       }
     }
   </style>
 
   <!-- Yoga Mat on the floor -->
-  <g class="memy-yoga-mat-shadow">
-    <path d="M28 413.554C28 412.143 29.6723 411 31.7352 411H372.265C374.328 411 376 412.143 376 413.554V571.446C376 572.857 374.328 574 372.265 574H31.7352C29.6723 574 28 572.857 28 571.446V413.554Z" fill="url(#paint0_linear_748_173)" data-memy-secondary="true" data-memy-default="#1F2A37"/>
+  <g class="esvigy-yoga-mat-shadow">
+    <path d="M28 413.554C28 412.143 29.6723 411 31.7352 411H372.265C374.328 411 376 412.143 376 413.554V571.446C376 572.857 374.328 574 372.265 574H31.7352C29.6723 574 28 572.857 28 571.446V413.554Z" fill="url(#paint0_linear_748_173)" data-esvigy-secondary="true" data-esvigy-default="#1F2A37"/>
   </g>
 
   <!-- Breathing Spiritual Aura Circle -->
-  <g class="memy-aura-circle">
-    <path d="M406 203C406 315.114 315.114 406 203 406C90.8862 406 0 315.114 0 203C0 90.8862 90.8862 0 203 0C315.114 0 406 90.8862 406 203Z" fill="url(#paint1_linear_748_173)" data-memy-secondary="true" data-memy-default="#1F2A37"/>
+  <g class="esvigy-aura-circle">
+    <path d="M406 203C406 315.114 315.114 406 203 406C90.8862 406 0 315.114 0 203C0 90.8862 90.8862 0 203 0C315.114 0 406 90.8862 406 203Z" fill="url(#paint1_linear_748_173)" data-esvigy-secondary="true" data-esvigy-default="#1F2A37"/>
   </g>
 
   <!-- Levitating Meditating Yogi -->
-  <g class="memy-meditator">
+  <g class="esvigy-meditator">
     <!-- Left Leg Foot & Ankle -->
     <path d="M203.5 397C201.5 397.4 200.333 395.833 200 395L204 333.5C209 330 216 335.5 220.5 335C224.1 334.6 230.667 332.833 233.5 332V353C227.167 356.333 213.9 364.9 211.5 372.5C208.5 382 206 396.5 203.5 397Z" fill="#FDBA8C"/>
     <path d="M203.5 397C201.5 397.4 200.333 395.833 200 395L204 333.5C209 330 216 335.5 220.5 335C224.1 334.6 230.667 332.833 233.5 332V353C227.167 356.333 213.9 364.9 211.5 372.5C208.5 382 206 396.5 203.5 397Z" fill="url(#paint2_linear_748_173)"/>
@@ -101,7 +101,7 @@
     <path fill-rule="evenodd" clip-rule="evenodd" d="M225.061 203.424L193 153.5L160.461 204.168L161.118 226.498C175.143 212.778 188.033 197.364 193 191C202.587 205.38 216.276 218.587 224.411 225.543L225.061 203.424Z" fill="url(#paint8_linear_748_173)"/>
 
     <!-- Arms Joined in Namaste (Anjali Mudra) -->
-    <g class="memy-hands-namaste">
+    <g class="esvigy-hands-namaste">
       <path d="M124 227.5C120 220.7 132.168 194 139.001 181L160.001 188C164.168 184.667 173.701 176.5 178.501 170.5C184.501 163 187.501 157.5 188.001 152C188.257 149.182 189.621 147.445 190.962 146.472C191.938 145.763 193.09 146.564 193.141 147.769C193.249 150.292 193.289 154.18 193.001 158.5C192.501 166 190.001 176 169.001 201C148.001 226 129 236 124 227.5Z" fill="#FDBA8C"/>
       <path d="M124 227.5C120 220.7 132.168 194 139.001 181L160.001 188C164.168 184.667 173.701 176.5 178.501 170.5C184.501 163 187.501 157.5 188.001 152C188.257 149.182 189.621 147.445 190.962 146.472C191.938 145.763 193.09 146.564 193.141 147.769C193.249 150.292 193.289 154.18 193.001 158.5C192.501 166 190.001 176 169.001 201C148.001 226 129 236 124 227.5Z" fill="url(#paint13_linear_748_173)"/>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M130.371 199.219C133.256 192.407 136.489 185.778 139 181L159.998 187.999L159.999 188L137.999 204.5L130.371 199.219Z" fill="url(#paint14_linear_748_173)"/>

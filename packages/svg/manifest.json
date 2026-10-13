@@ -1,0 +1,418 @@
+{
+   "ActionCreate": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "actions",
+      "tags": [
+         "create",
+         "add",
+         "new",
+         "plus",
+         "document",
+         "new-file",
+         "compose",
+         "actions"
+      ]
+   },
+   "ActionDownload": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "actions",
+      "tags": [
+         "download",
+         "file-download",
+         "save",
+         "arrow-down",
+         "export",
+         "transfer",
+         "files",
+         "actions"
+      ]
+   },
+   "ActionUpload": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "actions",
+      "tags": [
+         "upload",
+         "file-upload",
+         "cloud-upload",
+         "arrow-up",
+         "import",
+         "transfer",
+         "files",
+         "actions"
+      ]
+   },
+   "DocumentFolders": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "business",
+      "tags": [
+         "documents",
+         "folders",
+         "files",
+         "archive",
+         "organization",
+         "office"
+      ]
+   },
+   "EmptyBox": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "empty-states",
+      "tags": [
+         "empty",
+         "box",
+         "package",
+         "parcel",
+         "delivery",
+         "unknown",
+         "question",
+         "missing",
+         "content",
+         "cardboard"
+      ]
+   },
+   "EmptyCart": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "empty-states",
+      "tags": [
+         "cart",
+         "shopping",
+         "empty",
+         "ecommerce"
+      ]
+   },
+   "EmptyFolder": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "empty-states",
+      "tags": [
+         "empty",
+         "folder",
+         "directory",
+         "files",
+         "zero",
+         "badge",
+         "documents",
+         "storage",
+         "no-data"
+      ]
+   },
+   "EmptyMessage": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "empty-states",
+      "tags": [
+         "no-message",
+         "empty-message",
+         "message",
+         "chat",
+         "inbox",
+         "empty",
+         "bubble",
+         "zero",
+         "badge",
+         "communication"
+      ]
+   },
+   "ErrorForbidden": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "errors",
+      "tags": [
+         "forbidden",
+         "403",
+         "stop",
+         "hand",
+         "access-denied",
+         "security",
+         "error"
+      ]
+   },
+   "ErrorServer": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "500",
+         "server-error",
+         "server",
+         "laptop",
+         "error"
+      ]
+   },
+   "GamePad": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "technology",
+      "tags": [
+         "game",
+         "gamepad",
+         "controller",
+         "gaming",
+         "joystick",
+         "play"
+      ]
+   },
+   "ManCarRepair": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "characters",
+      "tags": [
+         "mechanic",
+         "car",
+         "repair",
+         "maintenance",
+         "wrench",
+         "auto"
+      ]
+   },
+   "ManQuestion": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "characters",
+      "tags": [
+         "man",
+         "question",
+         "thinking",
+         "puzzled",
+         "help",
+         "faq"
+      ]
+   },
+   "NotFoundLaptop": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "laptop",
+         "not-found",
+         "error"
+      ]
+   },
+   "NotFoundRobot": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "errors",
+      "tags": [
+         "404",
+         "not-found",
+         "robot",
+         "bot",
+         "cyber",
+         "error"
+      ]
+   },
+   "NotFoundShopping": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "cart",
+         "shopping",
+         "not-found",
+         "error"
+      ]
+   },
+   "NotFoundSmiley": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "errors",
+      "tags": [
+         "404",
+         "smiley",
+         "not-found",
+         "error"
+      ]
+   },
+   "Search": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "search",
+      "tags": [
+         "search",
+         "magnifier",
+         "magnifying-glass",
+         "find",
+         "query",
+         "document",
+         "question",
+         "explore"
+      ]
+   },
+   "SearchLoading": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "search",
+      "tags": [
+         "search-loading",
+         "searching",
+         "search",
+         "loading",
+         "processing",
+         "spinner",
+         "progress",
+         "query"
+      ]
+   },
+   "SearchNotFound": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "search",
+      "tags": [
+         "search-not-found",
+         "no-results",
+         "search",
+         "not-found",
+         "empty",
+         "fail",
+         "magnifier",
+         "zero",
+         "query"
+      ]
+   },
+   "SearchSuccess": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "search",
+      "tags": [
+         "search-success",
+         "search",
+         "search-result",
+         "found",
+         "success",
+         "matched",
+         "results",
+         "verified"
+      ]
+   },
+   "SecurityLock": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "security",
+      "tags": [
+         "security",
+         "password",
+         "lock",
+         "key",
+         "padlock",
+         "auth",
+         "login",
+         "pin"
+      ]
+   },
+   "StatusFail": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "status",
+      "tags": [
+         "status-fail",
+         "fail",
+         "failure",
+         "error",
+         "declined",
+         "cross",
+         "wrong",
+         "rejected",
+         "cancelled",
+         "warning",
+         "status"
+      ]
+   },
+   "StatusOffline": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "status",
+      "tags": [
+         "status-offline",
+         "offline",
+         "dino",
+         "dinosaur",
+         "network",
+         "no-internet",
+         "game",
+         "retro",
+         "status"
+      ]
+   },
+   "StatusProcessing": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "status",
+      "tags": [
+         "status-processing",
+         "processing",
+         "loading",
+         "in-progress",
+         "pending",
+         "sync",
+         "spinner",
+         "progress",
+         "waiting",
+         "status",
+         "refresh"
+      ]
+   },
+   "StatusSuccess": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "status",
+      "tags": [
+         "status-success",
+         "success",
+         "completed",
+         "done",
+         "check",
+         "checkmark",
+         "verified",
+         "confirmed",
+         "celebration",
+         "task",
+         "status"
+      ]
+   },
+   "Wallet": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "finance",
+      "tags": [
+         "wallet",
+         "money",
+         "finance",
+         "coins",
+         "credit-card",
+         "cash"
+      ]
+   },
+   "WomanLaptop": {
+      "author": "nick",
+      "source": "https://github.com/nickfrostech",
+      "category": "characters",
+      "tags": [
+         "woman",
+         "laptop",
+         "developer",
+         "coding",
+         "sitting",
+         "work"
+      ]
+   },
+   "WomanYoga": {
+      "author": "Flowbite",
+      "source": "https://flowbite.com",
+      "category": "lifestyle",
+      "tags": [
+         "woman",
+         "yoga",
+         "meditation",
+         "wellness",
+         "zen",
+         "fitness"
+      ]
+   }
+}

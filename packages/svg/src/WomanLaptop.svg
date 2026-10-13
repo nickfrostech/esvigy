@@ -2,86 +2,86 @@
   Author: nick
   Source: https://github.com/nickfrostech
 -->
-<svg viewBox="0 0 608 495" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="nick" data-source="https://github.com/nickfrostech">
+<svg viewBox="0 0 608 495" fill="none" xmlns="http://www.w3.org/2000/svg" class="esvigy-animated" data-animated="true" data-author="nick" data-source="https://github.com/nickfrostech">
   <style>
-    @keyframes memy-plant-shake-right {
+    @keyframes esvigy-plant-shake-right {
       0%, 100% { transform: rotate(0deg); }
       25% { transform: rotate(4.5deg); }
       75% { transform: rotate(-3.5deg); }
     }
-    @keyframes memy-plant-shake-left {
+    @keyframes esvigy-plant-shake-left {
       0%, 100% { transform: rotate(0deg); }
       25% { transform: rotate(-4.5deg); }
       75% { transform: rotate(3.5deg); }
     }
-    @keyframes memy-dot-wave {
+    @keyframes esvigy-dot-wave {
       0%, 100% { transform: translateY(0px) scale(1); opacity: 0.25; }
       50% { transform: translateY(-5px) scale(1.4); opacity: 1; }
     }
-    @keyframes memy-screen-glow {
+    @keyframes esvigy-screen-glow {
       0%, 100% { opacity: 0.4; transform: scale(0.98); }
       50% { opacity: 1; transform: scale(1.04); }
     }
-    @keyframes memy-woman-nod {
+    @keyframes esvigy-woman-nod {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
       50% { transform: translateY(-2.5px) rotate(2deg); }
     }
-    @keyframes memy-woman-typing {
+    @keyframes esvigy-woman-typing {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-3.5px); }
     }
 
-    svg.memy-animated .memy-plant-right,
-    svg[data-animated="true"] .memy-plant-right {
+    svg.esvigy-animated .esvigy-plant-right,
+    svg[data-animated="true"] .esvigy-plant-right {
       transform-box: fill-box;
       transform-origin: 50% 100%;
-      animation: memy-plant-shake-right 2.4s ease-in-out infinite;
+      animation: esvigy-plant-shake-right 2.4s ease-in-out infinite;
     }
-    svg.memy-animated .memy-plant-left,
-    svg[data-animated="true"] .memy-plant-left {
+    svg.esvigy-animated .esvigy-plant-left,
+    svg[data-animated="true"] .esvigy-plant-left {
       transform-box: fill-box;
       transform-origin: 50% 100%;
-      animation: memy-plant-shake-left 2.7s ease-in-out 0.3s infinite;
+      animation: esvigy-plant-shake-left 2.7s ease-in-out 0.3s infinite;
     }
-    svg.memy-animated .memy-dot,
-    svg[data-animated="true"] .memy-dot {
+    svg.esvigy-animated .esvigy-dot,
+    svg[data-animated="true"] .esvigy-dot {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-dot-wave 1.4s ease-in-out infinite;
+      animation: esvigy-dot-wave 1.4s ease-in-out infinite;
     }
-    svg.memy-animated .memy-dot-1, svg[data-animated="true"] .memy-dot-1 { animation-delay: 0.0s; }
-    svg.memy-animated .memy-dot-2, svg[data-animated="true"] .memy-dot-2 { animation-delay: 0.1s; }
-    svg.memy-animated .memy-dot-3, svg[data-animated="true"] .memy-dot-3 { animation-delay: 0.2s; }
-    svg.memy-animated .memy-dot-4, svg[data-animated="true"] .memy-dot-4 { animation-delay: 0.3s; }
-    svg.memy-animated .memy-dot-5, svg[data-animated="true"] .memy-dot-5 { animation-delay: 0.4s; }
-    svg.memy-animated .memy-dot-6, svg[data-animated="true"] .memy-dot-6 { animation-delay: 0.5s; }
-    svg.memy-animated .memy-dot-7, svg[data-animated="true"] .memy-dot-7 { animation-delay: 0.6s; }
-    svg.memy-animated .memy-dot-8, svg[data-animated="true"] .memy-dot-8 { animation-delay: 0.7s; }
-    svg.memy-animated .memy-dot-9, svg[data-animated="true"] .memy-dot-9 { animation-delay: 0.8s; }
-    svg.memy-animated .memy-dot-10, svg[data-animated="true"] .memy-dot-10 { animation-delay: 0.9s; }
-    svg.memy-animated .memy-dot-11, svg[data-animated="true"] .memy-dot-11 { animation-delay: 1.0s; }
+    svg.esvigy-animated .esvigy-dot-1, svg[data-animated="true"] .esvigy-dot-1 { animation-delay: 0.0s; }
+    svg.esvigy-animated .esvigy-dot-2, svg[data-animated="true"] .esvigy-dot-2 { animation-delay: 0.1s; }
+    svg.esvigy-animated .esvigy-dot-3, svg[data-animated="true"] .esvigy-dot-3 { animation-delay: 0.2s; }
+    svg.esvigy-animated .esvigy-dot-4, svg[data-animated="true"] .esvigy-dot-4 { animation-delay: 0.3s; }
+    svg.esvigy-animated .esvigy-dot-5, svg[data-animated="true"] .esvigy-dot-5 { animation-delay: 0.4s; }
+    svg.esvigy-animated .esvigy-dot-6, svg[data-animated="true"] .esvigy-dot-6 { animation-delay: 0.5s; }
+    svg.esvigy-animated .esvigy-dot-7, svg[data-animated="true"] .esvigy-dot-7 { animation-delay: 0.6s; }
+    svg.esvigy-animated .esvigy-dot-8, svg[data-animated="true"] .esvigy-dot-8 { animation-delay: 0.7s; }
+    svg.esvigy-animated .esvigy-dot-9, svg[data-animated="true"] .esvigy-dot-9 { animation-delay: 0.8s; }
+    svg.esvigy-animated .esvigy-dot-10, svg[data-animated="true"] .esvigy-dot-10 { animation-delay: 0.9s; }
+    svg.esvigy-animated .esvigy-dot-11, svg[data-animated="true"] .esvigy-dot-11 { animation-delay: 1.0s; }
 
-    svg.memy-animated .memy-laptop-screen,
-    svg[data-animated="true"] .memy-laptop-screen {
+    svg.esvigy-animated .esvigy-laptop-screen,
+    svg[data-animated="true"] .esvigy-laptop-screen {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-screen-glow 1.8s ease-in-out infinite;
+      animation: esvigy-screen-glow 1.8s ease-in-out infinite;
     }
-    svg.memy-animated .memy-woman-head,
-    svg[data-animated="true"] .memy-woman-head {
+    svg.esvigy-animated .esvigy-woman-head,
+    svg[data-animated="true"] .esvigy-woman-head {
       transform-box: fill-box;
       transform-origin: bottom center;
-      animation: memy-woman-nod 2.8s ease-in-out infinite;
+      animation: esvigy-woman-nod 2.8s ease-in-out infinite;
     }
-    svg.memy-animated .memy-woman-hand,
-    svg[data-animated="true"] .memy-woman-hand {
+    svg.esvigy-animated .esvigy-woman-hand,
+    svg[data-animated="true"] .esvigy-woman-hand {
       transform-box: fill-box;
       transform-origin: center;
-      animation: memy-woman-typing 0.6s ease-in-out infinite;
+      animation: esvigy-woman-typing 0.6s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated *,
+      svg.esvigy-animated *,
       svg[data-animated="true"] * {
         animation: none !important;
       }
@@ -89,7 +89,7 @@
   </style>
 
   <!-- Right Plant (Subtle Sway Animation) -->
-  <g class="memy-plant-right">
+  <g class="esvigy-plant-right">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M583.698 275.388C583.698 277.731 583.272 279.974 582.492 282.044C581.844 283.766 582.288 285.782 583.694 286.97C590.056 292.342 594.097 300.378 594.097 309.357C594.097 312.534 593.591 315.594 592.655 318.459C592.169 319.946 592.578 321.602 593.741 322.65C602.472 330.517 607.961 341.913 607.961 354.591C607.961 378.328 588.718 397.571 564.981 397.571C541.243 397.571 522 378.328 522 354.591C522 342.031 527.387 330.73 535.977 322.871C537.131 321.815 537.528 320.155 537.03 318.672C536.049 315.746 535.518 312.613 535.518 309.357C535.518 300.378 539.559 292.342 545.921 286.97C547.327 285.782 547.771 283.766 547.122 282.044C546.343 279.974 545.917 277.731 545.917 275.388C545.917 264.955 554.374 256.498 564.807 256.498C575.24 256.498 583.698 264.955 583.698 275.388Z" fill="#1F2A37"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M564.634 274.215C565.186 274.215 565.634 274.663 565.634 275.215L565.634 441.245C565.634 441.798 565.186 442.245 564.634 442.245C564.082 442.245 563.634 441.798 563.634 441.245L563.634 275.215C563.634 274.663 564.082 274.215 564.634 274.215Z" fill="#374151"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M584.28 349.271C584.729 349.592 584.833 350.217 584.512 350.666L565.448 377.356C565.127 377.805 564.502 377.909 564.053 377.588C563.604 377.267 563.5 376.643 563.821 376.193L582.885 349.504C583.206 349.054 583.83 348.95 584.28 349.271Z" fill="#374151"/>
@@ -99,7 +99,7 @@
   </g>
 
   <!-- Left Plant (Subtle Sway Animation) -->
-  <g class="memy-plant-left">
+  <g class="esvigy-plant-left">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M24.2629 275.388C24.2629 277.731 24.6893 279.974 25.4687 282.044C26.1171 283.766 25.673 285.782 24.2672 286.97C17.905 292.342 13.8644 300.378 13.8644 309.357C13.8644 312.534 14.3703 315.594 15.306 318.459C15.7918 319.946 15.3825 321.602 14.2203 322.65C5.48885 330.517 -0.000366211 341.913 -0.000366211 354.591C-0.000366211 378.328 19.2427 397.571 42.9803 397.571C66.7179 397.571 85.9609 378.328 85.9609 354.591C85.9609 342.031 80.5739 330.73 71.9843 322.871C70.83 321.815 70.4334 320.155 70.9307 318.672C71.9115 315.746 72.4428 312.613 72.4428 309.357C72.4428 300.378 68.4022 292.342 62.04 286.97C60.6342 285.782 60.1901 283.766 60.8385 282.044C61.6179 279.974 62.0443 277.731 62.0443 275.388C62.0443 264.955 53.5867 256.498 43.1536 256.498C32.7205 256.498 24.2629 264.955 24.2629 275.388Z" fill="#1F2A37"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M43.3271 274.215C42.7749 274.215 42.3271 274.663 42.3271 275.215L42.3271 441.245C42.3271 441.798 42.7749 442.245 43.3271 442.245C43.8794 442.245 44.3271 441.798 44.3271 441.245L44.3271 275.215C44.3271 274.663 43.8794 274.215 43.3271 274.215Z" fill="#374151"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M23.6814 349.271C23.232 349.592 23.1279 350.217 23.4489 350.666L42.5129 377.356C42.8339 377.805 43.4584 377.909 43.9079 377.588C44.3573 377.267 44.4614 376.643 44.1404 376.193L25.0764 349.504C24.7553 349.054 24.1308 348.95 23.6814 349.271Z" fill="#374151"/>
@@ -115,18 +115,18 @@
   <path d="M220.103 197.799C220.103 196.142 221.446 194.799 223.103 194.799H397.691C399.347 194.799 400.691 196.142 400.691 197.799V220.222C400.691 221.879 399.347 223.222 397.691 223.222H223.103C221.446 223.222 220.103 221.879 220.103 220.222V197.799Z" fill="#374151"/>
   <path fill-rule="evenodd" clip-rule="evenodd" d="M269.322 164.297C269.322 163.531 269.943 162.91 270.709 162.91H350.084C350.85 162.91 351.471 163.531 351.471 164.297C351.471 165.063 350.85 165.683 350.084 165.683H270.709C269.943 165.683 269.322 165.063 269.322 164.297Z" fill="#1F2A37"/>
   <!-- Input Box Dots (Animated Wave) -->
-  <g class="memy-input-dots">
-    <path class="memy-dot memy-dot-1" d="M254.765 209.009C254.765 210.732 253.368 212.129 251.645 212.129C249.922 212.129 248.525 210.732 248.525 209.009C248.525 207.286 249.922 205.89 251.645 205.89C253.368 205.89 254.765 207.286 254.765 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-2" d="M266.55 209.009C266.55 210.732 265.153 212.129 263.43 212.129C261.707 212.129 260.311 210.732 260.311 209.009C260.311 207.286 261.707 205.89 263.43 205.89C265.153 205.89 266.55 207.286 266.55 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-3" d="M278.335 209.009C278.335 210.732 276.938 212.129 275.215 212.129C273.492 212.129 272.096 210.732 272.096 209.009C272.096 207.286 273.492 205.89 275.215 205.89C276.938 205.89 278.335 207.286 278.335 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-4" d="M290.12 209.009C290.12 210.732 288.723 212.129 287 212.129C285.278 212.129 283.881 210.732 283.881 209.009C283.881 207.286 285.278 205.89 287 205.89C288.723 205.89 290.12 207.286 290.12 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-5" d="M301.904 209.009C301.904 210.732 300.507 212.129 298.785 212.129C297.062 212.129 295.665 210.732 295.665 209.009C295.665 207.286 297.062 205.89 298.785 205.89C300.507 205.89 301.904 207.286 301.904 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-6" d="M313.689 209.009C313.689 210.732 312.293 212.129 310.57 212.129C308.847 212.129 307.45 210.732 307.45 209.009C307.45 207.286 308.847 205.89 310.57 205.89C312.293 205.89 313.689 207.286 313.689 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-7" d="M325.474 209.009C325.474 210.732 324.078 212.129 322.355 212.129C320.632 212.129 319.235 210.732 319.235 209.009C319.235 207.286 320.632 205.89 322.355 205.89C324.078 205.89 325.474 207.286 325.474 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-8" d="M337.26 209.009C337.26 210.732 335.863 212.129 334.14 212.129C332.417 212.129 331.021 210.732 331.021 209.009C331.021 207.286 332.417 205.89 334.14 205.89C335.863 205.89 337.26 207.286 337.26 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-9" d="M349.045 209.009C349.045 210.732 347.648 212.129 345.925 212.129C344.202 212.129 342.806 210.732 342.806 209.009C342.806 207.286 344.202 205.89 345.925 205.89C347.648 205.89 349.045 207.286 349.045 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-10" d="M360.83 209.009C360.83 210.732 359.433 212.129 357.71 212.129C355.987 212.129 354.591 210.732 354.591 209.009C354.591 207.286 355.987 205.89 357.71 205.89C359.433 205.89 360.83 207.286 360.83 209.009Z" fill="currentColor"/>
-    <path class="memy-dot memy-dot-11" d="M372.615 209.009C372.615 210.732 371.218 212.129 369.496 212.129C367.773 212.129 366.376 210.732 366.376 209.009C366.376 207.286 367.773 205.89 369.496 205.89C371.218 205.89 372.615 207.286 372.615 209.009Z" fill="currentColor"/>
+  <g class="esvigy-input-dots">
+    <path class="esvigy-dot esvigy-dot-1" d="M254.765 209.009C254.765 210.732 253.368 212.129 251.645 212.129C249.922 212.129 248.525 210.732 248.525 209.009C248.525 207.286 249.922 205.89 251.645 205.89C253.368 205.89 254.765 207.286 254.765 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-2" d="M266.55 209.009C266.55 210.732 265.153 212.129 263.43 212.129C261.707 212.129 260.311 210.732 260.311 209.009C260.311 207.286 261.707 205.89 263.43 205.89C265.153 205.89 266.55 207.286 266.55 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-3" d="M278.335 209.009C278.335 210.732 276.938 212.129 275.215 212.129C273.492 212.129 272.096 210.732 272.096 209.009C272.096 207.286 273.492 205.89 275.215 205.89C276.938 205.89 278.335 207.286 278.335 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-4" d="M290.12 209.009C290.12 210.732 288.723 212.129 287 212.129C285.278 212.129 283.881 210.732 283.881 209.009C283.881 207.286 285.278 205.89 287 205.89C288.723 205.89 290.12 207.286 290.12 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-5" d="M301.904 209.009C301.904 210.732 300.507 212.129 298.785 212.129C297.062 212.129 295.665 210.732 295.665 209.009C295.665 207.286 297.062 205.89 298.785 205.89C300.507 205.89 301.904 207.286 301.904 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-6" d="M313.689 209.009C313.689 210.732 312.293 212.129 310.57 212.129C308.847 212.129 307.45 210.732 307.45 209.009C307.45 207.286 308.847 205.89 310.57 205.89C312.293 205.89 313.689 207.286 313.689 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-7" d="M325.474 209.009C325.474 210.732 324.078 212.129 322.355 212.129C320.632 212.129 319.235 210.732 319.235 209.009C319.235 207.286 320.632 205.89 322.355 205.89C324.078 205.89 325.474 207.286 325.474 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-8" d="M337.26 209.009C337.26 210.732 335.863 212.129 334.14 212.129C332.417 212.129 331.021 210.732 331.021 209.009C331.021 207.286 332.417 205.89 334.14 205.89C335.863 205.89 337.26 207.286 337.26 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-9" d="M349.045 209.009C349.045 210.732 347.648 212.129 345.925 212.129C344.202 212.129 342.806 210.732 342.806 209.009C342.806 207.286 344.202 205.89 345.925 205.89C347.648 205.89 349.045 207.286 349.045 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-10" d="M360.83 209.009C360.83 210.732 359.433 212.129 357.71 212.129C355.987 212.129 354.591 210.732 354.591 209.009C354.591 207.286 355.987 205.89 357.71 205.89C359.433 205.89 360.83 207.286 360.83 209.009Z" fill="currentColor"/>
+    <path class="esvigy-dot esvigy-dot-11" d="M372.615 209.009C372.615 210.732 371.218 212.129 369.496 212.129C367.773 212.129 366.376 210.732 366.376 209.009C366.376 207.286 367.773 205.89 369.496 205.89C371.218 205.89 372.615 207.286 372.615 209.009Z" fill="currentColor"/>
   </g>
   <path d="M310.137 76.3858C313.906 76.3858 316.961 73.3305 316.961 69.5617C316.961 65.7929 313.906 62.7377 310.137 62.7377C306.368 62.7377 303.313 65.7929 303.313 69.5617C303.313 73.3305 306.368 76.3858 310.137 76.3858Z" fill="#1F2A37"/>
   <path d="M306.237 82.2349H314.036C316.105 82.2349 318.088 83.0566 319.551 84.5192C321.014 85.9818 321.835 87.9655 321.835 90.0338V93.9333H298.438V90.0338C298.438 87.9655 299.26 85.9818 300.723 84.5192C302.185 83.0566 304.169 82.2349 306.237 82.2349Z" fill="#1F2A37"/>
@@ -154,7 +154,7 @@
   <path fill-rule="evenodd" clip-rule="evenodd" d="M143.002 478.678L143.412 479.59C144.19 481.318 144.955 483.038 145.525 484.615C146.089 486.174 146.5 487.693 146.5 489V490H144.5V489C144.5 488.054 144.191 486.806 143.645 485.295C143.104 483.801 142.37 482.148 141.588 480.41L141.178 479.498L143.002 478.678Z" fill="#374151"/>
 
   <!-- Laptop (Pulsing Screen Accent) -->
-  <g class="memy-laptop-screen">
+  <g class="esvigy-laptop-screen">
     <path d="M236.452 248.609C235.902 247.242 236.908 245.752 238.382 245.752H299.737C301.434 245.752 302.961 246.783 303.595 248.358L323.343 297.398H256.099L236.452 248.609Z" fill="#424D60"/>
     <path d="M254.224 257.87C253.96 257.213 254.444 256.497 255.152 256.497H291.503C292.319 256.497 293.054 256.994 293.358 257.752L304.421 285.28C304.685 285.937 304.201 286.653 303.493 286.653H267.143C266.326 286.653 265.591 286.157 265.287 285.399L254.224 257.87Z" fill="#374151"/>
     <path d="M265.554 264.374C265.289 263.716 265.773 263 266.481 263H285.8C286.616 263 287.35 263.496 287.655 264.252L293.447 278.626C293.712 279.283 293.228 280 292.519 280H273.201C272.385 280 271.651 279.504 271.346 278.747L265.554 264.374Z" fill="#424D60"/>
@@ -164,7 +164,7 @@
   <path d="M318.837 308.143L256.099 297.398L257.138 299.651L319.876 311.263L318.837 308.143Z" fill="#111928"/>
 
   <!-- Character Hair & Head -->
-  <g class="memy-woman-head">
+  <g class="esvigy-woman-head">
     <path d="M497.314 151.736C500.809 157.113 498.177 165.024 491.435 169.405C484.694 173.787 476.396 172.98 472.901 167.603C469.406 162.226 472.038 154.315 478.78 149.933C485.521 145.552 493.819 146.359 497.314 151.736Z" fill="#374151"/>
     <path d="M470.246 189.977C460.811 190.729 455.311 179.964 453.741 174.488C451.604 176.818 451.179 183.593 451.234 186.689C445.757 171.971 457.342 155.248 478.861 170.24C500.379 185.233 490.664 197.422 506.675 232.857C515.457 252.293 496.5 258.933 493 257.933C494.107 234.482 484.896 226.264 480.726 222.544L480.666 222.49C476.525 218.796 470.423 204.536 474.259 200.196C478.095 195.856 477.907 188.506 474.77 187.63C472.262 186.929 470.709 188.903 470.246 189.977Z" fill="#374151"/>
     <path d="M465.727 206.912L468.646 224.171C474.143 225.913 478.455 223.626 479.924 222.264C474.731 214.002 474.098 204.442 474.43 200.167C476.191 198.112 479.355 191.46 476.34 188.595C473.324 185.73 470.982 188.095 470.188 189.635C461.185 189.611 455.472 179.527 453.741 174.488C452.535 174.634 450.406 178.884 451.538 194.723C452.67 210.562 461.469 209.448 465.727 206.912Z" fill="#FDBA8C"/>
@@ -178,16 +178,16 @@
   </g>
 
   <!-- Character Hand Typing -->
-  <g class="memy-woman-hand">
+  <g class="esvigy-woman-hand">
     <path d="M298.213 303.291C304.452 306.202 319.703 308.317 329.582 309.876L332.355 295.145C316.179 296.647 291.974 300.379 298.213 303.291Z" fill="#FDBA8C"/>
     <path d="M298.213 303.291C304.452 306.202 319.703 308.317 329.582 309.876L332.355 295.145C316.179 296.647 291.974 300.379 298.213 303.291Z" fill="url(#paint7_linear_182_7947)"/>
   </g>
 
   <!-- Character Shirt (Secondary Color: Defaults to #F9FAFB, or takes secondaryColor) -->
   <path d="M477.64 216.35C473.236 217.645 469.396 217.327 467.591 216.95C467.399 216.91 467.207 217.03 467.167 217.222L466.61 219.867C466.574 220.037 466.668 220.207 466.832 220.261C471.142 221.702 476.995 221.236 479.199 220.163L477.64 216.35Z" fill="currentColor"/>
-  <path d="M456.238 336L408.049 320.855C407.529 315.307 410.927 296.057 428.677 263.437C446.427 230.818 461.727 220.887 467.158 220H479.292C514.376 239.572 478.541 305.488 456.238 336Z" fill="currentColor" data-memy-secondary="true" data-memy-default="#F9FAFB"/>
+  <path d="M456.238 336L408.049 320.855C407.529 315.307 410.927 296.057 428.677 263.437C446.427 230.818 461.727 220.887 467.158 220H479.292C514.376 239.572 478.541 305.488 456.238 336Z" fill="currentColor" data-esvigy-secondary="true" data-esvigy-default="#F9FAFB"/>
   <path d="M456.238 336L408.049 320.855C407.529 315.307 410.927 296.057 428.677 263.437C446.427 230.818 461.727 220.887 467.158 220H479.292C514.376 239.572 478.541 305.488 456.238 336Z" fill="url(#paint8_linear_182_7947)"/>
-  <path d="M328.195 312.956L329.928 293.932C351.5 293.932 380.72 294.506 402.73 294.506C418.559 272.553 445 234.5 456.5 226.5C463.5 221.63 480.813 231.982 477 245.5C473.187 259.018 437.085 327.9 414.902 330.327C397.155 332.268 353.036 319.888 328.195 312.956Z" fill="currentColor" data-memy-secondary="true" data-memy-default="#F9FAFB"/>
+  <path d="M328.195 312.956L329.928 293.932C351.5 293.932 380.72 294.506 402.73 294.506C418.559 272.553 445 234.5 456.5 226.5C463.5 221.63 480.813 231.982 477 245.5C473.187 259.018 437.085 327.9 414.902 330.327C397.155 332.268 353.036 319.888 328.195 312.956Z" fill="currentColor" data-esvigy-secondary="true" data-esvigy-default="#F9FAFB"/>
 
   <!-- Desk & Chair (Primary Color Tints) -->
   <path fill-rule="evenodd" clip-rule="evenodd" d="M429.214 322.176C424.684 315.585 417.092 311.263 408.49 311.263C397.728 311.263 388.546 318.028 384.965 327.537C385.431 327.619 385.895 327.7 386.357 327.779C389.806 318.925 398.415 312.65 408.49 312.65C416.678 312.65 423.898 316.795 428.166 323.1C428.514 322.8 428.863 322.492 429.214 322.176Z" fill="currentColor" opacity="0.4"/>

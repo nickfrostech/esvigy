@@ -1,7 +1,7 @@
 {
-   "name": "@memy/svg",
+   "name": "@esvigy/svg",
    "version": "0.1.0",
-   "description": "Raw, optimized SVG illustrations for Memy",
+   "description": "Raw, optimized SVG illustrations for Esvigy",
    "type": "module",
    "exports": {
      "./*.svg": "./src/*.svg",

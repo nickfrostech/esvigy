@@ -2,9 +2,9 @@
   Author: Flowbite
   Source: https://flowbite.com
 -->
-<svg viewBox="0 0 840 708" fill="none" xmlns="http://www.w3.org/2000/svg" class="memy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
+<svg viewBox="0 0 840 708" fill="none" xmlns="http://www.w3.org/2000/svg" class="esvigy-animated" data-animated="true" data-author="Flowbite" data-source="https://flowbite.com">
   <style>
-    @keyframes memy-wrench-turn {
+    @keyframes esvigy-wrench-turn {
       0%, 100% { transform: rotate(0deg); }
       20% { transform: rotate(-14deg); }
       35% { transform: rotate(6deg); }
@@ -12,80 +12,80 @@
       65% { transform: rotate(4deg); }
       80% { transform: rotate(0deg); }
     }
-    @keyframes memy-mechanic-bob {
+    @keyframes esvigy-mechanic-bob {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(3.5px); }
     }
-    @keyframes memy-engine-steam-1 {
+    @keyframes esvigy-engine-steam-1 {
       0% { transform: translateY(0) scale(0.8); opacity: 0; }
       25% { opacity: 0.65; }
       75% { opacity: 0.35; }
       100% { transform: translateY(-24px) scale(1.2); opacity: 0; }
     }
-    @keyframes memy-engine-steam-2 {
+    @keyframes esvigy-engine-steam-2 {
       0% { transform: translateY(0) scale(0.85); opacity: 0; }
       30% { opacity: 0.55; }
       80% { opacity: 0.25; }
       100% { transform: translateY(-28px) scale(1.25); opacity: 0; }
     }
-    @keyframes memy-car-vibe {
+    @keyframes esvigy-car-vibe {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-0.8px); }
     }
 
-    svg.memy-animated .memy-wrench,
-    svg[data-animated="true"] .memy-wrench {
+    svg.esvigy-animated .esvigy-wrench,
+    svg[data-animated="true"] .esvigy-wrench {
       transform-box: fill-box;
       transform-origin: 398px 404px;
-      animation: memy-wrench-turn 2.8s ease-in-out infinite;
+      animation: esvigy-wrench-turn 2.8s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-mechanic-head,
-    svg[data-animated="true"] .memy-mechanic-head {
+    svg.esvigy-animated .esvigy-mechanic-head,
+    svg[data-animated="true"] .esvigy-mechanic-head {
       transform-box: fill-box;
       transform-origin: center bottom;
-      animation: memy-mechanic-bob 3.6s ease-in-out infinite;
+      animation: esvigy-mechanic-bob 3.6s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-car-body,
-    svg[data-animated="true"] .memy-car-body {
+    svg.esvigy-animated .esvigy-car-body,
+    svg[data-animated="true"] .esvigy-car-body {
       transform-box: fill-box;
       transform-origin: center bottom;
-      animation: memy-car-vibe 0.18s ease-in-out infinite;
+      animation: esvigy-car-vibe 0.18s ease-in-out infinite;
     }
 
-    svg.memy-animated .memy-steam-wisp-1,
-    svg[data-animated="true"] .memy-steam-wisp-1 {
+    svg.esvigy-animated .esvigy-steam-wisp-1,
+    svg[data-animated="true"] .esvigy-steam-wisp-1 {
       transform-box: fill-box;
       transform-origin: center bottom;
-      animation: memy-engine-steam-1 2.8s ease-out infinite 0s;
+      animation: esvigy-engine-steam-1 2.8s ease-out infinite 0s;
     }
 
-    svg.memy-animated .memy-steam-wisp-2,
-    svg[data-animated="true"] .memy-steam-wisp-2 {
+    svg.esvigy-animated .esvigy-steam-wisp-2,
+    svg[data-animated="true"] .esvigy-steam-wisp-2 {
       transform-box: fill-box;
       transform-origin: center bottom;
-      animation: memy-engine-steam-2 2.8s ease-out infinite 1.3s;
+      animation: esvigy-engine-steam-2 2.8s ease-out infinite 1.3s;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      svg.memy-animated .memy-wrench,
-      svg.memy-animated .memy-mechanic-head,
-      svg.memy-animated .memy-car-body,
-      svg.memy-animated .memy-steam-wisp-1,
-      svg.memy-animated .memy-steam-wisp-2,
-      svg[data-animated="true"] .memy-wrench,
-      svg[data-animated="true"] .memy-mechanic-head,
-      svg[data-animated="true"] .memy-car-body,
-      svg[data-animated="true"] .memy-steam-wisp-1,
-      svg[data-animated="true"] .memy-steam-wisp-2 {
+      svg.esvigy-animated .esvigy-wrench,
+      svg.esvigy-animated .esvigy-mechanic-head,
+      svg.esvigy-animated .esvigy-car-body,
+      svg.esvigy-animated .esvigy-steam-wisp-1,
+      svg.esvigy-animated .esvigy-steam-wisp-2,
+      svg[data-animated="true"] .esvigy-wrench,
+      svg[data-animated="true"] .esvigy-mechanic-head,
+      svg[data-animated="true"] .esvigy-car-body,
+      svg[data-animated="true"] .esvigy-steam-wisp-1,
+      svg[data-animated="true"] .esvigy-steam-wisp-2 {
         animation: none !important;
       }
     }
   </style>
 
   <!-- Car Base & Shadows -->
-  <g class="memy-car-body">
+  <g class="esvigy-car-body">
     <path d="M56.2154 315C73.8154 319.8 81.5488 331.667 83.2154 337H113.715C104.215 320.333 81.3154 286.3 65.7154 283.5C46.2154 280 17.2154 274.5 20.2154 291C23.2154 307.5 34.2154 309 56.2154 315Z" fill="#374151"/>
     <path d="M56.2154 315C73.8154 319.8 81.5488 331.667 83.2154 337H113.715C104.215 320.333 81.3154 286.3 65.7154 283.5C46.2154 280 17.2154 274.5 20.2154 291C23.2154 307.5 34.2154 309 56.2154 315Z" fill="url(#paint0_linear_748_171)"/>
     <path d="M696.499 315C678.899 319.8 671.166 331.667 669.499 337H639C648.5 320.333 671.399 286.3 686.999 283.5C706.499 280 735.499 274.5 732.499 291C729.499 307.5 718.499 309 696.499 315Z" fill="#374151"/>
@@ -122,15 +122,15 @@
   </g>
 
   <!-- Engine Bay Heat Steam Wisps -->
-  <g class="memy-steam-wisp-1" opacity="0.6">
+  <g class="esvigy-steam-wisp-1" opacity="0.6">
     <path d="M360 360 C364 345 356 335 362 320" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
   </g>
-  <g class="memy-steam-wisp-2" opacity="0.5">
+  <g class="esvigy-steam-wisp-2" opacity="0.5">
     <path d="M375 365 C370 350 380 338 374 322" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
   </g>
 
   <!-- Working Wrench Ratcheting in Engine Bay -->
-  <g class="memy-wrench">
+  <g class="esvigy-wrench">
     <path d="M430.031 355.653L434.253 359.202L399.607 400.407L395.385 396.857L430.031 355.653Z" fill="currentColor"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M395.721 408.212C395.559 408.405 395.584 408.694 395.777 408.857L395.874 408.939C396.038 409.076 396.275 409.082 396.445 408.953L397.01 408.526C398.691 407.253 400.513 405.919 401.106 403.895C401.826 401.438 401.098 398.665 398.994 396.897C397.112 395.314 394.625 394.954 392.477 395.708C389.986 396.581 388.782 399.245 387.697 401.651C387.618 401.828 387.665 402.036 387.814 402.161L387.939 402.267C388.133 402.43 388.422 402.405 388.585 402.211L391.717 398.485L397.018 399.425L398.854 404.486L395.721 408.212Z" fill="currentColor"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M434.111 347.709C434.273 347.515 434.249 347.226 434.055 347.063L433.958 346.982C433.794 346.844 433.557 346.838 433.387 346.967L432.822 347.394C431.141 348.668 429.319 350.002 428.726 352.026C428.006 354.483 428.734 357.255 430.838 359.024C432.72 360.607 435.207 360.966 437.355 360.213C439.846 359.339 441.05 356.676 442.135 354.27C442.215 354.093 442.167 353.884 442.018 353.759L441.893 353.654C441.699 353.491 441.41 353.516 441.247 353.71L438.115 357.436L432.814 356.495L430.978 351.435L434.111 347.709Z" fill="currentColor"/>
@@ -153,7 +153,7 @@
   <path fill-rule="evenodd" clip-rule="evenodd" d="M785.474 274.533L786.22 275.305C792.236 281.529 795.986 292.702 798.268 303.926C800.562 315.206 801.417 326.77 801.501 333.988L801.501 334H801.501V647.5H799.501V334.006C799.418 326.89 798.572 315.457 796.309 304.324C794.131 293.615 790.68 283.393 785.495 277.471C782.362 280.698 777.159 284.618 770.792 286.832C763.858 289.244 755.51 289.639 747.012 284.872L747.99 283.128C755.892 287.561 763.628 287.206 770.135 284.943C776.671 282.67 781.934 278.477 784.757 275.332L785.474 274.533Z" fill="white" fill-opacity="0.4"/>
 
   <!-- Mechanic Head & Face (Nods Gently) -->
-  <g class="memy-mechanic-head">
+  <g class="esvigy-mechanic-head">
     <path d="M570.5 255L628 176.5L665 200L659.5 247L599.5 291.5C593.9 287.9 577.833 265.667 570.5 255Z" fill="#F9FAFB"/>
     <path d="M570.5 255L628 176.5L665 200L659.5 247L599.5 291.5C593.9 287.9 577.833 265.667 570.5 255Z" fill="url(#paint14_linear_748_171)"/>
     <path d="M614.501 105.5C618.501 116.3 622.834 139.666 624.501 150C616.167 148.167 594.801 142.1 576.001 132.5C552.501 120.5 563.001 108 579.501 98.4998C596.001 88.9998 609.501 91.9998 614.501 105.5Z" fill="#111928"/>
