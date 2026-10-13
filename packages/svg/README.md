@@ -1,6 +1,6 @@
 # CorelDRAW SVG Design Guide for Esvigy
 
-This guide explains how to properly design, structure, and export vector illustrations in **CorelDRAW** so they integrate seamlessly into the **Esvigy** illustration ecosystem (`@esvigy/react`, `@esvigy/svg`, etc.).
+This guide explains how to properly design, structure, and export vector illustrations in **CorelDRAW** so they integrate seamlessly into the **Esvigy** *(pronounced "es-vee-gee" /ˌɛs.viːˈdʒiː/)* illustration ecosystem (`@esvigy/react`, `@esvigy/svg`, etc.). Test illustrations live in the web studio at **[esvigy.vercel.app](https://esvigy.vercel.app)**.
 
 ---
 
@@ -195,4 +195,4 @@ Before adding a new `.svg` file to `packages/svg/src/`:
   -->
   ```
 - [ ] Metadata entry added to [packages/svg/manifest.json](./manifest.json).
-- [ ] Test the build with `pnpm --filter @esvigy/react generate` and verify in `pnpm --filter website dev`.
+- [ ] Test the build with `pnpm --filter @esvigy/react generate` and verify in the studio (`pnpm --filter website dev` / [esvigy.vercel.app](https://esvigy.vercel.app)).

@@ -1,12 +1,19 @@
 # Esvigy
 
 <p align="center">
+  <em>pronounced <strong>"es-vee-gee"</strong> (/ˌɛs.viːˈdʒiː/)</em>
+  <br />
   <strong>UI illustrations as simple and developer-friendly as icons.</strong>
   <br />
   <em>The open-source, framework-agnostic illustration library — "Lucide for illustrations."</em>
 </p>
 
 <p align="center">
+  <a href="https://esvigy.vercel.app"><strong>🌐 Live Website & Studio (esvigy.vercel.app)</strong></a>
+</p>
+
+<p align="center">
+  <a href="https://esvigy.vercel.app">Website</a> •
   <a href="#quick-start">Quick Start</a> •
   <a href="#why-esvigy">Why Esvigy</a> •
   <a href="#component-api">Component API</a> •
@@ -85,7 +92,7 @@ Esvigy offers **three distinct ways** to get illustrations into your project, gi
 | :------------------------------------------------------------------- | :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :------------------------------------------- |
 | 📦**NPM Packages***(The Lucide Way)*                         | Apps using multiple illustrations across routes                      | `node_modules/`        | `@esvigy/<framework>`                       | React, Vue, Svelte, etc.                     |
 | 📋**CLI Component Scaffolding***(The shadcn Way)*            | Using 1–3 illustrations; full code ownership & direct customization | `components/esvigy/`     | **Zero** (self-contained source file) | **React, Vue, Svelte, Solid, Raw SVG** |
-| 🌐**Web Showcase (`esvigy.dev`)***(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma                      | Clipboard /`.svg` file | **Zero** (pure vector XML)            | All tools & frameworks                       |
+| 🌐 **Web Showcase ([esvigy.vercel.app](https://esvigy.vercel.app))** *(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma | Clipboard / `.svg` file | **Zero** (pure vector XML) | All tools & frameworks |
 
 ---
 
@@ -294,7 +301,7 @@ You can also copy files directly from the repository's packages folder (`package
 
 #### 3. Interactive Web Showcase (100% Framework Agnostic)
 
-Visit the official web gallery at **`esvigy.dev`**:
+Visit the official web gallery and studio at **[esvigy.vercel.app](https://esvigy.vercel.app)**:
 
 - 🎨 **Live Customizer**: Test brand colors, secondary accents, and toggle micro-animations dynamically on any illustration.
 - 📋 **"Copy SVG"**: One-click copy of the clean, normalized SVG XML directly to your clipboard. Paste it directly into JSX, HTML, Astro, Svelte, Vue, or Figma.
@@ -542,9 +549,8 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 - [X] Monorepo workspace configuration (`pnpm`)
 - [X] SVG normalization pipeline & multi-color token architecture (29 canonical illustrations)
 - [X] `@esvigy/react` package generation, TypeScript declarations, and auto-pruning pipeline
-- [X] Interactive documentation website & illustration studio (`apps/website`)
+- [X] Interactive documentation website & illustration studio ([esvigy.vercel.app](https://esvigy.vercel.app))
 - [ ] Direct component scaffolder CLI (`esvigy add <name> --framework <react|vue|svelte|svg>`)
-- [ ] Production web showcase & SVG search gallery (`esvigy.dev`)
 - [ ] Multi-framework package adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/react-native`)
 
 ---

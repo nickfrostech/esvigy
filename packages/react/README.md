@@ -1,8 +1,8 @@
 # @esvigy/react
 
-> **Esvigy illustration components for React.** UI illustrations as simple and developer-friendly as icons.
+> **Esvigy** *(pronounced "es-vee-gee" /ˌɛs.viːˈdʒiː/)* — UI illustration components for React. UI illustrations as simple and developer-friendly as icons.
 
-Part of the [Esvigy](https://github.com/nickfrostech/esvigy) illustration ecosystem.
+Part of the [Esvigy](https://github.com/nickfrostech/esvigy) illustration ecosystem. Preview all illustrations and test animations live at **[esvigy.vercel.app](https://esvigy.vercel.app)**.
 
 ---
 

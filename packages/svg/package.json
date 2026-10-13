@@ -2,6 +2,7 @@
    "name": "@esvigy/svg",
    "version": "0.1.0",
    "description": "Raw, optimized SVG illustrations for Esvigy",
+   "homepage": "https://esvigy.vercel.app",
    "type": "module",
    "exports": {
      "./*.svg": "./src/*.svg",

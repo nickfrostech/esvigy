@@ -2,6 +2,7 @@
    "name": "@esvigy/react",
    "version": "0.1.0",
    "description": "Esvigy illustration components for React",
+   "homepage": "https://esvigy.vercel.app",
    "type": "module",
    "main": "./dist/index.cjs",
    "module": "./dist/index.js",
