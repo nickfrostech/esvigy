@@ -116,7 +116,7 @@ export function ContributorsSection() {
 									style={{
 										width: "40px",
 										height: "40px",
-										borderRadius: "10px",
+										borderRadius: "14px",
 										cornerShape: "squircle",
 										objectFit: "cover",
 										border: "1px solid var(--border-subtle)",
@@ -127,7 +127,7 @@ export function ContributorsSection() {
 									style={{
 										width: "40px",
 										height: "40px",
-										borderRadius: "10px",
+										borderRadius: "14px",
 										cornerShape: "squircle",
 										backgroundColor: "var(--bg-surface-hover)",
 										border: "1px solid var(--border-subtle)",
@@ -190,6 +190,68 @@ export function ContributorsSection() {
 						</div>
 					</a>
 				))}
+			</div>
+
+			{/* Call to Action for Contributors */}
+			<div
+				style={{
+					marginTop: "28px",
+					padding: "20px 24px",
+					borderRadius: "14px",
+					cornerShape: "squircle",
+					backgroundColor: "var(--bg-surface)",
+					border: "1px dashed var(--border-subtle)",
+					display: "flex",
+					alignItems: "center",
+					justifyContent: "space-between",
+					flexWrap: "wrap",
+					gap: "16px",
+				}}
+			>
+				<div>
+					<h3
+						style={{
+							margin: "0 0 4px 0",
+							fontSize: "15px",
+							fontWeight: 600,
+							color: "var(--text-main)",
+						}}
+					>
+						Want to contribute illustrations or code?
+					</h3>
+					<p
+						style={{
+							margin: 0,
+							fontSize: "13px",
+							color: "var(--text-muted)",
+						}}
+					>
+						Upload raw vectors to our intake folder or help build the
+						React package and studio.
+					</p>
+				</div>
+				<a
+					href='https://github.com/nickfrostech/esvigy/blob/main/CONTRIBUTING.md'
+					target='_blank'
+					rel='noreferrer'
+					className='flat-btn'
+					style={{
+						display: "inline-flex",
+						alignItems: "center",
+						gap: "8px",
+						padding: "10px 18px",
+						borderRadius: "14px",
+						cornerShape: "squircle",
+						backgroundColor: "var(--cyan-primary)",
+						color: "#0B1120",
+						textDecoration: "none",
+						fontSize: "13px",
+						fontWeight: 600,
+						transition: "opacity 0.15s ease",
+					}}
+				>
+					Read Contributing Guide
+				</a>
 			</div>
 		</section>
 	);
