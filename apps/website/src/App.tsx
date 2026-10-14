@@ -1,6 +1,7 @@
 /** @format */
 
 import { useState, useMemo, useEffect } from "react";
+import { Route, Switch, Redirect, useLocation, useSearch } from "wouter";
 import * as EsvigyComponents from "@esvigy/react";
 import manifestData from "../../../packages/svg/manifest.json";
 import { Navbar } from "./components/Navbar";
@@ -12,7 +13,8 @@ import {
 } from "./components/IllustrationModal";
 
 export function App() {
-	const [activeTab, setActiveTab] = useState<"home" | "catalog">("home");
+	const [location, navigate] = useLocation();
+	const searchString = useSearch();
 	const [searchQuery, setSearchQuery] = useState("");
 	const [theme, setTheme] = useState<"dark" | "light">(() => {
 		return (
@@ -22,25 +24,12 @@ export function App() {
 	const [primaryColor, setPrimaryColor] = useState("#00D4FF");
 	const [secondaryColor, setSecondaryColor] = useState("#0F172A");
 	const [animated, setAnimated] = useState(true);
-	const [selectedItem, setSelectedItem] = useState<IllustrationItem | null>(
-		null,
-	);
 
 	// Sync theme to document attribute and storage
 	useEffect(() => {
 		document.documentElement.setAttribute("data-theme", theme);
 		localStorage.setItem("esvigy_theme", theme);
 	}, [theme]);
-
-	// Sync page title with active section
-	useEffect(() => {
-		if (activeTab === "catalog") {
-			document.title = "Illustration Studio — Esvigy";
-		} else {
-			document.title =
-				"Esvigy — UI Illustrations as simple and developer-friendly as icons";
-		}
-	}, [activeTab]);
 
 	// Discover and sort all illustration components from @esvigy/react
 	const illustrations: IllustrationItem[] = useMemo(() => {
@@ -66,10 +55,85 @@ export function App() {
 			.sort((a, b) => a.name.localeCompare(b.name));
 	}, []);
 
+	// Extract illustration name if on /illustrations/:name
+	const illustrationMatch = location.match(/^\/illustrations\/([^/?#]+)/i);
+	const routeIllustrationName = illustrationMatch
+		? decodeURIComponent(illustrationMatch[1])
+		: null;
+
+	const selectedItem = useMemo(() => {
+		if (!routeIllustrationName) return null;
+		return (
+			illustrations.find(
+				(item) =>
+					item.name.toLowerCase() === routeIllustrationName.toLowerCase(),
+			) || null
+		);
+	}, [routeIllustrationName, illustrations]);
+
+	// Sync search query from URL search parameters (?q=... or ?search=...)
+	useEffect(() => {
+		const params = new URLSearchParams(searchString);
+		const q = params.get("q") || params.get("search");
+		if (q !== null && q !== undefined) {
+			setSearchQuery(q);
+		}
+	}, [searchString]);
+
+	// Sync page title with active section and selected illustration
+	useEffect(() => {
+		if (selectedItem) {
+			document.title = `${selectedItem.name} — Illustration Studio — Esvigy`;
+		} else if (
+			location.startsWith("/illustrations") ||
+			location.startsWith("/catalog")
+		) {
+			document.title = "Illustration Studio — Esvigy";
+		} else {
+			document.title =
+				"Esvigy — UI Illustrations as simple and developer-friendly as icons";
+		}
+	}, [location, selectedItem]);
+
+	// Handle in-page hash scrolling (e.g. /#guide or /#packages)
 	const handleNavigateSection = (sectionId: "guide" | "packages") => {
 		const element = document.getElementById(sectionId);
 		if (element) {
 			element.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
+	useEffect(() => {
+		const hash = window.location.hash.replace("#", "");
+		if (hash && (location === "/" || location === "")) {
+			setTimeout(() => {
+				const el = document.getElementById(hash);
+				if (el) {
+					el.scrollIntoView({ behavior: "smooth" });
+				}
+			}, 100);
+		}
+	}, [location]);
+
+	const handleSelectIllustration = (item: IllustrationItem) => {
+		navigate(`/illustrations/${item.name}`);
+	};
+
+	const handleCloseModal = () => {
+		if (searchQuery.trim()) {
+			navigate(`/illustrations?q=${encodeURIComponent(searchQuery.trim())}`);
+		} else {
+			navigate("/illustrations");
+		}
+	};
+
+	const handleSearchChange = (query: string) => {
+		setSearchQuery(query);
+		if (location.startsWith("/illustrations") && !routeIllustrationName) {
+			const newSearch = query.trim()
+				? `?q=${encodeURIComponent(query.trim())}`
+				: "";
+			window.history.replaceState(null, "", `/illustrations${newSearch}`);
 		}
 	};
 
@@ -85,8 +149,6 @@ export function App() {
 		>
 			{/* Global Navigation Header */}
 			<Navbar
-				activeTab={activeTab}
-				setActiveTab={setActiveTab}
 				count={illustrations.length}
 				theme={theme}
 				setTheme={setTheme}
@@ -95,42 +157,56 @@ export function App() {
 
 			{/* Main Content Area */}
 			<main style={{ flex: 1, paddingTop: "60px" }}>
-				{activeTab === "home" ? (
-					<HomePage
-						onExploreCatalog={() => {
-							setActiveTab("catalog");
-							window.scrollTo({ top: 0, behavior: "smooth" });
-						}}
-						onSearch={(query) => {
-							setSearchQuery(query);
-							setActiveTab("catalog");
-							window.scrollTo({ top: 0, behavior: "smooth" });
-						}}
-						onSelectIllustration={(item) => setSelectedItem(item)}
-						illustrations={illustrations}
-						theme={theme}
-					/>
-				) : (
-					<IllustrationCatalog
-						illustrations={illustrations}
-						onSelectIllustration={(item) => setSelectedItem(item)}
-						primaryColor={primaryColor}
-						setPrimaryColor={setPrimaryColor}
-						secondaryColor={secondaryColor}
-						setSecondaryColor={setSecondaryColor}
-						animated={animated}
-						setAnimated={setAnimated}
-						searchQuery={searchQuery}
-						setSearchQuery={setSearchQuery}
-						theme={theme}
-					/>
-				)}
+				<Switch>
+					<Route path='/'>
+						<HomePage
+							onExploreCatalog={() => {
+								navigate("/illustrations");
+								window.scrollTo({ top: 0, behavior: "smooth" });
+							}}
+							onSearch={(query) => {
+								navigate(`/illustrations?q=${encodeURIComponent(query)}`);
+								window.scrollTo({ top: 0, behavior: "smooth" });
+							}}
+							onSelectIllustration={handleSelectIllustration}
+							illustrations={illustrations}
+							theme={theme}
+						/>
+					</Route>
+
+					<Route path='/catalog'>
+						<Redirect to='/illustrations' />
+					</Route>
+
+					<Route path='/illustrations/:name?'>
+						{() => (
+							<IllustrationCatalog
+								illustrations={illustrations}
+								onSelectIllustration={handleSelectIllustration}
+								primaryColor={primaryColor}
+								setPrimaryColor={setPrimaryColor}
+								secondaryColor={secondaryColor}
+								setSecondaryColor={setSecondaryColor}
+								animated={animated}
+								setAnimated={setAnimated}
+								searchQuery={searchQuery}
+								setSearchQuery={handleSearchChange}
+								theme={theme}
+							/>
+						)}
+					</Route>
+
+					{/* Fallback route */}
+					<Route>
+						<Redirect to='/' />
+					</Route>
+				</Switch>
 			</main>
 
 			{/* Deep Inspection Modal */}
 			<IllustrationModal
 				item={selectedItem}
-				onClose={() => setSelectedItem(null)}
+				onClose={handleCloseModal}
 				primaryColor={primaryColor}
 				secondaryColor={secondaryColor}
 				animated={animated}
@@ -138,3 +214,4 @@ export function App() {
 		</div>
 	);
 }
+

@@ -9,7 +9,8 @@
    "dependencies": {
       "@esvigy/react": "workspace:*",
       "react": "^19.0.0",
-      "react-dom": "^19.0.0"
+      "react-dom": "^19.0.0",
+      "wouter": "^3.13.0"
    },
    "devDependencies": {
       "@types/react": "^19.0.0",

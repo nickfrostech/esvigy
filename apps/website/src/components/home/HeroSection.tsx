@@ -228,16 +228,19 @@ export function HeroSection({
 					>
 						<span>View All Illustrations</span>
 					</button>
-					<button
-						onClick={() => {
+					<a
+						href='/#guide'
+						onClick={(e) => {
+							e.preventDefault();
+							window.history.pushState(null, "", "/#guide");
 							const el = document.getElementById("guide");
 							el?.scrollIntoView({ behavior: "smooth" });
 						}}
 						className='btn-secondary'
-						style={{ fontSize: "14px", padding: "12px 22px" }}
+						style={{ fontSize: "14px", padding: "12px 22px", textDecoration: "none" }}
 					>
 						<span>Get Started</span>
-					</button>
+					</a>
 					<a
 						href='https://github.com/nickfrostech/esvigy'
 						target='_blank'

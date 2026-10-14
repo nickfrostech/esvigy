@@ -1,11 +1,12 @@
 /** @format */
 
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { LogoEsvigy } from "@esvigy/react";
 
 interface NavbarProps {
-	activeTab: "home" | "catalog";
-	setActiveTab: (tab: "home" | "catalog") => void;
+	activeTab?: "home" | "catalog";
+	setActiveTab?: (tab: "home" | "catalog") => void;
 	count: number;
 	theme: "dark" | "light";
 	setTheme: (theme: "dark" | "light") => void;
@@ -19,7 +20,13 @@ export function Navbar({
 	setTheme,
 	onNavigateSection,
 }: NavbarProps) {
+	const [location, navigate] = useLocation();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+	const isCatalogActive =
+		location.startsWith("/illustrations") ||
+		location.startsWith("/catalog") ||
+		activeTab === "catalog";
 
 	// Lock body scroll when mobile menu drawer is open
 	useEffect(() => {
@@ -34,14 +41,14 @@ export function Navbar({
 
 	const handleNavClick = (sectionId: "guide" | "packages") => {
 		setMobileMenuOpen(false);
-		if (activeTab !== "home") {
-			setActiveTab("home");
-			setTimeout(() => {
-				onNavigateSection?.(sectionId);
-			}, 50);
+		if (location !== "/" && !location.startsWith("/#")) {
+			navigate(`/#${sectionId}`);
 		} else {
-			onNavigateSection?.(sectionId);
+			window.history.pushState(null, "", `/#${sectionId}`);
 		}
+		setTimeout(() => {
+			onNavigateSection?.(sectionId);
+		}, 60);
 	};
 
 	return (
@@ -64,9 +71,9 @@ export function Navbar({
 				}}
 			>
 				{/* Left: Logo, Name & In Progress badge */}
-				<div
+				<Link
+					href='/'
 					onClick={() => {
-						setActiveTab("home");
 						setMobileMenuOpen(false);
 						window.scrollTo({ top: 0, behavior: "smooth" });
 					}}
@@ -76,6 +83,7 @@ export function Navbar({
 						gap: "10px",
 						cursor: "pointer",
 						userSelect: "none",
+						textDecoration: "none",
 					}}
 				>
 					<div
@@ -118,13 +126,13 @@ export function Navbar({
 					>
 						In Progress
 					</span>
-				</div>
+				</Link>
 
 				{/* Desktop Right Navigation */}
 				<div className='nav-desktop'>
-					<button
+					<Link
+						href='/illustrations'
 						onClick={() => {
-							setActiveTab("catalog");
 							window.scrollTo({ top: 0, behavior: "smooth" });
 						}}
 						style={{
@@ -133,29 +141,35 @@ export function Navbar({
 							fontSize: "14px",
 							fontWeight: 500,
 							cursor: "pointer",
+							textDecoration: "none",
 							border: "1px solid transparent",
 							backgroundColor:
-								activeTab === "catalog"
+								isCatalogActive
 									? "var(--bg-surface-hover)"
 									: "transparent",
 							color:
-								activeTab === "catalog"
+								isCatalogActive
 									? "var(--cyan-primary)"
 									: "var(--text-muted)",
 							transition: "all 0.15s ease",
 						}}
 					>
 						Illustrations
-					</button>
+					</Link>
 
-					<button
-						onClick={() => handleNavClick("guide")}
+					<a
+						href='/#guide'
+						onClick={(e) => {
+							e.preventDefault();
+							handleNavClick("guide");
+						}}
 						style={{
 							padding: "8px 14px",
 							borderRadius: "10px",
 							fontSize: "14px",
 							fontWeight: 500,
 							cursor: "pointer",
+							textDecoration: "none",
 							border: "1px solid transparent",
 							backgroundColor: "transparent",
 							color: "var(--text-muted)",
@@ -163,16 +177,21 @@ export function Navbar({
 						}}
 					>
 						Guide
-					</button>
+					</a>
 
-					<button
-						onClick={() => handleNavClick("packages")}
+					<a
+						href='/#packages'
+						onClick={(e) => {
+							e.preventDefault();
+							handleNavClick("packages");
+						}}
 						style={{
 							padding: "8px 14px",
 							borderRadius: "10px",
 							fontSize: "14px",
 							fontWeight: 500,
 							cursor: "pointer",
+							textDecoration: "none",
 							border: "1px solid transparent",
 							backgroundColor: "transparent",
 							color: "var(--text-muted)",
@@ -180,7 +199,7 @@ export function Navbar({
 						}}
 					>
 						Packages
-					</button>
+					</a>
 
 					{/* Subtle Vertical Divider */}
 					<div
@@ -373,9 +392,9 @@ export function Navbar({
 				</div>
 
 				{/* Navigation Links */}
-				<button
+				<Link
+					href='/illustrations'
 					onClick={() => {
-						setActiveTab("catalog");
 						setMobileMenuOpen(false);
 						window.scrollTo({ top: 0, behavior: "smooth" });
 					}}
@@ -387,22 +406,28 @@ export function Navbar({
 						fontWeight: 500,
 						textAlign: "left",
 						cursor: "pointer",
+						textDecoration: "none",
+						display: "block",
 						border: "1px solid var(--border-subtle)",
 						backgroundColor:
-							activeTab === "catalog"
+							isCatalogActive
 								? "var(--bg-surface-hover)"
 								: "transparent",
 						color:
-							activeTab === "catalog"
+							isCatalogActive
 								? "var(--cyan-primary)"
 								: "var(--text-main)",
 					}}
 				>
 					Illustrations
-				</button>
+				</Link>
 
-				<button
-					onClick={() => handleNavClick("guide")}
+				<a
+					href='/#guide'
+					onClick={(e) => {
+						e.preventDefault();
+						handleNavClick("guide");
+					}}
 					style={{
 						padding: "10px 14px",
 						borderRadius: "10px",
@@ -411,16 +436,22 @@ export function Navbar({
 						fontWeight: 500,
 						textAlign: "left",
 						cursor: "pointer",
+						textDecoration: "none",
+						display: "block",
 						border: "1px solid var(--border-subtle)",
 						backgroundColor: "transparent",
 						color: "var(--text-main)",
 					}}
 				>
 					Guide
-				</button>
+				</a>
 
-				<button
-					onClick={() => handleNavClick("packages")}
+				<a
+					href='/#packages'
+					onClick={(e) => {
+						e.preventDefault();
+						handleNavClick("packages");
+					}}
 					style={{
 						padding: "10px 14px",
 						borderRadius: "10px",
@@ -429,13 +460,15 @@ export function Navbar({
 						fontWeight: 500,
 						textAlign: "left",
 						cursor: "pointer",
+						textDecoration: "none",
+						display: "block",
 						border: "1px solid var(--border-subtle)",
 						backgroundColor: "transparent",
 						color: "var(--text-main)",
 					}}
 				>
 					Packages
-				</button>
+				</a>
 
 				<div
 					style={{

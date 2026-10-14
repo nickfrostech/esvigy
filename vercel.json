@@ -1,6 +1,12 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm --filter website build",
-  "outputDirectory": "apps/website/dist",
-  "framework": "vite"
+   "$schema": "https://openapi.vercel.sh/vercel.json",
+   "buildCommand": "pnpm --filter website build",
+   "outputDirectory": "apps/website/dist",
+   "framework": "vite",
+   "rewrites": [
+      {
+         "source": "/(.*)",
+         "destination": "/"
+      }
+   ]
 }
