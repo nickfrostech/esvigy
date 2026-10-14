@@ -6,16 +6,10 @@ on:
    release:
       types: [published]
    workflow_dispatch:
-      inputs:
-         dry_run:
-            description: "Run dry-run pack without actually publishing"
-            required: false
-            type: boolean
-            default: false
 
 permissions:
    contents: read
-   id-token: write # Required for npm provenance cryptographic signatures & OIDC Trusted Publishing
+   id-token: write # Required for npm provenance & OIDC Trusted Publishing
 
 jobs:
    publish:
@@ -31,10 +25,10 @@ jobs:
            with:
               version: 9
 
-         - name: Setup Node.js (v20)
+         - name: Setup Node.js (v22)
            uses: actions/setup-node@v4
            with:
-              node-version: 20
+              node-version: 22
               registry-url: "https://registry.npmjs.org"
               cache: "pnpm"
 
@@ -47,10 +41,5 @@ jobs:
          - name: Run Pre-Publish Tests
            run: pnpm --filter @esvigy/react test
 
-         - name: Publish to npm (Dry Run)
-           if: ${{ inputs.dry_run }}
-           run: pnpm --filter @esvigy/react publish --access public --no-git-checks --dry-run
-
          - name: Publish @esvigy/react to npm
-           if: ${{ !inputs.dry_run }}
            run: pnpm --filter @esvigy/react publish --access public --no-git-checks --provenance
