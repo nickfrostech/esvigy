@@ -42,4 +42,7 @@ jobs:
            run: pnpm --filter @esvigy/react test
 
          - name: Publish @esvigy/react to npm
-           run: pnpm --filter @esvigy/react publish --access public --no-git-checks --provenance
+           working-directory: packages/react
+           run: npx npm@latest publish --access public --provenance
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

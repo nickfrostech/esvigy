@@ -1,9 +1,22 @@
 /** @format */
 
+import { useState } from "react";
+
+type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
+
+const INSTALL_COMMANDS: Record<PackageManager, string> = {
+	pnpm: "pnpm add @esvigy/react",
+	npm: "npm install @esvigy/react",
+	yarn: "yarn add @esvigy/react",
+	bun: "bun add @esvigy/react",
+};
+
 interface PackageItem {
 	name: string;
 	description: string;
 	status: string;
+	isLive?: boolean;
+	npmUrl?: string;
 }
 
 const TARGET_PACKAGES: PackageItem[] = [
@@ -11,7 +24,9 @@ const TARGET_PACKAGES: PackageItem[] = [
 		name: "@esvigy/react",
 		description:
 			"React 18 & 19 components with full TypeScript declarations, two-tone color props, and zero-JS CSS animations.",
-		status: "Coming Soon",
+		status: "Available Now",
+		isLive: true,
+		npmUrl: "https://www.npmjs.com/package/@esvigy/react",
 	},
 	{
 		name: "@esvigy/svg",
@@ -40,6 +55,15 @@ const TARGET_PACKAGES: PackageItem[] = [
 ];
 
 export function PackagesSection() {
+	const [selectedPm, setSelectedPm] = useState<PackageManager>("pnpm");
+	const [copied, setCopied] = useState(false);
+
+	const handleCopy = (cmd: string) => {
+		navigator.clipboard.writeText(cmd);
+		setCopied(true);
+		setTimeout(() => setCopied(false), 2000);
+	};
+
 	return (
 		<section
 			id='packages'
@@ -68,8 +92,9 @@ export function PackagesSection() {
 						margin: 0,
 					}}
 				>
-					Targeted packages across the web ecosystem. All packages are
-					currently in development.
+					Modular packages across the web ecosystem.{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/react</strong>{" "}
+					is live on npm today!
 				</p>
 			</div>
 
@@ -89,6 +114,12 @@ export function PackagesSection() {
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "space-between",
+							border: pkg.isLive
+								? "1px solid rgba(0, 212, 255, 0.35)"
+								: undefined,
+							boxShadow: pkg.isLive
+								? "0 4px 20px -4px rgba(0, 212, 255, 0.1)"
+								: undefined,
 						}}
 					>
 						<div>
@@ -104,7 +135,9 @@ export function PackagesSection() {
 									style={{
 										fontSize: "15px",
 										fontWeight: 600,
-										color: "var(--text-main)",
+										color: pkg.isLive
+											? "var(--cyan-primary)"
+											: "var(--text-main)",
 									}}
 								>
 									{pkg.name}
@@ -114,10 +147,14 @@ export function PackagesSection() {
 										fontSize: "11px",
 										padding: "2px 8px",
 										borderRadius: "6px",
-										backgroundColor: "var(--bg-surface-hover)",
-										color: "var(--cyan-primary)",
-										fontWeight: 500,
-										border: "1px solid var(--border-subtle)",
+										backgroundColor: pkg.isLive
+											? "rgba(16, 185, 129, 0.15)"
+											: "var(--bg-surface-hover)",
+										color: pkg.isLive ? "#10B981" : "var(--text-muted)",
+										fontWeight: 600,
+										border: pkg.isLive
+											? "1px solid rgba(16, 185, 129, 0.3)"
+											: "1px solid var(--border-subtle)",
 									}}
 								>
 									{pkg.status}
@@ -136,21 +173,145 @@ export function PackagesSection() {
 							</p>
 						</div>
 
-						<div
-							style={{
-								padding: "8px 12px",
-								borderRadius: "10px",
-								cornerShape: "squircle",
-								backgroundColor: "var(--bg-dark)",
-								border: "1px dashed var(--border-subtle)",
-								textAlign: "center",
-								fontSize: "12px",
-								color: "var(--text-muted)",
-								fontWeight: 500,
-							}}
-						>
-							Coming Soon
-						</div>
+						{pkg.isLive ? (
+							<div
+								style={{
+									display: "flex",
+									flexDirection: "column",
+									gap: "10px",
+								}}
+							>
+								{/* Package Manager Tabs */}
+								<div
+									style={{
+										display: "flex",
+										gap: "4px",
+										backgroundColor: "var(--bg-dark)",
+										padding: "3px",
+										borderRadius: "8px",
+										border: "1px solid var(--border-subtle)",
+									}}
+								>
+									{(["pnpm", "npm", "yarn", "bun"] as const).map(
+										(installer) => (
+											<button
+												key={installer}
+												type='button'
+												onClick={() => setSelectedPm(installer)}
+												style={{
+													flex: 1,
+													padding: "4px 6px",
+													borderRadius: "6px",
+													fontSize: "11px",
+													fontWeight:
+														selectedPm === installer ? 600 : 500,
+													border: "none",
+													cursor: "pointer",
+													backgroundColor:
+														selectedPm === installer
+															? "var(--bg-surface-hover)"
+															: "transparent",
+													color:
+														selectedPm === installer
+															? "var(--cyan-primary)"
+															: "var(--text-muted)",
+													transition: "all 0.15s ease",
+												}}
+											>
+												{installer}
+											</button>
+										)
+									)}
+								</div>
+
+								{/* Clickable Code Snippet */}
+								<button
+									type='button'
+									onClick={() => handleCopy(INSTALL_COMMANDS[selectedPm])}
+									style={{
+										padding: "10px 12px",
+										borderRadius: "8px",
+										backgroundColor: "var(--bg-dark)",
+										border: "1px solid rgba(0, 212, 255, 0.25)",
+										display: "flex",
+										alignItems: "center",
+										justifyContent: "space-between",
+										fontSize: "12px",
+										fontFamily: "monospace",
+										color: "var(--cyan-primary)",
+										cursor: "pointer",
+										width: "100%",
+										transition: "all 0.2s ease",
+										textAlign: "left",
+									}}
+									title='Click to copy install command'
+								>
+									<span
+										style={{
+											overflow: "hidden",
+											textOverflow: "ellipsis",
+											whiteSpace: "nowrap",
+										}}
+									>
+										{INSTALL_COMMANDS[selectedPm]}
+									</span>
+									<span
+										style={{
+											fontSize: "11px",
+											color: copied ? "#10B981" : "var(--text-muted)",
+											marginLeft: "8px",
+											fontWeight: 600,
+											flexShrink: 0,
+										}}
+									>
+										{copied ? "✓ Copied" : "Copy"}
+									</span>
+								</button>
+
+								{pkg.npmUrl && (
+									<a
+										href={pkg.npmUrl}
+										target='_blank'
+										rel='noopener noreferrer'
+										style={{
+											fontSize: "11px",
+											color: "var(--text-muted)",
+											textAlign: "center",
+											textDecoration: "none",
+											display: "flex",
+											alignItems: "center",
+											justifyContent: "center",
+											gap: "4px",
+											paddingTop: "2px",
+											transition: "color 0.2s ease",
+										}}
+										onMouseEnter={(e) =>
+											(e.currentTarget.style.color = "var(--cyan-primary)")
+										}
+										onMouseLeave={(e) =>
+											(e.currentTarget.style.color = "var(--text-muted)")
+										}
+									>
+										View package on npmjs.com ↗
+									</a>
+								)}
+							</div>
+						) : (
+							<div
+								style={{
+									padding: "8px 12px",
+									borderRadius: "10px",
+									backgroundColor: "var(--bg-dark)",
+									border: "1px dashed var(--border-subtle)",
+									textAlign: "center",
+									fontSize: "12px",
+									color: "var(--text-muted)",
+									fontWeight: 500,
+								}}
+							>
+								Coming Soon
+							</div>
+						)}
 					</div>
 				))}
 			</div>
