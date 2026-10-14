@@ -1,0 +1,60 @@
+# @format
+
+name: Publish @esvigy/react to npm
+
+on:
+   release:
+      types: [published]
+   workflow_dispatch:
+      inputs:
+         dry_run:
+            description: "Run dry-run pack without actually publishing"
+            required: false
+            type: boolean
+            default: false
+
+permissions:
+   contents: read
+   id-token: write # Required for npm provenance cryptographic signatures
+
+jobs:
+   publish:
+      name: Build, Test & Publish to npm
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
+
+         - name: Install pnpm
+           uses: pnpm/action-setup@v4
+           with:
+              version: 9
+
+         - name: Setup Node.js (v20)
+           uses: actions/setup-node@v4
+           with:
+              node-version: 20
+              registry-url: "https://registry.npmjs.org"
+              cache: "pnpm"
+
+         - name: Install workspace dependencies
+           run: pnpm install --frozen-lockfile
+
+         - name: Build @esvigy/react
+           run: pnpm --filter @esvigy/react build
+
+         - name: Run Pre-Publish Tests
+           run: pnpm --filter @esvigy/react test
+
+         - name: Publish to npm (Dry Run)
+           if: ${{ inputs.dry_run }}
+           run: pnpm --filter @esvigy/react publish --access public --no-git-checks --dry-run
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+         - name: Publish @esvigy/react to npm
+           if: ${{ !inputs.dry_run }}
+           run: pnpm --filter @esvigy/react publish --access public --no-git-checks --provenance
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

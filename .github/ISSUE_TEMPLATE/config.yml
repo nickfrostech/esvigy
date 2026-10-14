@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Contributing Guide
+    url: https://github.com/nickfrostech/esvigy/blob/main/CONTRIBUTING.md
+    about: Read our guide before submitting illustrations or code.
+  - name: ⚖️ Copyright & Takedown Policy
+    url: https://github.com/nickfrostech/esvigy/blob/main/COPYRIGHT.md
+    about: Review our intellectual property and takedown guidelines.

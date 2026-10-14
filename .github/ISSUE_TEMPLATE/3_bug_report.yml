@@ -1,0 +1,60 @@
+name: 🐛 Bug Report
+description: Report a broken illustration, generator issue, or website bug
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please provide as much detail as possible to help us reproduce and fix it.
+
+  - type: dropdown
+    id: package
+    attributes:
+      label: Which package or area is affected?
+      options:
+        - "@esvigy/react (React component rendering / props / animations)"
+        - "@esvigy/svg (Raw vector file geometry / attributes)"
+        - "Generator scripts (pnpm generate, generate:index)"
+        - "Website Studio (esvigy.vercel.app)"
+        - "Documentation"
+    validations:
+      required: true
+
+  - type: input
+    id: component_name
+    attributes:
+      label: Component / Illustration Name (if applicable)
+      placeholder: e.g. NotFoundRobot, Search
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the Bug
+      description: A clear and concise description of what happened vs what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this behavior?
+      placeholder: |
+        1. Import `NotFoundRobot` from `@esvigy/react`
+        2. Set `animated={true}` and `secondaryColor="#123456"`
+        3. See rendering issue in browser...
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment Info
+      description: OS, browser, React version, framework (e.g. Next.js 15, Vite 6, Chrome 124).
+      placeholder: Windows 11, React 19, Next.js App Router
+    validations:
+      required: false

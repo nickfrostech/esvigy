@@ -1,0 +1,79 @@
+name: 🎨 Submit Raw Vector Illustration
+description: For designers submitting a raw vector SVG to the unprocessedSVG staging area
+title: "[Vector Submission]: "
+labels: ["vector-submission", "unprocessed-svg"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing artwork to Esvigy! Designers can submit vector artwork created in **any tool** (Figma, Illustrator, Inkscape, Affinity, CorelDRAW, etc.). A developer will help standardize it into our format.
+
+  - type: input
+    id: illustration_name
+    attributes:
+      label: Illustration Name
+      description: The name for your illustration in PascalCase (e.g. `EmptyInbox`, `RocketLaunch`).
+      placeholder: e.g. RocketLaunch
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Suggested Category
+      options:
+        - "Empty States"
+        - "Errors & Warnings"
+        - "Status & Feedback"
+        - "Actions & Onboarding"
+        - "Search"
+        - "Security & Privacy"
+        - "Finance & Billing"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: author_name
+    attributes:
+      label: Author Name / Attribution Handle
+      description: How should we credit you in the metadata and studio?
+      placeholder: e.g. Jane Doe (@janedoe)
+    validations:
+      required: true
+
+  - type: input
+    id: author_link
+    attributes:
+      label: Portfolio / Profile Link
+      description: Your GitHub profile, Dribbble, personal website, or portfolio link.
+      placeholder: https://github.com/your-username
+    validations:
+      required: true
+
+  - type: textarea
+    id: tags
+    attributes:
+      label: Search Tags
+      description: Comma-separated keywords that describe this illustration.
+      placeholder: rocket, launch, startup, speed, deploy, fly
+    validations:
+      required: true
+
+  - type: textarea
+    id: upload_details
+    attributes:
+      label: Vector File Attachment / Pull Request
+      description: Drag & drop your `.svg` file here, or link to your Pull Request uploading to `packages/svg/unprocessedSVG/`.
+      placeholder: Attach SVG file or paste PR link here
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: intellectual_property
+    attributes:
+      label: Intellectual Property Certification
+      options:
+        - label: I certify that this artwork is my own original creation or that I hold all legal rights to release it under the MIT License, as outlined in COPYRIGHT.md.
+          required: true

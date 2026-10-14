@@ -1,0 +1,55 @@
+name: ✨ Feature Request
+description: Propose an idea or enhancement for the Esvigy library, studio, or CLI
+title: "[Feature]: "
+labels: ["enhancement"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for a new feature, studio enhancement, framework adapter (Vue, Svelte), or CLI tool? Let us know!
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Target Area
+      options:
+        - "Website Studio & Playground (esvigy.vercel.app)"
+        - "@esvigy/react (Components, Props API)"
+        - "@esvigy/svg (Vector standards, manifest)"
+        - "CLI Tool (Scaffolder, generator)"
+        - "New Framework Adapter (Vue, Svelte, Angular, React Native)"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem?
+      description: A clear description of what the current limitation is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the Solution You'd Like
+      description: Detailed explanation of how this feature should work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe Alternatives You've Considered
+      description: Any alternative solutions or workarounds you've thought about.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I would be willing to submit a PR to help build this feature!

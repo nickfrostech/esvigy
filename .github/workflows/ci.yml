@@ -1,0 +1,41 @@
+# @format
+
+name: CI
+
+on:
+   push:
+      branches: [main]
+   pull_request:
+      branches: [main]
+
+jobs:
+   verify:
+      name: Build & Test Verification
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Checkout repository
+           uses: actions/checkout@v4
+
+         - name: Install pnpm
+           uses: pnpm/action-setup@v4
+           with:
+              version: 9
+
+         - name: Setup Node.js (v20)
+           uses: actions/setup-node@v4
+           with:
+              node-version: 20
+              cache: "pnpm"
+
+         - name: Install workspace dependencies
+           run: pnpm install --frozen-lockfile
+
+         - name: Verify @esvigy/react Build
+           run: pnpm --filter @esvigy/react build
+
+         - name: Run @esvigy/react Test Suite (250 tests)
+           run: pnpm --filter @esvigy/react test
+
+         - name: Verify Website Production Build
+           run: pnpm --filter website build

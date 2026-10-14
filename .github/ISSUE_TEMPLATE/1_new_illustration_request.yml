@@ -1,0 +1,61 @@
+name: 💡 Request an Illustration
+description: Suggest an illustration concept or UI state you'd like to see in Esvigy
+title: "[Illustration Request]: "
+labels: ["illustration-request", "needs-triage"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an illustration! Esvigy focuses on high-utility, reusable UI states that modern apps need (empty states, errors, success, onboarding, dashboards, etc.).
+
+  - type: input
+    id: name
+    attributes:
+      label: Suggested Illustration Name
+      description: What should this illustration be named (in PascalCase)?
+      placeholder: e.g. PaymentSuccess, ServerMaintenance, UpgradePlan
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this belong to?
+      options:
+        - "Empty States"
+        - "Errors & Warnings"
+        - "Status & Feedback"
+        - "Actions & Onboarding"
+        - "Search"
+        - "Finance & Billing"
+        - "Security & Privacy"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Real-World Use Case
+      description: In what screens or contexts would a developer use this illustration?
+      placeholder: e.g. Displayed when a user tries to access a feature that requires a paid subscription plan.
+    validations:
+      required: true
+
+  - type: textarea
+    id: visual_ideas
+    attributes:
+      label: Visual Ideas & Suggested Motion
+      description: Any thoughts on what the artwork should depict, or elements that could micro-animate?
+      placeholder: e.g. A character holding a golden key with sparkles floating in the background.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: willingness
+    attributes:
+      label: Contribution
+      options:
+        - label: I am willing to design or help implement this illustration!

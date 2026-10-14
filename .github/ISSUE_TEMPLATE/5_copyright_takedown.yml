@@ -1,0 +1,53 @@
+name: ⚖️ Copyright Takedown Request
+description: For artists and copyright owners requesting immediate removal of an illustration
+title: "[Copyright Takedown]: "
+labels: ["copyright-takedown", "urgent"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Esvigy respects intellectual property rights. If an illustration was uploaded without your permission, we operate a zero-dispute, immediate takedown policy. You can also email us directly at `nb.nicholasbenson@gmail.com`. See [COPYRIGHT.md](https://github.com/nickfrostech/esvigy/blob/main/COPYRIGHT.md) for full terms.
+
+  - type: input
+    id: illustration_name
+    attributes:
+      label: Contested Illustration Name
+      description: The name or path of the illustration in Esvigy to be removed.
+      placeholder: e.g. ExampleIllustration
+    validations:
+      required: true
+
+  - type: input
+    id: original_work_link
+    attributes:
+      label: Proof of Ownership / Link to Original Work
+      description: URL to your original artwork, portfolio page, or publication demonstrating your ownership.
+      placeholder: https://dribbble.com/shots/... or https://your-portfolio.com/...
+    validations:
+      required: true
+
+  - type: input
+    id: contact_info
+    attributes:
+      label: Your Name & Contact Email
+      description: How we can contact you to confirm the removal.
+      placeholder: Jane Doe (jane@example.com)
+    validations:
+      required: true
+
+  - type: textarea
+    id: statement
+    attributes:
+      label: Good-Faith Statement
+      value: "I believe in good faith that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law, and that I am the copyright owner or authorized to act on their behalf."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: affirmation
+    attributes:
+      label: Affirmation
+      options:
+        - label: I affirm that the information in this notice is accurate under penalty of perjury.
+          required: true
