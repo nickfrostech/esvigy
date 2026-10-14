@@ -157,14 +157,16 @@
 
 ## 🤝 Milestone 6: Community Pipeline, Licensing & Release
 
-- [ ] **Asset Contribution Infrastructure**:
-  - [X] Create CorelDRAW & SVG Design Guide ([packages/svg/README.md](packages/svg/README.md)).
-  - [ ] Build automated validation CLI (`pnpm test:svg`).
+- [X] **Asset Contribution Infrastructure**:
+  - [X] Master contributing guide with persona tracks ([CONTRIBUTING.md](CONTRIBUTING.md)).
+  - [X] Tool-agnostic vector contribution pipeline & `unprocessedSVG/` intake folder ([packages/svg/CONTRIBUTING.md](packages/svg/CONTRIBUTING.md)).
+  - [X] React package development guide & contributor checklist ([packages/react/CONTRIBUTING.md](packages/react/CONTRIBUTING.md)).
+  - [X] Automated Vitest testing engine (250 tests covering component contracts, dynamic colors, animations, and bundle integrity).
 - [ ] **CI/CD Automation**:
   - [ ] GitHub Actions workflow for pull request linting, formatting, and build tests.
-  - [ ] Automated Changesets publishing workflow to npm registry on merged releases.
+  - [ ] Automated publishing workflow to npm registry.
 - [ ] **Public Launch**:
-  - [ ] Publish `@esvigy/react` v0.1.0 and `@esvigy/svg` v0.1.0 to npm.
+  - [ ] Publish `@esvigy/react` v0.1.0 to npm.
   - [ ] Publish announcement and documentation showcase.
 
 ---

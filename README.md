@@ -9,7 +9,15 @@
 </p>
 
 <p align="center">
-  <a href="https://esvigy.vercel.app"><strong>🌐 Live Website & Studio (esvigy.vercel.app)</strong></a>
+  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/v/@esvigy/react.svg?color=00D4FF&label=@esvigy/react" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/dm/@esvigy/react.svg?color=10B981&label=downloads" alt="npm downloads" /></a>
+  <a href="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml"><img src="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
+  <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
+  <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/studio-esvigy.vercel.app-7928CA" alt="Live Studio" /></a>
+</p>
+
+<p align="center">
+  <a href="https://esvigy.vercel.app"><strong>🌐 Live Website &amp; Studio (esvigy.vercel.app)</strong></a>
 </p>
 
 <p align="center">
@@ -21,6 +29,8 @@
   <a href="#architecture--ecosystem">Architecture</a> •
   <a href="#initial-illustration-catalog">Catalog</a> •
   <a href="#roadmap--milestones">Milestones</a> •
+  <a href="./CONTRIBUTING.md">Contributing</a> •
+  <a href="./COPYRIGHT.md">Copyright &amp; Takedown</a> •
   <a href="#license">License</a>
 </p>
 
@@ -557,15 +567,11 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 
 ## Contributing
 
-We welcome contributions of all kinds! Whether you are designing new illustrations, optimizing SVGs, or building framework adapters:
+We welcome contributions of all kinds! Whether you are a designer creating raw vector art, a developer standardizing SVGs, or building framework adapters:
 
-- **Designing Illustrations**: Read our [CorelDRAW &amp; SVG Design Guide](packages/svg/README.md) for document setup, layer naming, vector shadows, and export settings.
-- **Workflow**:
-  1. Fork the repository.
-  2. Create your feature branch (`git checkout -b feature/new-illustration`).
-  3. Commit your changes (`git commit -m 'feat: add EmptyTrash illustration'`).
-  4. Push to the branch (`git push origin feature/new-illustration`).
-  5. Open a Pull Request.
+- **Choose Your Track**: Read our master [Contributing Guide](./CONTRIBUTING.md) to find the path that matches your skills (designers, vector engineers, React developers, newcomers).
+- **Designers**: Drop raw vector exports directly into [`packages/svg/unprocessedSVG/`](./packages/svg/unprocessedSVG/) — no coding needed!
+- **Developers**: See the [SVG Contributing Guide](./packages/svg/CONTRIBUTING.md) and [React Contributing Guide](./packages/react/CONTRIBUTING.md) for step-by-step instructions and contributor checklists.
 
 ---
 
@@ -573,3 +579,15 @@ We welcome contributions of all kinds! Whether you are designing new illustratio
 
 Distributed under the [MIT License](file:///c:/Code/esvigy/LICENSE).
 Copyright © 2026 [Nick Frost](https://github.com/nickfrostech).
+
+---
+
+## Copyright & Takedown Policy
+
+Esvigy is a community-driven open-source illustration library. Contributions are accepted in good faith, and the maintainers cannot independently verify third-party ownership of all community submissions. The maintainers disclaim liability for unauthorized artwork submitted by third parties.
+
+If you are a copyright owner and believe that any illustration in Esvigy infringes upon your copyright:
+- **Open a GitHub Issue**: [github.com/nickfrostech/esvigy/issues](https://github.com/nickfrostech/esvigy/issues) with the title `[Copyright Takedown]: <IllustrationName>`.
+- **Or Email**: `nb.nicholasbenson@gmail.com` with the details of your claim.
+
+Upon receiving notice, we will **immediately and permanently remove** the contested illustration from all repositories, packages, and the studio. For complete terms, see [COPYRIGHT.md](./COPYRIGHT.md).
