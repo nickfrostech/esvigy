@@ -15,7 +15,7 @@ on:
 
 permissions:
    contents: read
-   id-token: write # Required for npm provenance cryptographic signatures
+   id-token: write # Required for npm provenance cryptographic signatures & OIDC Trusted Publishing
 
 jobs:
    publish:
@@ -50,11 +50,7 @@ jobs:
          - name: Publish to npm (Dry Run)
            if: ${{ inputs.dry_run }}
            run: pnpm --filter @esvigy/react publish --access public --no-git-checks --dry-run
-           env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
          - name: Publish @esvigy/react to npm
            if: ${{ !inputs.dry_run }}
            run: pnpm --filter @esvigy/react publish --access public --no-git-checks --provenance
-           env:
-              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
