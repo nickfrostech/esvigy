@@ -1,8 +1,35 @@
 {
    "name": "@esvigy/react",
    "version": "0.1.0",
-   "description": "Esvigy illustration components for React",
+   "description": "Esvigy illustration components for React. 100% vector, tree-shakable, and customizable with micro-animations.",
    "homepage": "https://esvigy.vercel.app",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/nickfrostech/esvigy.git",
+      "directory": "packages/react"
+   },
+   "bugs": {
+      "url": "https://github.com/nickfrostech/esvigy/issues"
+   },
+   "license": "MIT",
+   "author": "Nick Frost (https://github.com/nickfrostech)",
+   "keywords": [
+      "esvigy",
+      "illustrations",
+      "svg",
+      "react",
+      "react-components",
+      "icons",
+      "ui",
+      "animated",
+      "lucide",
+      "micro-animations",
+      "two-tone",
+      "react-illustration"
+   ],
+   "publishConfig": {
+      "access": "public"
+   },
    "type": "module",
    "main": "./dist/index.cjs",
    "module": "./dist/index.js",
@@ -16,11 +43,19 @@
       }
    },
    "files": [
-      "dist"
+      "dist",
+      "README.md",
+      "LICENSE"
    ],
    "scripts": {
       "generate": "tsx scripts/generate.ts",
-      "build": "pnpm generate && tsup"
+      "generate:all": "tsx scripts/generate.ts --all",
+      "generate:index": "tsx scripts/generate-index.ts",
+      "build": "pnpm generate:all && pnpm generate:index && tsup",
+      "prepublishOnly": "pnpm build",
+      "test": "vitest run",
+      "test:one": "vitest run -t",
+      "test:watch": "vitest"
    },
    "peerDependencies": {
       "react": ">=18"
@@ -28,9 +63,12 @@
    "devDependencies": {
       "@types/node": "^26.6.5",
       "@types/react": "^19.3.0",
+      "@types/react-dom": "^19.3.0",
       "react": "^19.3.0",
+      "react-dom": "^19.3.0",
       "tsup": "^8.5.1",
       "tsx": "^4.23.15",
-      "typescript": "^5.9.3"
+      "typescript": "^5.9.3",
+      "vitest": "^5.0.4"
    }
 }

@@ -2,6 +2,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import readline from "node:readline/promises";
+import { stdin as input, stdout as output } from "node:process";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -9,13 +11,10 @@ const __dirname = path.dirname(__filename);
 
 const SVG_DIR = path.resolve(__dirname, "../../svg/src");
 const OUTPUT_DIR = path.resolve(__dirname, "../src/illustrations");
-const INDEX_FILE = path.resolve(__dirname, "../src/index.ts");
 const MANIFEST_FILE = path.resolve(__dirname, "../../svg/manifest.json");
 
 // Ignore temporary, scratch, or test assets from component generation
-const IGNORED_FILES = new Set([
-	"president_letter_head.svg",
-]);
+const IGNORED_FILES = new Set(["president_letter_head.svg"]);
 
 export interface SvgMetadata {
 	author?: string;
@@ -47,7 +46,9 @@ function extractMetadata(
 	manifest: Record<string, SvgMetadata>,
 ): SvgMetadata {
 	const componentName = path.basename(fileName, ".svg");
-	const meta: SvgMetadata = { ...(manifest[componentName] || manifest[fileName] || {}) };
+	const meta: SvgMetadata = {
+		...(manifest[componentName] || manifest[fileName] || {}),
+	};
 
 	// 1. Check data attributes on <svg ...> tag: data-author, data-creator, data-source, data-url
 	const svgTagMatch = svgRaw.match(/<svg\b([^>]*)>/i);
@@ -66,7 +67,10 @@ function extractMetadata(
 		const commentBody = match[1];
 		const lines = commentBody.split(/\r?\n/);
 		for (const rawLine of lines) {
-			const line = rawLine.trim().replace(/^[\s*#/-]+/, "").trim();
+			const line = rawLine
+				.trim()
+				.replace(/^[\s*#/-]+/, "")
+				.trim();
 			if (!meta.author) {
 				const aMatch = line.match(
 					/^(?:@author|author|autor|@creator|creator|artist|@artist)\s*[:=]?\s*(.+)$/i,
@@ -147,36 +151,33 @@ function buildHeaderComment(meta: SvgMetadata, fileName: string): string {
 	return lines.join("\n");
 }
 
-// Helper to convert kebab-case SVG attributes to React camelCase
+// Helper to convert SVG attributes to React JSX syntax
 function toReactSvgAttrs(svgContent: string): string {
-	return svgContent
-		.replace(/<!--[\s\S]*?-->/g, "") // Strip XML comments from JSX output
-		.replace(/\bclass=/g, "className=")
-		.replace(/stroke-width=/g, "strokeWidth=")
-		.replace(/stroke-linecap=/g, "strokeLinecap=")
-		.replace(/stroke-linejoin=/g, "strokeLinejoin=")
-		.replace(/stroke-miterlimit=/g, "strokeMiterlimit=")
-		.replace(/stroke-dasharray=/g, "strokeDasharray=")
-		.replace(/stroke-dashoffset=/g, "strokeDashoffset=")
-		.replace(/stroke-opacity=/g, "strokeOpacity=")
-		.replace(/fill-opacity=/g, "fillOpacity=")
-		.replace(/text-anchor=/g, "textAnchor=")
-		.replace(/font-size=/g, "fontSize=")
-		.replace(/font-weight=/g, "fontWeight=")
-		.replace(/font-family=/g, "fontFamily=")
-		.replace(/fill-rule=/g, "fillRule=")
-		.replace(/clip-rule=/g, "clipRule=")
-		.replace(/clip-path=/g, "clipPath=")
-		.replace(/stop-color=/g, "stopColor=")
-		.replace(/stop-opacity=/g, "stopOpacity=")
-		.replace(/dominant-baseline=/g, "dominantBaseline=")
-		.replace(/shape-rendering=/g, "shapeRendering=")
-		.replace(/color-interpolation-filters=/g, "colorInterpolationFilters=")
-		.replace(/flood-color=/g, "floodColor=")
-		.replace(/flood-opacity=/g, "floodOpacity=");
+	return (
+		svgContent
+			.replace(/<!--[\s\S]*?-->/g, "") // Strip XML comments from JSX output
+			.replace(/\bclass=/g, "className=")
+			.replace(/\bxlink:href=/g, "xlinkHref=")
+			.replace(/\bxmlns:xlink=/g, "xmlnsXlink=")
+			.replace(/\bxml:space=/g, "xmlSpace=")
+			// Automatically convert any kebab-case SVG presentation attribute to camelCase (except data-* and aria-*)
+			.replace(
+				/(?<=\s)(?!(?:data|aria)-)([a-z0-9]+(?:-[a-z0-9]+)+)=/gi,
+				(_, attrName: string) => {
+					const camel = attrName.replace(
+						/-([a-z0-9])/gi,
+						(__, char: string) => char.toUpperCase(),
+					);
+					return `${camel}=`;
+				},
+			)
+	);
 }
 
-function generateComponent(fileName: string, manifest: Record<string, SvgMetadata>): string {
+function generateComponent(
+	fileName: string,
+	manifest: Record<string, SvgMetadata>,
+): string {
 	const componentName = path.basename(fileName, ".svg");
 	const svgRaw = fs.readFileSync(path.join(SVG_DIR, fileName), "utf-8");
 
@@ -232,11 +233,11 @@ function generateComponent(fileName: string, manifest: Record<string, SvgMetadat
 	// Wire up data-esvigy-primary="true"
 	inner = inner.replace(
 		/fill="[^"]*"([^>]*data-esvigy-primary="true")/g,
-		'fill={color}$1',
+		"fill={color}$1",
 	);
 	inner = inner.replace(
 		/stroke="[^"]*"([^>]*data-esvigy-primary="true")/g,
-		'stroke={color}$1',
+		"stroke={color}$1",
 	);
 
 	// Wire up primary color for remaining currentColor
@@ -302,44 +303,143 @@ export const ${componentName} = ({
 `;
 }
 
-function run() {
+function findMatchingSvg(
+	target: string,
+	availableFiles: string[],
+): string | undefined {
+	const cleaned = path.basename(target).replace(/\.(svg|tsx)$/i, "");
+
+	// 1. Exact match with extension
+	if (availableFiles.includes(target)) {
+		return target;
+	}
+	// 2. Exact basename match + .svg
+	const exactSvg = `${cleaned}.svg`;
+	if (availableFiles.includes(exactSvg)) {
+		return exactSvg;
+	}
+	// 3. Case-insensitive basename match
+	const lowerCleaned = cleaned.toLowerCase();
+	const found = availableFiles.find(
+		(f) => path.basename(f, ".svg").toLowerCase() === lowerCleaned,
+	);
+	if (found) {
+		return found;
+	}
+	return undefined;
+}
+
+async function run() {
 	if (!fs.existsSync(OUTPUT_DIR)) {
 		fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 	}
 
 	const manifest = loadManifest();
 	const svgFiles = (fs.readdirSync(SVG_DIR) as string[])
-		.filter((f: string) => f.endsWith(".svg") && !f.startsWith("_") && !IGNORED_FILES.has(f));
+		.filter(
+			(f: string) =>
+				f.endsWith(".svg") && !f.startsWith("_") && !IGNORED_FILES.has(f),
+		)
+		.sort((a, b) => a.localeCompare(b));
 
-	const targetFiles = new Set(svgFiles.map((f: string) => `${path.basename(f, ".svg")}.tsx`));
-	for (const existingFile of fs.readdirSync(OUTPUT_DIR)) {
-		if (existingFile.endsWith(".tsx") && !targetFiles.has(existingFile)) {
-			fs.unlinkSync(path.join(OUTPUT_DIR, existingFile));
-			console.log(`🗑 Removed stale ${existingFile}`);
+	const rawArgs = process.argv.slice(2);
+	const positionalArgs = rawArgs.filter((arg) => !arg.startsWith("-"));
+	const isAllFlag = rawArgs.some((arg) => arg === "--all" || arg === "-a");
+
+	let targetFiles: string[] = [];
+
+	if (isAllFlag) {
+		targetFiles = svgFiles;
+	} else if (positionalArgs.length > 0) {
+		for (const arg of positionalArgs) {
+			const matched = findMatchingSvg(arg, svgFiles);
+			if (!matched) {
+				console.error(`❌ SVG file not found for: "${arg}"`);
+				const suggestions = svgFiles.filter((f) =>
+					f.toLowerCase().includes(arg.toLowerCase()),
+				);
+				if (suggestions.length > 0) {
+					console.log(
+						`   Did you mean: ${suggestions.map((s) => path.basename(s, ".svg")).join(", ")}?`,
+					);
+				} else {
+					console.log(
+						`   Available SVGs (${svgFiles.length}):\n   ${svgFiles.map((f) => path.basename(f, ".svg")).join(", ")}`,
+					);
+				}
+				process.exit(1);
+			}
+			targetFiles.push(matched);
+		}
+	} else if (process.stdin.isTTY) {
+		// Interactive mode
+		const rl = readline.createInterface({ input, output });
+		console.log("\n📦 Esvigy Component Generator");
+		console.log("-----------------------------------------");
+		console.log(
+			"  • Press [Enter] or type 'all' to generate ALL illustrations",
+		);
+		console.log(
+			"  • Or type an illustration name (e.g. 'Search' or 'EmptyBox')",
+		);
+		console.log("-----------------------------------------");
+		const answer = (await rl.question("Choice: ")).trim();
+		rl.close();
+
+		if (!answer || answer.toLowerCase() === "all" || answer === "*") {
+			targetFiles = svgFiles;
+		} else {
+			const matched = findMatchingSvg(answer, svgFiles);
+			if (!matched) {
+				console.error(`❌ SVG file not found for: "${answer}"`);
+				const suggestions = svgFiles.filter((f) =>
+					f.toLowerCase().includes(answer.toLowerCase()),
+				);
+				if (suggestions.length > 0) {
+					console.log(
+						`   Did you mean: ${suggestions.map((s) => path.basename(s, ".svg")).join(", ")}?`,
+					);
+				}
+				process.exit(1);
+			}
+			targetFiles.push(matched);
+		}
+	} else {
+		// Non-interactive fallback (CI / automated scripts)
+		targetFiles = svgFiles;
+	}
+
+	// Remove stale components only when explicitly doing a full rebuild of all files
+	if (targetFiles.length === svgFiles.length && isAllFlag) {
+		const targetTsx = new Set(
+			svgFiles.map((f) => `${path.basename(f, ".svg")}.tsx`),
+		);
+		for (const existingFile of fs.readdirSync(OUTPUT_DIR)) {
+			if (existingFile.endsWith(".tsx") && !targetTsx.has(existingFile)) {
+				fs.unlinkSync(path.join(OUTPUT_DIR, existingFile));
+				console.log(`🗑 Removed stale ${existingFile}`);
+			}
 		}
 	}
 
-	const components: string[] = [];
-
-	for (const file of svgFiles) {
+	for (const file of targetFiles) {
 		const componentName = path.basename(file, ".svg");
 		const code = generateComponent(file, manifest);
 		fs.writeFileSync(path.join(OUTPUT_DIR, `${componentName}.tsx`), code);
-		components.push(componentName);
 		console.log(`✓ Generated ${componentName}.tsx`);
 	}
 
-	// Generate barrel index.ts
-	const indexContent = `/**
- * Generated automatically by @esvigy/react generator.
- */
-
-export * from "./types";
-${components.map((c) => `export { ${c} } from "./illustrations/${c}";`).join("\n")}
-`;
-
-	fs.writeFileSync(INDEX_FILE, indexContent);
-	console.log(`✓ Generated index.ts with ${components.length} components`);
+	console.log(
+		`\n🎉 Successfully generated ${targetFiles.length} component(s)!`,
+	);
+	if (targetFiles.length < svgFiles.length) {
+		console.log(
+			"💡 Tip: If you added or renamed a component, run 'pnpm generate:index' to update index.ts",
+		);
+	}
 }
 
-run();
+run().catch((err) => {
+	console.error("❌ Generator failed:", err);
+	process.exit(1);
+});

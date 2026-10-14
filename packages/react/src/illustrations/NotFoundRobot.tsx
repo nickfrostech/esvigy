@@ -190,7 +190,7 @@ export const NotFoundRobot = ({
     <g className="esvigy-robot-badge">
       <rect x="175" y="116" width="70" height="22" rx="6" fill={color} opacity="0.2"/>
       <rect x="175" y="116" width="70" height="22" rx="6" stroke={color} strokeWidth="1.5" opacity="0.6"/>
-      <text x="210" y="132" textAnchor="middle" fill={color} fontSize="12" fontWeight="900" fontFamily="system-ui, -apple-system, sans-serif" letter-spacing="2">404</text>
+      <text x="210" y="132" textAnchor="middle" fill={color} fontSize="12" fontWeight="900" fontFamily="system-ui, -apple-system, sans-serif" letterSpacing="2">404</text>
     </g>
 
     
