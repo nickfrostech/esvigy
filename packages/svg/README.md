@@ -1,198 +1,146 @@
-# CorelDRAW SVG Design Guide for Esvigy
+# @esvigy/svg
 
-This guide explains how to properly design, structure, and export vector illustrations in **CorelDRAW** so they integrate seamlessly into the **Esvigy** *(pronounced "es-vee-gee" /ˌɛs.viːˈdʒiː/)* illustration ecosystem (`@esvigy/react`, `@esvigy/svg`, etc.). Test illustrations live in the web studio at **[esvigy.vercel.app](https://esvigy.vercel.app)**.
+> **Esvigy** *(pronounced "es-vee-gee" /ˌɛs.viːˈdʒiː/)* — Raw, standardized SVG illustration library. 100% pure vectors with two-tone recoloring, CSS micro-animations, and unified viewBoxes.
 
----
-
-## 1. Core Principles
-
-Esvigy illustrations are built for **modern web applications** — not print documents:
-
-| Web UI Illustration (Esvigy)                                        | Print Document (Traditional)            |
-| :---------------------------------------------------------------- | :-------------------------------------- |
-| **File Size**: 5 KB – 35 KB                                | Often 500 KB – 5 MB                    |
-| **Units**: Pixels (`px`)                                  | Inches (`in`) or Millimeters (`mm`) |
-| **Elements**: 100% Pure Vectors (`<path>`, `<circle>`)  | Mixed Vectors + Embedded Bitmaps        |
-| **Colors**: Dynamic Two-Tone (`currentColor` + secondary) | Fixed CMYK / RGB print colors           |
-| **Animation**: Grouped layers with scoped CSS               | Flattened static objects                |
+Part of the [Esvigy](https://github.com/nickfrostech/esvigy) illustration ecosystem. Preview all illustrations live at **[esvigy.vercel.app](https://esvigy.vercel.app)**.
 
 ---
 
-## 2. Document & Canvas Setup in CorelDRAW
+## What is @esvigy/svg?
 
-1. **Page Units**: Set ruler and document units to **Pixels (`px`)**.*Never use inches, millimeters, or points.*
-2. **Canvas Sizing**:
-   - Recommended dimensions: **`800 × 600 px`**, **`600 × 400 px`**, or **`500 × 500 px`**.
-3. **Fill the Canvas (Tight Framing)**:
-   - Your illustration should fill **~80% to 90%** of the canvas.
-   - Leave a clean **10px to 25px** padding around the edges so floating/breathing animations do not clip outside the viewport.
-   - Avoid leaving giant empty margins around the illustration.
+`@esvigy/svg` is the framework-agnostic foundation of Esvigy. It provides a clean, curated catalog of production-ready `.svg` vector files that can be used directly in:
 
----
-
-## 3. Typography: Are Texts Allowed? Should They Be in Curves?
-
-### Rule: Use Minimal, Symbolic Text Only
-
-Illustrations in Esvigy are meant to be **symbolic UI graphics** (e.g., empty states, error pages, security badges):
-
-- ❌ **Do NOT include long paragraphs or multi-line body text.**
-  - If you convert paragraphs to curves in CorelDRAW, it creates hundreds of individual letter paths resulting in a 1 MB file that chokes web browsers.
-  - For UI representations of documents, use stylized vector bars (`rect` lines) or abstract placeholders.
-- ✅ **Short Labels & Digits (e.g., `404`, `403`, `500`, `ERR`)**:
-  - Keep short labels (1 to 5 characters).
-  - **Convert to Curves (`Ctrl + Q`)** so the typography renders identically on any user's device without requiring custom web fonts.
-  - **Weld / Combine (`Ctrl + L`)** overlapping letter shapes so they form clean, single vector paths.
+- **HTML / Vanilla JS** (`<img src="...">` or inline `<svg>`)
+- **Frontend Frameworks** (Vue, Svelte, Angular, Solid, React)
+- **Static Site Generators** (Astro, Hugo, 11ty, VitePress)
+- **Design Tools** (Figma, Sketch, Adobe XD, Penpot)
+- **CDNs** (unpkg, jsdelivr)
 
 ---
 
-## 4. Shadows: Are Shadows Allowed?
+## Installation
 
-### YES — But ONLY Pure Vector Shadows!
+```bash
+# pnpm
+pnpm add @esvigy/svg
 
-### ❌ What is NOT Allowed:
+# npm
+npm install @esvigy/svg
 
-- **CorelDRAW's "Drop Shadow Tool" (Gaussian Blur Shadows)**:
-  - CorelDRAW's interactive drop shadow tool exports bitmap PNG images (`<image xlink:href="data:image/png;base64,...">`).
-  - This severely bloats the SVG, breaks responsiveness, and prevents colors from changing dynamically.
-
-### ✅ What IS Allowed (Best Practices):
-
-1. **Contact Ground Shadows**:
-   - Draw an `<ellipse>` or smooth curved vector shape beneath the character or object.
-   - Fill with dark color (`#000000` or `#111928`) with an opacity between **`0.15` and `0.3`**.
-   - These animate beautifully in Esvigy (`scaleX` breathing).
-2. **Isometric 3D Extrusion Shadows**:
-   - Sharp, angled vector bevels offset by `dx=12px, dy=10px` down-right.
-   - Fill with `#111928` or a linear opacity gradient (`opacity="0.35"`).
-3. **Soft Depth Gradients**:
-   - Use CorelDRAW's **Interactive Fill Tool (`G`)** to apply linear gradients fading from solid to transparent.
+# yarn
+yarn add @esvigy/svg
+```
 
 ---
 
-## 5. Color Strategy: How to Color in CorelDRAW Before Exporting
+## Usage
 
-**YES, always design in full color in CorelDRAW!** Designing in full color lets you verify visual contrast, lighting, and hierarchy while drawing.
+### 1. In Modern Bundlers (Vite, Webpack, Next.js, Astro)
 
-To make your artwork compatible with Esvigy's dynamic recoloring engine, follow this **4-Role Color Palette System**:
+Import the SVG directly as a URL or asset path:
 
-### Role 1: Primary Brand Accent (`color` prop)
+```ts
+import emptyCartUrl from "@esvigy/svg/EmptyCart.svg";
+import searchUrl from "@esvigy/svg/Search.svg";
 
-- **In CorelDRAW**: Pick a single vibrant accent color across your main artwork (e.g. Cyan `#00D4FF`, Emerald `#10B981`, or Orange `#F97316`).
-- **Where to apply**: Main character elements, focal digits (like the `4` in 404), primary buttons, and active action items.
-- **How Esvigy uses it**: In the exported SVG, this color is mapped to `currentColor`. Developers can then recolor it on the fly:
-  ```tsx
-  <MyIllustration color="#A855F7" />
-  ```
+// Example in vanilla JS or DOM manipulation
+const img = document.createElement("img");
+img.src = emptyCartUrl;
+document.body.appendChild(img);
+```
 
-### Role 2: Secondary Tone (`secondaryColor` prop)
+### 2. Using via CDN (Zero Installation)
 
-- **In CorelDRAW**: Pick a dark, sleek surface color from the slate/navy family (e.g., `#1E293B`, `#0F172A`, `#1F2A37`, `#334155`).
-- **Where to apply**: Laptop chassis, backdrop blobs, shadow discs, metallic visor glass, or secondary card surfaces.
-- **How Esvigy uses it**: Tagged with `data-esvigy-secondary="true"`. Developers can dynamically swap this surface tone:
-  ```tsx
-  <MyIllustration color="#00D4FF" secondaryColor="#0B132B" />
-  ```
+You can hotlink any Esvigy SVG directly in web pages:
 
-### Role 3: Fixed Neutrals (White Highlights & Black Accents)
+```html
+<!-- Via unpkg -->
+<img
+  src="https://unpkg.com/@esvigy/svg@0.1.0/src/NotFoundRobot.svg"
+  alt="Page not found"
+  width="320"
+  height="240"
+/>
 
-- **Pure White (`#FFFFFF`)**: Eye sclera, pupil glare glints, specular glass reflections, knuckle creases, and teeth.
-  - *These always stay `#FFFFFF` and are never recolored.*
-- **Deep Black (`#111928` / `#0B1120`)**: Pupil centers, fine shadow grooves, and 3D extrusion underlayers.
-  - *These preserve structural depth regardless of user theme.*
+<!-- Via jsDelivr -->
+<img
+  src="https://cdn.jsdelivr.net/npm/@esvigy/svg@0.1.0/src/StatusSuccess.svg"
+  alt="Operation successful"
+  width="320"
+  height="240"
+/>
+```
 
-### Role 4: Gradients & Shading (Interactive Fill `G`)
+### 3. Reading Illustration Metadata (`manifest.json`)
 
-- **Use Black/White-to-Transparent Gradients**:
-  - In CorelDRAW's **Interactive Fill Tool (`G`)**, create linear gradients that fade from **Black `#000000` (opacity 30–50%) to Transparent Black `#000000` (opacity 0%)**, or **White `#FFFFFF` (opacity 15%) to Transparent White (opacity 0%)**.
-  - **Why this is a superpower**: Because the gradient uses transparent black/white overlay stops, it will automatically shade *any* custom color the user chooses without breaking the gradient!
+Attribution, authors, tags, and category metadata are available in [`manifest.json`](./manifest.json):
 
----
+```ts
+import manifest from "@esvigy/svg/manifest.json";
 
-### Practical CorelDRAW Palette Swatch Recommendation
-
-When opening a new CorelDRAW document, set up this 5-color palette on your screen:
-
-1. `Primary Accent`: `#00D4FF` (or your chosen brand color)
-2. `Secondary Dark`: `#1F2A37`
-3. `Secondary Muted`: `#334155`
-4. `Highlight White`: `#FFFFFF`
-5. `Deep Extrusion Black`: `#111928`
-
-Sticking to these roles guarantees your illustration looks stunning out of the box and seamlessly recolors in any framework!
-
----
-
-## 6. Layer Organization for Animation (Objects Docker)
-
-In CorelDRAW, open the **Objects Docker** (`Object > Objects` or `Window > Dockers > Objects`):
-
-1. **Group Parts that Animate Together**:
-   - Group the head + eyes together (`Ctrl + G`).
-   - Group the front rolling wheel separately.
-   - Group floating elements (sparkles, speech bubbles, coins) separately.
-2. **Name Objects & Groups Descriptively**:
-   - Right-click an object/group in the Objects Docker and rename it:
-     - `hand-main`
-     - `floating-bubble`
-     - `ground-shadow`
-     - `number-left`
-     - `wheel-front`
-   - CorelDRAW exports these names directly as `<g id="hand-main">`, making it effortless to attach CSS `@keyframes` in Esvigy!
+console.log(manifest.Search);
+// Output:
+// {
+//   "author": "nick",
+//   "source": "https://github.com/nickfrostech",
+//   "category": "search",
+//   "tags": ["search", "magnifying-glass", "cards", "inspect"],
+//   "colors": { "primary": "#00D4FF", "secondary": "#1E293B" }
+// }
+```
 
 ---
 
-## 7. Vector Hygiene (Clean Up Before Exporting)
+## Vector Conventions & Architecture
 
-Before exporting your SVG:
+Every SVG in `packages/svg/src/` adheres to a strict set of quality standards:
 
-1. **No Embedded Bitmaps**: Check the **Document Information** panel to confirm bitmap count is **0**.
-2. **Weld Overlapping Shapes (`Weld` / `Ctrl + L`)**:
-   - Combine adjacent vector segments sharing the same color into a single compound path.
-3. **Delete Hidden Objects**:
-   - Remove unused drafts, test palettes, and background guide rectangles outside the page area.
+1. **Unitless Pixel ViewBox**:
+   - Clean, tight bounding box (e.g. `viewBox="0 0 682 382"` or `viewBox="185 -25 3255 3390"`).
+   - Illustration occupies **80% to 90%** of the frame, avoiding giant empty margins.
 
----
+2. **Two-Tone Color Engine**:
+   - **Primary Color**: Tagged with `fill="currentColor"` or `stroke="currentColor"`. When inlined in HTML/CSS, the SVG inherits your text color.
+   - **Secondary Accent**: Tagged with `data-esvigy-secondary="true"` and `data-esvigy-default="#HEX"`. Enables surface customization.
 
-## 8. Exporting SVG from CorelDRAW (Step-by-Step)
+3. **Zero JavaScript Micro-Animations**:
+   - Micro-animations run on pure CSS `@keyframes` defined in a self-contained `<style>` block.
+   - Animations activate via `.esvigy-animated` and `[data-animated="true"]`.
+   - Automatically pauses when user has `prefers-reduced-motion: reduce` enabled in system settings.
 
-When exporting from CorelDRAW:
-
-1. Select your completed artwork on the page (or group it with `Ctrl + G`).
-2. Go to **File > Export (`Ctrl + E`)**.
-3. In the Windows file dialog, **CHECK the box: ☑ Selected only** (at the bottom right next to the file name).
-   > **Why this matters**: If "Selected only" is unchecked, CorelDRAW exports everything on your entire workspace, including reference bitmaps, test sketches, and rough work sitting far outside the page on the desktop!
-   >
-4. Select **SVG - Scalable Vector Graphics (`.svg`)** and click **Export**.
-5. In the **Export to SVG dialog**, configure the following options:
-
-| Setting                      | Recommended Value                 | Why                                                                         |
-| :--------------------------- | :-------------------------------- | :-------------------------------------------------------------------------- |
-| **Compatibility**      | **SVG 1.1** (or SVG 2.0)    | Standard W3C web specification                                              |
-| **Character Encoding** | **UTF-8** ⚠️              | **CRITICAL**: Never leave as UTF-16 (Windows default breaks bundlers) |
-| **Styling Options**    | **Presentation Attributes** | Generates clean`fill="..."` and `stroke="..."` for component generation |
-| **Export Text As**     | **Curves**                  | Outlines short digits/labels so they render reliably on all systems         |
-| **Drawing Units**      | **Pixels (`px`)**         | Prevents fractional inch/millimeter scaling glitches                        |
-| **Bitmap Handling**    | **Link** (or 0 bitmaps)     | Prevents base64 image bloat                                                 |
-| **Decimal Precision**  | **2 to 3 decimals**         | Keeps file sizes small and coordinates crisp                                |
+4. **100% Pure Vectors**:
+   - Zero embedded raster images (`<image>` tags).
+   - Zero proprietary editor metadata (clean, standards-compliant SVG).
+   - Lightweight file sizes: typically **5 KB to 35 KB**.
 
 ---
 
-## 9. Contributor Checklist
+## Directory Structure
 
-Before adding a new `.svg` file to `packages/svg/src/`:
+```text
+packages/svg/
+├── manifest.json       # Metadata, categories, tags, and author attribution
+├── src/                # Standardized, production-ready SVGs
+│   ├── ActionCreate.svg
+│   ├── EmptyCart.svg
+│   ├── Search.svg
+│   └── ...
+└── unprocessedSVG/     # Staging area for raw community vector contributions
+```
 
-- [ ] File size is under **35 KB**.
-- [ ] Encoding is **UTF-8** (opens cleanly in VS Code / IDE).
-- [ ] Contains **zero `<image>` tags** (100% vector).
-- [ ] viewBox uses **unitless pixel coordinates** (e.g. `viewBox="0 0 682 382"`).
-- [ ] Artwork fills **80–90%** of the viewBox (no oversized margins).
-- [ ] Author and source comments are included at the top:
-  ```xml
-  <!--
-    Author: your-name
-    Source: https://github.com/your-username
-  -->
-  ```
-- [ ] Metadata entry added to [packages/svg/manifest.json](./manifest.json).
-- [ ] Test the build with `pnpm --filter @esvigy/react generate` and verify in the studio (`pnpm --filter website dev` / [esvigy.vercel.app](https://esvigy.vercel.app)).
+---
+
+## Contributing
+
+We welcome vector illustrations from designers and developers of all skill levels!
+
+- **Designers**: You can use **any illustration software** of your choice (Figma, Illustrator, Inkscape, Affinity Designer, Penpot, CorelDraw, etc.) and drop your raw exports into [`unprocessedSVG/`](./unprocessedSVG). No coding required!
+- **Developers**: Help transform unprocessed vectors into standardized Esvigy SVGs in [`src/`](./src).
+
+Please read our [SVG Contributing Guide](./CONTRIBUTING.md) for full details, color guidelines, and contributor checklists.
+
+---
+
+## License
+
+[MIT License](./LICENSE) © [Nick Frost](https://github.com/nickfrostech)

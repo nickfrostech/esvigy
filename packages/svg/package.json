@@ -1,15 +1,41 @@
 {
-   "name": "@esvigy/svg",
-   "version": "0.1.0",
-   "description": "Raw, optimized SVG illustrations for Esvigy",
-   "homepage": "https://esvigy.vercel.app",
-   "type": "module",
-   "exports": {
-     "./*.svg": "./src/*.svg",
-     "./*": "./src/*"
-   },
-   "files": [
-     "src"
-   ]
- }
- 
+  "name": "@esvigy/svg",
+  "version": "0.1.0",
+  "description": "Raw, normalized SVG illustrations for Esvigy with two-tone styling and micro-animations",
+  "homepage": "https://esvigy.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nickfrostech/esvigy.git",
+    "directory": "packages/svg"
+  },
+  "bugs": {
+    "url": "https://github.com/nickfrostech/esvigy/issues"
+  },
+  "license": "MIT",
+  "author": "Nick Frost (https://github.com/nickfrostech)",
+  "keywords": [
+    "esvigy",
+    "illustrations",
+    "svg",
+    "vector",
+    "ui",
+    "animated",
+    "micro-animations",
+    "two-tone"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    "./*.svg": "./src/*.svg",
+    "./*": "./src/*",
+    "./manifest.json": "./manifest.json"
+  },
+  "files": [
+    "src",
+    "manifest.json",
+    "README.md",
+    "LICENSE"
+  ]
+}
