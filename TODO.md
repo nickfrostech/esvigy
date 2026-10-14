@@ -10,11 +10,11 @@
 | :----------: | :---------------------------------------- | :-------------------------------------------------- | :------------: | :---------------: |
 | **M0** | **Spec & Architecture**             | Core philosophy, API design, & build strategy       |  🟢 Completed  |      Week 0      |
 | **M1** | **Workspace & Monorepo**            | pnpm monorepo structure, tooling & linting          |  🟢 Completed  |      Week 1      |
-| **M2** | **SVG Pipeline & Assets (29 SVGs)** | 2-tone normalization, manifest metadata & animations |  🟢 Completed  |      Week 1      |
+| **M2** | **SVG Pipeline & Assets (30 SVGs)** | 2-tone normalization, manifest metadata & animations |  🟢 Completed  |      Week 1      |
 | **M3** | **React Package (`@esvigy/react`)** | Automated generator, auto-pruning, TS declarations |  🟢 Completed  |     Week 1–2     |
 | **M4** | **Documentation Website & Studio**  | Live documentation homepage & illustration studio   |  🟢 Completed  |      Week 2      |
-| **M5** | **Multi-Framework Adapters & CLI**  | Vue, Svelte, Angular, & CLI component scaffolder    | ⚪ Not Started |      Week 3      |
-| **M6** | **Community & NPM Release**         | CI/CD, SVG submission linting, & v0.1.0 launch      | ⚪ Not Started |      Week 4      |
+| **M5** | **Multi-Framework Adapters & CLI**  | Vue, Svelte, Angular, & CLI component scaffolder    | 🟡 In Progress |      Week 3      |
+| **M6** | **Community & NPM Release**         | CI/CD, SVG submission linting, & v0.1.0 launch      |  🟢 Completed  |      Week 4      |
 
 ---
 
@@ -42,7 +42,7 @@
 
 ---
 
-## 🎨 Milestone 2: SVG Pipeline & Initial Core Illustration Catalog (29 Illustrations)
+## 🎨 Milestone 2: SVG Pipeline & Initial Core Illustration Catalog (30 Illustrations)
 
 - [X] **Canonical SVG Normalization Engine**:
   - [X] Standardize viewBox specifications matching illustration geometry and aspect ratios.
@@ -55,8 +55,8 @@
     - [X] Scoped class naming (`.esvigy-hero-badge`, `.esvigy-cards-assembly`, `.esvigy-ground-shadow`, etc.).
     - [X] Automatic accessibility support (`@media (prefers-reduced-motion: reduce)`).
   - [X] Illustration metadata manifest ([packages/svg/manifest.json](packages/svg/manifest.json)):
-    - [X] 29 entries with author, source, category, and searchable tags.
-- [X] **Curate & Normalize Initial 29 Illustrations**:
+    - [X] 30 entries with author, source, category, and searchable tags.
+- [X] **Curate & Normalize Initial 30 Illustrations**:
   - **Actions (`Action*`)**:
     - [X] `ActionCreate` (New entity, compose document canvas with 3D plus)
     - [X] `ActionDownload` (File transfer sheet with 3D downward arrow & tray)
@@ -88,6 +88,7 @@
     - [X] `DocumentFolders` (File organization folders)
     - [X] `Wallet` (Finance payment wallet & coins)
     - [X] `GamePad` (Gaming controller)
+    - [X] `LogoEsvigy` (Official brand logo & geometric icon)
   - **Characters & Lifestyle**:
     - [X] `ManCarRepair` (Mechanic car diagnostics)
     - [X] `ManQuestion` (Puzzled help inquiry)
@@ -101,17 +102,21 @@
 - [X] **Component Generator Pipeline**:
   - [X] Generator script `packages/react/scripts/generate.ts`:
     - [X] Reads normalized SVGs in `@esvigy/svg/src/` and converts them to React functional components.
-    - [X] Automatic pruning of stale `.tsx` files when SVGs are renamed or deleted.
+    - [X] Universal regex converter replacing manual attribute replacements while safeguarding `data-*` and `aria-*`.
+    - [X] Supports single component generation (`pnpm generate <Name>`) and batch (`pnpm generate --all`).
+    - [X] Separated barrel index generator into standalone script ([generate-index.ts](packages/react/scripts/generate-index.ts)).
     - [X] Standard `EsvigyProps` interface (`color`, `secondaryColor`, `animated`, `className`, `style`).
     - [X] Inlines scoped CSS keyframes with `${componentName}_` prefixing for IDs, gradients, and filters.
-    - [X] Generates barrel export `packages/react/src/index.ts` exporting all 29 components.
+    - [X] Generates barrel export `packages/react/src/index.ts` exporting all 30 components.
 - [X] **Build & Bundler Setup**:
   - [X] Configure `tsup` for ESM (`dist/index.js`), CJS (`dist/index.cjs`), and TypeScript declarations (`dist/index.d.ts`).
   - [X] `"sideEffects": false` enabled for dead-code elimination.
   - [X] Server Components compatible (Next.js App Router safe).
-- [ ] **Testing & Verification**:
-  - [ ] Unit tests for props (`color`, `secondaryColor`, `animated`, `className`) using Vitest.
-  - [ ] Size budget: verify gzipped output per component is < 2KB.
+- [X] **Testing & Verification**:
+  - [X] Vitest test suite discovering all components dynamically (250 tests passing in ~2.5s).
+  - [X] Contract tests verifying props (`color`, `secondaryColor`, `animated`, `className`, `style`, `aria-label`).
+  - [X] Fast single-component test runner (`pnpm test:one <Name>`) executing in ~40ms.
+  - [X] Bundle integrity tests verifying dual ESM/CJS exports and tree-shaking exports.
 
 ---
 
@@ -128,7 +133,8 @@
     - [X] Card background modes (dark, light, grid).
     - [X] Live animation toggle (`animated`).
   - [X] Modal inspection with import snippets and copy-to-clipboard.
-- [ ] Production documentation site deployment (`esvigy.dev`).
+  - [X] Integrated links to CONTRIBUTING guides and COPYRIGHT policy.
+- [X] Production documentation site deployment live at [esvigy.vercel.app](https://esvigy.vercel.app).
 
 ---
 
@@ -161,13 +167,18 @@
   - [X] Master contributing guide with persona tracks ([CONTRIBUTING.md](CONTRIBUTING.md)).
   - [X] Tool-agnostic vector contribution pipeline & `unprocessedSVG/` intake folder ([packages/svg/CONTRIBUTING.md](packages/svg/CONTRIBUTING.md)).
   - [X] React package development guide & contributor checklist ([packages/react/CONTRIBUTING.md](packages/react/CONTRIBUTING.md)).
-  - [X] Automated Vitest testing engine (250 tests covering component contracts, dynamic colors, animations, and bundle integrity).
-- [ ] **CI/CD Automation**:
-  - [ ] GitHub Actions workflow for pull request linting, formatting, and build tests.
-  - [ ] Automated publishing workflow to npm registry.
-- [ ] **Public Launch**:
-  - [ ] Publish `@esvigy/react` v0.1.0 to npm.
-  - [ ] Publish announcement and documentation showcase.
+  - [X] Website development and architecture documentation ([apps/website/CONTRIBUTING.md](apps/website/CONTRIBUTING.md), [apps/website/README.md](apps/website/README.md)).
+  - [X] Comprehensive legal copyright policy with DMCA takedown email ([COPYRIGHT.md](COPYRIGHT.md)).
+  - [X] Updated MIT licenses with contributor warranty terms across packages.
+- [X] **CI/CD & GitHub Infrastructure**:
+  - [X] GitHub Actions CI workflow ([.github/workflows/ci.yml](.github/workflows/ci.yml)) for automated build and test verification.
+  - [X] GitHub Actions npm publish workflow ([.github/workflows/publish.yml](.github/workflows/publish.yml)) with cryptographic provenance.
+  - [X] Pull request template ([.github/pull_request_template.md](.github/pull_request_template.md)).
+  - [X] GitHub issue forms ([.github/ISSUE_TEMPLATE/](.github/ISSUE_TEMPLATE)) for requests, vector uploads, bugs, and copyright takedowns.
+- [X] **Public Launch**:
+  - [X] Revamped `@esvigy/react` README with comparison tables, recipes, and two-tone guides.
+  - [X] Published `@esvigy/react@0.1.0` to the official npm registry.
+  - [X] Documentation showcase live at [esvigy.vercel.app](https://esvigy.vercel.app).
 
 ---
 
@@ -181,3 +192,12 @@
   - Applied consistent category prefix taxonomy (`Action*`, `Status*`, `Empty*`, `NotFound*`, `Error*`).
   - Added auto-pruning pipeline to `packages/react/scripts/generate.ts`.
   - Re-synced [packages/svg/manifest.json](packages/svg/manifest.json) with 1-to-1 parity.
+- **2026-10-14**:
+  - Generator refactored for single component and batch generation; isolated barrel script `generate-index.ts`.
+  - Built dynamic Vitest test suite discovering all 30 components (250 tests passing in ~2.5s).
+  - Established community contribution guidelines and tool-agnostic vector intake directory (`packages/svg/unprocessedSVG/`).
+  - Drafted comprehensive `COPYRIGHT.md` with DMCA takedown process and updated MIT licenses.
+  - Created GitHub Actions CI/CD workflows and interactive issue/PR forms.
+  - Revamped `@esvigy/react` README for npm with comparison matrices, recipes, and props table.
+  - Officially published `@esvigy/react@0.1.0` to the global npm registry!
+
