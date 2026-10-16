@@ -29,17 +29,17 @@ const TARGET_PACKAGES: PackageItem[] = [
 		},
 	},
 	{
-		name: "esvigy (CLI)",
+		name: "@esvigy/cli",
 		description:
 			"Interactive shadcn-style scaffolder. Directly injects self-contained illustration components into your project with zero dependencies.",
 		status: "Available Now",
 		isLive: true,
-		npmUrl: "https://www.npmjs.com/package/esvigy",
+		npmUrl: "https://www.npmjs.com/package/@esvigy/cli",
 		commands: {
-			pnpm: "pnpm dlx esvigy add",
-			npm: "npx esvigy add",
-			yarn: "yarn dlx esvigy add",
-			bun: "bunx esvigy add",
+			pnpm: "pnpm dlx @esvigy/cli add",
+			npm: "npx @esvigy/cli add",
+			yarn: "yarn dlx @esvigy/cli add",
+			bun: "bunx @esvigy/cli add",
 		},
 	},
 	{
@@ -103,7 +103,7 @@ export function PackagesSection() {
 					Modular packages across the web ecosystem.{" "}
 					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/react</strong>{" "}
 					and{" "}
-					<strong style={{ color: "var(--cyan-primary)" }}>esvigy CLI</strong>{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/cli</strong>{" "}
 					are available on npm!
 				</p>
 			</div>

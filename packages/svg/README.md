@@ -35,7 +35,7 @@ yarn add @esvigy/svg
 
 ```bash
 # Download raw .svg file directly into your assets or public directory:
-pnpm dlx esvigy add EmptyBox --framework svg --dir public/illustrations
+pnpm dlx @esvigy/cli add EmptyBox --framework svg --dir public/illustrations
 ```
 
 ---

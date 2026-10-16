@@ -150,18 +150,17 @@ All generated component files are **completely self-contained**—they have **ze
 
 ```bash
 # Interactive wizard (search illustrations, select framework, auto-detects folder)
-pnpm dlx esvigy add
-# or scoped: pnpm dlx @esvigy/cli add
+pnpm dlx @esvigy/cli add
 
 # Direct component download:
 # React: creates components/esvigy/ActionCreate.tsx and components/esvigy/types.ts
-pnpm dlx esvigy add ActionCreate --framework react
+pnpm dlx @esvigy/cli add ActionCreate --framework react
 
 # Raw SVG: creates public/illustrations/EmptyBox.svg
-pnpm dlx esvigy add EmptyBox --framework svg --dir public/illustrations
+pnpm dlx @esvigy/cli add EmptyBox --framework svg --dir public/illustrations
 
 # Multiple illustrations at once:
-pnpm dlx esvigy add StatusSuccess StatusFail StatusProcessing
+pnpm dlx @esvigy/cli add StatusSuccess StatusFail StatusProcessing
 ```
 
 ##### What the Scaffolder Copies into Your Project:

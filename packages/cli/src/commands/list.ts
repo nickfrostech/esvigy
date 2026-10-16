@@ -59,7 +59,7 @@ export async function listCommand(options: ListOptions) {
 	console.log(pc.dim("─".repeat(60)));
 	console.log(
 		pc.dim(
-			`To add an illustration to your project, run:\n  ${pc.cyan("pnpm dlx esvigy add <Name>")}\n`,
+			`To add an illustration to your project, run:\n  ${pc.cyan("pnpm dlx @esvigy/cli add <Name>")}\n`,
 		),
 	);
 }

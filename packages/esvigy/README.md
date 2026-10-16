@@ -2,6 +2,8 @@
 
 > **"The shadcn way for illustrations"** — Copy-paste beautiful, customizable, and animated vector illustrations directly into your project with a single command.
 
+> ℹ️ **Status Notice**: The unscoped alias `esvigy` is currently pending an npm support review due to automated typosquatting filter similarity with `envify`. Please use the officially published scoped package: **`@esvigy/cli`** (`pnpm dlx @esvigy/cli add`).
+
 ---
 
 ## ⚡ Quick Start

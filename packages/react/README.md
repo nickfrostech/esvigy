@@ -89,10 +89,10 @@ If you prefer dropping self-contained `.tsx` files directly into your project's 
 
 ```bash
 # Interactive wizard
-pnpm dlx esvigy add
+pnpm dlx @esvigy/cli add
 
 # Add specific component directly into your components folder
-pnpm dlx esvigy add ActionCreate --framework react
+pnpm dlx @esvigy/cli add ActionCreate --framework react
 ```
 
 ---

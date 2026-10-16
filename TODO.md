@@ -140,8 +140,9 @@
 
 ## 🚀 Milestone 5: Multi-Framework Expansion & CLI Scaffolder
 
-- [X] **Esvigy CLI Component Scaffolder (`pnpm dlx esvigy add <name> --framework <react|vue|svelte|svg>`)**:
-  - [X] Dual-published packages: `esvigy` (unscoped) and `@esvigy/cli` (organization scoped).
+- [X] **Esvigy CLI Component Scaffolder (`pnpm dlx @esvigy/cli add <name> --framework <react|vue|svelte|svg>`)**:
+  - [X] Scoped package: `@esvigy/cli` (published & live on npm).
+  - [ ] Unscoped package: `esvigy` (pending npm support review for typosquatting whitelist).
   - [X] "The shadcn Way" for every framework: copy self-contained single-file component directly into user's `components/esvigy/`.
   - [X] Smart directory auto-detection (reads shadcn `components.json`, `tsconfig.json` path aliases, and filesystem structure).
   - [X] Interactive wizard via `@clack/prompts` with multi-select, category badges, and quick start code snippets.

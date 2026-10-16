@@ -11,19 +11,18 @@ You don't need to install this package permanently. Run it directly with your pa
 ```bash
 # With pnpm
 pnpm dlx @esvigy/cli add
-# or unscoped alias:
-pnpm dlx esvigy add
 
 # With npm
 npx @esvigy/cli add
-# or unscoped alias:
-npx esvigy add
 
 # With bun
 bunx @esvigy/cli add
-# or unscoped alias:
-bunx esvigy add
+
+# With yarn
+yarn dlx @esvigy/cli add
 ```
+
+> **Note**: The unscoped alias `esvigy` is currently pending an npm support whitelist review (false-positive similarity flag with `envify`). In the meantime, use `@esvigy/cli`.
 
 If no arguments are passed, an interactive wizard prompts you to select illustrations, target framework, and verifies your installation folder.
 
@@ -35,13 +34,13 @@ If no arguments are passed, an interactive wizard prompts you to select illustra
 
 ```bash
 # React component (.tsx)
-pnpm dlx esvigy add ActionCreate --framework react
+pnpm dlx @esvigy/cli add ActionCreate --framework react
 
 # Raw SVG (.svg) into public folder
-pnpm dlx esvigy add EmptyBox --framework svg --dir public/illustrations
+pnpm dlx @esvigy/cli add EmptyBox --framework svg --dir public/illustrations
 
 # Multiple illustrations at once
-pnpm dlx esvigy add StatusSuccess StatusFail StatusProcessing
+pnpm dlx @esvigy/cli add StatusSuccess StatusFail StatusProcessing
 ```
 
 ---
@@ -79,15 +78,15 @@ List all 30+ illustrations in the catalog with category groupings and tags:
 
 ```bash
 # List all illustrations
-pnpm dlx esvigy list
+pnpm dlx @esvigy/cli list
 
 # Filter by category
-pnpm dlx esvigy list --category empty-states
-pnpm dlx esvigy list --category status
-pnpm dlx esvigy list --category actions
+pnpm dlx @esvigy/cli list --category empty-states
+pnpm dlx @esvigy/cli list --category status
+pnpm dlx @esvigy/cli list --category actions
 
 # Output as JSON
-pnpm dlx esvigy list --json
+pnpm dlx @esvigy/cli list --json
 ```
 
 ---

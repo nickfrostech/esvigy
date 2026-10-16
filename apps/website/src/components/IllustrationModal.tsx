@@ -97,7 +97,7 @@ import { ${item.name} } from "@esvigy/vue";
 	};
 
 	const cliSnippet = `# Add as self-contained ${cliFramework === "svg" ? "SVG" : cliFramework.toUpperCase()} component to your components folder
-${cliPmMap[cliPm]} esvigy add ${item.name} --framework ${cliFramework}`;
+${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 
 	const codeToShow = activeTab === "component" ? componentSnippet : cliSnippet;
 

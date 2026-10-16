@@ -53,8 +53,8 @@ jobs:
            env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-         - name: Publish esvigy to npm
+         - name: Publish esvigy to npm (pending support review)
            working-directory: packages/esvigy
-           run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
+           run: npx npm@latest publish --access public --provenance || echo "Unscoped esvigy package pending npm support review, skipped"
            env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
