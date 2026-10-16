@@ -5,7 +5,7 @@
    "homepage": "https://esvigy.vercel.app",
    "repository": {
       "type": "git",
-      "url": "https://github.com/nickfrostech/esvigy.git",
+      "url": "git+https://github.com/nickfrostech/esvigy.git",
       "directory": "packages/cli"
    },
    "bugs": {
@@ -28,7 +28,7 @@
    },
    "type": "module",
    "bin": {
-      "esvigy": "./dist/index.js"
+      "esvigy": "dist/index.js"
    },
    "files": [
       "dist",
