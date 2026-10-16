@@ -1,6 +1,6 @@
 # @format
 
-name: Publish @esvigy/react to npm
+name: Publish Packages to npm
 
 on:
    release:
@@ -35,14 +35,26 @@ jobs:
          - name: Install workspace dependencies
            run: pnpm install --frozen-lockfile
 
-         - name: Build @esvigy/react
-           run: pnpm --filter @esvigy/react build
+         - name: Build all packages
+           run: pnpm build:packages
 
-         - name: Run Pre-Publish Tests
+         - name: Run React Pre-Publish Tests
            run: pnpm --filter @esvigy/react test
 
          - name: Publish @esvigy/react to npm
            working-directory: packages/react
-           run: npx npm@latest publish --access public --provenance
+           run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+         - name: Publish @esvigy/cli to npm
+           working-directory: packages/cli
+           run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+         - name: Publish esvigy to npm
+           working-directory: packages/esvigy
+           run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
            env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
