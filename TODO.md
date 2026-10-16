@@ -140,12 +140,15 @@
 
 ## 🚀 Milestone 5: Multi-Framework Expansion & CLI Scaffolder
 
-- [ ] **Esvigy CLI Component Scaffolder (`pnpm dlx esvigy add <name> --framework <react|vue|svelte|svg>`)**:
-  - [ ] "The shadcn Way" for every framework: copy self-contained single-file component directly into user's `components/esvigy/`.
-  - [ ] React: `components/esvigy/<Name>.tsx`
+- [X] **Esvigy CLI Component Scaffolder (`pnpm dlx esvigy add <name> --framework <react|vue|svelte|svg>`)**:
+  - [X] Dual-published packages: `esvigy` (unscoped) and `@esvigy/cli` (organization scoped).
+  - [X] "The shadcn Way" for every framework: copy self-contained single-file component directly into user's `components/esvigy/`.
+  - [X] Smart directory auto-detection (reads shadcn `components.json`, `tsconfig.json` path aliases, and filesystem structure).
+  - [X] Interactive wizard via `@clack/prompts` with multi-select, category badges, and quick start code snippets.
+  - [X] React: `components/esvigy/<Name>.tsx` + `types.ts`
+  - [X] Raw SVG: `components/esvigy/<Name>.svg`
   - [ ] Vue: `components/esvigy/<Name>.vue` (SFC with `<script setup>`)
   - [ ] Svelte: `components/esvigy/<Name>.svelte`
-  - [ ] Raw SVG: `components/esvigy/<Name>.svg`
 - [ ] **Raw SVG Package (`@esvigy/svg`)**:
   - [ ] Standalone optimized SVGs for static sites and vanilla HTML.
   - [ ] Provide SVG sprite builder option.
@@ -200,4 +203,8 @@
   - Created GitHub Actions CI/CD workflows and interactive issue/PR forms.
   - Revamped `@esvigy/react` README for npm with comparison matrices, recipes, and props table.
   - Officially published `@esvigy/react@0.1.0` to the global npm registry!
+- **2026-10-16**:
+  - Built and tested `packages/cli` (`esvigy`) with smart component folder auto-detection (shadcn `components.json`, `tsconfig.json` paths, and project structure).
+  - Implemented interactive multi-select illustration wizard via `@clack/prompts`, framework auto-detection, and category inspection via `esvigy list`.
+  - Configured zero-dependency GitHub raw file streaming for React and SVG formats with auto-injected `types.ts`.
 

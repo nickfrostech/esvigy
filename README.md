@@ -10,7 +10,8 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/v/@esvigy/react.svg?color=00D4FF&label=@esvigy/react" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/dm/@esvigy/react.svg?color=10B981&label=downloads" alt="npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/esvigy"><img src="https://img.shields.io/npm/v/esvigy.svg?color=10B981&label=esvigy%20CLI" alt="CLI version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/dm/@esvigy/react.svg?color=00D4FF&label=downloads" alt="npm downloads" /></a>
   <a href="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml"><img src="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
   <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
   <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/studio-esvigy.vercel.app-7928CA" alt="Live Studio" /></a>
@@ -148,17 +149,19 @@ All generated component files are **completely self-contained**—they have **ze
 ##### Add Components via the Esvigy CLI:
 
 ```bash
-# React: creates components/esvigy/NotFound.tsx
-pnpm dlx esvigy add not-found --framework react
+# Interactive wizard (search illustrations, select framework, auto-detects folder)
+pnpm dlx esvigy add
+# or scoped: pnpm dlx @esvigy/cli add
 
-# Vue: creates components/esvigy/NotFound.vue
-pnpm dlx esvigy add not-found --framework vue
+# Direct component download:
+# React: creates components/esvigy/ActionCreate.tsx and components/esvigy/types.ts
+pnpm dlx esvigy add ActionCreate --framework react
 
-# Svelte: creates components/esvigy/NotFound.svelte
-pnpm dlx esvigy add not-found --framework svelte
+# Raw SVG: creates public/illustrations/EmptyBox.svg
+pnpm dlx esvigy add EmptyBox --framework svg --dir public/illustrations
 
-# Raw SVG: creates components/esvigy/NotFound.svg
-pnpm dlx esvigy add not-found --svg
+# Multiple illustrations at once:
+pnpm dlx esvigy add StatusSuccess StatusFail StatusProcessing
 ```
 
 ##### What the Scaffolder Copies into Your Project:
@@ -560,7 +563,7 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 - [X] SVG normalization pipeline & multi-color token architecture (29 canonical illustrations)
 - [X] `@esvigy/react` package generation, TypeScript declarations, and auto-pruning pipeline
 - [X] Interactive documentation website & illustration studio ([esvigy.vercel.app](https://esvigy.vercel.app))
-- [ ] Direct component scaffolder CLI (`esvigy add <name> --framework <react|vue|svelte|svg>`)
+- [X] Direct component scaffolder CLI (`esvigy` and `@esvigy/cli` on npm)
 - [ ] Multi-framework package adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/react-native`)
 
 ---

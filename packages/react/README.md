@@ -83,6 +83,18 @@ bun add @esvigy/react
 
 > **Peer Dependency**: React `^18.0.0` or `^19.0.0`.
 
+### 📋 Prefer copying single-file components? ("The shadcn Way")
+
+If you prefer dropping self-contained `.tsx` files directly into your project's `components/esvigy/` folder instead of installing a package, use our official CLI:
+
+```bash
+# Interactive wizard
+pnpm dlx esvigy add
+
+# Add specific component directly into your components folder
+pnpm dlx esvigy add ActionCreate --framework react
+```
+
 ---
 
 ## 🚀 30-Second Quickstart

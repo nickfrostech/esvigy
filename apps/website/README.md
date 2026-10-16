@@ -21,9 +21,9 @@ It is built as part of the Esvigy monorepo under `apps/website` and consumes `@e
   - One-click curated color palette presets (Default Cyan, Emerald, Purple Night, Cyberpunk, Warm Coral).
   - Instant micro-animation play/pause toggle.
 - 🔍 **Deep Inspection Modal**:
-  - Zoomable SVG illustration preview.
   - 1-click React component code snippet generation.
-  - Raw standalone `.svg` vector downloading.
+  - Multi-framework CLI scaffolder command generation (`React`, `SVG`, `Vue`, `Svelte`).
+  - Standalone `.svg` vector downloading directly from studio cards and modal.
   - Artist and source attribution links.
 - 📐 **Dynamic Sizing & Grid Controls**:
   - Switch display sizes (`sm`, `md`, `lg`) and canvas background styles (`dark`, `light`, `grid`).

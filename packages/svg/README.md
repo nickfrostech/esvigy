@@ -31,6 +31,13 @@ npm install @esvigy/svg
 yarn add @esvigy/svg
 ```
 
+### 📋 Direct Download via CLI (No dependency needed)
+
+```bash
+# Download raw .svg file directly into your assets or public directory:
+pnpm dlx esvigy add EmptyBox --framework svg --dir public/illustrations
+```
+
 ---
 
 ## Usage
