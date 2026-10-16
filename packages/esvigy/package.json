@@ -1,0 +1,54 @@
+{
+   "name": "esvigy",
+   "version": "0.1.0",
+   "description": "Official CLI for Esvigy — add customizable, animated illustrations directly to your project.",
+   "homepage": "https://esvigy.vercel.app",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/nickfrostech/esvigy.git",
+      "directory": "packages/esvigy"
+   },
+   "bugs": {
+      "url": "https://github.com/nickfrostech/esvigy/issues"
+   },
+   "license": "MIT",
+   "author": "Nick Frost (https://github.com/nickfrostech)",
+   "keywords": [
+      "esvigy",
+      "cli",
+      "illustrations",
+      "svg",
+      "react",
+      "vue",
+      "svelte",
+      "shadcn"
+   ],
+   "publishConfig": {
+      "access": "public"
+   },
+   "type": "module",
+   "bin": {
+      "esvigy": "./dist/index.js"
+   },
+   "files": [
+      "dist",
+      "README.md",
+      "LICENSE"
+   ],
+   "scripts": {
+      "dev": "tsx ../cli/src/index.ts",
+      "build": "tsup",
+      "prepublishOnly": "pnpm build"
+   },
+   "dependencies": {
+      "@clack/prompts": "^0.9.1",
+      "commander": "^13.1.0",
+      "picocolors": "^1.1.1"
+   },
+   "devDependencies": {
+      "@types/node": "^24.10.0",
+      "tsup": "^8.5.1",
+      "tsx": "^4.23.15",
+      "typescript": "^5.9.3"
+   }
+}
