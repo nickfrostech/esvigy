@@ -26,7 +26,10 @@ export function IllustrationModal({
 	secondaryColor,
 	animated,
 }: IllustrationModalProps) {
-	const [activeTab, setActiveTab] = useState<"react" | "cli" | "svg">("react");
+	const [activeTab, setActiveTab] = useState<"component" | "cli">("component");
+	const [componentFramework, setComponentFramework] = useState<"react" | "vue" | "svelte" | "svg">("react");
+	const [cliPm, setCliPm] = useState<"pnpm" | "npm" | "bun" | "yarn">("pnpm");
+	const [cliFramework, setCliFramework] = useState<"react" | "svg" | "vue" | "svelte">("react");
 	const [copied, setCopied] = useState(false);
 
 	// Prevent background page from scrolling when modal popup is open
@@ -42,7 +45,9 @@ export function IllustrationModal({
 
 	if (!item) return null;
 
-	const reactSnippet = `import { ${item.name} } from "@esvigy/react";
+	let componentSnippet = "";
+	if (componentFramework === "react") {
+		componentSnippet = `import { ${item.name} } from "@esvigy/react";
 
 <${item.name}
   animated={${animated}}
@@ -50,16 +55,51 @@ export function IllustrationModal({
   secondaryColor="${secondaryColor}"
   className="w-48 h-48"
 />`;
+	} else if (componentFramework === "vue") {
+		componentSnippet = `<script setup>
+import { ${item.name} } from "@esvigy/vue";
+</script>
 
-	const cliSnippet = `# Add as self-contained component to components/esvigy/
-pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
+<template>
+  <${item.name}
+    :animated="${animated}"
+    color="${primaryColor}"
+    secondaryColor="${secondaryColor}"
+    class="w-48 h-48"
+  />
+</template>`;
+	} else if (componentFramework === "svelte") {
+		componentSnippet = `<script>
+  import { ${item.name} } from "@esvigy/svelte";
+</script>
 
-	const codeToShow =
-		activeTab === "react"
-			? reactSnippet
-			: activeTab === "cli"
-				? cliSnippet
-				: reactSnippet;
+<${item.name}
+  animated={${animated}}
+  color="${primaryColor}"
+  secondaryColor="${secondaryColor}"
+  class="w-48 h-48"
+/>`;
+	} else {
+		componentSnippet = `<!-- Normalized SVG Asset -->
+<img
+  src="/illustrations/${item.name}.svg"
+  alt="${item.name} illustration"
+  width="192"
+  height="192"
+/>`;
+	}
+
+	const cliPmMap: Record<"pnpm" | "npm" | "bun" | "yarn", string> = {
+		pnpm: "pnpm dlx",
+		npm: "npx",
+		bun: "bunx",
+		yarn: "yarn dlx",
+	};
+
+	const cliSnippet = `# Add as self-contained ${cliFramework === "svg" ? "SVG" : cliFramework.toUpperCase()} component to your components folder
+${cliPmMap[cliPm]} esvigy add ${item.name} --framework ${cliFramework}`;
+
+	const codeToShow = activeTab === "component" ? componentSnippet : cliSnippet;
 
 	const handleCopy = (text: string) => {
 		navigator.clipboard.writeText(text);
@@ -111,7 +151,7 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 					cornerShape: "squircle",
 					maxWidth: "740px",
 					width: "100%",
-					padding: "28px",
+					padding: "22px",
 					boxShadow: "none",
 					position: "relative",
 					maxHeight: "90vh",
@@ -201,7 +241,7 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 				{/* Live Preview Display (Flat container, no shadows) */}
 				<div
 					style={{
-						height: "320px",
+						height: "220px",
 						backgroundColor: "var(--bg-dark)",
 						borderRadius: "16px",
 						cornerShape: "squircle",
@@ -209,8 +249,8 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 						display: "flex",
 						alignItems: "center",
 						justifyContent: "center",
-						padding: "32px",
-						marginBottom: "20px",
+						padding: "16px",
+						marginBottom: "16px",
 					}}
 				>
 					<div
@@ -247,18 +287,18 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 				>
 					<div style={{ display: "flex", gap: "6px" }}>
 						<button
-							onClick={() => setActiveTab("react")}
+							onClick={() => setActiveTab("component")}
 							style={{
 								background:
-									activeTab === "react"
+									activeTab === "component"
 										? "var(--bg-surface-hover)"
 										: "transparent",
 								color:
-									activeTab === "react"
+									activeTab === "component"
 										? "var(--cyan-primary)"
 										: "var(--text-muted)",
 								border:
-									activeTab === "react"
+									activeTab === "component"
 										? "1px solid var(--cyan-primary)"
 										: "1px solid transparent",
 								borderRadius: "8px",
@@ -269,7 +309,7 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 								cursor: "pointer",
 							}}
 						>
-							React Component
+							Component Code
 						</button>
 						<button
 							onClick={() => setActiveTab("cli")}
@@ -314,6 +354,144 @@ pnpm dlx esvigy add ${item.name.toLowerCase()} --framework react`;
 							<span>{copied ? "Copied" : "Copy Snippet"}</span>
 						</button>
 					</div>
+				</div>
+
+				{/* Contextual Dropdowns Bar */}
+				<div
+					style={{
+						display: "flex",
+						alignItems: "center",
+						gap: "14px",
+						marginBottom: "12px",
+						flexWrap: "wrap",
+					}}
+				>
+					{activeTab === "component" ? (
+						<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+							<label
+								htmlFor='component-framework-select'
+								style={{
+									fontSize: "12px",
+									color: "var(--text-muted)",
+									fontWeight: 500,
+								}}
+							>
+								Framework:
+							</label>
+							<select
+								id='component-framework-select'
+								value={componentFramework}
+								onChange={(e) =>
+									setComponentFramework(
+										e.target.value as "react" | "vue" | "svelte" | "svg",
+									)
+								}
+								style={{
+									backgroundColor: "var(--bg-dark)",
+									color: "var(--text-main)",
+									border: "1px solid var(--border-subtle)",
+									borderRadius: "8px",
+									padding: "5px 10px",
+									fontSize: "12px",
+									fontWeight: 500,
+									cursor: "pointer",
+									outline: "none",
+								}}
+							>
+								<option value='react'>React (.tsx)</option>
+								<option value='vue'>Vue (.vue)</option>
+								<option value='svelte'>Svelte (.svelte)</option>
+								<option value='svg'>Raw SVG (.svg)</option>
+							</select>
+						</div>
+					) : (
+						<div
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "14px",
+								flexWrap: "wrap",
+							}}
+						>
+							{/* Package Manager first */}
+							<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+								<label
+									htmlFor='cli-pm-select'
+									style={{
+										fontSize: "12px",
+										color: "var(--text-muted)",
+										fontWeight: 500,
+									}}
+								>
+									Package Manager:
+								</label>
+								<select
+									id='cli-pm-select'
+									value={cliPm}
+									onChange={(e) =>
+										setCliPm(
+											e.target.value as "pnpm" | "npm" | "bun" | "yarn",
+										)
+									}
+									style={{
+										backgroundColor: "var(--bg-dark)",
+										color: "var(--text-main)",
+										border: "1px solid var(--border-subtle)",
+										borderRadius: "8px",
+										padding: "5px 10px",
+										fontSize: "12px",
+										fontWeight: 500,
+										cursor: "pointer",
+										outline: "none",
+									}}
+								>
+									<option value='pnpm'>pnpm dlx</option>
+									<option value='npm'>npx</option>
+									<option value='bun'>bunx</option>
+									<option value='yarn'>yarn dlx</option>
+								</select>
+							</div>
+
+							{/* Format second */}
+							<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+								<label
+									htmlFor='cli-format-select'
+									style={{
+										fontSize: "12px",
+										color: "var(--text-muted)",
+										fontWeight: 500,
+									}}
+								>
+									Format:
+								</label>
+								<select
+									id='cli-format-select'
+									value={cliFramework}
+									onChange={(e) =>
+										setCliFramework(
+											e.target.value as "react" | "svg" | "vue" | "svelte",
+										)
+									}
+									style={{
+										backgroundColor: "var(--bg-dark)",
+										color: "var(--text-main)",
+										border: "1px solid var(--border-subtle)",
+										borderRadius: "8px",
+										padding: "5px 10px",
+										fontSize: "12px",
+										fontWeight: 500,
+										cursor: "pointer",
+										outline: "none",
+									}}
+								>
+									<option value='react'>React (.tsx)</option>
+									<option value='svg'>Raw SVG (.svg)</option>
+									<option value='vue'>Vue (.vue)</option>
+									<option value='svelte'>Svelte (.svelte)</option>
+								</select>
+							</div>
+						</div>
+					)}
 				</div>
 
 				{/* Code block */}

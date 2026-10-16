@@ -44,7 +44,7 @@ export function IllustrationCatalog({
 		theme === "light" ? "light" : "dark",
 	);
 	const [cardSize, setCardSize] = useState<"sm" | "md" | "lg">("md");
-	const [copiedName, setCopiedName] = useState<string | null>(null);
+	const [downloadedName, setDownloadedName] = useState<string | null>(null);
 	const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
 	const desktopSidebarRef = useRef<HTMLElement | null>(null);
@@ -149,12 +149,25 @@ export function IllustrationCatalog({
 		},
 	}[cardBgMode];
 
-	const quickCopyCode = (e: React.MouseEvent, name: string) => {
+	const handleCardDownloadSvg = (e: React.MouseEvent, name: string) => {
 		e.stopPropagation();
-		const codeSnippet = `<${name} animated={${animated}} color="${primaryColor}" secondaryColor="${secondaryColor}" />`;
-		navigator.clipboard.writeText(codeSnippet);
-		setCopiedName(name);
-		setTimeout(() => setCopiedName(null), 2000);
+		const svgElem = document
+			.getElementById(`catalog-card-${name}`)
+			?.querySelector("svg");
+		if (svgElem) {
+			const svgXml = new XMLSerializer().serializeToString(svgElem);
+			const blob = new Blob([svgXml], {
+				type: "image/svg+xml;charset=utf-8",
+			});
+			const url = URL.createObjectURL(blob);
+			const link = document.createElement("a");
+			link.href = url;
+			link.download = `${name}.svg`;
+			link.click();
+			URL.revokeObjectURL(url);
+			setDownloadedName(name);
+			setTimeout(() => setDownloadedName(null), 2000);
+		}
 	};
 
 	// Reusable filter sectors content (used in both desktop sidebar & mobile drawer)
@@ -499,7 +512,7 @@ export function IllustrationCatalog({
 					}}
 				>
 					Interactive catalog and verification workbench. Preview with
-					real-time themes and copy ready-to-use snippets.
+					real-time themes, download optimized SVGs, or scaffold via CLI.
 				</p>
 			</div>
 
@@ -705,6 +718,7 @@ export function IllustrationCatalog({
 							{filteredIllustrations.map((item) => (
 								<div
 									key={item.name}
+									id={`catalog-card-${item.name}`}
 									onClick={() => onSelectIllustration(item)}
 									style={{
 										...cardBackgroundStyle,
@@ -750,7 +764,7 @@ export function IllustrationCatalog({
 										/>
 									</div>
 
-									{/* Card Meta & Quick Copy Button */}
+									{/* Card Meta & Quick Download Button */}
 									<div
 										style={{
 											display: "flex",
@@ -777,15 +791,15 @@ export function IllustrationCatalog({
 										</div>
 
 										<button
-											onClick={(e) => quickCopyCode(e, item.name)}
-											title='Quick Copy JSX'
+											onClick={(e) => handleCardDownloadSvg(e, item.name)}
+											title='Download .SVG'
 											style={{
 												backgroundColor:
-													copiedName === item.name
+													downloadedName === item.name
 														? "var(--cyan-primary)"
 														: "var(--bg-surface-hover)",
 												color:
-													copiedName === item.name
+													downloadedName === item.name
 														? "var(--primary-contrast)"
 														: "var(--text-main)",
 												border: "1px solid var(--border-subtle)",
@@ -798,7 +812,7 @@ export function IllustrationCatalog({
 												transition: "all 0.15s",
 											}}
 										>
-											{copiedName === item.name ? "Copied" : "Copy"}
+											{downloadedName === item.name ? "Downloaded" : "Download"}
 										</button>
 									</div>
 								</div>

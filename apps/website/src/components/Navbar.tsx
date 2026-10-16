@@ -158,28 +158,6 @@ export function Navbar({
 					</Link>
 
 					<a
-						href='/#guide'
-						onClick={(e) => {
-							e.preventDefault();
-							handleNavClick("guide");
-						}}
-						style={{
-							padding: "8px 14px",
-							borderRadius: "10px",
-							fontSize: "14px",
-							fontWeight: 500,
-							cursor: "pointer",
-							textDecoration: "none",
-							border: "1px solid transparent",
-							backgroundColor: "transparent",
-							color: "var(--text-muted)",
-							transition: "all 0.15s ease",
-						}}
-					>
-						Guide
-					</a>
-
-					<a
 						href='/#packages'
 						onClick={(e) => {
 							e.preventDefault();
@@ -421,30 +399,6 @@ export function Navbar({
 				>
 					Illustrations
 				</Link>
-
-				<a
-					href='/#guide'
-					onClick={(e) => {
-						e.preventDefault();
-						handleNavClick("guide");
-					}}
-					style={{
-						padding: "10px 14px",
-						borderRadius: "10px",
-						cornerShape: "squircle",
-						fontSize: "14px",
-						fontWeight: 500,
-						textAlign: "left",
-						cursor: "pointer",
-						textDecoration: "none",
-						display: "block",
-						border: "1px solid var(--border-subtle)",
-						backgroundColor: "transparent",
-						color: "var(--text-main)",
-					}}
-				>
-					Guide
-				</a>
 
 				<a
 					href='/#packages'

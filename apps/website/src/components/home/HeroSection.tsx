@@ -229,11 +229,11 @@ export function HeroSection({
 						<span>View All Illustrations</span>
 					</button>
 					<a
-						href='/#guide'
+						href='/#packages'
 						onClick={(e) => {
 							e.preventDefault();
-							window.history.pushState(null, "", "/#guide");
-							const el = document.getElementById("guide");
+							window.history.pushState(null, "", "/#packages");
+							const el = document.getElementById("packages");
 							el?.scrollIntoView({ behavior: "smooth" });
 						}}
 						className='btn-secondary'

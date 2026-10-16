@@ -5,7 +5,6 @@ import { IllustrationItem } from "./IllustrationModal";
 import { HeroSection } from "./home/HeroSection";
 import { HeroDemoWidget } from "./home/HeroDemoWidget";
 import { FeaturesSection } from "./home/FeaturesSection";
-import { QuickStartGuide } from "./home/QuickStartGuide";
 import { PackagesSection } from "./home/PackagesSection";
 import { FeaturedIllustrations } from "./home/FeaturedIllustrations";
 import { ContributorsSection } from "./home/ContributorsSection";
@@ -55,10 +54,7 @@ export function HomePage({
 			{/* 3. Value Propositions ("Why Esvigy") */}
 			<FeaturesSection />
 
-			{/* 4. Quickstart & Installation Section */}
-			<QuickStartGuide />
-
-			{/* 5. Ecosystem Packages */}
+			{/* 4. Ecosystem Packages */}
 			<PackagesSection />
 
 			{/* 6. Featured Showcase Teaser */}

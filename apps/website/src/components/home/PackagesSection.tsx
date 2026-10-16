@@ -4,19 +4,13 @@ import { useState } from "react";
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
-const INSTALL_COMMANDS: Record<PackageManager, string> = {
-	pnpm: "pnpm add @esvigy/react",
-	npm: "npm install @esvigy/react",
-	yarn: "yarn add @esvigy/react",
-	bun: "bun add @esvigy/react",
-};
-
 interface PackageItem {
 	name: string;
 	description: string;
 	status: string;
 	isLive?: boolean;
 	npmUrl?: string;
+	commands?: Record<PackageManager, string>;
 }
 
 const TARGET_PACKAGES: PackageItem[] = [
@@ -27,6 +21,26 @@ const TARGET_PACKAGES: PackageItem[] = [
 		status: "Available Now",
 		isLive: true,
 		npmUrl: "https://www.npmjs.com/package/@esvigy/react",
+		commands: {
+			pnpm: "pnpm add @esvigy/react",
+			npm: "npm install @esvigy/react",
+			yarn: "yarn add @esvigy/react",
+			bun: "bun add @esvigy/react",
+		},
+	},
+	{
+		name: "esvigy (CLI)",
+		description:
+			"Interactive shadcn-style scaffolder. Directly injects self-contained illustration components into your project with zero dependencies.",
+		status: "Available Now",
+		isLive: true,
+		npmUrl: "https://www.npmjs.com/package/esvigy",
+		commands: {
+			pnpm: "pnpm dlx esvigy add",
+			npm: "npx esvigy add",
+			yarn: "yarn dlx esvigy add",
+			bun: "bunx esvigy add",
+		},
 	},
 	{
 		name: "@esvigy/svg",
@@ -46,22 +60,16 @@ const TARGET_PACKAGES: PackageItem[] = [
 			"Lightweight Svelte 4 & 5 components with instant reactivity and compiled vector markup.",
 		status: "Coming Soon",
 	},
-	{
-		name: "@esvigy/cli",
-		description:
-			"Interactive CLI scaffolder (npx esvigy add <name>) to directly drop illustrations into your codebase.",
-		status: "Coming Soon",
-	},
 ];
 
 export function PackagesSection() {
 	const [selectedPm, setSelectedPm] = useState<PackageManager>("pnpm");
-	const [copied, setCopied] = useState(false);
+	const [copiedPkg, setCopiedPkg] = useState<string | null>(null);
 
-	const handleCopy = (cmd: string) => {
+	const handleCopy = (cmd: string, pkgName: string) => {
 		navigator.clipboard.writeText(cmd);
-		setCopied(true);
-		setTimeout(() => setCopied(false), 2000);
+		setCopiedPkg(pkgName);
+		setTimeout(() => setCopiedPkg(null), 2000);
 	};
 
 	return (
@@ -94,7 +102,9 @@ export function PackagesSection() {
 				>
 					Modular packages across the web ecosystem.{" "}
 					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/react</strong>{" "}
-					is live on npm today!
+					and{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>esvigy CLI</strong>{" "}
+					are available on npm!
 				</p>
 			</div>
 
@@ -225,48 +235,55 @@ export function PackagesSection() {
 								</div>
 
 								{/* Clickable Code Snippet */}
-								<button
-									type='button'
-									onClick={() => handleCopy(INSTALL_COMMANDS[selectedPm])}
-									style={{
-										padding: "10px 12px",
-										borderRadius: "8px",
-										backgroundColor: "var(--bg-dark)",
-										border: "1px solid rgba(0, 212, 255, 0.25)",
-										display: "flex",
-										alignItems: "center",
-										justifyContent: "space-between",
-										fontSize: "12px",
-										fontFamily: "monospace",
-										color: "var(--cyan-primary)",
-										cursor: "pointer",
-										width: "100%",
-										transition: "all 0.2s ease",
-										textAlign: "left",
-									}}
-									title='Click to copy install command'
-								>
-									<span
+								{pkg.commands && (
+									<button
+										type='button'
+										onClick={() =>
+											handleCopy(pkg.commands![selectedPm], pkg.name)
+										}
 										style={{
-											overflow: "hidden",
-											textOverflow: "ellipsis",
-											whiteSpace: "nowrap",
+											padding: "10px 12px",
+											borderRadius: "8px",
+											backgroundColor: "var(--bg-dark)",
+											border: "1px solid rgba(0, 212, 255, 0.25)",
+											display: "flex",
+											alignItems: "center",
+											justifyContent: "space-between",
+											fontSize: "12px",
+											fontFamily: "monospace",
+											color: "var(--cyan-primary)",
+											cursor: "pointer",
+											width: "100%",
+											transition: "all 0.2s ease",
+											textAlign: "left",
 										}}
+										title='Click to copy install command'
 									>
-										{INSTALL_COMMANDS[selectedPm]}
-									</span>
-									<span
-										style={{
-											fontSize: "11px",
-											color: copied ? "#10B981" : "var(--text-muted)",
-											marginLeft: "8px",
-											fontWeight: 600,
-											flexShrink: 0,
-										}}
-									>
-										{copied ? "✓ Copied" : "Copy"}
-									</span>
-								</button>
+										<span
+											style={{
+												overflow: "hidden",
+												textOverflow: "ellipsis",
+												whiteSpace: "nowrap",
+											}}
+										>
+											{pkg.commands[selectedPm]}
+										</span>
+										<span
+											style={{
+												fontSize: "11px",
+												color:
+													copiedPkg === pkg.name
+														? "#10B981"
+														: "var(--text-muted)",
+												marginLeft: "8px",
+												fontWeight: 600,
+												flexShrink: 0,
+											}}
+										>
+											{copiedPkg === pkg.name ? "✓ Copied" : "Copy"}
+										</span>
+									</button>
+								)}
 
 								{pkg.npmUrl && (
 									<a

@@ -97,14 +97,16 @@ export function App() {
 
 	// Handle in-page hash scrolling (e.g. /#guide or /#packages)
 	const handleNavigateSection = (sectionId: "guide" | "packages") => {
-		const element = document.getElementById(sectionId);
+		const targetId = sectionId === "guide" ? "packages" : sectionId;
+		const element = document.getElementById(targetId);
 		if (element) {
 			element.scrollIntoView({ behavior: "smooth" });
 		}
 	};
 
 	useEffect(() => {
-		const hash = window.location.hash.replace("#", "");
+		const rawHash = window.location.hash.replace("#", "");
+		const hash = rawHash === "guide" ? "packages" : rawHash;
 		if (hash && (location === "/" || location === "")) {
 			setTimeout(() => {
 				const el = document.getElementById(hash);

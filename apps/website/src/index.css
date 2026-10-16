@@ -97,6 +97,15 @@ body {
    corner-shape: squircle;
 }
 
+select {
+   font-family: inherit;
+}
+
+select option {
+   background-color: var(--bg-surface);
+   color: var(--text-main);
+}
+
 /* Flat Panel Utilities (No shadows, no gradients) */
 .glass-panel,
 .flat-panel {
