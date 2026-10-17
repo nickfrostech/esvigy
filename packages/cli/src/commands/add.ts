@@ -241,6 +241,14 @@ export async function addCommand(
 					`  import { ${sampleName} } from "${importPath}";\n\n  export default function App() {\n    return <${sampleName} animated color="#06b6d4" className="w-64 h-64" />;\n  }`,
 				),
 			);
+		} else if (framework === "vue") {
+			const importPath = `./${path.relative(cwd, path.join(resolvedDir, `${sampleName}.vue`)).replace(/\\/g, "/")}`;
+			console.log(pc.cyan("Quick Start Example:"));
+			console.log(
+				pc.dim(
+					`  <script setup>\n  import ${sampleName} from "${importPath}";\n  </script>\n\n  <template>\n    <${sampleName} animated color="#06b6d4" class="w-64 h-64" />\n  </template>`,
+				),
+			);
 		}
 		console.log();
 	} catch (err: any) {

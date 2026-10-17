@@ -200,9 +200,9 @@ export async function fetchIllustrationSource(
 	const res = await fetch(url);
 	if (!res.ok) {
 		if (res.status === 404) {
-			if (framework === "vue" || framework === "svelte") {
+			if (framework === "svelte") {
 				throw new Error(
-					`Official @esvigy/${framework} adapter for "${name}" is coming soon in Milestone 5! In the meantime, you can add it as "--framework svg" or "--framework react".`,
+					`Official @esvigy/${framework} adapter for "${name}" is coming soon in Milestone 5! In the meantime, you can add it as "--framework svg", "--framework react", or "--framework vue".`,
 				);
 			}
 			throw new Error(
