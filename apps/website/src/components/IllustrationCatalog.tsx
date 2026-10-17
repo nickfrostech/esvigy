@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import { IllustrationItem } from "./IllustrationModal";
+import { Footer } from "./home/Footer";
 
 interface IllustrationCatalogProps {
 	illustrations: IllustrationItem[];
@@ -66,8 +67,8 @@ export function IllustrationCatalog({
 
 			const atTop = sidebar.scrollTop <= 0 && deltaY < 0;
 			const atBottom =
-				sidebar.scrollTop + sidebar.clientHeight >= sidebar.scrollHeight - 1 &&
-				deltaY > 0;
+				sidebar.scrollTop + sidebar.clientHeight >=
+					sidebar.scrollHeight - 1 && deltaY > 0;
 
 			if (atTop || atBottom) {
 				// Prevent bubbling to background page when reaching boundaries
@@ -187,7 +188,9 @@ export function IllustrationCatalog({
 				>
 					Categories
 				</div>
-				<div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+				<div
+					style={{ display: "flex", flexDirection: "column", gap: "3px" }}
+				>
 					{categories.map((cat) => {
 						const isSelected = selectedCategory === cat;
 						return (
@@ -222,7 +225,9 @@ export function IllustrationCatalog({
 								}}
 							>
 								<span>
-									{cat === "all" ? "All Illustrations" : cat.replace("-", " ")}
+									{cat === "all"
+										? "All Illustrations"
+										: cat.replace("-", " ")}
 								</span>
 								<span
 									style={{
@@ -243,7 +248,9 @@ export function IllustrationCatalog({
 				</div>
 			</div>
 
-			<div style={{ height: "1px", backgroundColor: "var(--border-subtle)" }} />
+			<div
+				style={{ height: "1px", backgroundColor: "var(--border-subtle)" }}
+			/>
 
 			{/* Sector 2: Palettes & Colors */}
 			<div>
@@ -384,7 +391,9 @@ export function IllustrationCatalog({
 				</div>
 			</div>
 
-			<div style={{ height: "1px", backgroundColor: "var(--border-subtle)" }} />
+			<div
+				style={{ height: "1px", backgroundColor: "var(--border-subtle)" }}
+			/>
 
 			{/* Sector 3: Motion & Animation */}
 			<div>
@@ -424,7 +433,9 @@ export function IllustrationCatalog({
 				</label>
 			</div>
 
-			<div style={{ height: "1px", backgroundColor: "var(--border-subtle)" }} />
+			<div
+				style={{ height: "1px", backgroundColor: "var(--border-subtle)" }}
+			/>
 
 			{/* Sector 4: Canvas Surface */}
 			<div>
@@ -735,7 +746,8 @@ export function IllustrationCatalog({
 									onMouseEnter={(e) => {
 										e.currentTarget.style.borderColor =
 											"var(--cyan-primary)";
-										e.currentTarget.style.transform = "translateY(-2px)";
+										e.currentTarget.style.transform =
+											"translateY(-2px)";
 									}}
 									onMouseLeave={(e) => {
 										e.currentTarget.style.borderColor =
@@ -776,7 +788,12 @@ export function IllustrationCatalog({
 										}}
 									>
 										<div>
-											<div style={{ fontWeight: 600, fontSize: "14px" }}>
+											<div
+												style={{
+													fontWeight: 600,
+													fontSize: "14px",
+												}}
+											>
 												{item.name}
 											</div>
 											<div
@@ -791,7 +808,9 @@ export function IllustrationCatalog({
 										</div>
 
 										<button
-											onClick={(e) => handleCardDownloadSvg(e, item.name)}
+											onClick={(e) =>
+												handleCardDownloadSvg(e, item.name)
+											}
 											title='Download .SVG'
 											style={{
 												backgroundColor:
@@ -812,7 +831,9 @@ export function IllustrationCatalog({
 												transition: "all 0.15s",
 											}}
 										>
-											{downloadedName === item.name ? "Downloaded" : "Download"}
+											{downloadedName === item.name
+												? "Downloaded"
+												: "Download"}
 										</button>
 									</div>
 								</div>
@@ -855,7 +876,9 @@ export function IllustrationCatalog({
 					padding: "20px",
 					display: "flex",
 					flexDirection: "column",
-					transform: mobileFilterOpen ? "translateX(0)" : "translateX(-100%)",
+					transform: mobileFilterOpen
+						? "translateX(0)"
+						: "translateX(-100%)",
 					transition: "transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
 					overflowY: "auto",
 					overscrollBehavior: "contain",
@@ -892,6 +915,13 @@ export function IllustrationCatalog({
 
 				{renderFilterSectors()}
 			</div>
+
+			<div
+				style={{
+					marginTop: "60px",
+				}}
+			></div>
+			<Footer />
 		</div>
 	);
 }

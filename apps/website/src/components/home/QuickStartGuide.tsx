@@ -2,21 +2,39 @@
 
 import { useState } from "react";
 
-const INSTALL_COMMANDS = {
-	pnpm: "pnpm add @esvigy/react",
-	npm: "npm install @esvigy/react",
-	yarn: "yarn add @esvigy/react",
-	bun: "bun add @esvigy/react",
+type Framework = "react" | "vue" | "cli";
+type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
+
+const INSTALL_COMMANDS: Record<Framework, Record<PackageManager, string>> = {
+	react: {
+		pnpm: "pnpm add @esvigy/react",
+		npm: "npm install @esvigy/react",
+		yarn: "yarn add @esvigy/react",
+		bun: "bun add @esvigy/react",
+	},
+	vue: {
+		pnpm: "pnpm add @esvigy/vue",
+		npm: "npm install @esvigy/vue",
+		yarn: "yarn add @esvigy/vue",
+		bun: "bun add @esvigy/vue",
+	},
+	cli: {
+		pnpm: "pnpm dlx @esvigy/cli add",
+		npm: "npx @esvigy/cli add",
+		yarn: "yarn dlx @esvigy/cli add",
+		bun: "bunx @esvigy/cli add",
+	},
 };
 
 export function QuickStartGuide() {
-	const [installTab, setInstallTab] = useState<
-		"pnpm" | "npm" | "yarn" | "bun"
-	>("pnpm");
+	const [framework, setFramework] = useState<Framework>("react");
+	const [installTab, setInstallTab] = useState<PackageManager>("pnpm");
 	const [copiedInstall, setCopiedInstall] = useState(false);
 
+	const currentCommand = INSTALL_COMMANDS[framework][installTab];
+
 	const copyInstall = () => {
-		navigator.clipboard.writeText(INSTALL_COMMANDS[installTab]);
+		navigator.clipboard.writeText(currentCommand);
 		setCopiedInstall(true);
 		setTimeout(() => setCopiedInstall(false), 2000);
 	};
@@ -32,26 +50,82 @@ export function QuickStartGuide() {
 			}}
 		>
 			<div className='flat-panel' style={{ padding: "36px" }}>
-				<h2
+				<div
 					style={{
-						fontSize: "26px",
-						fontWeight: 600,
-						margin: "0 0 8px 0",
-						color: "var(--text-main)",
+						display: "flex",
+						justifyContent: "space-between",
+						alignItems: "flex-start",
+						flexWrap: "wrap",
+						gap: "16px",
+						marginBottom: "20px",
 					}}
 				>
-					Quick Start
-				</h2>
-				<p
-					style={{
-						color: "var(--text-muted)",
-						fontSize: "14px",
-						margin: "0 0 20px 0",
-					}}
-				>
-					Install the official package for your favorite JavaScript package
-					manager:
-				</p>
+					<div>
+						<h2
+							style={{
+								fontSize: "26px",
+								fontWeight: 600,
+								margin: "0 0 8px 0",
+								color: "var(--text-main)",
+							}}
+						>
+							Quick Start
+						</h2>
+						<p
+							style={{
+								color: "var(--text-muted)",
+								fontSize: "14px",
+								margin: 0,
+							}}
+						>
+							Install the official package or scaffolder for your favorite framework:
+						</p>
+					</div>
+
+					{/* Framework Selector Pills */}
+					<div
+						style={{
+							display: "flex",
+							gap: "6px",
+							backgroundColor: "var(--bg-dark)",
+							padding: "4px",
+							borderRadius: "10px",
+							border: "1px solid var(--border-subtle)",
+						}}
+					>
+						{[
+							{ id: "react", label: "React" },
+							{ id: "vue", label: "Vue 3" },
+							{ id: "cli", label: "CLI Scaffolder" },
+						].map((item) => (
+							<button
+								key={item.id}
+								onClick={() => setFramework(item.id as Framework)}
+								style={{
+									padding: "6px 12px",
+									borderRadius: "8px",
+									fontSize: "12px",
+									fontWeight: framework === item.id ? 600 : 500,
+									border: "none",
+									cursor: "pointer",
+									backgroundColor:
+										framework === item.id
+											? "var(--bg-surface-hover)"
+											: "transparent",
+									color:
+										framework === item.id
+											? item.id === "vue"
+												? "#42B883"
+												: "var(--cyan-primary)"
+											: "var(--text-muted)",
+									transition: "all 0.15s ease",
+								}}
+							>
+								{item.label}
+							</button>
+						))}
+					</div>
+				</div>
 
 				{/* Package manager tabs */}
 				<div style={{ display: "flex", gap: "8px", marginBottom: "12px" }}>
@@ -62,7 +136,6 @@ export function QuickStartGuide() {
 							style={{
 								padding: "6px 14px",
 								borderRadius: "8px",
-								cornerShape: "squircle",
 								fontSize: "13px",
 								fontWeight: 500,
 								cursor: "pointer",
@@ -85,7 +158,7 @@ export function QuickStartGuide() {
 					))}
 				</div>
 
-				{/* Command display box (Clean copy button without checkmark emoji) */}
+				{/* Command display box */}
 				<div
 					style={{
 						display: "flex",
@@ -94,7 +167,6 @@ export function QuickStartGuide() {
 						backgroundColor: "var(--bg-dark)",
 						border: "1px solid var(--border-subtle)",
 						borderRadius: "12px",
-						cornerShape: "squircle",
 						padding: "14px 20px",
 					}}
 				>
@@ -102,17 +174,17 @@ export function QuickStartGuide() {
 						style={{
 							fontFamily: "var(--font-mono)",
 							fontSize: "14px",
-							color: "var(--cyan-primary)",
+							color: framework === "vue" ? "#42B883" : "var(--cyan-primary)",
 						}}
 					>
-						{INSTALL_COMMANDS[installTab]}
+						{currentCommand}
 					</code>
 					<button
 						onClick={copyInstall}
 						className='btn-secondary'
 						style={{ fontSize: "12px", padding: "6px 14px" }}
 					>
-						{copiedInstall ? "Copied" : "Copy"}
+						{copiedInstall ? "✓ Copied" : "Copy"}
 					</button>
 				</div>
 			</div>

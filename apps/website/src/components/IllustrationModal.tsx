@@ -27,9 +27,13 @@ export function IllustrationModal({
 	animated,
 }: IllustrationModalProps) {
 	const [activeTab, setActiveTab] = useState<"component" | "cli">("component");
-	const [componentFramework, setComponentFramework] = useState<"react" | "vue" | "svelte" | "svg">("react");
+	const [componentFramework, setComponentFramework] = useState<
+		"react" | "vue" | "svelte" | "svg"
+	>("react");
 	const [cliPm, setCliPm] = useState<"pnpm" | "npm" | "bun" | "yarn">("pnpm");
-	const [cliFramework, setCliFramework] = useState<"react" | "svg" | "vue" | "svelte">("react");
+	const [cliFramework, setCliFramework] = useState<
+		"react" | "svg" | "vue" | "svelte"
+	>("react");
 	const [copied, setCopied] = useState(false);
 
 	// Prevent background page from scrolling when modal popup is open
@@ -64,7 +68,7 @@ import { ${item.name} } from "@esvigy/vue";
   <${item.name}
     :animated="${animated}"
     color="${primaryColor}"
-    secondaryColor="${secondaryColor}"
+    secondary-color="${secondaryColor}"
     class="w-48 h-48"
   />
 </template>`;
@@ -367,7 +371,13 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 					}}
 				>
 					{activeTab === "component" ? (
-						<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+						<div
+							style={{
+								display: "flex",
+								alignItems: "center",
+								gap: "8px",
+							}}
+						>
 							<label
 								htmlFor='component-framework-select'
 								style={{
@@ -383,7 +393,11 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 								value={componentFramework}
 								onChange={(e) =>
 									setComponentFramework(
-										e.target.value as "react" | "vue" | "svelte" | "svg",
+										e.target.value as
+											| "react"
+											| "vue"
+											| "svelte"
+											| "svg",
 									)
 								}
 								style={{
@@ -398,10 +412,10 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 									outline: "none",
 								}}
 							>
-								<option value='react'>React (.tsx)</option>
-								<option value='vue'>Vue (.vue)</option>
-								<option value='svelte'>Svelte (.svelte)</option>
+								<option value='react'>React (@esvigy/react)</option>
+								<option value='vue'>Vue 3 (@esvigy/vue)</option>
 								<option value='svg'>Raw SVG (.svg)</option>
+								<option value='svelte'>Svelte (Coming Soon)</option>
 							</select>
 						</div>
 					) : (
@@ -414,7 +428,13 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 							}}
 						>
 							{/* Package Manager first */}
-							<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+							<div
+								style={{
+									display: "flex",
+									alignItems: "center",
+									gap: "8px",
+								}}
+							>
 								<label
 									htmlFor='cli-pm-select'
 									style={{
@@ -430,7 +450,11 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 									value={cliPm}
 									onChange={(e) =>
 										setCliPm(
-											e.target.value as "pnpm" | "npm" | "bun" | "yarn",
+											e.target.value as
+												| "pnpm"
+												| "npm"
+												| "bun"
+												| "yarn",
 										)
 									}
 									style={{
@@ -453,7 +477,13 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 							</div>
 
 							{/* Format second */}
-							<div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+							<div
+								style={{
+									display: "flex",
+									alignItems: "center",
+									gap: "8px",
+								}}
+							>
 								<label
 									htmlFor='cli-format-select'
 									style={{
@@ -469,7 +499,11 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 									value={cliFramework}
 									onChange={(e) =>
 										setCliFramework(
-											e.target.value as "react" | "svg" | "vue" | "svelte",
+											e.target.value as
+												| "react"
+												| "svg"
+												| "vue"
+												| "svelte",
 										)
 									}
 									style={{

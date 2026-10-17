@@ -29,9 +29,23 @@ const TARGET_PACKAGES: PackageItem[] = [
 		},
 	},
 	{
+		name: "@esvigy/vue",
+		description:
+			"Native Vue 3 Single-File Components with reactive two-tone props, full TypeScript types, and zero-JS CSS micro-animations.",
+		status: "Available Now",
+		isLive: true,
+		npmUrl: "https://www.npmjs.com/package/@esvigy/vue",
+		commands: {
+			pnpm: "pnpm add @esvigy/vue",
+			npm: "npm install @esvigy/vue",
+			yarn: "yarn add @esvigy/vue",
+			bun: "bun add @esvigy/vue",
+		},
+	},
+	{
 		name: "@esvigy/cli",
 		description:
-			"Interactive shadcn-style scaffolder. Directly injects self-contained illustration components into your project with zero dependencies.",
+			"Interactive shadcn-style scaffolder. Directly injects self-contained illustration components (React, Vue, SVG) into your project.",
 		status: "Available Now",
 		isLive: true,
 		npmUrl: "https://www.npmjs.com/package/@esvigy/cli",
@@ -46,12 +60,6 @@ const TARGET_PACKAGES: PackageItem[] = [
 		name: "@esvigy/svg",
 		description:
 			"Normalized, canonical SVG files and metadata manifest for framework-agnostic usage across the web.",
-		status: "Coming Soon",
-	},
-	{
-		name: "@esvigy/vue",
-		description:
-			"Native Vue 3 components with reactive props for primary & secondary colors and animation toggling.",
 		status: "Coming Soon",
 	},
 	{
@@ -101,9 +109,17 @@ export function PackagesSection() {
 					}}
 				>
 					Modular packages across the web ecosystem.{" "}
-					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/react</strong>{" "}
-					and{" "}
-					<strong style={{ color: "var(--cyan-primary)" }}>@esvigy/cli</strong>{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>
+						@esvigy/react
+					</strong>
+					,{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>
+						@esvigy/vue
+					</strong>
+					, and{" "}
+					<strong style={{ color: "var(--cyan-primary)" }}>
+						@esvigy/cli
+					</strong>{" "}
 					are available on npm!
 				</p>
 			</div>
@@ -111,7 +127,7 @@ export function PackagesSection() {
 			<div
 				style={{
 					display: "grid",
-					gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+					gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
 					gap: "20px",
 				}}
 			>
@@ -160,7 +176,9 @@ export function PackagesSection() {
 										backgroundColor: pkg.isLive
 											? "rgba(16, 185, 129, 0.15)"
 											: "var(--bg-surface-hover)",
-										color: pkg.isLive ? "#10B981" : "var(--text-muted)",
+										color: pkg.isLive
+											? "#10B981"
+											: "var(--text-muted)",
 										fontWeight: 600,
 										border: pkg.isLive
 											? "1px solid rgba(16, 185, 129, 0.3)"
@@ -230,7 +248,7 @@ export function PackagesSection() {
 											>
 												{installer}
 											</button>
-										)
+										),
 									)}
 								</div>
 
@@ -303,10 +321,12 @@ export function PackagesSection() {
 											transition: "color 0.2s ease",
 										}}
 										onMouseEnter={(e) =>
-											(e.currentTarget.style.color = "var(--cyan-primary)")
+											(e.currentTarget.style.color =
+												"var(--cyan-primary)")
 										}
 										onMouseLeave={(e) =>
-											(e.currentTarget.style.color = "var(--text-muted)")
+											(e.currentTarget.style.color =
+												"var(--text-muted)")
 										}
 									>
 										View package on npmjs.com ↗

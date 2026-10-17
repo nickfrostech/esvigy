@@ -237,7 +237,11 @@ export function HeroSection({
 							el?.scrollIntoView({ behavior: "smooth" });
 						}}
 						className='btn-secondary'
-						style={{ fontSize: "14px", padding: "12px 22px", textDecoration: "none" }}
+						style={{
+							fontSize: "14px",
+							padding: "12px 22px",
+							textDecoration: "none",
+						}}
 					>
 						<span>Get Started</span>
 					</a>

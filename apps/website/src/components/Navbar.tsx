@@ -111,7 +111,7 @@ export function Navbar({
 					>
 						Esvigy
 					</span>
-					<span
+					{/* <span
 						style={{
 							fontSize: "11px",
 							fontWeight: 500,
@@ -125,7 +125,7 @@ export function Navbar({
 						}}
 					>
 						In Progress
-					</span>
+					</span> */}
 				</Link>
 
 				{/* Desktop Right Navigation */}
@@ -143,14 +143,12 @@ export function Navbar({
 							cursor: "pointer",
 							textDecoration: "none",
 							border: "1px solid transparent",
-							backgroundColor:
-								isCatalogActive
-									? "var(--bg-surface-hover)"
-									: "transparent",
-							color:
-								isCatalogActive
-									? "var(--cyan-primary)"
-									: "var(--text-muted)",
+							backgroundColor: isCatalogActive
+								? "var(--bg-surface-hover)"
+								: "transparent",
+							color: isCatalogActive
+								? "var(--cyan-primary)"
+								: "var(--text-muted)",
 							transition: "all 0.15s ease",
 						}}
 					>
@@ -387,14 +385,12 @@ export function Navbar({
 						textDecoration: "none",
 						display: "block",
 						border: "1px solid var(--border-subtle)",
-						backgroundColor:
-							isCatalogActive
-								? "var(--bg-surface-hover)"
-								: "transparent",
-						color:
-							isCatalogActive
-								? "var(--cyan-primary)"
-								: "var(--text-main)",
+						backgroundColor: isCatalogActive
+							? "var(--bg-surface-hover)"
+							: "transparent",
+						color: isCatalogActive
+							? "var(--cyan-primary)"
+							: "var(--text-main)",
 					}}
 				>
 					Illustrations
