@@ -210,9 +210,11 @@
   - Configured zero-dependency GitHub raw file streaming for React and SVG formats with auto-injected `types.ts`.
 - **2026-10-17**:
   - Built `@esvigy/vue` package with automated SFC generator `packages/vue/scripts/generate.ts` and barrel exporter `generate-index.ts`.
-  - Generated all 30 Vue 3 Single-File Components (`.vue`) with `<script setup lang="ts">`, standard props (`color`, `secondaryColor`, `animated`, `className`, `style`), and scoped micro-animations.
-  - Configured Vite library build generating ESM (`dist/index.js`), CJS (`dist/index.cjs`), TypeScript declarations (`dist/index.d.ts`), and CSS (`dist/vue.css`).
+  - Generated all 30 Vue 3 Single-File Components (`.vue`) with `<script setup lang="ts">`, standard props (`color`, `secondaryColor`, `animated`, `className`, `style`), and self-contained vector micro-animations.
+  - Configured Vite library build generating ESM (`dist/index.js`), CJS (`dist/index.cjs`), and TypeScript declarations (`dist/index.d.ts`).
   - Added full Vitest test suite with 250 passing unit, contract, and bundle verification tests.
-  - Updated `@esvigy/cli` to support `--framework vue` scaffolding and quick start snippets.
-  - Updated GitHub Actions CI/CD workflows for automated verification and publishing.
+  - Built interactive visual playground sandbox (`packages/vue/playground/`).
+  - Updated `@esvigy/cli` with `--framework vue` scaffolding support, Vue/Nuxt project auto-detection, and bumped to `v0.2.0`.
+  - Updated documentation website (`apps/website`) to showcase `@esvigy/vue` availability with copyable install commands and Vue template syntax switchers.
+  - Officially published `@esvigy/vue@0.1.0` and `@esvigy/cli@0.2.0` to the global npm registry!
 

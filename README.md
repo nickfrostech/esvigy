@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/v/@esvigy/react.svg?color=00D4FF&label=@esvigy/react" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/esvigy"><img src="https://img.shields.io/npm/v/esvigy.svg?color=10B981&label=esvigy%20CLI" alt="CLI version" /></a>
-  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/dm/@esvigy/react.svg?color=00D4FF&label=downloads" alt="npm downloads" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/v/@esvigy/react.svg?color=00D4FF&label=@esvigy/react" alt="@esvigy/react version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/vue"><img src="https://img.shields.io/npm/v/@esvigy/vue.svg?color=42B883&label=@esvigy/vue" alt="@esvigy/vue version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/cli"><img src="https://img.shields.io/npm/v/@esvigy/cli.svg?color=10B981&label=@esvigy/cli" alt="@esvigy/cli version" /></a>
   <a href="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml"><img src="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
   <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
   <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/studio-esvigy.vercel.app-7928CA" alt="Live Studio" /></a>
@@ -44,21 +44,21 @@ In modern web development, sourcing and integrating UI illustrations is unnecess
 **Esvigy** eliminates this friction. Just like icon sets (such as Lucide or Heroicons), Esvigy treats illustrations as lightweight, plug-and-play components.
 
 ```tsx
+// React
 import { EmptyCart, NotFoundRobot } from "@esvigy/react";
 
-export function ErrorState() {
-  return (
-    <div className="flex flex-col items-center justify-center p-8">
-      <NotFoundRobot
-        animated
-        color="#00D4FF"
-        secondaryColor="#001014"
-        className="w-64 h-64"
-      />
-      <h2 className="text-xl font-bold mt-4">Page Not Found</h2>
-    </div>
-  );
-}
+<NotFoundRobot animated color="#00D4FF" secondaryColor="#001014" className="w-64 h-64" />
+```
+
+```vue
+<!-- Vue 3 -->
+<script setup>
+import { EmptyCart, NotFoundRobot } from "@esvigy/vue";
+</script>
+
+<template>
+  <NotFoundRobot animated color="#42B883" secondary-color="#001014" class="w-64 h-64" />
+</template>
 ```
 
 No downloading SVG files. No manual XML cleanup. Just clean, typed components ready for your design system.
@@ -67,9 +67,9 @@ No downloading SVG files. No manual XML cleanup. Just clean, typed components re
 
 ## Key Features
 
-- 🎨 **Minimal, Focused API**: No bloated config matrices or arbitrary sizing props. Control scale via standard CSS (`className`) and customize with primary/secondary colors.
-- ⚡ **Dynamic Micro-Animations**: Smooth, lightweight CSS animations enabled with a simple `animated` prop.
-- 🌐 **Framework Agnostic Source of Truth**: SVGs are the canonical foundation. Official packages are generated for React, Vue, Svelte, Angular, React Native, and raw SVG.
+- 🎨 **Minimal, Focused API**: No bloated config matrices or arbitrary sizing props. Control scale via standard CSS (`className` / `class`) and customize with primary/secondary colors.
+- ⚡ **Dynamic Micro-Animations**: Smooth, lightweight CSS animations enabled with a simple `animated` prop with zero runtime JavaScript overhead.
+- 🌐 **Framework Agnostic Source of Truth**: SVGs are the canonical foundation. Official packages are available for **React** and **Vue 3**, with Svelte and React Native on the roadmap.
 - 🌲 **Tree-Shakable & Featherweight**: Zero runtime overhead; bundle only the exact illustrations your app imports.
 - 🛡️ **Permissively Licensed**: Free and open source under the MIT License, preserving attribution for open-source artwork.
 
@@ -81,18 +81,37 @@ No downloading SVG files. No manual XML cleanup. Just clean, typed components re
 
 Install the package for your framework using your favorite package manager:
 
+#### React (`@esvigy/react`)
 ```bash
-# pnpm (recommended)
+# pnpm
 pnpm add @esvigy/react
 
 # npm
 npm install @esvigy/react
 
-# yarn
+# yarn / bun
 yarn add @esvigy/react
-
-# bun
 bun add @esvigy/react
+```
+
+#### Vue 3 (`@esvigy/vue`)
+```bash
+# pnpm
+pnpm add @esvigy/vue
+
+# npm
+npm install @esvigy/vue
+
+# yarn / bun
+yarn add @esvigy/vue
+bun add @esvigy/vue
+```
+
+#### CLI Scaffolder (Zero Dependencies — "The shadcn Way")
+```bash
+# Interactive wizard (auto-detects React, Vue, or SVG)
+pnpm dlx @esvigy/cli add
+# or: npx @esvigy/cli add | bunx @esvigy/cli add
 ```
 
 ### Ways to Consume Esvigy
@@ -101,9 +120,9 @@ Esvigy offers **three distinct ways** to get illustrations into your project, gi
 
 | Method                                                               | Best For                                                             | Output Location          | Dependencies Added                          | Frameworks                                   |
 | :------------------------------------------------------------------- | :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :------------------------------------------- |
-| 📦**NPM Packages***(The Lucide Way)*                         | Apps using multiple illustrations across routes                      | `node_modules/`        | `@esvigy/<framework>`                       | React, Vue, Svelte, etc.                     |
-| 📋**CLI Component Scaffolding***(The shadcn Way)*            | Using 1–3 illustrations; full code ownership & direct customization | `components/esvigy/`     | **Zero** (self-contained source file) | **React, Vue, Svelte, Solid, Raw SVG** |
-| 🌐 **Web Showcase ([esvigy.vercel.app](https://esvigy.vercel.app))** *(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma | Clipboard / `.svg` file | **Zero** (pure vector XML) | All tools & frameworks |
+| 📦 **NPM Packages** *(The Lucide Way)*                               | Apps using multiple illustrations across routes                      | `node_modules/`          | `@esvigy/<framework>`                       | React, Vue 3, Svelte (soon)                 |
+| 📋 **CLI Component Scaffolding** *(The shadcn Way)*                  | Using 1–3 illustrations; full code ownership & direct customization | `components/esvigy/`     | **Zero** (self-contained source file)       | **React, Vue, Svelte, Solid, Raw SVG**      |
+| 🌐 **Web Showcase ([esvigy.vercel.app](https://esvigy.vercel.app))** *(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma                      | Clipboard / `.svg` file  | **Zero** (pure vector XML)                  | All tools & frameworks                       |
 
 ---
 
@@ -111,23 +130,44 @@ Esvigy offers **three distinct ways** to get illustrations into your project, gi
 
 Install the official package for your framework. Components reside in `node_modules` with strict `"sideEffects": false` tree-shaking—your final production bundle only includes the illustrations you import.
 
+##### React 18 & 19:
 ```bash
-# React
 pnpm add @esvigy/react
-
-# Vue
-pnpm add @esvigy/vue
-
-# Svelte
-pnpm add @esvigy/svelte
 ```
 
 ```tsx
 import { NotFoundRobot, EmptyCart } from "@esvigy/react";
 
 export function Example() {
-  return <NotFoundRobot animated color="#2563eb" secondaryColor="#f9fafb" className="w-64 h-64" />;
+  return (
+    <NotFoundRobot
+      animated
+      color="#00D4FF"
+      secondaryColor="#001014"
+      className="w-64 h-64"
+    />
+  );
 }
+```
+
+##### Vue 3 (Composition API / `<script setup>`):
+```bash
+pnpm add @esvigy/vue
+```
+
+```vue
+<script setup>
+import { NotFoundRobot, EmptyCart } from "@esvigy/vue";
+</script>
+
+<template>
+  <NotFoundRobot
+    animated
+    color="#42B883"
+    secondary-color="#001014"
+    class="w-64 h-64"
+  />
+</template>
 ```
 
 ---
@@ -155,6 +195,9 @@ pnpm dlx @esvigy/cli add
 # Direct component download:
 # React: creates components/esvigy/ActionCreate.tsx and components/esvigy/types.ts
 pnpm dlx @esvigy/cli add ActionCreate --framework react
+
+# Vue: creates components/esvigy/ActionCreate.vue
+pnpm dlx @esvigy/cli add ActionCreate --framework vue
 
 # Raw SVG: creates public/illustrations/EmptyBox.svg
 pnpm dlx @esvigy/cli add EmptyBox --framework svg --dir public/illustrations
@@ -311,68 +354,106 @@ You can also copy files directly from the repository's packages folder (`package
 
 ---
 
-#### 3. Interactive Web Showcase (100% Framework Agnostic)
+#### 3. Interactive Web Showcase
 
 Visit the official web gallery and studio at **[esvigy.vercel.app](https://esvigy.vercel.app)**:
 
-- 🎨 **Live Customizer**: Test brand colors, secondary accents, and toggle micro-animations dynamically on any illustration.
-- 📋 **"Copy SVG"**: One-click copy of the clean, normalized SVG XML directly to your clipboard. Paste it directly into JSX, HTML, Astro, Svelte, Vue, or Figma.
-- ⬇️ **"Download SVG"**: Instant download of the standalone, optimized `.svg` file.
-
-> **Why doesn't the website supply framework-specific TSX snippets?**
-> The website is designed to be **strictly framework-agnostic**. Providing only React snippets would create framework bias and leave Vue, Svelte, Angular, Solid, and mobile developers as second-class citizens. Instead, the web showcase provides pure, standardized SVG vectors—ensuring zero vendor lock-in, zero hosting overhead, and 100% universal compatibility across every tool and language. Framework components are cleanly handled via NPM packages and the CLI scaffolder.
+- 🎨 **Live Studio & Customizer**: Test brand colors, secondary accents, and toggle micro-animations dynamically on any illustration.
+- 📋 **Multi-Framework Snippets**: One-click copy of ready-to-use component snippets for **React**, **Vue 3**, or **CLI scaffolding commands**.
+- ⬇️ **Raw SVG Export**: Instant download or clipboard copy of standalone, optimized `.svg` files for HTML, Astro, Svelte, or Figma.
 
 ### Basic Usage
 
+**React:**
 ```tsx
-import { NotFound } from "@esvigy/react";
+import { NotFoundRobot } from "@esvigy/react";
 
 function App() {
-  return <NotFound />;
+  return <NotFoundRobot />;
 }
+```
+
+**Vue 3:**
+```vue
+<script setup>
+import { NotFoundRobot } from "@esvigy/vue";
+</script>
+
+<template>
+  <NotFoundRobot />
+</template>
 ```
 
 ### Styled and Animated
 
+**React:**
 ```tsx
-import { EmptyInbox } from "@esvigy/react";
+import { EmptyMessage } from "@esvigy/react";
 
 function InboxEmptyState() {
   return (
-    <EmptyInbox
+    <EmptyMessage
       animated
-      color="#6366F1"
-      secondaryColor="#EEF2FF"
+      color="#00D4FF"
+      secondaryColor="#00141A"
       className="w-72 h-72 mx-auto"
     />
   );
 }
 ```
 
+**Vue 3:**
+```vue
+<script setup>
+import { EmptyMessage } from "@esvigy/vue";
+</script>
+
+<template>
+  <EmptyMessage
+    animated
+    color="#42B883"
+    secondary-color="#0F172A"
+    class="w-72 h-72 mx-auto"
+  />
+</template>
+```
+
 ---
 
 ## Component API
 
-Esvigy intentionally keeps the component interface minimal and predictable across all illustrations:
+Esvigy intentionally keeps the component interface minimal, predictable, and identical across all frameworks:
 
+**React (`@esvigy/react`):**
 ```tsx
 <Illustration
   animated={false}              // Optional: enables built-in micro-animations
   color="currentColor"          // Optional: primary brand/illustration color
   secondaryColor="transparent"  // Optional: secondary accents/background fills
-  className="w-64 h-64"         // Optional: controls dimensions and CSS styles
+  className="w-64 h-64"         // Optional: dimensions and CSS classes
   {...svgProps}                 // Standard SVG HTML attributes (aria-*, role, etc.)
+/>
+```
+
+**Vue 3 (`@esvigy/vue`):**
+```vue
+<Illustration
+  :animated="false"             // Optional: enables micro-animations (or just 'animated')
+  color="currentColor"          // Optional: primary brand/illustration color
+  secondary-color="transparent" // Optional: secondary accents (kebab-case or camelCase)
+  class="w-64 h-64"             // Optional: dimensions and CSS classes
+  v-bind="$attrs"               // Automatic fallthrough to root <svg>
 />
 ```
 
 ### Props Specification
 
-| Prop               | Type        | Default            | Description                                                                          |
-| :----------------- | :---------- | :----------------- | :----------------------------------------------------------------------------------- |
-| `animated`       | `boolean` | `false`          | Toggles subtle, lightweight micro-animations.                                        |
-| `color`          | `string`  | `"currentColor"` | Primary accent/fill/stroke color.                                                    |
-| `secondaryColor` | `string`  | `undefined`      | Secondary accent or background fill color.                                           |
-| `className`      | `string`  | `""`             | CSS classes to control dimensions (`width`, `height`), positioning, and effects. |
+| Prop (React) | Prop (Vue) | Type | Default | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `animated` | `animated` / `:animated` | `boolean` | `false` | Toggles subtle, lightweight micro-animations. |
+| `color` | `color` | `string` | `"currentColor"` | Primary accent/fill/stroke color. |
+| `secondaryColor` | `secondary-color` / `secondaryColor` | `string` | `undefined` | Secondary accent or background fill color. |
+| `className` | `class` / `className` | `string` | `""` | CSS classes to control dimensions (`width`, `height`), positioning, and effects. |
 
 > **Design Note:** Esvigy intentionally omits custom `size` props or complex color-token systems. Sizing is delegated to standard CSS / Tailwind classes (`w-48 h-48`), ensuring seamless responsiveness.
 
@@ -562,8 +643,9 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 - [X] SVG normalization pipeline & multi-color token architecture (29 canonical illustrations)
 - [X] `@esvigy/react` package generation, TypeScript declarations, and auto-pruning pipeline
 - [X] Interactive documentation website & illustration studio ([esvigy.vercel.app](https://esvigy.vercel.app))
-- [X] Direct component scaffolder CLI (`esvigy` and `@esvigy/cli` on npm)
-- [ ] Multi-framework package adapters (`@esvigy/vue`, `@esvigy/svelte`, `@esvigy/react-native`)
+- [X] Direct component scaffolder CLI (`@esvigy/cli` on npm)
+- [X] Official Vue 3 component adapter (`@esvigy/vue` on npm)
+- [ ] Additional framework adapters (`@esvigy/svelte`, `@esvigy/react-native`, `@esvigy/angular`)
 
 ---
 
