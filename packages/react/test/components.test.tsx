@@ -10,12 +10,7 @@ const SVG_DIR = path.resolve(__dirname, "../../svg/src");
 // Dynamically discover all expected illustration components from packages/svg/src
 const EXPECTED_ILLUSTRATIONS = fs
 	.readdirSync(SVG_DIR)
-	.filter(
-		(f) =>
-			f.endsWith(".svg") &&
-			!f.startsWith("_") &&
-			f !== "president_letter_head.svg",
-	)
+	.filter((f) => f.endsWith(".svg") && !f.startsWith("_"))
 	.map((f) => path.basename(f, ".svg"))
 	.sort((a, b) => a.localeCompare(b));
 

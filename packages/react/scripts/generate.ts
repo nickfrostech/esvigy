@@ -13,8 +13,6 @@ const SVG_DIR = path.resolve(__dirname, "../../svg/src");
 const OUTPUT_DIR = path.resolve(__dirname, "../src/illustrations");
 const MANIFEST_FILE = path.resolve(__dirname, "../../svg/manifest.json");
 
-// Ignore temporary, scratch, or test assets from component generation
-const IGNORED_FILES = new Set(["president_letter_head.svg"]);
 
 export interface SvgMetadata {
 	author?: string;
@@ -336,10 +334,7 @@ async function run() {
 
 	const manifest = loadManifest();
 	const svgFiles = (fs.readdirSync(SVG_DIR) as string[])
-		.filter(
-			(f: string) =>
-				f.endsWith(".svg") && !f.startsWith("_") && !IGNORED_FILES.has(f),
-		)
+		.filter((f: string) => f.endsWith(".svg") && !f.startsWith("_"))
 		.sort((a, b) => a.localeCompare(b));
 
 	const rawArgs = process.argv.slice(2);
