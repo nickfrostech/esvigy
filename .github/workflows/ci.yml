@@ -37,5 +37,11 @@ jobs:
          - name: Run @esvigy/react Test Suite (250 tests)
            run: pnpm --filter @esvigy/react test
 
+         - name: Verify @esvigy/vue Build
+           run: pnpm --filter @esvigy/vue build
+
+         - name: Run @esvigy/vue Test Suite (250 tests)
+           run: pnpm --filter @esvigy/vue test
+
          - name: Verify Website Production Build
            run: pnpm --filter website build

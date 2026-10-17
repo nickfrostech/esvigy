@@ -1,0 +1,25 @@
+{
+   "compilerOptions": {
+      "target": "ES2022",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "lib": [
+         "DOM",
+         "DOM.Iterable",
+         "ESNext"
+      ],
+      "jsx": "preserve",
+      "declaration": true,
+      "declarationMap": true,
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true
+   },
+   "include": [
+      "src/**/*",
+      "src/**/*.vue",
+      "scripts/**/*",
+      "test/**/*"
+   ]
+}

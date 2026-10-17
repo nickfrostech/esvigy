@@ -148,14 +148,14 @@
   - [X] Interactive wizard via `@clack/prompts` with multi-select, category badges, and quick start code snippets.
   - [X] React: `components/esvigy/<Name>.tsx` + `types.ts`
   - [X] Raw SVG: `components/esvigy/<Name>.svg`
-  - [ ] Vue: `components/esvigy/<Name>.vue` (SFC with `<script setup>`)
+  - [X] Vue: `components/esvigy/<Name>.vue` (SFC with `<script setup>`)
   - [ ] Svelte: `components/esvigy/<Name>.svelte`
 - [ ] **Raw SVG Package (`@esvigy/svg`)**:
   - [ ] Standalone optimized SVGs for static sites and vanilla HTML.
   - [ ] Provide SVG sprite builder option.
-- [ ] **Vue 3 Package (`@esvigy/vue`)**:
-  - [ ] Template generator producing `.vue` single-file components.
-  - [ ] Support both Composition API (`<script setup>`) and JSX.
+- [X] **Vue 3 Package (`@esvigy/vue`)**:
+  - [X] Template generator producing `.vue` single-file components.
+  - [X] Support both Composition API (`<script setup>`) and JSX.
 - [ ] **Svelte Package (`@esvigy/svelte`)**:
   - [ ] Generate typed Svelte 4 / Svelte 5 components.
 - [ ] **React Native Package (`@esvigy/react-native`)**:
@@ -208,4 +208,11 @@
   - Built and tested `packages/cli` (`esvigy`) with smart component folder auto-detection (shadcn `components.json`, `tsconfig.json` paths, and project structure).
   - Implemented interactive multi-select illustration wizard via `@clack/prompts`, framework auto-detection, and category inspection via `esvigy list`.
   - Configured zero-dependency GitHub raw file streaming for React and SVG formats with auto-injected `types.ts`.
+- **2026-10-17**:
+  - Built `@esvigy/vue` package with automated SFC generator `packages/vue/scripts/generate.ts` and barrel exporter `generate-index.ts`.
+  - Generated all 30 Vue 3 Single-File Components (`.vue`) with `<script setup lang="ts">`, standard props (`color`, `secondaryColor`, `animated`, `className`, `style`), and scoped micro-animations.
+  - Configured Vite library build generating ESM (`dist/index.js`), CJS (`dist/index.cjs`), TypeScript declarations (`dist/index.d.ts`), and CSS (`dist/vue.css`).
+  - Added full Vitest test suite with 250 passing unit, contract, and bundle verification tests.
+  - Updated `@esvigy/cli` to support `--framework vue` scaffolding and quick start snippets.
+  - Updated GitHub Actions CI/CD workflows for automated verification and publishing.
 

@@ -41,8 +41,17 @@ jobs:
          - name: Run React Pre-Publish Tests
            run: pnpm --filter @esvigy/react test
 
+         - name: Run Vue Pre-Publish Tests
+           run: pnpm --filter @esvigy/vue test
+
          - name: Publish @esvigy/react to npm
            working-directory: packages/react
+           run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
+           env:
+              NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+         - name: Publish @esvigy/vue to npm
+           working-directory: packages/vue
            run: npx npm@latest publish --access public --provenance || echo "Already published or skipped"
            env:
               NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
