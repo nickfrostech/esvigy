@@ -1,6 +1,7 @@
 /** @format */
 
 import { useState } from "react";
+import { Link } from "wouter";
 import * as EsvigyComponents from "@esvigy/react";
 
 interface HeroSectionProps {
@@ -228,14 +229,8 @@ export function HeroSection({
 					>
 						<span>View All Illustrations</span>
 					</button>
-					<a
-						href='/#packages'
-						onClick={(e) => {
-							e.preventDefault();
-							window.history.pushState(null, "", "/#packages");
-							const el = document.getElementById("packages");
-							el?.scrollIntoView({ behavior: "smooth" });
-						}}
+					<Link
+						href='/docs'
 						className='btn-secondary'
 						style={{
 							fontSize: "14px",
@@ -244,7 +239,7 @@ export function HeroSection({
 						}}
 					>
 						<span>Get Started</span>
-					</a>
+					</Link>
 					<a
 						href='https://github.com/nickfrostech/esvigy'
 						target='_blank'

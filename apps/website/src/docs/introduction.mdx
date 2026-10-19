@@ -1,0 +1,76 @@
+Esvigy is an open-source illustration library that provides 30+ normalized vector (SVG) illustrations and animated components for displaying modern empty states, error screens, and status feedback in digital projects. The library aims to make it easier for designers and developers to incorporate customizable, animated illustrations into their projects by providing several official packages and a dedicated component CLI scaffolder.
+
+
+---
+
+## Available Illustrations
+
+Esvigy contains illustrations across common product states—such as empty states, 404 and server errors, search results, authentication, and status feedback—allowing developers to choose the most suitable illustration for their needs. And if a desired illustration isn't available yet, users can open a request on GitHub, and the community will help provide new illustrations. With more illustrations to choose from, you have consistent options to work with across your applications.
+
+---
+
+## Complete Set of Illustrations
+
+As modern web applications with specific features arise, Esvigy aims to provide a complete set of illustrations for every product scenario. The library follows a strict set of design rules:
+
+* **Two-Tone Conventions**: Every illustration features a primary accent surface and a secondary depth plane.
+* **Consistency in Style**: Standardized perspective, geometry, and line weights across all illustrations.
+* **Scalability**: Clean vector rendering that maintains crisp readability across any display resolution.
+
+While creativity is valued, recognizable design conventions are maintained so that illustrations are immediately identifiable by end users.
+
+---
+
+## Code Optimization & Tree-Shaking
+
+In addition to design, code architecture is equally important. Heavy illustration assets can significantly increase bundle size and bandwidth usage. Esvigy keeps asset sizes to a minimum through:
+
+* **SVG Normalization**: Stripping unnecessary editor metadata and comments.
+* **Dual-Format Builds**: Compiling with `"sideEffects": false` for complete tree-shaking support in modern bundlers (Vite, Next.js, Rollup).
+* **Zero-Runtime Keyframes**: Pure CSS animations inlined directly into vectors—zero external animation runtimes, canvas renderers, or heavy dependencies.
+
+After tree-shaking, your application only ships the exact illustrations you render.
+
+---
+
+## Accessibility
+
+Illustrations convey visual context and enhance user comprehension. However, accessibility must be preserved for all users:
+
+* **Semantic Labels**: Every component accepts standard `aria-label` and `role="img"` attributes.
+* **Motion Sensitivity**: Esvigy includes automatic media query detection for `@media (prefers-reduced-motion: reduce)`. If a user enables reduced motion in their operating system, vector animations are automatically silenced.
+
+---
+
+## Official Packages & Tools
+
+Esvigy's packages are designed to work seamlessly across frameworks:
+
+* **[React](/docs/frameworks/react)**: Official React component adapter with Server Components (RSC) support.
+* **[Vue](/docs/frameworks/vue)**: Single-File Components (`.vue`) for Vue 3 and Nuxt.
+* **[CLI Scaffolder](/docs/cli)**: Copy single-file illustration components directly into your codebase with zero extra dependencies.
+* **[Raw SVG](/docs/frameworks/svg)**: Normalized standalone vector files for static HTML, Astro, and Markdown.
+
+---
+
+## Comparison Matrix
+
+| Feature | Esvigy | Traditional SVGs | Lottie / JSON |
+| :--- | :--- | :--- | :--- |
+| **Framework Native** (React, Vue) | Yes | No | Wrapper required |
+| **Tailwind CSS (`text-*`) Support** | Yes (`currentColor`) | Hardcoded | No |
+| **Two-Tone Props** | Yes | Manual editing | Complex |
+| **Micro-Animations** | Zero-runtime CSS | None | Heavy runtime (>100KB) |
+| **shadcn-Style CLI Scaffolder** | Yes | None | None |
+| **Tree-Shaking** | Full (Native) | Manual | Manual |
+| **Bundle Footprint** | ~1–3 KB per component | Variable | >100 KB engine |
+
+---
+
+## Community
+
+If you have any questions or feedback about Esvigy, feel free to reach out to the community:
+
+* Star and contribute on [GitHub](https://github.com/nickfrostech/esvigy).
+* Report bugs or submit illustration requests via [GitHub Issues](https://github.com/nickfrostech/esvigy/issues).
+* View contribution guides in our [Contributing Guidelines](https://github.com/nickfrostech/esvigy/blob/main/CONTRIBUTING.md).

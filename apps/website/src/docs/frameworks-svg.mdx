@@ -1,0 +1,66 @@
+
+## Downloading via CLI
+
+Use the official CLI with the `--framework svg` flag to download clean `.svg` files directly into your project:
+
+<PackageManagerTabs cliCommand="add ActionUpload LogoEsvigy --framework svg" />
+
+This saves the normalized SVG files directly into `components/esvigy/ActionUpload.svg`.
+
+---
+
+## Using in Vanilla HTML
+
+You can include the SVG file via an `<img>` tag or inline it directly:
+
+```html
+<!-- Inline SVG (Recommended for theming & animations) -->
+<div class="hero-illustration">
+  <!-- Inline ActionUpload.svg content here -->
+</div>
+
+<!-- Image tag (Static display) -->
+<img src="/assets/illustrations/ActionUpload.svg" alt="Upload files" width="240" height="240" />
+```
+
+---
+
+## Styling Raw SVGs with CSS
+
+Every raw Esvigy SVG includes standardized semantic data attributes:
+* Primary elements use `fill="currentColor"`.
+* Secondary elements use `data-esvigy-secondary="true"`.
+
+You can style them effortlessly using CSS:
+
+```css
+/* Customize primary accent via text color */
+.hero-illustration {
+  color: #00D4FF;
+}
+
+/* Customize secondary surface */
+.hero-illustration svg [data-esvigy-secondary="true"] {
+  fill: #0F172A !important;
+}
+
+/* Disable animations manually */
+.hero-illustration.static svg * {
+  animation: none !important;
+}
+```
+
+---
+
+## Using in Astro & Markdown
+
+In **Astro**, you can import the raw SVG directly:
+
+```astro
+---
+// src/pages/index.astro
+import ActionDownload from '../components/esvigy/ActionDownload.svg?raw';
+---
+
+<div class="download-card" set:html={ActionDownload} />
+```

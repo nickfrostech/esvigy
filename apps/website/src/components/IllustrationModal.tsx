@@ -1,6 +1,9 @@
 /** @format */
 
 import { useState, useEffect, type ComponentType } from "react";
+import { Copy, Check } from "lucide-react";
+import { Highlight, themes } from "prism-react-renderer";
+import "./docs/prism-setup";
 
 export interface IllustrationItem {
 	name: string;
@@ -104,6 +107,15 @@ import { ${item.name} } from "@esvigy/vue";
 ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 
 	const codeToShow = activeTab === "component" ? componentSnippet : cliSnippet;
+
+	const snippetLanguage =
+		activeTab === "cli"
+			? "bash"
+			: componentFramework === "react"
+				? "tsx"
+				: componentFramework === "vue"
+					? "vue"
+					: "html";
 
 	const handleCopy = (text: string) => {
 		navigator.clipboard.writeText(text);
@@ -350,13 +362,6 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 						>
 							<span>Download .SVG</span>
 						</button>
-						<button
-							onClick={() => handleCopy(codeToShow)}
-							className='btn-primary'
-							style={{ fontSize: "12px", padding: "6px 14px" }}
-						>
-							<span>{copied ? "Copied" : "Copy Snippet"}</span>
-						</button>
 					</div>
 				</div>
 
@@ -528,24 +533,121 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 					)}
 				</div>
 
-				{/* Code block */}
-				<pre
+				{/* Syntax Highlighted Terminal & Code Block with Top-Right Copy Icon */}
+				<div
 					style={{
-						margin: 0,
+						position: "relative",
 						backgroundColor: "var(--bg-dark)",
 						border: "1px solid var(--border-subtle)",
 						borderRadius: "12px",
 						cornerShape: "squircle",
-						padding: "14px",
-						color: "var(--cyan-primary)",
-						fontFamily: "var(--font-mono)",
-						fontSize: "13px",
-						overflowX: "auto",
-						lineHeight: 1.5,
+						overflow: "hidden",
 					}}
 				>
-					{codeToShow}
-				</pre>
+					{/* Terminal / Code Header Bar with Copy Icon */}
+					<div
+						style={{
+							display: "flex",
+							justifyContent: "space-between",
+							alignItems: "center",
+							padding: "8px 14px",
+							borderBottom: "1px solid var(--border-subtle)",
+							backgroundColor: "rgba(255, 255, 255, 0.02)",
+						}}
+					>
+						<span
+							style={{
+								fontSize: "11px",
+								fontFamily: "var(--font-mono)",
+								color: "var(--text-dim)",
+								textTransform: "uppercase",
+								letterSpacing: "0.06em",
+								fontWeight: 600,
+							}}
+						>
+							{activeTab === "cli" ? "Terminal" : componentFramework.toUpperCase()}
+						</span>
+
+						{/* Copy Icon at Top Right */}
+						<button
+							type='button'
+							onClick={() => handleCopy(codeToShow)}
+							style={{
+								display: "inline-flex",
+								alignItems: "center",
+								justifyContent: "center",
+								gap: "5px",
+								padding: "4px 8px",
+								borderRadius: "6px",
+								backgroundColor: copied
+									? "rgba(0, 212, 255, 0.12)"
+									: "rgba(255, 255, 255, 0.05)",
+								border: copied
+									? "1px solid var(--cyan-primary)"
+									: "1px solid var(--border-subtle)",
+								color: copied ? "var(--cyan-primary)" : "var(--text-muted)",
+								cursor: "pointer",
+								fontSize: "11px",
+								fontFamily: "var(--font-sans)",
+								fontWeight: 500,
+								transition: "all 0.15s ease",
+							}}
+							title={copied ? "Copied to clipboard!" : "Copy code"}
+							aria-label='Copy code'
+						>
+							{copied ? (
+								<>
+									<Check size={13} style={{ color: "var(--cyan-primary)" }} />
+									<span>Copied!</span>
+								</>
+							) : (
+								<>
+									<Copy size={13} />
+									<span>Copy</span>
+								</>
+							)}
+						</button>
+					</div>
+
+					{/* Syntax Highlighted Body */}
+					<div
+						style={{
+							padding: "14px",
+							overflowX: "auto",
+							fontSize: "13px",
+							fontFamily: "var(--font-mono)",
+							lineHeight: 1.55,
+						}}
+					>
+						<Highlight
+							theme={themes.vsDark}
+							code={codeToShow}
+							language={snippetLanguage as any}
+						>
+							{({ tokens, getTokenProps }) => (
+								<pre
+									style={{
+										margin: 0,
+										padding: 0,
+										backgroundColor: "transparent",
+										fontFamily: "var(--font-mono)",
+										fontSize: "13px",
+										lineHeight: 1.55,
+										whiteSpace: "pre",
+									}}
+								>
+									{tokens.map((line, i) => (
+										<div key={i}>
+											{line.map((token, key) => (
+												<span key={key} {...getTokenProps({ token })} />
+											))}
+										</div>
+									))}
+								</pre>
+							)}
+						</Highlight>
+					</div>
+				</div>
 
 				{/* Tags footer */}
 				{item.tags && item.tags.length > 0 && (

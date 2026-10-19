@@ -28,6 +28,8 @@ export function Navbar({
 		location.startsWith("/catalog") ||
 		activeTab === "catalog";
 
+	const isDocsActive = location.startsWith("/docs");
+
 	// Lock body scroll when mobile menu drawer is open
 	useEffect(() => {
 		if (mobileMenuOpen) {
@@ -131,6 +133,31 @@ export function Navbar({
 				{/* Desktop Right Navigation */}
 				<div className='nav-desktop'>
 					<Link
+						href='/docs'
+						onClick={() => {
+							window.scrollTo({ top: 0, behavior: "smooth" });
+						}}
+						style={{
+							padding: "8px 14px",
+							borderRadius: "10px",
+							fontSize: "14px",
+							fontWeight: 500,
+							cursor: "pointer",
+							textDecoration: "none",
+							border: "1px solid transparent",
+							backgroundColor: isDocsActive
+								? "var(--bg-surface-hover)"
+								: "transparent",
+							color: isDocsActive
+								? "var(--cyan-primary)"
+								: "var(--text-muted)",
+							transition: "all 0.15s ease",
+						}}
+					>
+						Documentation
+					</Link>
+
+					<Link
 						href='/illustrations'
 						onClick={() => {
 							window.scrollTo({ top: 0, behavior: "smooth" });
@@ -154,6 +181,7 @@ export function Navbar({
 					>
 						Illustrations
 					</Link>
+
 
 					<a
 						href='/#packages'
@@ -369,6 +397,34 @@ export function Navbar({
 
 				{/* Navigation Links */}
 				<Link
+					href='/docs'
+					onClick={() => {
+						setMobileMenuOpen(false);
+						window.scrollTo({ top: 0, behavior: "smooth" });
+					}}
+					style={{
+						padding: "10px 14px",
+						borderRadius: "10px",
+						cornerShape: "squircle",
+						fontSize: "14px",
+						fontWeight: 500,
+						textAlign: "left",
+						cursor: "pointer",
+						textDecoration: "none",
+						display: "block",
+						border: "1px solid var(--border-subtle)",
+						backgroundColor: isDocsActive
+							? "var(--bg-surface-hover)"
+							: "transparent",
+						color: isDocsActive
+							? "var(--cyan-primary)"
+							: "var(--text-main)",
+					}}
+				>
+					Documentation
+				</Link>
+
+				<Link
 					href='/illustrations'
 					onClick={() => {
 						setMobileMenuOpen(false);
@@ -395,6 +451,7 @@ export function Navbar({
 				>
 					Illustrations
 				</Link>
+
 
 				<a
 					href='/#packages'

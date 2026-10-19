@@ -1,0 +1,64 @@
+# Quick Start
+
+Get your first animated Esvigy illustration rendered in under 60 seconds.
+
+---
+
+## Step 1: Add an Illustration
+
+Use the official CLI to scaffold the **`StatusSuccess`** celebration illustration into your project:
+
+<PackageManagerTabs cliCommand="add StatusSuccess" />
+
+The CLI automatically detects your project framework (React, Next.js, Vue, or Nuxt) and places the component in `components/esvigy/StatusSuccess.tsx` (or `.vue`).
+
+---
+
+## Step 2: Render the Component
+
+Import the generated component into any page or UI view:
+
+```tsx
+// app/page.tsx or src/App.tsx
+import { StatusSuccess } from "@/components/esvigy/StatusSuccess";
+
+export default function CheckoutComplete() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[350px] p-8 text-center">
+      {/* Default rendering */}
+      <StatusSuccess className="w-56 h-56" />
+
+      <h2 className="mt-4 text-xl font-bold">Payment Received!</h2>
+      <p className="text-gray-500">Your order is being processed.</p>
+    </div>
+  );
+}
+```
+
+---
+
+## Step 3: Customize Two-Tone Colors
+
+Pass custom colors matching your brand palette. By default, `color` inherits `currentColor` so you can style it with Tailwind utility classes:
+
+```tsx
+<StatusSuccess
+  className="w-56 h-56 text-emerald-500" // Sets primary color via Tailwind
+  secondaryColor="#064e3b"               // Sets surface/badge background
+  animated={true}                        // Enables floating celebration micro-animation
+/>
+```
+
+---
+
+## Step 4: Toggle Animations
+
+Micro-animations are enabled by default. If you prefer a static state (e.g. for printing or reduced motion views), pass `animated={false}`:
+
+```tsx
+<StatusSuccess animated={false} />
+```
+
+<Callout type="note" title="Reduced Motion">
+Esvigy automatically listens to system accessibility settings. If a user has "Reduce Motion" enabled in their operating system, animations are automatically silenced even if `animated={true}` is set.
+</Callout>

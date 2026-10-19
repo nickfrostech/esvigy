@@ -1,0 +1,99 @@
+
+## Default Command
+
+The default command launches an interactive terminal wizard where you can search, browse by category, and multi-select illustrations:
+
+<PackageManagerTabs cliCommand="add" />
+
+---
+
+## Adding Specific Illustrations
+
+You can also pass one or more illustration names directly to scaffold without opening the interactive menu:
+
+<PackageManagerTabs cliCommand="add EmptyBox" />
+
+```bash
+# Add multiple illustrations in a single command
+pnpm dlx @esvigy/cli add StatusSuccess StatusFail EmptyCart
+```
+
+---
+
+## Flags & Options
+
+Customize destination directory or target framework using CLI flags:
+
+| Flag | Description | Default |
+| :--- | :--- | :---: |
+| `-f, --framework <type>` | Target framework: `react`, `vue`, or `svg` | Auto-detected |
+| `-d, --dir <path>` | Custom destination directory | Auto-detected (`components/esvigy`) |
+| `-y, --yes` | Skip confirmation prompts and accept defaults | `false` |
+| `-o, --overwrite` | Overwrite existing files if they already exist | `false` |
+
+### Flag Examples
+
+```bash
+# Force React framework explicitly
+pnpm dlx @esvigy/cli add ManCarRepair --framework react
+
+# Force Vue framework explicitly
+pnpm dlx @esvigy/cli add SearchNotFound --framework vue
+
+# Download as raw standalone SVG
+pnpm dlx @esvigy/cli add LogoEsvigy --framework svg
+
+# Custom directory
+pnpm dlx @esvigy/cli add EmptyBox --dir src/ui/illustrations
+```
+
+
+### Interactive Wizard Mode
+When you run `add` without any arguments, the CLI automatically launches an interactive wizard powered by `@clack/prompts`:
+
+```bash
+pnpm dlx @esvigy/cli add
+```
+
+This mode allows you to:
+1. Browse illustrations by category tags (`[actions]`, `[empty-states]`, `[errors]`, etc.).
+2. Search and select multiple illustrations using arrow keys and the spacebar.
+3. Automatically confirm target paths.
+
+---
+
+### `list`
+Inspects the entire illustration catalog directly from your terminal.
+
+```bash
+pnpm dlx @esvigy/cli list
+```
+
+#### Options & Flags
+
+| Flag | Description |
+| :--- | :--- |
+| `-c, --category <name>` | Filter illustrations by category (e.g., `actions`, `errors`) |
+| `-s, --search <term>` | Filter illustrations by name or keywords |
+
+```bash
+# List all error and 404 illustrations
+pnpm dlx @esvigy/cli list --category errors
+
+# Search for payment-related illustrations
+pnpm dlx @esvigy/cli list --search wallet
+```
+
+---
+
+## Smart Auto-Detection
+
+The CLI inspects your workspace to automatically determine:
+1. **Target Framework**:
+   * Reads your `package.json` dependencies.
+   * If `react` or `next` is present, it selects **React**.
+   * If `vue` or `nuxt` is present, it selects **Vue 3**.
+2. **Directory Resolution**:
+   * If you use **shadcn/ui**, it parses `components.json` and targets your configured component aliases (e.g., `@/components/esvigy`).
+   * If you have `tsconfig.json` paths configured (`@/*`), it maps to the correct `src/` or root directory.
+   * Otherwise, it defaults cleanly to `components/esvigy/`.

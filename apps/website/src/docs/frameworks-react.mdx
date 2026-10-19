@@ -1,0 +1,89 @@
+
+## Installation
+
+<PackageManagerTabs installPackage="@esvigy/react" />
+
+---
+
+## Next.js (App Router & Pages Router)
+
+All Esvigy React components are 100% vector SVG components with **zero browser-only side effects**.
+
+### Server Components Compatible
+Because they do not use `useState` or `useEffect` internally, they can be rendered directly inside **React Server Components (RSC)** without needing `"use client"`:
+
+```tsx
+// app/dashboard/page.tsx (Server Component)
+import { EmptyFolder } from "@esvigy/react";
+
+export default async function DashboardPage() {
+  const projects = await fetchProjects();
+
+  if (projects.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center p-12">
+        <EmptyFolder className="w-64 h-64 text-cyan-400" />
+        <p className="mt-4 text-slate-400">No projects found.</p>
+      </div>
+    );
+  }
+
+  return <div>{/* Render projects */}</div>;
+}
+```
+
+---
+
+## Vite & Remix Setup
+
+In any standard React project, simply import and render:
+
+```tsx
+import { ManCarRepair } from "@esvigy/react";
+
+export function Diagnostics() {
+  return (
+    <ManCarRepair
+      color="#00D4FF"
+      secondaryColor="#101726"
+      animated={true}
+      className="w-72 h-72"
+    />
+  );
+}
+```
+
+---
+
+## TypeScript Interface (`EsvigyProps`)
+
+Every component extends standard SVG element props (`SVGProps<SVGSVGElement>`):
+
+```typescript
+import type { SVGProps } from "react";
+
+export interface EsvigyProps extends SVGProps<SVGSVGElement> {
+  /**
+   * Primary accent color.
+   * Defaults to "currentColor".
+   */
+  color?: string;
+
+  /**
+   * Secondary background/surface color.
+   * Defaults to illustration preset.
+   */
+  secondaryColor?: string;
+
+  /**
+   * Whether micro-animations should play.
+   * Defaults to true.
+   */
+  animated?: boolean;
+
+  /**
+   * Optional custom CSS class name (Tailwind support).
+   */
+  className?: string;
+}
+```

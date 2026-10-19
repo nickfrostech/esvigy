@@ -1,0 +1,57 @@
+
+## Zero-Runtime Performance
+
+Unlike Lottie, Rive, or heavy JavaScript animation frameworks:
+* **Pure CSS Keyframes**: Every animation is powered by scoped CSS `@keyframes` inlined directly in the SVG `<style>` tag.
+* **No Dependencies**: Zero JavaScript animation loops, canvas layers, or runtime bundles.
+* **GPU Accelerated**: Animations only alter hardware-accelerated properties (`transform` and `opacity`) to guarantee steady 60fps rendering without layout reflows.
+
+---
+
+## Toggling Animations
+
+All animations can be enabled or disabled via the `animated` prop (defaults to `true`):
+
+```tsx
+import { SearchLoading } from "@/components/esvigy/SearchLoading";
+
+// Animated (Default)
+<SearchLoading animated={true} />
+
+// Static (Disabled)
+<SearchLoading animated={false} />
+```
+
+When `animated={false}` is passed, the internal animation classes are removed, rendering the vector completely static.
+
+---
+
+## Accessibility: Reduced Motion
+
+Esvigy treats accessibility as a first-class requirement. 
+
+Every component includes an automatic media query check:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+```
+
+If a user enables **"Reduce motion"** in macOS, Windows, iOS, or Android, the animations are automatically silenced, ensuring a safe experience for users sensitive to motion.
+
+---
+
+## Customizing Animation Speed
+
+Because the animation classes are scoped directly to the SVG elements, you can override animation duration or timing via your parent CSS if desired:
+
+```css
+/* Slow down animations for a calmer ambient effect */
+.my-custom-illustration svg * {
+  animation-duration: 6s !important;
+}
+```

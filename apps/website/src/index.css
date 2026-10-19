@@ -53,9 +53,9 @@ body {
    font-family: var(--font-sans);
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   overflow-x: clip;
    transition: background-color 0.2s ease, color 0.2s ease;
 }
+
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar {
@@ -348,4 +348,113 @@ select option {
    .catalog-mobile-filter-btn {
       display: inline-flex !important;
    }
+}
+
+/* Documentation Portal Responsive Layout & Tables */
+.docs-mobile-trigger {
+   display: none;
+}
+
+.docs-desktop-sidebar {
+   display: block;
+}
+
+.docs-desktop-toc {
+   display: block;
+}
+
+.docs-desktop-sidebar::-webkit-scrollbar,
+.docs-desktop-toc::-webkit-scrollbar {
+   width: 5px;
+}
+
+.docs-desktop-sidebar::-webkit-scrollbar-track,
+.docs-desktop-toc::-webkit-scrollbar-track {
+   background: transparent;
+}
+
+.docs-desktop-sidebar::-webkit-scrollbar-thumb,
+.docs-desktop-toc::-webkit-scrollbar-thumb {
+   background: var(--border-subtle);
+   border-radius: 4px;
+}
+
+.docs-desktop-sidebar::-webkit-scrollbar-thumb:hover,
+.docs-desktop-toc::-webkit-scrollbar-thumb:hover {
+   background: var(--cyan-primary);
+}
+
+.docs-mobile-subnav {
+   display: none;
+}
+
+@media (max-width: 1180px) {
+   .docs-desktop-toc {
+      display: none;
+   }
+}
+
+@media (max-width: 900px) {
+   .docs-desktop-sidebar {
+      display: none;
+   }
+
+   .docs-article {
+      padding-top: 0 !important;
+   }
+
+   .docs-mobile-subnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 60px;
+      z-index: 50;
+      background-color: var(--bg-dark);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 24px;
+      margin: 0 -24px 20px -24px;
+   }
+}
+
+/* Documentation Tables - Spacious & High Contrast */
+.docs-body table {
+   width: 100%;
+   border-collapse: separate;
+   border-spacing: 0;
+   margin: 32px 0;
+   border: 1px solid var(--border-subtle);
+   border-radius: 14px;
+   background-color: var(--bg-surface);
+   overflow: hidden;
+}
+
+.docs-body th {
+   padding: 18px 24px !important;
+   background-color: rgba(255, 255, 255, 0.03);
+   border-bottom: 1px solid var(--border-subtle);
+   text-align: left;
+   font-size: 14.5px;
+   font-weight: 600;
+   color: var(--text-main);
+   white-space: nowrap;
+   letter-spacing: 0.01em;
+}
+
+.docs-body td {
+   padding: 18px 24px !important;
+   border-bottom: 1px solid var(--border-subtle);
+   font-size: 14.5px;
+   line-height: 1.65;
+   color: var(--text-main);
+   opacity: 0.92;
+   vertical-align: top;
+}
+
+.docs-body tr:last-child td {
+   border-bottom: none;
+}
+
+.docs-body tr:hover td {
+   background-color: var(--bg-surface-hover);
 }

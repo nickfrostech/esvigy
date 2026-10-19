@@ -1,0 +1,69 @@
+
+## Installation
+
+<PackageManagerTabs installPackage="@esvigy/vue" />
+
+---
+
+## Vue 3 (Vite) Setup
+
+Import and render illustrations using the Composition API:
+
+```vue
+<script setup lang="ts">
+import { StatusOffline } from "@esvigy/vue";
+</script>
+
+<template>
+  <div class="network-banner">
+    <StatusOffline
+      color="#00D4FF"
+      secondary-color="#0F172A"
+      :animated="true"
+      class="illustration"
+    />
+    <h3>Connection Lost</h3>
+  </div>
+</template>
+
+<style scoped>
+.illustration {
+  width: 200px;
+  height: 200px;
+}
+</style>
+```
+
+---
+
+## Nuxt 3 Setup
+
+In Nuxt 3 projects, components can be imported directly or registered globally in a plugin:
+
+```vue
+<!-- pages/index.vue -->
+<script setup>
+import { EmptyCart } from "@esvigy/vue";
+</script>
+
+<template>
+  <div class="empty-state">
+    <EmptyCart class="w-64 h-64 text-sky-500" />
+    <p>Your shopping cart is currently empty.</p>
+  </div>
+</template>
+```
+
+---
+
+## Vue Component Props
+
+All `@esvigy/vue` components accept the following reactive props:
+
+| Prop | Type | Default | Description |
+| :--- | :---: | :---: | :--- |
+| `color` | `String` | `'currentColor'` | Primary accent color. |
+| `secondaryColor` | `String` | `undefined` | Secondary surface color. |
+| `animated` | `Boolean` | `true` | Toggles vector micro-animations. |
+| `class` | `String` | `undefined` | Custom CSS class or Tailwind utility classes. |
+| `style` | `String \| Object` | `undefined` | Inline styling. |

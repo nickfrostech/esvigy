@@ -11,6 +11,7 @@ import {
 	IllustrationModal,
 	IllustrationItem,
 } from "./components/IllustrationModal";
+import { DocsPage } from "./components/docs/DocsPage";
 
 export function App() {
 	const [location, navigate] = useLocation();
@@ -84,6 +85,8 @@ export function App() {
 	useEffect(() => {
 		if (selectedItem) {
 			document.title = `${selectedItem.name} — Illustration Studio — Esvigy`;
+		} else if (location.startsWith("/docs")) {
+			document.title = "Documentation — Esvigy";
 		} else if (
 			location.startsWith("/illustrations") ||
 			location.startsWith("/catalog")
@@ -94,6 +97,7 @@ export function App() {
 				"Esvigy — UI Illustrations as simple and developer-friendly as icons";
 		}
 	}, [location, selectedItem]);
+
 
 	// Handle in-page hash scrolling (e.g. /#guide or /#packages)
 	const handleNavigateSection = (sectionId: "guide" | "packages") => {
@@ -180,7 +184,21 @@ export function App() {
 						<Redirect to='/illustrations' />
 					</Route>
 
+					{/* Documentation Routes */}
+					<Route path='/docs'>
+						<Redirect to='/docs/introduction' />
+					</Route>
+
+					<Route path='/docs/:slug'>
+						<DocsPage />
+					</Route>
+
+					<Route path='/docs/frameworks/:framework'>
+						<DocsPage />
+					</Route>
+
 					<Route path='/illustrations/:name?'>
+
 						{() => (
 							<IllustrationCatalog
 								illustrations={illustrations}

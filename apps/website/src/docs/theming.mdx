@@ -1,0 +1,89 @@
+
+## The Two-Tone Structure
+
+Each illustration separates its visual elements into two distinct surfaces:
+
+```text
+┌──────────────────────────────────────────────┐
+│  Primary Accent (color / currentColor)        │
+│  • Foreground icons, celebration checks      │
+│  • Action buttons, interactive highlights    │
+├──────────────────────────────────────────────┤
+│  Secondary Surface (secondaryColor)          │
+│  • Background panels, card bodies, shadows   │
+│  • Neutral depth planes                      │
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## Props Reference
+
+| Prop | Type | Default | Description |
+| :--- | :---: | :---: | :--- |
+| `color` | `string` | `"currentColor"` | Primary accent color. Inherits from text color if omitted. |
+| `secondaryColor` | `string` | `undefined` | Secondary surface color. Uses embedded default if omitted. |
+| `className` | `string` | `undefined` | Standard CSS class names (e.g., Tailwind utilities). |
+| `style` | `CSSProperties` | `undefined` | Standard inline CSS styles. |
+
+---
+
+## Tailwind CSS Integration
+
+Because `color` defaults to `currentColor`, you can change the primary color using standard Tailwind `text-*` classes without passing extra props:
+
+```tsx
+import { SecurityLock } from "@/components/esvigy/SecurityLock";
+
+export function AuthCard() {
+  return (
+    <div className="card">
+      {/* Cyan primary via Tailwind */}
+      <SecurityLock className="w-48 h-48 text-cyan-400" />
+
+      {/* Emerald primary via Tailwind */}
+      <SecurityLock className="w-48 h-48 text-emerald-500" />
+
+      {/* Violet primary with custom dark secondary surface */}
+      <SecurityLock
+        className="w-48 h-48 text-violet-500"
+        secondaryColor="#1e1b4b"
+      />
+    </div>
+  );
+}
+```
+
+---
+
+## Dark & Light Mode Adaptation
+
+To make your illustrations adapt automatically between dark and light themes, map `color` and `secondaryColor` to CSS variables:
+
+```tsx
+<StatusSuccess
+  color="var(--accent-primary)"
+  secondaryColor="var(--surface-muted)"
+/>
+```
+
+Or using Tailwind's `dark:` modifier:
+
+```tsx
+<EmptyBox
+  className="w-52 h-52 text-blue-600 dark:text-cyan-400"
+  secondaryColor="rgba(255, 255, 255, 0.05)"
+/>
+```
+
+---
+
+## Recommended Palette Presets
+
+| Palette | Primary Color (`color`) | Secondary Surface (`secondaryColor`) | Mood |
+| :--- | :---: | :---: | :--- |
+| **Cyan Pop** | `#00D4FF` | `#0F172A` | Modern SaaS, DevTools |
+| **Emerald** | `#10B981` | `#064E3B` | Fintech, Success, Eco |
+| **Purple Neon** | `#A855F7` | `#1E1B4B` | AI, Creative, Crypto |
+| **Sunset** | `#F97316` | `#431407` | Energy, Gaming, Sales |
+| **Monochrome** | `#FFFFFF` | `#1E293B` | Minimalist, Sleek Dark |

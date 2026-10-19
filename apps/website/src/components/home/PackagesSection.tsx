@@ -1,6 +1,10 @@
 /** @format */
 
 import { useState } from "react";
+import { Link } from "wouter";
+import { Copy, Check, ArrowRight } from "lucide-react";
+import { Highlight, themes } from "prism-react-renderer";
+import "../docs/prism-setup";
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
@@ -9,7 +13,7 @@ interface PackageItem {
 	description: string;
 	status: string;
 	isLive?: boolean;
-	npmUrl?: string;
+	docUrl?: string;
 	commands?: Record<PackageManager, string>;
 }
 
@@ -20,7 +24,7 @@ const TARGET_PACKAGES: PackageItem[] = [
 			"React 18 & 19 components with full TypeScript declarations, two-tone color props, and zero-JS CSS animations.",
 		status: "Available Now",
 		isLive: true,
-		npmUrl: "https://www.npmjs.com/package/@esvigy/react",
+		docUrl: "/docs/frameworks/react",
 		commands: {
 			pnpm: "pnpm add @esvigy/react",
 			npm: "npm install @esvigy/react",
@@ -34,7 +38,7 @@ const TARGET_PACKAGES: PackageItem[] = [
 			"Native Vue 3 Single-File Components with reactive two-tone props, full TypeScript types, and zero-JS CSS micro-animations.",
 		status: "Available Now",
 		isLive: true,
-		npmUrl: "https://www.npmjs.com/package/@esvigy/vue",
+		docUrl: "/docs/frameworks/vue",
 		commands: {
 			pnpm: "pnpm add @esvigy/vue",
 			npm: "npm install @esvigy/vue",
@@ -48,7 +52,7 @@ const TARGET_PACKAGES: PackageItem[] = [
 			"Interactive shadcn-style scaffolder. Directly injects self-contained illustration components (React, Vue, SVG) into your project.",
 		status: "Available Now",
 		isLive: true,
-		npmUrl: "https://www.npmjs.com/package/@esvigy/cli",
+		docUrl: "/docs/cli",
 		commands: {
 			pnpm: "pnpm dlx @esvigy/cli add",
 			npm: "npx @esvigy/cli add",
@@ -60,7 +64,15 @@ const TARGET_PACKAGES: PackageItem[] = [
 		name: "@esvigy/svg",
 		description:
 			"Normalized, canonical SVG files and metadata manifest for framework-agnostic usage across the web.",
-		status: "Coming Soon",
+		status: "Available Now",
+		isLive: true,
+		docUrl: "/docs/frameworks/svg",
+		commands: {
+			pnpm: "pnpm dlx @esvigy/cli add --framework svg",
+			npm: "npx @esvigy/cli add --framework svg",
+			yarn: "yarn dlx @esvigy/cli add --framework svg",
+			bun: "bunx @esvigy/cli add --framework svg",
+		},
 	},
 	{
 		name: "@esvigy/svelte",
@@ -252,85 +264,122 @@ export function PackagesSection() {
 									)}
 								</div>
 
-								{/* Clickable Code Snippet */}
+								{/* Clickable Code Snippet with Syntax Highlighting and Copy Icon */}
 								{pkg.commands && (
-									<button
-										type='button'
-										onClick={() =>
-											handleCopy(pkg.commands![selectedPm], pkg.name)
-										}
+									<div
 										style={{
-											padding: "10px 12px",
+											padding: "8px 10px 8px 12px",
 											borderRadius: "8px",
 											backgroundColor: "var(--bg-dark)",
-											border: "1px solid rgba(0, 212, 255, 0.25)",
+											border: "1px solid var(--border-subtle)",
 											display: "flex",
 											alignItems: "center",
 											justifyContent: "space-between",
-											fontSize: "12px",
-											fontFamily: "monospace",
-											color: "var(--cyan-primary)",
-											cursor: "pointer",
+											gap: "8px",
 											width: "100%",
-											transition: "all 0.2s ease",
-											textAlign: "left",
+											boxSizing: "border-box",
 										}}
-										title='Click to copy install command'
 									>
-										<span
+										<div
 											style={{
-												overflow: "hidden",
-												textOverflow: "ellipsis",
-												whiteSpace: "nowrap",
+												overflowX: "auto",
+												flex: 1,
+												fontSize: "12px",
+												fontFamily: "var(--font-mono)",
 											}}
 										>
-											{pkg.commands[selectedPm]}
-										</span>
-										<span
+											<Highlight
+												theme={themes.vsDark}
+												code={pkg.commands[selectedPm]}
+												language='bash'
+											>
+												{({ tokens, getTokenProps }) => (
+													<pre
+														style={{
+															margin: 0,
+															padding: 0,
+															backgroundColor: "transparent",
+															fontFamily: "var(--font-mono)",
+															fontSize: "12px",
+															lineHeight: "1.4",
+															whiteSpace: "pre",
+														}}
+													>
+														{tokens.map((line, i) => (
+															<div key={i}>
+																{line.map((token, key) => (
+																	<span key={key} {...getTokenProps({ token })} />
+																))}
+															</div>
+														))}
+													</pre>
+												)}
+											</Highlight>
+										</div>
+
+										<button
+											type='button'
+											onClick={() =>
+												handleCopy(pkg.commands![selectedPm], pkg.name)
+											}
 											style={{
-												fontSize: "11px",
+												display: "inline-flex",
+												alignItems: "center",
+												justifyContent: "center",
+												padding: "5px",
+												borderRadius: "6px",
+												backgroundColor: "rgba(255, 255, 255, 0.05)",
+												border: "1px solid var(--border-subtle)",
 												color:
 													copiedPkg === pkg.name
-														? "#10B981"
+														? "var(--cyan-primary)"
 														: "var(--text-muted)",
-												marginLeft: "8px",
-												fontWeight: 600,
+												cursor: "pointer",
 												flexShrink: 0,
+												transition: "all 0.15s ease",
 											}}
+											title={
+												copiedPkg === pkg.name
+													? "Copied!"
+													: "Copy command to clipboard"
+											}
+											aria-label='Copy command'
 										>
-											{copiedPkg === pkg.name ? "✓ Copied" : "Copy"}
-										</span>
-									</button>
+											{copiedPkg === pkg.name ? (
+												<Check size={13} />
+											) : (
+												<Copy size={13} />
+											)}
+										</button>
+									</div>
 								)}
 
-								{pkg.npmUrl && (
-									<a
-										href={pkg.npmUrl}
-										target='_blank'
-										rel='noopener noreferrer'
+								{pkg.docUrl && (
+									<Link
+										href={pkg.docUrl}
 										style={{
-											fontSize: "11px",
-											color: "var(--text-muted)",
+											fontSize: "12px",
+											color: "var(--cyan-primary)",
 											textAlign: "center",
 											textDecoration: "none",
 											display: "flex",
 											alignItems: "center",
 											justifyContent: "center",
-											gap: "4px",
-											paddingTop: "2px",
-											transition: "color 0.2s ease",
+											gap: "6px",
+											paddingTop: "4px",
+											fontWeight: 500,
+											transition: "opacity 0.2s ease",
 										}}
 										onMouseEnter={(e) =>
-											(e.currentTarget.style.color =
-												"var(--cyan-primary)")
+											(e.currentTarget.style.opacity = "0.75")
 										}
 										onMouseLeave={(e) =>
-											(e.currentTarget.style.color =
-												"var(--text-muted)")
+											(e.currentTarget.style.opacity = "1")
 										}
 									>
-										View package on npmjs.com ↗
-									</a>
+										<span>View Documentation</span>
+										<ArrowRight size={13} />
+									</Link>
 								)}
 							</div>
 						) : (
