@@ -10,6 +10,7 @@
       "@esvigy/react": "workspace:*",
       "@mdx-js/react": "^3.1.1",
       "@mdx-js/rollup": "^3.1.1",
+      "@vercel/analytics": "^2.0.1",
       "lucide-react": "^1.59.0",
       "prism-react-renderer": "^2.4.1",
       "react": "^19.0.0",

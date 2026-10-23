@@ -1,6 +1,27 @@
-# @esvigy/cli
+<p align="center">
+  <br />
+  <h1 align="center">@esvigy/cli</h1>
+  <p align="center">
+    <strong>UI illustrations as simple, tree-shakable, and developer-friendly as icons.</strong>
+    <br />
+    <em>The "shadcn for illustrations" — Copy-paste beautiful, customizable, and animated vector illustrations directly into your project.</em>
+  </p>
+</p>
 
-> **"The shadcn way for illustrations"** — Copy-paste beautiful, customizable, and animated vector illustrations directly into your project with a single command.
+<p align="center">
+  <a href="https://www.npmjs.com/package/@esvigy/cli"><img src="https://img.shields.io/npm/v/@esvigy/cli.svg?color=10B981&label=@esvigy/cli" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/cli"><img src="https://img.shields.io/npm/dm/@esvigy/cli.svg?color=10B981&label=downloads" alt="npm downloads" /></a>
+  <a href="https://bundlephobia.com/package/@esvigy/cli"><img src="https://img.shields.io/bundlephobia/minzip/@esvigy/cli?color=7928CA&label=minzipped" alt="bundle size" /></a>
+  <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
+  <a href="https://github.com/nickfrostech/esvigy"><img src="https://img.shields.io/badge/frameworks-React%20%7C%20Vue%20%7C%20SVG-00D4FF.svg" alt="React, Vue & SVG Ready" /></a>
+  <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/Live%20Studio-esvigy.vercel.app-00D4FF" alt="Live Studio" /></a>
+</p>
+
+<p align="center">
+  <a href="https://esvigy.vercel.app"><strong>🎨 Open the Interactive Illustration Studio (esvigy.vercel.app)</strong></a>
+  <br />
+  <em>Preview all 30+ illustrations live, test two-tone palettes, toggle animations, and copy CLI commands with one click.</em>
+</p>
 
 ---
 

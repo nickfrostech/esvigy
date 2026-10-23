@@ -1,8 +1,27 @@
-# @esvigy/svg
+<p align="center">
+  <br />
+  <h1 align="center">@esvigy/svg</h1>
+  <p align="center">
+    <strong>Raw, standardized SVG illustrations with two-tone styling and micro-animations.</strong>
+    <br />
+    <em>100% pure vectors, zero-dependency, framework-agnostic, and ready for any web framework or design tool.</em>
+  </p>
+</p>
 
-> **Esvigy** *(pronounced "es-vee-gee" /ˌɛs.viːˈdʒiː/)* — Raw, standardized SVG illustration library. 100% pure vectors with two-tone recoloring, CSS micro-animations, and unified viewBoxes.
+<p align="center">
+  <a href="https://www.npmjs.com/package/@esvigy/svg"><img src="https://img.shields.io/npm/v/@esvigy/svg.svg?color=FF5722&label=@esvigy/svg" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/svg"><img src="https://img.shields.io/npm/dm/@esvigy/svg.svg?color=10B981&label=downloads" alt="npm downloads" /></a>
+  <a href="https://bundlephobia.com/package/@esvigy/svg"><img src="https://img.shields.io/bundlephobia/minzip/@esvigy/svg?color=7928CA&label=minzipped" alt="bundle size" /></a>
+  <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
+  <a href="https://github.com/nickfrostech/esvigy"><img src="https://img.shields.io/badge/format-SVG%20%7C%20Vector-FF5722.svg" alt="Vector Format" /></a>
+  <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/Live%20Studio-esvigy.vercel.app-00D4FF" alt="Live Studio" /></a>
+</p>
 
-Part of the [Esvigy](https://github.com/nickfrostech/esvigy) illustration ecosystem. Preview all illustrations live at **[esvigy.vercel.app](https://esvigy.vercel.app)**.
+<p align="center">
+  <a href="https://esvigy.vercel.app"><strong>🎨 Open the Interactive Illustration Studio (esvigy.vercel.app)</strong></a>
+  <br />
+  <em>Preview all 30+ illustrations live, test two-tone palettes, toggle animations, and download raw SVGs with one click.</em>
+</p>
 
 ---
 

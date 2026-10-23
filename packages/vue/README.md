@@ -10,6 +10,8 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@esvigy/vue"><img src="https://img.shields.io/npm/v/@esvigy/vue.svg?color=42B883&label=@esvigy/vue" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/vue"><img src="https://img.shields.io/npm/dm/@esvigy/vue.svg?color=10B981&label=downloads" alt="npm downloads" /></a>
+  <a href="https://bundlephobia.com/package/@esvigy/vue"><img src="https://img.shields.io/bundlephobia/minzip/@esvigy/vue?color=7928CA&label=minzipped" alt="bundle size" /></a>
   <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
   <a href="https://github.com/nickfrostech/esvigy"><img src="https://img.shields.io/badge/vue-3.x-42B883.svg" alt="Vue 3 Ready" /></a>
   <a href="https://esvigy.vercel.app"><img src="https://img.shields.io/badge/Live%20Studio-esvigy.vercel.app-00D4FF" alt="Live Studio" /></a>

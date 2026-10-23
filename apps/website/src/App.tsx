@@ -12,6 +12,7 @@ import {
 	IllustrationItem,
 } from "./components/IllustrationModal";
 import { DocsPage } from "./components/docs/DocsPage";
+import { Analytics } from "@vercel/analytics/react";
 
 export function App() {
 	const [location, navigate] = useLocation();
@@ -153,6 +154,7 @@ export function App() {
 				color: "var(--text-main)",
 			}}
 		>
+			<Analytics />
 			{/* Global Navigation Header */}
 			<Navbar
 				count={illustrations.length}
