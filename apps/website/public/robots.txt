@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://esvigy.vercel.app/sitemap.xml
