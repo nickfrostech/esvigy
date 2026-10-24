@@ -149,15 +149,17 @@
   - [X] React: `components/esvigy/<Name>.tsx` + `types.ts`
   - [X] Raw SVG: `components/esvigy/<Name>.svg`
   - [X] Vue: `components/esvigy/<Name>.vue` (SFC with `<script setup>`)
-  - [ ] Svelte: `components/esvigy/<Name>.svelte`
+  - [X] Svelte: `components/esvigy/<Name>.svelte`
 - [ ] **Raw SVG Package (`@esvigy/svg`)**:
   - [ ] Standalone optimized SVGs for static sites and vanilla HTML.
   - [ ] Provide SVG sprite builder option.
 - [X] **Vue 3 Package (`@esvigy/vue`)**:
   - [X] Template generator producing `.vue` single-file components.
   - [X] Support both Composition API (`<script setup>`) and JSX.
-- [ ] **Svelte Package (`@esvigy/svelte`)**:
-  - [ ] Generate typed Svelte 4 / Svelte 5 components.
+- [X] **Svelte Package (`@esvigy/svelte`)**:
+  - [X] Generate typed Svelte 4 / Svelte 5 components.
+  - [X] Vite library build generating ESM (`dist/index.js`), CJS (`dist/index.cjs`), and TypeScript declarations (`dist/index.d.ts`).
+  - [X] Full Vitest test suite with 250 passing unit, contract, and bundle verification tests.
 - [ ] **React Native Package (`@esvigy/react-native`)**:
   - [ ] Generate components using `react-native-svg` primitives (`Svg`, `Path`, `G`).
 - [ ] **Angular Package (`@esvigy/angular`)**:
@@ -217,4 +219,14 @@
   - Updated `@esvigy/cli` with `--framework vue` scaffolding support, Vue/Nuxt project auto-detection, and bumped to `v0.2.0`.
   - Updated documentation website (`apps/website`) to showcase `@esvigy/vue` availability with copyable install commands and Vue template syntax switchers.
   - Officially published `@esvigy/vue@0.1.0` and `@esvigy/cli@0.2.0` to the global npm registry!
+- **2026-10-24**:
+  - Built `@esvigy/svelte` package supporting both Svelte 4 and Svelte 5.
+  - Built automated generator `packages/svelte/scripts/generate.ts` and barrel exporter `generate-index.ts`.
+  - Generated all 30 Svelte components (`.svelte`) with standard props (`color`, `secondaryColor`, `animated`, `class`, `style`), TypeScript types (`EsvigyProps`), and CSS micro-animations.
+  - Configured Vite library build generating ESM (`dist/index.js`), CJS (`dist/index.cjs`), and TypeScript declarations (`dist/index.d.ts`).
+  - Created full Vitest test suite with 250 passing unit, contract, and bundle verification tests.
+  - Updated `@esvigy/cli` with official `--framework svelte` support, SvelteKit `src/lib/components` auto-detection, and quick start instructions.
+  - Updated website (`apps/website`) with Svelte documentation page (`frameworks-svelte.mdx`), quick start guide, packages ecosystem section, and interactive hero demo widget code switcher.
+  - Officially published `@esvigy/svelte@0.1.0` and `@esvigy/cli@0.2.1` to the global npm registry!
+
 

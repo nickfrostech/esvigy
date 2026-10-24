@@ -11,6 +11,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@esvigy/react"><img src="https://img.shields.io/npm/v/@esvigy/react.svg?color=00D4FF&label=@esvigy/react" alt="@esvigy/react version" /></a>
   <a href="https://www.npmjs.com/package/@esvigy/vue"><img src="https://img.shields.io/npm/v/@esvigy/vue.svg?color=42B883&label=@esvigy/vue" alt="@esvigy/vue version" /></a>
+  <a href="https://www.npmjs.com/package/@esvigy/svelte"><img src="https://img.shields.io/npm/v/@esvigy/svelte.svg?color=FF3E00&label=@esvigy/svelte" alt="@esvigy/svelte version" /></a>
   <a href="https://www.npmjs.com/package/@esvigy/cli"><img src="https://img.shields.io/npm/v/@esvigy/cli.svg?color=10B981&label=@esvigy/cli" alt="@esvigy/cli version" /></a>
   <a href="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml"><img src="https://github.com/nickfrostech/esvigy/actions/workflows/ci.yml/badge.svg" alt="CI Status" /></a>
   <a href="https://github.com/nickfrostech/esvigy/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" /></a>
@@ -61,6 +62,15 @@ import { EmptyCart, NotFoundRobot } from "@esvigy/vue";
 </template>
 ```
 
+```svelte
+<!-- Svelte 4 / 5 -->
+<script>
+import { EmptyCart, NotFoundRobot } from "@esvigy/svelte";
+</script>
+
+<NotFoundRobot animated color="#FF3E00" secondaryColor="#001014" class="w-64 h-64" />
+```
+
 No downloading SVG files. No manual XML cleanup. Just clean, typed components ready for your design system.
 
 ---
@@ -69,7 +79,7 @@ No downloading SVG files. No manual XML cleanup. Just clean, typed components re
 
 - 🎨 **Minimal, Focused API**: No bloated config matrices or arbitrary sizing props. Control scale via standard CSS (`className` / `class`) and customize with primary/secondary colors.
 - ⚡ **Dynamic Micro-Animations**: Smooth, lightweight CSS animations enabled with a simple `animated` prop with zero runtime JavaScript overhead.
-- 🌐 **Framework Agnostic Source of Truth**: SVGs are the canonical foundation. Official packages are available for **React** and **Vue 3**, with Svelte and React Native on the roadmap.
+- 🌐 **Framework Agnostic Source of Truth**: SVGs are the canonical foundation. Official packages are available for **React**, **Vue 3**, and **Svelte**, with React Native and Angular on the roadmap.
 - 🌲 **Tree-Shakable & Featherweight**: Zero runtime overhead; bundle only the exact illustrations your app imports.
 - 🛡️ **Permissively Licensed**: Free and open source under the MIT License, preserving attribution for open-source artwork.
 
@@ -107,9 +117,22 @@ yarn add @esvigy/vue
 bun add @esvigy/vue
 ```
 
+#### Svelte (`@esvigy/svelte`)
+```bash
+# pnpm
+pnpm add @esvigy/svelte
+
+# npm
+npm install @esvigy/svelte
+
+# yarn / bun
+yarn add @esvigy/svelte
+bun add @esvigy/svelte
+```
+
 #### CLI Scaffolder (Zero Dependencies — "The shadcn Way")
 ```bash
-# Interactive wizard (auto-detects React, Vue, or SVG)
+# Interactive wizard (auto-detects React, Vue, Svelte, or SVG)
 pnpm dlx @esvigy/cli add
 # or: npx @esvigy/cli add | bunx @esvigy/cli add
 ```
@@ -120,7 +143,7 @@ Esvigy offers **three distinct ways** to get illustrations into your project, gi
 
 | Method                                                               | Best For                                                             | Output Location          | Dependencies Added                          | Frameworks                                   |
 | :------------------------------------------------------------------- | :------------------------------------------------------------------- | :----------------------- | :------------------------------------------ | :------------------------------------------- |
-| 📦 **NPM Packages** *(The Lucide Way)*                               | Apps using multiple illustrations across routes                      | `node_modules/`          | `@esvigy/<framework>`                       | React, Vue 3, Svelte (soon)                 |
+| 📦 **NPM Packages** *(The Lucide Way)*                               | Apps using multiple illustrations across routes                      | `node_modules/`          | `@esvigy/<framework>`                       | **React, Vue 3, Svelte**                     |
 | 📋 **CLI Component Scaffolding** *(The shadcn Way)*                  | Using 1–3 illustrations; full code ownership & direct customization | `components/esvigy/`     | **Zero** (self-contained source file)       | **React, Vue, Svelte, Solid, Raw SVG**      |
 | 🌐 **Web Showcase ([esvigy.vercel.app](https://esvigy.vercel.app))** *(100% Framework Agnostic)* | Designers, quick prototypes, HTML, Astro, Figma                      | Clipboard / `.svg` file  | **Zero** (pure vector XML)                  | All tools & frameworks                       |
 
@@ -168,6 +191,24 @@ import { NotFoundRobot, EmptyCart } from "@esvigy/vue";
     class="w-64 h-64"
   />
 </template>
+```
+
+##### Svelte 4 & 5:
+```bash
+pnpm add @esvigy/svelte
+```
+
+```svelte
+<script>
+import { NotFoundRobot, EmptyCart } from "@esvigy/svelte";
+</script>
+
+<NotFoundRobot
+  animated
+  color="#FF3E00"
+  secondaryColor="#001014"
+  class="w-64 h-64"
+/>
 ```
 
 ---
@@ -645,7 +686,8 @@ For a detailed task list, execution phases, and tracking of work items, see [TOD
 - [X] Interactive documentation website & illustration studio ([esvigy.vercel.app](https://esvigy.vercel.app))
 - [X] Direct component scaffolder CLI (`@esvigy/cli` on npm)
 - [X] Official Vue 3 component adapter (`@esvigy/vue` on npm)
-- [ ] Additional framework adapters (`@esvigy/svelte`, `@esvigy/react-native`, `@esvigy/angular`)
+- [X] Official Svelte component adapter (`@esvigy/svelte`)
+- [ ] Additional framework adapters (`@esvigy/react-native`, `@esvigy/angular`)
 
 ---
 
