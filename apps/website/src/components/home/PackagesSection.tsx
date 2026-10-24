@@ -77,7 +77,21 @@ const TARGET_PACKAGES: PackageItem[] = [
 	{
 		name: "@esvigy/svelte",
 		description:
-			"Lightweight Svelte 4 & 5 components with instant reactivity and compiled vector markup.",
+			"Lightweight Svelte 4 & 5 components with reactive two-tone props, full TypeScript types, and zero-JS CSS micro-animations.",
+		status: "Available Now",
+		isLive: true,
+		docUrl: "/docs/frameworks/svelte",
+		commands: {
+			pnpm: "pnpm add @esvigy/svelte",
+			npm: "npm install @esvigy/svelte",
+			yarn: "yarn add @esvigy/svelte",
+			bun: "bun add @esvigy/svelte",
+		},
+	},
+	{
+		name: "@esvigy/react-native",
+		description:
+			"Native mobile vector illustrations using react-native-svg primitives (Svg, Path, G).",
 		status: "Coming Soon",
 	},
 ];
@@ -125,8 +139,12 @@ export function PackagesSection() {
 						@esvigy/react
 					</strong>
 					,{" "}
-					<strong style={{ color: "var(--cyan-primary)" }}>
+					<strong style={{ color: "#42B883" }}>
 						@esvigy/vue
+					</strong>
+					,{" "}
+					<strong style={{ color: "#FF3E00" }}>
+						@esvigy/svelte
 					</strong>
 					, and{" "}
 					<strong style={{ color: "var(--cyan-primary)" }}>

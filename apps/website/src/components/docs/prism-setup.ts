@@ -71,9 +71,12 @@ export function initPrismLanguages() {
 		Prism.languages.zsh = bashGrammar;
 	}
 
-	// 2. Vue & Astro aliases
+	// 2. Vue, Svelte & Astro aliases
 	if (!Prism.languages.vue && Prism.languages.markup) {
 		Prism.languages.vue = Prism.languages.markup;
+	}
+	if (!Prism.languages.svelte && Prism.languages.markup) {
+		Prism.languages.svelte = Prism.languages.markup;
 	}
 	if (!Prism.languages.astro && Prism.languages.markup) {
 		Prism.languages.astro = Prism.languages.markup;
@@ -82,3 +85,4 @@ export function initPrismLanguages() {
 
 // Auto-run initialization on module load
 initPrismLanguages();
+

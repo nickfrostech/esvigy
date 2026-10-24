@@ -1,9 +1,9 @@
 /** @format */
 
 import { useState } from "react";
-import { Highlight, themes } from "prism-react-renderer";
+import { Highlight, themes, Prism } from "prism-react-renderer";
 import { Check, Copy } from "lucide-react";
-import "./prism-setup";
+import { initPrismLanguages } from "./prism-setup";
 
 interface CodeBlockProps {
 	code: string;
@@ -16,8 +16,17 @@ export function CodeBlock({
 	language = "tsx",
 	filename,
 }: CodeBlockProps) {
+	initPrismLanguages();
 	const [copied, setCopied] = useState(false);
 	const cleanCode = code.trim();
+
+	const resolvedLanguage =
+		Prism.languages && Prism.languages[language]
+			? language
+			: language === "svelte" || language === "vue" || language === "astro"
+				? "markup"
+				: language;
+
 
 	const handleCopy = () => {
 		navigator.clipboard.writeText(cleanCode);
@@ -92,7 +101,7 @@ export function CodeBlock({
 			<Highlight
 				theme={themes.vsDark}
 				code={cleanCode}
-				language={language as any}
+				language={resolvedLanguage as any}
 			>
 				{({ className, style, tokens, getLineProps, getTokenProps }) => (
 					<pre

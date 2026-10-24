@@ -1,0 +1,106 @@
+
+## Installation
+
+<PackageManagerTabs installPackage="@esvigy/svelte" />
+
+---
+
+## Svelte (Vite & SvelteKit) Setup
+
+Import and render illustrations in your Svelte components:
+
+```svelte
+<script lang="ts">
+  import { StatusOffline } from "@esvigy/svelte";
+</script>
+
+<div class="network-banner">
+  <StatusOffline
+    color="#00D4FF"
+    secondaryColor="#0F172A"
+    animated={true}
+    class="illustration"
+  />
+  <h3>Connection Lost</h3>
+</div>
+
+<style>
+  .illustration {
+    width: 200px;
+    height: 200px;
+  }
+</style>
+```
+
+---
+
+## SvelteKit Setup
+
+In SvelteKit projects, components can be imported into pages or layouts and rendered server-side seamlessly:
+
+```svelte
+<!-- src/routes/+page.svelte -->
+<script>
+  import { EmptyCart } from "@esvigy/svelte";
+</script>
+
+<div class="empty-state">
+  <EmptyCart class="w-64 h-64 text-sky-500" />
+  <p>Your shopping cart is currently empty.</p>
+</div>
+```
+
+---
+
+## Svelte Component Props
+
+All `@esvigy/svelte` components accept the standard `EsvigyProps` reactive interface:
+
+| Prop | Type | Default | Description |
+| :--- | :---: | :---: | :--- |
+| `color` | `string` | `'currentColor'` | Primary accent color. Supports hex, RGB, HSL, or CSS variables. |
+| `secondaryColor` | `string` | `'transparent'` | Secondary background surface color. |
+| `animated` | `boolean` | `false` | Enables embedded vector CSS micro-animations. |
+| `class` | `string` | `''` | Custom CSS class or Tailwind utility classes. |
+| `style` | `string` | `''` | Inline styling. |
+| `aria-label` | `string` | `'<Name> illustration'` | Screen reader accessibility label. |
+
+### TypeScript Interface (`EsvigyProps`)
+
+```typescript
+export interface EsvigyProps {
+  /**
+   * Primary accent color.
+   * Defaults to "currentColor". Supports hex, RGB, HSL, or CSS variables.
+   */
+  color?: string;
+
+  /**
+   * Secondary background/surface color.
+   * Defaults to "transparent".
+   */
+  secondaryColor?: string;
+
+  /**
+   * Whether micro-animations should play.
+   * Defaults to true.
+   */
+  animated?: boolean;
+
+  /**
+   * Optional custom CSS class name (Tailwind support).
+   */
+  class?: string;
+
+  /**
+   * Inline styling string.
+   */
+  style?: string;
+
+  /**
+   * Screen reader accessibility label.
+   */
+  "aria-label"?: string;
+}
+```
+

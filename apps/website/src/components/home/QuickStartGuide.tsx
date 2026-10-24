@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Framework = "react" | "vue" | "cli";
+type Framework = "react" | "vue" | "svelte" | "cli";
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun";
 
 const INSTALL_COMMANDS: Record<Framework, Record<PackageManager, string>> = {
@@ -17,6 +17,12 @@ const INSTALL_COMMANDS: Record<Framework, Record<PackageManager, string>> = {
 		npm: "npm install @esvigy/vue",
 		yarn: "yarn add @esvigy/vue",
 		bun: "bun add @esvigy/vue",
+	},
+	svelte: {
+		pnpm: "pnpm add @esvigy/svelte",
+		npm: "npm install @esvigy/svelte",
+		yarn: "yarn add @esvigy/svelte",
+		bun: "bun add @esvigy/svelte",
 	},
 	cli: {
 		pnpm: "pnpm dlx @esvigy/cli add",
@@ -96,6 +102,7 @@ export function QuickStartGuide() {
 						{[
 							{ id: "react", label: "React" },
 							{ id: "vue", label: "Vue 3" },
+							{ id: "svelte", label: "Svelte" },
 							{ id: "cli", label: "CLI Scaffolder" },
 						].map((item) => (
 							<button
@@ -116,7 +123,9 @@ export function QuickStartGuide() {
 										framework === item.id
 											? item.id === "vue"
 												? "#42B883"
-												: "var(--cyan-primary)"
+												: item.id === "svelte"
+													? "#FF3E00"
+													: "var(--cyan-primary)"
 											: "var(--text-muted)",
 									transition: "all 0.15s ease",
 								}}
@@ -174,7 +183,12 @@ export function QuickStartGuide() {
 						style={{
 							fontFamily: "var(--font-mono)",
 							fontSize: "14px",
-							color: framework === "vue" ? "#42B883" : "var(--cyan-primary)",
+							color:
+								framework === "vue"
+									? "#42B883"
+									: framework === "svelte"
+										? "#FF3E00"
+										: "var(--cyan-primary)",
 						}}
 					>
 						{currentCommand}

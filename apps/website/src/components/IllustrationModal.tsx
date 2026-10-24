@@ -115,7 +115,10 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 				? "tsx"
 				: componentFramework === "vue"
 					? "vue"
-					: "html";
+					: componentFramework === "svelte"
+						? "svelte"
+						: "html";
+
 
 	const handleCopy = (text: string) => {
 		navigator.clipboard.writeText(text);
@@ -419,8 +422,8 @@ ${cliPmMap[cliPm]} @esvigy/cli add ${item.name} --framework ${cliFramework}`;
 							>
 								<option value='react'>React (@esvigy/react)</option>
 								<option value='vue'>Vue 3 (@esvigy/vue)</option>
+								<option value='svelte'>Svelte (@esvigy/svelte)</option>
 								<option value='svg'>Raw SVG (.svg)</option>
-								<option value='svelte'>Svelte (Coming Soon)</option>
 							</select>
 						</div>
 					) : (

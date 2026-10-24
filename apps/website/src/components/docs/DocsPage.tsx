@@ -14,6 +14,7 @@ import ThemingDoc from "../../docs/theming.mdx";
 import AnimationsDoc from "../../docs/animations.mdx";
 import ReactDoc from "../../docs/frameworks-react.mdx";
 import VueDoc from "../../docs/frameworks-vue.mdx";
+import SvelteDoc from "../../docs/frameworks-svelte.mdx";
 import SvgDoc from "../../docs/frameworks-svg.mdx";
 
 interface DocConfig {
@@ -116,6 +117,20 @@ const DOCS_MAP: Record<string, DocConfig> = {
 			{ id: "vue-3-vite-setup", text: "Vue 3 Setup", level: 2 },
 			{ id: "nuxt-3-setup", text: "Nuxt 3 Setup", level: 2 },
 			{ id: "vue-component-props", text: "Component Props", level: 2 },
+		],
+	},
+	"frameworks/svelte": {
+		title: "Svelte",
+		description:
+			"Official @esvigy/svelte adapter with Svelte 4, Svelte 5, and SvelteKit support.",
+		docFile: "frameworks-svelte.mdx",
+		Component: SvelteDoc,
+		toc: [
+			{ id: "installation", text: "Installation", level: 2 },
+			{ id: "svelte-vite-sveltekit-setup", text: "Svelte Setup", level: 2 },
+			{ id: "sveltekit-setup", text: "SvelteKit Setup", level: 2 },
+			{ id: "svelte-component-props", text: "Component Props", level: 2 },
+			{ id: "typescript-interface-esvigyprops", text: "TypeScript Props Reference", level: 2 },
 		],
 	},
 	"frameworks/svg": {

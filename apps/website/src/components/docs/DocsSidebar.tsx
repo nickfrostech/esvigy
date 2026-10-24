@@ -45,6 +45,11 @@ export const DOCS_NAVIGATION: DocCategory[] = [
 				keywords: ["vue", "vue3", "nuxt", "nuxt3", "sfc", "vite"],
 			},
 			{
+				slug: "frameworks/svelte",
+				title: "Svelte",
+				keywords: ["svelte", "svelte4", "svelte5", "sveltekit", "kit", "vite"],
+			},
+			{
 				slug: "cli",
 				title: "CLI",
 				keywords: ["cli", "add", "list", "scaffold", "shadcn", "terminal", "detect"],

@@ -22,7 +22,7 @@ export function HeroDemoWidget({
 }: HeroDemoWidgetProps) {
 	const [heroPalette, setHeroPalette] = useState(PRESET_PALETTES[0]);
 	const [heroAnimated, setHeroAnimated] = useState(true);
-	const [frameworkTab, setFrameworkTab] = useState<"react" | "vue">("react");
+	const [frameworkTab, setFrameworkTab] = useState<"react" | "vue" | "svelte">("react");
 	const [copiedCode, setCopiedCode] = useState(false);
 
 	const HeroComponent =
@@ -33,7 +33,9 @@ export function HeroDemoWidget({
 		const code =
 			frameworkTab === "react"
 				? `import { ${selectedIllustrationName} } from "@esvigy/react";\n\n<${selectedIllustrationName} animated={${heroAnimated}} color="${heroPalette.primary}" secondaryColor="${heroPalette.secondary}" className="w-48 h-48" />`
-				: `<script setup>\nimport { ${selectedIllustrationName} } from "@esvigy/vue";\n</script>\n\n<template>\n  <${selectedIllustrationName} :animated="${heroAnimated}" color="${heroPalette.primary}" secondaryColor="${heroPalette.secondary}" class="w-48 h-48" />\n</template>`;
+				: frameworkTab === "vue"
+					? `<script setup>\nimport { ${selectedIllustrationName} } from "@esvigy/vue";\n</script>\n\n<template>\n  <${selectedIllustrationName} :animated="${heroAnimated}" color="${heroPalette.primary}" secondaryColor="${heroPalette.secondary}" class="w-48 h-48" />\n</template>`
+					: `<script>\n  import { ${selectedIllustrationName} } from "@esvigy/svelte";\n</script>\n\n<${selectedIllustrationName} animated={${heroAnimated}} color="${heroPalette.primary}" secondaryColor="${heroPalette.secondary}" class="w-48 h-48" />`;
 		navigator.clipboard.writeText(code);
 		setCopiedCode(true);
 		setTimeout(() => setCopiedCode(false), 2000);
@@ -264,7 +266,7 @@ export function HeroDemoWidget({
 										border: "1px solid var(--border-subtle)",
 									}}
 								>
-									{(["react", "vue"] as const).map((fw) => (
+									{(["react", "vue", "svelte"] as const).map((fw) => (
 										<button
 											key={fw}
 											onClick={() => setFrameworkTab(fw)}
@@ -283,11 +285,13 @@ export function HeroDemoWidget({
 													frameworkTab === fw
 														? fw === "vue"
 															? "#42B883"
-															: "var(--cyan-primary)"
+															: fw === "svelte"
+																? "#FF3E00"
+																: "var(--cyan-primary)"
 														: "var(--text-muted)",
 											}}
 										>
-											{fw === "react" ? "React" : "Vue 3"}
+											{fw === "react" ? "React" : fw === "vue" ? "Vue 3" : "Svelte"}
 										</button>
 									))}
 								</div>
@@ -339,7 +343,7 @@ export function HeroDemoWidget({
 										/&gt;
 									</span>
 								</pre>
-							) : (
+							) : frameworkTab === "vue" ? (
 								<pre
 									style={{
 										margin: "0",
@@ -394,6 +398,55 @@ export function HeroDemoWidget({
 									</span>
 									{"\n"}
 									<span style={{ color: "#a855f7" }}>&lt;/template&gt;</span>
+								</pre>
+							) : (
+								<pre
+									style={{
+										margin: "0",
+										fontFamily: "var(--font-mono)",
+										fontSize: "13px",
+										lineHeight: 1.6,
+										color: "var(--text-main)",
+									}}
+								>
+									<span style={{ color: "#a855f7" }}>&lt;script&gt;</span>
+									{"\n"}
+									<span style={{ color: "#a855f7" }}>import</span> &#123;{" "}
+									{selectedIllustrationName} &#125;{" "}
+									<span style={{ color: "#a855f7" }}>from</span>{" "}
+									<span style={{ color: "#FF3E00" }}>
+										"@esvigy/svelte"
+									</span>
+									;{"\n"}
+									<span style={{ color: "#a855f7" }}>&lt;/script&gt;</span>
+									{"\n\n"}
+									<span style={{ color: "#FF3E00" }}>
+										&lt;{selectedIllustrationName}
+									</span>
+									{"\n"}
+									{"  "}
+									<span style={{ color: "#f59e0b" }}>animated</span>
+									{heroAnimated ? "" : "={false}"}
+									{"\n"}
+									{"  "}
+									<span style={{ color: "#f59e0b" }}>color</span>=
+									<span style={{ color: "#10b981" }}>
+										"{heroPalette.primary}"
+									</span>
+									{"\n"}
+									{"  "}
+									<span style={{ color: "#f59e0b" }}>secondaryColor</span>=
+									<span style={{ color: "#10b981" }}>
+										"{heroPalette.secondary}"
+									</span>
+									{"\n"}
+									{"  "}
+									<span style={{ color: "#f59e0b" }}>class</span>=
+									<span style={{ color: "#10b981" }}>"w-48 h-48"</span>
+									{"\n"}
+									<span style={{ color: "#FF3E00" }}>
+										/&gt;
+									</span>
 								</pre>
 							)}
 						</div>
