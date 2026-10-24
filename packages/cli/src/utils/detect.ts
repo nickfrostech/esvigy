@@ -97,6 +97,10 @@ export async function detectEsvigyDir(
 	}
 
 	// 2. Check filesystem heuristics
+	if (await exists(path.join(cwd, "src", "lib", "components"))) {
+		return path.join("src", "lib", "components", "esvigy");
+	}
+
 	if (await exists(path.join(cwd, "src", "components"))) {
 		return path.join("src", "components", "esvigy");
 	}

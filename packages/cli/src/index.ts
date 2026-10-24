@@ -11,7 +11,7 @@ program
 	.description(
 		"Official CLI for Esvigy — add customizable, animated illustrations directly to your project",
 	)
-	.version("0.1.0");
+	.version("0.2.1");
 
 program
 	.command("add [illustrations...]")

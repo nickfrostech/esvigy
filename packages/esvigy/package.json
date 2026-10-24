@@ -1,6 +1,6 @@
 {
    "name": "esvigy",
-   "version": "0.1.0",
+   "version": "0.1.1",
    "description": "Official CLI for Esvigy — add customizable, animated illustrations directly to your project.",
    "homepage": "https://esvigy.vercel.app",
    "repository": {

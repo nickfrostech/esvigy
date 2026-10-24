@@ -249,6 +249,14 @@ export async function addCommand(
 					`  <script setup>\n  import ${sampleName} from "${importPath}";\n  </script>\n\n  <template>\n    <${sampleName} animated color="#06b6d4" class="w-64 h-64" />\n  </template>`,
 				),
 			);
+		} else if (framework === "svelte") {
+			const importPath = `./${path.relative(cwd, path.join(resolvedDir, `${sampleName}.svelte`)).replace(/\\/g, "/")}`;
+			console.log(pc.cyan("Quick Start Example:"));
+			console.log(
+				pc.dim(
+					`  <script>\n  import ${sampleName} from "${importPath}";\n  </script>\n\n  <${sampleName} animated color="#06b6d4" class="w-64 h-64" />`,
+				),
+			);
 		}
 		console.log();
 	} catch (err: any) {
